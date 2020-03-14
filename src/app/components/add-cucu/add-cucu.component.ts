@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-add-cucu',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCucuComponent implements OnInit {
 
-  constructor() { }
+  private form: FormGroup = this.formBuilder.group({
+    quantity: [1, Validators.required],
+    email: ['', [Validators.required]],
+    agreeWithPrivacyPolicy: [false, Validators.requiredTrue],
+  });
+
+  date = '';
+
+  constructor(private formBuilder: FormBuilder) {
+  }
 
   ngOnInit() {
+  }
+
+  handleDateChange(event) {
+    console.log(event);
   }
 
 }

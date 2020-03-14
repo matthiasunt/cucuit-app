@@ -1,7 +1,79 @@
 <h1>Create a new Cucu!</h1>
 
 <nb-card>
+
   <nb-card-body class="example-items-col">
-    <input type="text" nbInput fullWidth shape="round" placeholder="Round">
+    <form>
+      <div class="form-group">
+        <nb-form-field>
+          <nb-icon nbPrefix icon="link-outline" pack="eva"></nb-icon>
+          <input type="text" nbInput fullWidth [shape]="'round'" placeholder="Invite Link" [fieldSize]="'large'"
+                 nbTooltip="This is a tooltip" nbTooltipStatus="primary" status="primary">
+        </nb-form-field>
+      </div>
+      <div class="form-group">
+        <nb-form-field>
+          <label for="title" class="label">Title</label>
+          <input type="text" nbInput fullWidth [shape]="'round'" placeholder="Yoga with Dario" [fieldSize]="'medium'"
+                 id="title">
+        </nb-form-field>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <nb-form-field>
+              <label for="language" class="label">Language</label>
+<!--              <nb-icon nbPrefix icon="globe-2-outline" pack="eva"></nb-icon>-->
+              <input type="text" nbInput fullWidth [shape]="'round'" placeholder="Spanish" [fieldSize]="'medium'"
+                     id="language">
+            </nb-form-field>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <nb-form-field>
+              <label for="date" class="label">Topic</label>
+              <input type="text" nbInput fullWidth [shape]="'round'" placeholder="Reading, Party, …"
+                     [fieldSize]="'medium'" id="topic">
+            </nb-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <nb-form-field>
+              <label for="date" class="label">Date</label>
+              <input nbInput fullWidth [shape]="'round'" placeholder="Pick Date" [nbDatepicker]="datepicker" id="date"
+                     [fieldSize]="'medium'">
+              <nb-datepicker #datepicker [date]="date" (dateChange)="handleDateChange($event)"></nb-datepicker>
+            </nb-form-field>
+          </div>
+
+
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <nb-form-field>
+              <label for="time" class="label">Time</label>
+              <input type="time" nbInput fullWidth [shape]="'round'" [fieldSize]="'medium'" id="time">
+            </nb-form-field>
+          </div>
+        </div>
+      </div>
+      
+<!--      <div class="form-group">-->
+<!--        <nb-checkbox status="basic">Basic</nb-checkbox>-->
+<!--      </div>-->
+      <div class="form-group">
+        <button nbButton hero [type]="'submit'" status="primary" [shape]="'round'" [size]="'large'">Post</button>
+      </div>
+    </form>
   </nb-card-body>
 </nb-card>
+
+
+
+
+
