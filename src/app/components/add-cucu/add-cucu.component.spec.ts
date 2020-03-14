@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddCucuFormComponent } from './add-cucu-form.component';
+import { AddCucuComponent } from './add-cucu.component';
 
-describe('AddCucuFormComponent', () => {
-  let component: AddCucuFormComponent;
-  let fixture: ComponentFixture<AddCucuFormComponent>;
+describe('AddCucuComponent', () => {
+  let component: AddCucuComponent;
+  let fixture: ComponentFixture<AddCucuComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddCucuFormComponent ]
+      declarations: [ AddCucuComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddCucuFormComponent);
+    fixture = TestBed.createComponent(AddCucuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
