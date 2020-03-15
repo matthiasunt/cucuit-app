@@ -1,5 +1,3 @@
-<h1>Create a new Cucu!</h1>
-
 <nb-card>
 
   <nb-card-body class="example-items-col">
@@ -7,34 +5,36 @@
       <div class="form-group">
         <nb-form-field>
           <nb-icon nbPrefix icon="link-outline" pack="eva"></nb-icon>
-          <input type="text" nbInput fullWidth [shape]="'round'" placeholder="Invite Link" [fieldSize]="'large'"
+          <input type="text" nbInput fullWidth [shape]="'rectangle'" placeholder="Invite Link" [fieldSize]="'large'"
                  nbTooltip="This is a tooltip" nbTooltipStatus="primary" status="primary">
         </nb-form-field>
       </div>
       <div class="form-group">
         <nb-form-field>
-          <label for="title" class="label">Title</label>
-          <input type="text" nbInput fullWidth [shape]="'round'" placeholder="Yoga with Dario" [fieldSize]="'medium'"
-                 id="title">
+          <label for="topic" class="label">Topic</label>
+          <input type="text" nbInput fullWidth [shape]="'rectangle'" placeholder="Yoga"
+                 [fieldSize]="'medium'"
+                 id="topic">
         </nb-form-field>
       </div>
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
             <nb-form-field>
-              <label for="language" class="label">Language</label>
-              <!--              <nb-icon nbPrefix icon="globe-2-outline" pack="eva"></nb-icon>-->
-              <input type="text" nbInput fullWidth [shape]="'round'" placeholder="Spanish" [fieldSize]="'medium'"
-                     id="language">
+              <label for="username" class="label">Your Name</label>
+              <input type="text" nbInput fullWidth [shape]="'rectangle'" placeholder="Dario"
+                     [fieldSize]="'medium'" id="username">
             </nb-form-field>
+
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <nb-form-field>
-              <label for="date" class="label">Topic</label>
-              <input type="text" nbInput fullWidth [shape]="'round'" placeholder="Reading, Party, …"
-                     [fieldSize]="'medium'" id="topic">
+              <label for="language" class="label">Language</label>
+              <!--              <nb-icon nbPrefix icon="globe-2-outline" pack="eva"></nb-icon>-->
+              <input type="text" nbInput fullWidth [shape]="'rectangle'" placeholder="Spanish" [fieldSize]="'medium'"
+                     id="language">
             </nb-form-field>
           </div>
         </div>
@@ -44,30 +44,32 @@
         <div class="col-md-6">
           <div class="form-group">
             <nb-form-field>
-              <label for="date" class="label">Date</label>
-              <input nbInput fullWidth [shape]="'round'" placeholder="Pick Date" [nbDatepicker]="datepicker" id="date"
-                     [fieldSize]="'medium'">
-              <nb-datepicker #datepicker [date]="date" (dateChange)="handleDateChange($event)"></nb-datepicker>
+              <label for="day" class="label">Day</label>
+              <nb-select placeholder="Select Day" [selected]="'Today'" id="day">
+                <nb-option [value]="'Today'">Today</nb-option>
+                <nb-option [value]="'Tomorrow'">Tomorrow</nb-option>
+              </nb-select>
+              <!--              <label for="date" class="label">Date</label>-->
+              <!--              <input nbInput fullWidth [shape]="'rectangle'" placeholder="Pick Date" [nbDatepicker]="datepicker"-->
+              <!--                     id="date"-->
+              <!--                     [fieldSize]="'medium'">-->
+              <!--              <nb-datepicker #datepicker [date]="date" (dateChange)="handleDateChange($event)"></nb-datepicker>-->
             </nb-form-field>
           </div>
-
-
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <nb-form-field>
-              <label for="time" class="label">Time</label>
-              <input type="time" nbInput fullWidth [shape]="'round'" [fieldSize]="'medium'" id="time">
+              <label for="timeslot" class="label">Timeslot</label>
+              <nb-select placeholder="Select Timeslot" id="timeslot">
+                <nb-option *ngFor="let t of timeSlots" [value]="t">{{t}}</nb-option>
+              </nb-select>
             </nb-form-field>
           </div>
         </div>
       </div>
-
-      <!--      <div class="form-group">-->
-      <!--        <nb-checkbox status="basic">Basic</nb-checkbox>-->
-      <!--      </div>-->
       <div class="form-group">
-        <button nbButton hero [type]="'submit'" status="primary" [shape]="'round'" [size]="'large'">Post</button>
+        <button nbButton hero [type]="'submit'" status="primary" [shape]="'rectangle'" [size]="'large'">Post</button>
       </div>
     </form>
   </nb-card-body>

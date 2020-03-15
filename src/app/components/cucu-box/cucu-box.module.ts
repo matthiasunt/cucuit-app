@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AddCucuComponent} from './add-cucu.component';
 import {
   NbButtonModule,
   NbCardModule,
@@ -9,26 +8,21 @@ import {
   NbFormFieldModule,
   NbIconModule,
   NbInputModule, NbSelectModule,
-  NbTooltipModule
+  NbTooltipModule, NbUserModule
 } from '@nebular/theme';
+import {CucuBoxComponent} from './cucu-box.component';
 
 
 @NgModule({
-  declarations: [AddCucuComponent],
+  declarations: [CucuBoxComponent],
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
     NbCardModule,
-    NbFormFieldModule,
-    NbIconModule,
-    NbInputModule,
-    NbDatepickerModule,
+    NbUserModule,
     NbButtonModule,
-    NbTooltipModule,
-    NbSelectModule,
   ],
-  exports: [AddCucuComponent]
+  exports: [CucuBoxComponent]
 })
-export class AddCucuModule {
+export class CucuBoxModule {
 }

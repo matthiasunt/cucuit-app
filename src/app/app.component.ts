@@ -10,11 +10,13 @@ import {AddCucuComponent} from './components/add-cucu/add-cucu.component';
 
 
 export class AppComponent {
-  constructor(private windowService: NbWindowService) {
+  constructor(
+    // private windowService: NbWindowService
+  ) {
   }
 
   public openCreateCucu() {
-    this.windowService.open(AddCucuComponent, {title: `Window`});
+    // this.windowService.open(AddCucuComponent, {title: `Window`});
   }
 }
 

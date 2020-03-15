@@ -3,7 +3,8 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home.component';
-import {MapModule} from '../map/map.module';
+import {AddCucuModule} from '../add-cucu/add-cucu.module';
+import {CucuBoxModule} from '../cucu-box/cucu-box.module';
 
 const routes: Routes = [
   {path: '', component: HomeComponent}
@@ -15,7 +16,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes),
-    MapModule,
+    AddCucuModule,
+    CucuBoxModule,
   ],
   exports: [HomeComponent]
 })

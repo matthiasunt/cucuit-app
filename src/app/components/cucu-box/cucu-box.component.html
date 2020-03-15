@@ -1,0 +1,14 @@
+<nb-card>
+  <nb-card-header>
+    <nb-user size="large"
+             [name]="cucu.userName"
+             [title]="cucu.language">
+    </nb-user>
+  </nb-card-header>
+  <nb-card-body>
+    {{cucu.description}}
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="primary" [shape]="'rectangle'">Join</button>
+  </nb-card-footer>
+</nb-card>

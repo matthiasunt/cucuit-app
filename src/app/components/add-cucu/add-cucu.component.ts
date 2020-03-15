@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-add-cucu',
@@ -16,7 +16,21 @@ export class AddCucuComponent implements OnInit {
 
   date = '';
 
+  timeSlots = [];
+
   constructor(private formBuilder: FormBuilder) {
+    for (let i = 0; i < 48; i++) {
+      let slot = Math.floor(i / 2) + ':';
+      if (slot.length < 3) {
+        slot = '0' + slot;
+      }
+      if (i % 2 === 0) {
+        slot += '00';
+      } else {
+        slot += '30';
+      }
+      this.timeSlots.push(slot);
+    }
   }
 
   ngOnInit() {
