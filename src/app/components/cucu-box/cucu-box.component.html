@@ -1,8 +1,13 @@
 <nb-card>
   <nb-card-header>
-    <nb-user size="large"
+    <nb-user size="giant"
+             status="primary"
              [name]="cucu.userName"
-             [title]="cucu.language">
+             [title]="'Starts at '+time"
+             [badgeText]="'ITA'"
+             [badgeStatus]="'primary'"
+             [badgePosition]="'bottom right'"
+    >
     </nb-user>
   </nb-card-header>
   <nb-card-body>

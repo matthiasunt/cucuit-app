@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-add-cucu',
@@ -15,10 +16,21 @@ export class AddCucuComponent implements OnInit {
   });
 
   date = '';
+  browserLanguage = this.translate.currentLang;
 
+  languages = [
+    {name: 'Italiano 🇮🇹', short: 'it', emoji: '🇮🇹'},
+    {name: 'Español 🇪🇸', short: 'es', emoji: '🇪🇸'},
+    {name: 'Deutsch 🇩🇪', short: 'de', emoji: '🇩🇪'},
+    {name: 'English 🇬🇧', short: 'en', emoji: '🇬🇧'},
+  ];
   timeSlots = [];
+  timePreset;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private translate: TranslateService,
+  ) {
+
     for (let i = 0; i < 48; i++) {
       let slot = Math.floor(i / 2) + ':';
       if (slot.length < 3) {
@@ -34,6 +46,13 @@ export class AddCucuComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    const now = new Date();
+    const currentHour = now.getHours();
+    this.timePreset = currentHour === 23 ? '00:00' : currentHour + 1 + '00';
+
+    console.log(now.toUTCString());
+
   }
 
   handleDateChange(event) {

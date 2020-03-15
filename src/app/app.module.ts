@@ -7,7 +7,7 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NbThemeModule, NbLayoutModule, NbDatepickerModule, NbButtonModule, NbWindowModule, NbWindowService} from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {CucuBoxComponent} from './components/cucu-box/cucu-box.component';
 
 @NgModule({
@@ -18,6 +18,7 @@ import {CucuBoxComponent} from './components/cucu-box/cucu-box.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -25,7 +26,7 @@ import {CucuBoxComponent} from './components/cucu-box/cucu-box.component';
         deps: [HttpClient]
       }
     }),
-    NbThemeModule.forRoot({name: 'default'}),
+    NbThemeModule.forRoot({name: 'light-red'}),
     NbLayoutModule,
     NbEvaIconsModule,
     NbDatepickerModule.forRoot(),

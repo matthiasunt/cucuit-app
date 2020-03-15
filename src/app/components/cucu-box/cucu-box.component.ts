@@ -9,11 +9,16 @@ import {Cucu} from '../../models/cucu';
 export class CucuBoxComponent implements OnInit {
 
   @Input() cucu: Cucu;
+  time: string;
 
   constructor() {
   }
 
   ngOnInit() {
+    this.time = new Date(this.cucu.startDate).toLocaleTimeString(
+      [],
+      {hour: '2-digit', minute: '2-digit'}
+    );
   }
 
 }

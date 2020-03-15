@@ -5,6 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home.component';
 import {AddCucuModule} from '../add-cucu/add-cucu.module';
 import {CucuBoxModule} from '../cucu-box/cucu-box.module';
+import {TranslateModule} from '@ngx-translate/core';
 
 const routes: Routes = [
   {path: '', component: HomeComponent}
@@ -15,6 +16,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    TranslateModule,
     RouterModule.forChild(routes),
     AddCucuModule,
     CucuBoxModule,
