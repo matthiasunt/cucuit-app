@@ -5,11 +5,11 @@ import {Routes, RouterModule} from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./components/add-cucu/add-cucu.module').then(m => m.AddCucuModule)
+    loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
   },
   {
     path: '**',
-    loadChildren: () => import('./components/add-cucu/add-cucu.module').then(m => m.AddCucuModule)
+    redirectTo: ''
   }
 ];
 

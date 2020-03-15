@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {NbWindowService} from '@nebular/theme';
+import {AddCucuComponent} from './components/add-cucu/add-cucu.component';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,12 @@ import {Component} from '@angular/core';
 
 
 export class AppComponent {
-  constructor() {
+  constructor(private windowService: NbWindowService) {
   }
 
+  public openCreateCucu() {
+    this.windowService.open(AddCucuComponent, {title: `Window`});
+  }
 }
+
+

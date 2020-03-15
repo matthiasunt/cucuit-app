@@ -1,39 +1,32 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterModule, Routes} from '@angular/router';
+import {FormsModule} from '@angular/forms';
+import {MapModule} from '../map/map.module';
 import {AddCucuComponent} from './add-cucu.component';
 import {
-  NbButtonModule, NbCalendarModule,
+  NbButtonModule,
   NbCardModule,
-  NbCheckboxModule,
   NbDatepickerModule,
   NbFormFieldModule,
   NbIconModule,
-  NbInputModule, NbLayoutModule,
+  NbInputModule,
   NbTooltipModule
 } from '@nebular/theme';
 
-const routes: Routes = [
-  {path: '', component: AddCucuComponent}
-];
 
 @NgModule({
   declarations: [AddCucuComponent],
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forChild(routes),
+    MapModule,
     NbCardModule,
-    NbInputModule,
-    NbIconModule,
     NbFormFieldModule,
-    NbCheckboxModule,
-    NbTooltipModule,
+    NbIconModule,
+    NbInputModule,
     NbDatepickerModule,
     NbButtonModule,
-    NbLayoutModule,
+    NbTooltipModule,
   ],
   exports: [AddCucuComponent]
 })

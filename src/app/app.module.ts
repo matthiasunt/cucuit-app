@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NbThemeModule, NbLayoutModule, NbDatepickerModule} from '@nebular/theme';
+import {NbThemeModule, NbLayoutModule, NbDatepickerModule, NbButtonModule, NbWindowModule, NbWindowService} from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 
 @NgModule({
@@ -18,8 +18,12 @@ import {NbEvaIconsModule} from '@nebular/eva-icons';
     NbLayoutModule,
     NbEvaIconsModule,
     NbDatepickerModule.forRoot(),
+    NbButtonModule,
+    NbWindowModule,
   ],
-  providers: [],
+  providers: [
+    NbWindowService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
