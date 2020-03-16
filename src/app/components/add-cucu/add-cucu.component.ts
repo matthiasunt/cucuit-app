@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import {Observable, of} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'app-add-cucu',
@@ -12,6 +14,7 @@ export class AddCucuComponent implements OnInit {
   public form: FormGroup;
 
   date = '';
+  filteredControlOptions$: Observable<string[]>;
 
   languages = [
     {name: 'Italiano 🇮🇹', short: 'it', emoji: '🇮🇹'},
@@ -27,10 +30,9 @@ export class AddCucuComponent implements OnInit {
   }
 
   ngOnInit() {
-
     const now = new Date();
     const currentHour = now.getHours();
-    const timePreset = currentHour === 23 ? '00:00' : currentHour + 1 + '00';
+    // const timePreset = currentHour === 23 ? '00:00' : currentHour + 1 + '00';
 
     console.log(now.toUTCString());
 
@@ -40,8 +42,15 @@ export class AddCucuComponent implements OnInit {
       userName: ['', Validators.required],
       language: [this.translate.currentLang, Validators.required],
       day: ['Today', Validators.required],
-      time: [timePreset, Validators.required],
+      time: ['', Validators.required],
     });
+
+    this.filteredControlOptions$ = of(this.timeSlots);
+    this.filteredControlOptions$ = this.time.valueChanges
+      .pipe(
+        startWith(''),
+        map(filterString => this.filter(filterString)),
+      );
   }
 
   public postCucu() {
@@ -77,6 +86,11 @@ export class AddCucuComponent implements OnInit {
     return this.form.get('time') as FormControl;
   }
 
+  private filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.timeSlots.filter(optionValue => optionValue.toLowerCase().includes(filterValue));
+  }
+
   handleDateChange(event) {
     console.log(event);
   }
@@ -85,9 +99,9 @@ export class AddCucuComponent implements OnInit {
     const timeSlots = [];
     for (let i = 0; i < 48; i++) {
       let slot = Math.floor(i / 2) + ':';
-      if (slot.length < 3) {
-        slot = '0' + slot;
-      }
+      // if (slot.length < 3) {
+      //   slot = '0' + slot;
+      // }
       if (i % 2 === 0) {
         slot += '00';
       } else {

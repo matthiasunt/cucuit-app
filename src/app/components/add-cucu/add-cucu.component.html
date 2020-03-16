@@ -54,9 +54,17 @@
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="form-group">
             <nb-form-field>
-              <nb-select [formControl]="time" placeholder="Select Timeslot" fullWidth>
-                <nb-option *ngFor="let t of timeSlots" [value]="t">{{t}}</nb-option>
-              </nb-select>
+              <nb-icon nbPrefix icon="clock-outline" pack="eva"></nb-icon>
+              <input [formControl]="time"
+                     fullWidth
+                     nbInput type="text"
+                     placeholder="Enter time"
+                     [nbAutocomplete]="timeAutocomplete"/>
+              <nb-autocomplete #timeAutocomplete>
+                <nb-option *ngFor="let t of (filteredControlOptions$ | async)" [value]="t">
+                  {{ t }}
+                </nb-option>
+              </nb-autocomplete>
             </nb-form-field>
           </div>
         </div>
