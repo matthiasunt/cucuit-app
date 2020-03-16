@@ -41,12 +41,18 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
     const now = new Date();
     const currentHour = now.getHours();
     this.form = this.formBuilder.group({
-      inviteUrl: ['https://hangouts.google.com/call/A6PK6lK45zkCf357wj-vAEEI', [Validators.required, validateInviteUrl]],
-      topic: ['Lettura di libri in compagnia con un bel bicchiere di vino.', Validators.required],
-      userName: ['Dario', Validators.required],
+      // inviteUrl: ['https://hangouts.google.com/call/A6PK6lK45zkCf357wj-vAEEI', [Validators.required, validateInviteUrl]],
+      // topic: ['Lettura di libri in compagnia con un bel bicchiere di vino.', Validators.required],
+      // userName: ['Dario', Validators.required],
+      // language: [this.translate.currentLang, Validators.required],
+      // day: ['Tomorrow', Validators.required],
+      // time: ['18:00', Validators.required],
+      inviteUrl: ['', [Validators.required, validateInviteUrl]],
+      topic: ['', Validators.required],
+      userName: ['', Validators.required],
       language: [this.translate.currentLang, Validators.required],
       day: ['Tomorrow', Validators.required],
-      time: ['18:00', Validators.required],
+      time: ['', Validators.required],
     });
 
     this.filteredControlOptions$ = of(this.timeSlots);

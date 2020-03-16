@@ -9,6 +9,7 @@ import {NbThemeModule, NbLayoutModule, NbDatepickerModule, NbButtonModule, NbWin
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {CucuBoxComponent} from './components/cucu-box/cucu-box.component';
+import {HowComponent} from './components/how/how.component';
 
 @NgModule({
   declarations: [

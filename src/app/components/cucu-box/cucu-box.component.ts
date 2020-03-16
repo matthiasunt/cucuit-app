@@ -12,7 +12,7 @@ export class CucuBoxComponent implements OnInit {
   @Input() cucu: Cucu;
   time: string;
 
-  constructor(private dbService: DbService) {
+  constructor(public dbService: DbService) {
   }
 
   ngOnInit() {

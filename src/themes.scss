@@ -1,18 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
 @import '~@nebular/theme/styles/theming';
 @import '~@nebular/theme/styles/themes/default';
 
 $nb-themes: nb-register-theme((
-
   // add your variables here like:
-
-   color-primary-100: #fff,
-   color-primary-200: #ffdcd2,
-   color-primary-300: #ffbaa7,
-   color-primary-400: #fa977d,
-   color-primary-500: #f07255,
-   color-primary-600: #e44a2e,
-   color-primary-700: #d40000,
-   color-primary-800: #cb0000,
-   color-primary-900: #c30000,
-
+  color-primary-100: #fff,
+  color-primary-200: #ffdcd2,
+  color-primary-300: #ffbaa7,
+  color-primary-400: #fa977d,
+  color-primary-500: #f07255,
+  color-primary-600: #e44a2e,
+  color-primary-700: #d40000,
+  color-primary-800: #cb0000,
+  color-primary-900: #c30000,
+  //color-basic-100: white,
+  //color-basic-200: white,
+  //color-basic-300: white,
+  //color-basic-400: white,
+  //color-basic-500: white,
+  //color-basic-600:white,
+  //color-basic-700: white,
+  //color-basic-800: white,
+  //color-basic-900: white,
+  //color-basic-1000: white,
+  //color-basic-1100: white,
+  // font-family-primary: 'Roboto, sans-serif',
+  font-family-secondary:'Playfair Display, serif',
+  background-basic-color-1: white,
+  background-basic-color-2: white,
+  background-basic-color-3: white,
+  background-basic-color-4: white,
+  //border-basic-color-1:color-basic-700,
+  //border-basic-color-2:color-basic-800,
+  //border-basic-color-3:color-basic-900,
+  //border-basic-color-4:color-basic-1000,
+  //border-basic-color-5:color-basic-1100,
 ), 'light-red', default);

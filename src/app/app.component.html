@@ -1,8 +1,16 @@
 <nb-layout>
 
   <nb-layout-header fixed>
-    <img src="./assets/images/ci-logo.png">
-    <!--    <button nbButton hero [type]="'submit'" status="primary" [shape]="'round'" [size]="'large'">New Cucu</button>-->
+    <div class="logo-div">
+      <a [routerLink]="'/'">
+        <img src="./assets/images/ci-logo.png">
+      </a>
+    </div>
+    <div class="nav-items-div">
+      <button nbButton [ghost]="true" status="primary" [routerLink]="'how-it-works'">
+        How it works
+      </button>
+    </div>
   </nb-layout-header>
 
   <nb-layout-column>
