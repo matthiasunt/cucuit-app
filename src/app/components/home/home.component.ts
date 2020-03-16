@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import {DbService} from '../../services/db/db.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
     language: 'it',
   };
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, public dbService: DbService) {
   }
 
   ngOnInit() {

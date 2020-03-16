@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Cucu} from '../../models/cucu';
+import {DbService} from '../../services/db/db.service';
 
 @Component({
   selector: 'app-cucu-box',
@@ -11,11 +12,14 @@ export class CucuBoxComponent implements OnInit {
   @Input() cucu: Cucu;
   time: string;
 
-  constructor() {
+  constructor(private dbService: DbService) {
   }
 
   ngOnInit() {
-    this.time = new Date(this.cucu.startDate).toLocaleTimeString(
+    // console.log(this.cucu.startDateString);
+    // const date = Date.parse(this.cucu.startDateString);
+    // console.log(new Date(date));
+    this.time = new Date(Date.parse(this.cucu.startDateString)).toLocaleTimeString(
       [],
       {hour: '2-digit', minute: '2-digit'}
     );

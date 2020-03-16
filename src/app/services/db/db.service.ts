@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
 import {Cucu} from '../../models/cucu';
 
@@ -8,7 +8,8 @@ import {Cucu} from '../../models/cucu';
 })
 export class DbService {
 
-  private baseUrl = 'http://localhost:3200/api';
+  private baseUrl = 'http://localhost:3200';
+  // private baseUrl = 'https://api.cucuit.com';
 
   private cucus$ = new BehaviorSubject<Cucu[]>([]);
 
@@ -21,11 +22,29 @@ export class DbService {
   }
 
   public createCucu(cucu: any) {
-    return this.http.post(`${this.baseUrl}/events`, cucu);
+    return this.http.post(`${this.baseUrl}/cucus`, cucu);
+  }
+
+  // Image Url: /upload/avatar/id
+
+  public uploadAvatar(file: File) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        // 'Content-Type': 'multipart/form-data',
+        // 'Accept': 'application/json'
+      })
+    };
+    const fd = new FormData();
+    fd.append('file', file);
+    return this.http.post(`${this.baseUrl}/upload/avatar`, fd, httpOptions);
+  }
+
+  public getImageDataUrl(imageId: string) {
+    return `${this.baseUrl}/upload/avatar/${imageId}`;
   }
 
   private prefetchData() {
-    this.http.get(`${this.baseUrl}/events`).subscribe((cucus: Cucu[]) => {
+    this.http.get(`${this.baseUrl}/cucus`).subscribe((cucus: Cucu[]) => {
       this.cucus$.next(cucus);
     });
   }

@@ -1,17 +1,16 @@
 <nb-card>
   <nb-card-header>
     <nb-user size="giant"
-             status="primary"
+             [picture]="dbService.getImageDataUrl(cucu.avatarId)"
              [name]="cucu.userName"
              [title]="'Starts at '+time"
-             [badgeText]="'ITA'"
+             [badgeText]="cucu.language"
              [badgeStatus]="'primary'"
-             [badgePosition]="'bottom right'"
-    >
+             [badgePosition]="'bottom right'">
     </nb-user>
   </nb-card-header>
   <nb-card-body>
-    {{cucu.description}}
+    {{cucu.topic}}
   </nb-card-body>
   <nb-card-footer>
     <button nbButton status="primary" [shape]="'rectangle'">Join</button>

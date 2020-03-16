@@ -1,9 +1,9 @@
 export interface Cucu {
   inviteUrl: string;
   topic: string;
-  description: string;
-  startDate: Date; // UTC Date
+  startDateString: string;
   userName: string;
+  avatarId: string;
   language: string;
-  image: any;
+
 }

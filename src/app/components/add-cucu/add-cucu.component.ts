@@ -1,19 +1,22 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {DbService} from '../../services/db/db.service';
+import {addDays} from '../../util/date.util';
 
 @Component({
   selector: 'app-add-cucu',
   templateUrl: './add-cucu.component.html',
   styleUrls: ['./add-cucu.component.scss']
 })
-export class AddCucuComponent implements OnInit {
+export class AddCucuComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('inviteUrlInput') inviteUrlInput: ElementRef;
+
 
   public form: FormGroup;
-
-  date = '';
   filteredControlOptions$: Observable<string[]>;
 
   languages = [
@@ -24,25 +27,26 @@ export class AddCucuComponent implements OnInit {
   ];
   timeSlots = this.getTimeSlots();
 
+  avatarUploadLabel = '';
+
+  avatarId: string;
+
   constructor(private formBuilder: FormBuilder,
               private translate: TranslateService,
+              private dbService: DbService,
   ) {
   }
 
   ngOnInit() {
     const now = new Date();
     const currentHour = now.getHours();
-    // const timePreset = currentHour === 23 ? '00:00' : currentHour + 1 + '00';
-
-    console.log(now.toUTCString());
-
     this.form = this.formBuilder.group({
-      inviteUrl: ['', [Validators.required, validateInviteUrl]],
-      topic: ['', Validators.required],
-      userName: ['', Validators.required],
+      inviteUrl: ['https://hangouts.google.com/call/A6PK6lK45zkCf357wj-vAEEI', [Validators.required, validateInviteUrl]],
+      topic: ['Lettura di libri in compagnia con un bel bicchiere di vino.', Validators.required],
+      userName: ['Dario', Validators.required],
       language: [this.translate.currentLang, Validators.required],
-      day: ['Today', Validators.required],
-      time: ['', Validators.required],
+      day: ['Tomorrow', Validators.required],
+      time: ['18:00', Validators.required],
     });
 
     this.filteredControlOptions$ = of(this.timeSlots);
@@ -53,12 +57,56 @@ export class AddCucuComponent implements OnInit {
       );
   }
 
+  ngAfterViewInit() {
+    // this.inviteUrlInput.nativeElement.focus();
+  }
+
   public postCucu() {
-    if (this.form.valid) {
-      console.log(this.form.getRawValue());
+    if (this.form.valid && this.avatarId) {
+
+      const data = this.form.getRawValue();
+      let date = new Date();
+      if (data.day === 'Tomorrow') {
+        date = addDays(1)(date);
+      }
+
+      const hours = data.time.split(':')[0];
+      const minutes = data.time.split(':')[1];
+      console.log(hours, minutes);
+      date.setHours(hours);
+      date.setMinutes(minutes);
+      date.setSeconds(0);
+      console.log(date);
+      const cucu = {
+        inviteUrl: data.inviteUrl,
+        topic: data.topic,
+        startDateString: date.toUTCString(),
+        userName: data.userName,
+        avatarId: this.avatarId,
+        language: data.language
+      };
+      this.dbService.createCucu(cucu).subscribe((res) => {
+        console.log(res);
+      });
+
+      // TODO: Step 1 - Upload Image
+      // TODO: Step 2 - Upload Cucu
     } else {
       console.error('Form invalid');
+      console.error(this.form);
       console.log(this.form.getRawValue());
+    }
+  }
+
+  public onAvatarFileChanged(event) {
+    const file: File = event.target.files[0];
+    if (file && file.name) {
+      this.avatarUploadLabel = file.name;
+      this.dbService.uploadAvatar(file).subscribe((res: any) => {
+        if (res.id) {
+          this.avatarId = res.id;
+        }
+      });
     }
   }
 
@@ -112,11 +160,15 @@ export class AddCucuComponent implements OnInit {
     return timeSlots;
   }
 
+  public elementStatus(control: FormControl) {
+    return control.valid || !control.dirty ? '' : 'warning';
+  }
+
 }
 
 export function validateInviteUrl(control: AbstractControl) {
-  if (control.value.includes('hangouts.google.com') || control.value.includes('join.skype.com')) {
-    return {validInviteUrl: true};
+  if (!control.value.includes('hangouts.google.com') && !control.value.includes('join.skype.com')) {
+    return {validInviteUrl: false};
   }
   return null;
 }
