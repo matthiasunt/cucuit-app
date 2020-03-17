@@ -5,15 +5,24 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NbThemeModule, NbLayoutModule, NbDatepickerModule, NbButtonModule, NbWindowModule, NbWindowService} from '@nebular/theme';
+import {
+  NbThemeModule,
+  NbLayoutModule,
+  NbDatepickerModule,
+  NbButtonModule,
+  NbIconModule
+} from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {CucuBoxComponent} from './components/cucu-box/cucu-box.component';
-import {HowComponent} from './components/how/how.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {FooterComponent} from './components/shared/footer/footer.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FooterComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +41,8 @@ import {HowComponent} from './components/how/how.component';
     NbEvaIconsModule,
     NbDatepickerModule.forRoot(),
     NbButtonModule,
+    NbIconModule,
+    FontAwesomeModule,
     // NbWindowModule,
   ],
   providers: [

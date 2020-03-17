@@ -1,6 +1,4 @@
 import {Component} from '@angular/core';
-import {NbWindowService} from '@nebular/theme';
-import {AddCucuComponent} from './components/add-cucu/add-cucu.component';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
@@ -11,6 +9,8 @@ import {TranslateService} from '@ngx-translate/core';
 
 
 export class AppComponent {
+
+
   constructor(
     private translate: TranslateService,
     // private windowService: NbWindowService

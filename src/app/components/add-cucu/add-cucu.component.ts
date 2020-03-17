@@ -5,6 +5,7 @@ import {Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {DbService} from '../../services/db/db.service';
 import {addDays} from '../../util/date.util';
+import {NbComponentShape, NbComponentSize} from '@nebular/theme';
 
 @Component({
   selector: 'app-add-cucu',
@@ -15,9 +16,12 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
 
   @ViewChild('inviteUrlInput') inviteUrlInput: ElementRef;
 
+  componentSize: NbComponentSize = 'medium';
+  componentShape: NbComponentShape = 'rectangle';
 
   public form: FormGroup;
-  filteredControlOptions$: Observable<string[]>;
+  filteredTimeOptions$: Observable<string[]>;
+  filteredParticipantsOptions$: Observable<string[]>;
 
   languages = [
     {name: 'Italiano 🇮🇹', short: 'it', emoji: '🇮🇹'},
@@ -25,6 +29,9 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
     {name: 'Deutsch 🇩🇪', short: 'de', emoji: '🇩🇪'},
     {name: 'English 🇬🇧', short: 'en', emoji: '🇬🇧'},
   ];
+
+  participantsOptions: ['10', '20', '50'];
+
   timeSlots = this.getTimeSlots();
 
   avatarUploadLabel = '';
@@ -51,12 +58,19 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
       topic: ['', Validators.required],
       userName: ['', Validators.required],
       language: [this.translate.currentLang, Validators.required],
+      participantsLimit: ['', Validators.required],
       day: ['Tomorrow', Validators.required],
       time: ['', Validators.required],
     });
 
-    this.filteredControlOptions$ = of(this.timeSlots);
-    this.filteredControlOptions$ = this.time.valueChanges
+    this.filteredTimeOptions$ = of(this.timeSlots);
+    this.filteredTimeOptions$ = this.time.valueChanges
+      .pipe(
+        startWith(''),
+        map(filterString => this.filter(filterString)),
+      );
+    this.filteredParticipantsOptions$ = of(this.participantsOptions);
+    this.filteredParticipantsOptions$ = this.participantsLimit.valueChanges
       .pipe(
         startWith(''),
         map(filterString => this.filter(filterString)),
@@ -128,6 +142,10 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
     return this.form.get('userName') as FormControl;
   }
 
+  get participantsLimit() {
+    return this.form.get('participantsLimit') as FormControl;
+  }
+
   get language() {
     return this.form.get('language') as FormControl;
   }
@@ -173,7 +191,9 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
 }
 
 export function validateInviteUrl(control: AbstractControl) {
-  if (!control.value.includes('hangouts.google.com') && !control.value.includes('join.skype.com')) {
+  if (!control.value.includes('hangouts.google.com')
+    && !control.value.includes('join.skype.com')
+    && !control.value.includes('zoom.us')) {
     return {validInviteUrl: false};
   }
   return null;

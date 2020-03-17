@@ -1,4 +1,4 @@
-<nb-card>
+<nb-card [size]="'medium'">
 
   <nb-card-body class="example-items-col">
     <form [formGroup]="form">
@@ -6,8 +6,8 @@
       <div class="form-group">
         <nb-form-field>
           <nb-icon nbPrefix icon="link-outline" pack="eva"></nb-icon>
-          <input [formControl]="inviteUrl" type="text" nbInput fullWidth [shape]="'rectangle'"
-                 placeholder="Invite Link (Google Hangouts or Skype)" [fieldSize]="'large'"
+          <input [formControl]="inviteUrl" type="text" nbInput fullWidth [shape]="componentShape"
+                 placeholder="Invite Link (Hangouts, Skype or Zoom)" [fieldSize]="'large'"
                  nbTooltip="This is a tooltip" nbTooltipStatus="primary" [status]="elementStatus(inviteUrl)"
                  #inviteUrlInput>
         </nb-form-field>
@@ -16,36 +16,63 @@
       <div class="form-group">
         <nb-form-field>
           <nb-icon nbPrefix icon="heart-outline" pack="eva"></nb-icon>
-          <input [formControl]="topic" type="text" nbInput fullWidth [shape]="'rectangle'"
+          <input [formControl]="topic" type="text" nbInput fullWidth [shape]="componentShape"
                  placeholder="What's your Cucu about? Yoga, Reading, …"
-                 [fieldSize]="'medium'" [status]="elementStatus(topic)"
+                 [fieldSize]="componentSize" [status]="elementStatus(topic)"
                  id="topic">
         </nb-form-field>
+      </div>
+      <!-- Participiants limit & Language -->
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <div class="form-group">
+            <nb-form-field>
+              <nb-icon nbPrefix icon="people-outline" pack="eva"></nb-icon>
+              <input [formControl]="participantsLimit" fullWidth nbInput type="text"
+                     placeholder="Enter participants limit"
+                     [status]="elementStatus(participantsLimit)"
+                     [shape]="componentShape"
+                     [nbAutocomplete]="participantsAutocomplete" [fieldSize]="componentSize"/>
+              <nb-autocomplete #participantsAutocomplete>
+                <nb-option *ngFor="let p of (filteredParticipantsOptions$ | async)" [value]="p">
+                  {{ p }}
+                </nb-option>
+              </nb-autocomplete>
+            </nb-form-field>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <div class="form-group">
+            <nb-select [formControl]="language" placeholder="Select Language" [size]="componentSize"
+                       [shape]="componentShape" fullWidth>
+              <nb-option *ngFor="let l of languages" [value]="l.short">{{l.name}}</nb-option>
+            </nb-select>
+          </div>
+        </div>
       </div>
 
 
       <!-- Name & Avatar -->
       <div class="row">
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+        <div class="col-lg-6 col-md-12 col-sm-12">
           <div class="form-group">
             <nb-form-field>
               <nb-icon nbPrefix icon="person-outline" pack="eva"></nb-icon>
-              <input [formControl]="userName" type="text" nbInput fullWidth [shape]="'rectangle'"
+              <input [formControl]="userName" type="text" nbInput fullWidth [shape]="componentShape"
                      [status]="elementStatus(userName)"
                      placeholder="Your Name"
-                     [fieldSize]="'medium'">
+                     [fieldSize]="componentSize">
             </nb-form-field>
           </div>
         </div>
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+        <div class="col-lg-6 col-md-12 col-sm-12">
           <div class="form-group">
             <button (click)="avatarInput.click()" nbButton fullWidth [type]="'submit'" status="primary"
-                    [shape]="'rectangle'" [size]="'medium'">
+                    [shape]="componentShape" [size]="componentSize">
               Upload Avatar
             </button>
             <input
-              style="display: none"
-              type="file" (change)="onAvatarFileChanged($event)"
+              style="display: none" type="file" (change)="onAvatarFileChanged($event)"
               [accept]="'image/x-png, image/jpeg'"
               #avatarInput>
             <p>{{avatarUploadLabel}}</p>
@@ -54,36 +81,28 @@
 
       </div>
 
-      <!-- Language -->
-      <div class="form-group">
-        <nb-form-field>
-          <nb-select [formControl]="language" placeholder="Select Language" fullWidth>
-            <nb-option *ngFor="let l of languages" [value]="l.short">{{l.name}}</nb-option>
-          </nb-select>
-        </nb-form-field>
-      </div>
-
       <!-- Day and Time -->
       <div class="row">
-        <div class="col-md-6 col-sm-12">
+        <div class="col-lg-6 col-md-12 col-sm-12">
           <div class="form-group">
             <nb-form-field>
-              <nb-select [formControl]="day" placeholder="Select Day" [selected]="'Today'" fullWidth>
+              <nb-select [formControl]="day" placeholder="Select Day" [selected]="'Today'"
+                         [shape]="componentShape" [size]="componentSize" fullWidth>
                 <nb-option [value]="'Today'">Today</nb-option>
                 <nb-option [value]="'Tomorrow'">Tomorrow</nb-option>
               </nb-select>
             </nb-form-field>
           </div>
         </div>
-        <div class="col-md-6 col-sm-12">
+        <div class="col-lg-6 col-md-12 col-sm-12">
           <div class="form-group">
             <nb-form-field>
               <nb-icon nbPrefix icon="clock-outline" pack="eva"></nb-icon>
               <input [formControl]="time" fullWidth nbInput type="text" placeholder="Enter time"
-                     [status]="elementStatus(time)"
-                     [nbAutocomplete]="timeAutocomplete"/>
+                     [status]="elementStatus(time)" [shape]="componentShape"
+                     [nbAutocomplete]="timeAutocomplete" [fieldSize]="componentSize"/>
               <nb-autocomplete #timeAutocomplete>
-                <nb-option *ngFor="let t of (filteredControlOptions$ | async)" [value]="t">
+                <nb-option *ngFor="let t of (filteredTimeOptions$ | async)" [value]="t">
                   {{ t }}
                 </nb-option>
               </nb-autocomplete>

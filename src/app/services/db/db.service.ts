@@ -36,11 +36,11 @@ export class DbService {
     };
     const fd = new FormData();
     fd.append('file', file);
-    return this.http.post(`${this.baseUrl}/upload/avatar`, fd, httpOptions);
+    return this.http.post(`${this.baseUrl}/images`, fd, httpOptions);
   }
 
   public getImageDataUrl(imageId: string) {
-    return `${this.baseUrl}/upload/avatar/${imageId}`;
+    return `${this.baseUrl}/images${imageId}`;
   }
 
   private prefetchData() {

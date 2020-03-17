@@ -1,13 +1,13 @@
 <nb-layout>
 
-  <nb-layout-header fixed>
+  <nb-layout-header [fixed]="true">
     <div class="logo-div">
       <a [routerLink]="'/'">
         <img src="./assets/images/ci-logo.png">
       </a>
     </div>
     <div class="nav-items-div">
-      <button nbButton [ghost]="true" status="primary" [routerLink]="'how-it-works'">
+      <button nbButton [ghost]="true" [routerLink]="'how-it-works'">
         How it works
       </button>
     </div>
@@ -17,8 +17,8 @@
     <router-outlet></router-outlet>
   </nb-layout-column>
 
-  <nb-layout-footer fixed>
-    <a>Privacy Policy</a>
+  <nb-layout-footer [fixed]="false">
+    <app-footer></app-footer>
   </nb-layout-footer>
 
 </nb-layout>
