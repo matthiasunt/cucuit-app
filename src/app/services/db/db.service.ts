@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, combineLatest, concat, forkJoin, zip} from 'rxjs';
 import {Cucu} from '../../models/cucu';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +22,18 @@ export class DbService {
     return this.cucus$;
   }
 
-  public createCucu(cucu: any) {
-    return this.http.post(`${this.baseUrl}/cucus`, cucu);
+  public createCucu(cucu: Cucu) {
+    return zip(this.http.post(`${this.baseUrl}/cucus`, cucu), this.cucus$).pipe(
+      map(([res, cucus]) => {
+        // @ts-ignore
+        if (res && res.topic) {
+          // @ts-ignore
+          this.cucus$.next([res].concat(cucus));
+        }
+        return res;
+      })
+    );
   }
-
-  // Image Url: /upload/avatar/id
 
   public uploadAvatar(file: File) {
     const httpOptions = {
@@ -39,13 +47,18 @@ export class DbService {
     return this.http.post(`${this.baseUrl}/images`, fd, httpOptions);
   }
 
-  public getImageDataUrl(imageId: string) {
-    return `${this.baseUrl}/images${imageId}`;
+  public getImageBaseUrl() {
+    return `${this.baseUrl}/images`;
   }
 
   private prefetchData() {
     this.http.get(`${this.baseUrl}/cucus`).subscribe((cucus: Cucu[]) => {
-      this.cucus$.next(cucus);
+      const sortedCucus = cucus.sort((a, b) => {
+        const dateA = Date.parse(a.startDateString);
+        const dateB = Date.parse(b.startDateString);
+        return dateA - dateB;
+      });
+      this.cucus$.next(sortedCucus.slice(0, 15));
     });
   }
 

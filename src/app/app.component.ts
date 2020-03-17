@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import {NavigationEnd, Router} from '@angular/router';
+import {Gtag} from 'angular-gtag';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +13,13 @@ import {TranslateService} from '@ngx-translate/core';
 export class AppComponent {
 
 
-  constructor(
-    private translate: TranslateService,
-    // private windowService: NbWindowService
+  constructor(private router: Router,
+              private gtag: Gtag,
+              private translate: TranslateService,
+              // private windowService: NbWindowService
   ) {
     this.translate.setDefaultLang('en');
     this.translate.use(this.translate.getBrowserLang());
-
   }
 
   public openCreateCucu() {

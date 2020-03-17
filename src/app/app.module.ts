@@ -10,25 +10,28 @@ import {
   NbLayoutModule,
   NbDatepickerModule,
   NbButtonModule,
-  NbIconModule
+  NbIconModule, NbToastrService
 } from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {FooterComponent} from './components/shared/footer/footer.component';
-import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import {GtagModule} from 'angular-gtag';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    GtagModule.forRoot({
+      trackingId: 'UA-160840865-1',
+      trackPageviews: true
+    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -44,9 +47,6 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
     NbIconModule,
     FontAwesomeModule,
     // NbWindowModule,
-  ],
-  providers: [
-    // NbWindowService
   ],
   bootstrap: [AppComponent]
 })

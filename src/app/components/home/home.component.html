@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-lg-6 col-md-6">
+  <div class="col-lg-7 col-md-6">
     <div class="hero-section">
       <h1>Sconfiggi la noia con CUCUit!</h1>
       <p>
@@ -7,26 +7,34 @@
         Chiuditi in casa. Apri la mente. Esci dagli schemi.
       </p>
       <div class="vdo-section">
-        <a href="https://www.youtube.com/watch?v=p29dKpHnPjQ">
+        <a href="https://www.youtube.com/watch?v=p29dKpHnPjQ" target="_blank">
           <img src="./assets/images/video-icon.svg" alt="Play button">
         </a>
         <span>
-							<a href="https://www.youtube.com/watch?v=p29dKpHnPjQ">Watch our intro video</a>
+							<a href="https://www.youtube.com/watch?v=p29dKpHnPjQ" target="_blank">Watch our intro video</a>
         </span>
       </div>
 
     </div>
   </div>
-  <div class="col-lg-6 col-md-6">
+  <div class="col-lg-5 col-md-6">
     <app-add-cucu></app-add-cucu>
   </div>
 </div>
-
-
 <hr>
-
 <div class="row">
+  <p *ngIf="(dbService.cucus | async).length < 1">No Cucus found.</p>
   <div *ngFor="let c of dbService.cucus | async" class="col-md-4">
-    <app-cucu-box [cucu]="c"></app-cucu-box>
+    <app-cucu-box [cucu]="c" [@simpleFadeAnimation]="'in'"></app-cucu-box>
   </div>
 </div>
+<div class="ws-s"></div>
+<div class="row">
+  <div class="col-md-12 load-more-div">
+    <button (click)="loadMore()" nbButton status="primary"
+            [shape]="'rectangle'" [size]="'medium'">
+      Load more
+    </button>
+  </div>
+</div>
+<div class="ws-m"></div>
