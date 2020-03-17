@@ -9,8 +9,8 @@ import {map} from 'rxjs/operators';
 })
 export class DbService {
 
-  private baseUrl = 'http://localhost:3200';
-  // private baseUrl = 'https://api.cucuit.com';
+  // private baseUrl = 'http://localhost:3200';
+  private baseUrl = 'https://api.cucuit.com';
 
   private cucus$ = new BehaviorSubject<Cucu[]>([]);
 

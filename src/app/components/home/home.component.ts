@@ -28,14 +28,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class HomeComponent implements OnInit {
 
-  fakeCucu = {
-    inviteUrl: 'https://hangouts.google.com/call/A6PK6lK45zkCf357wj-vAEEI',
-    topic: 'Yoga',
-    description: 'Lettura di libri in compagnia con un bel bicchiere di vino.',
-    startDate: 'Sun, 15 Apr 2020 18:00:00 GMT',
-    userName: 'Dario',
-    language: 'it',
-  };
+  doWeHaveMore = false;
 
   constructor(private translate: TranslateService, public dbService: DbService) {
   }

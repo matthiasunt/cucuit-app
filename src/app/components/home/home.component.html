@@ -31,7 +31,7 @@
 <div class="ws-s"></div>
 <div class="row">
   <div class="col-md-12 load-more-div">
-    <button (click)="loadMore()" nbButton status="primary"
+    <button *ngIf="doWeHaveMore" (click)="loadMore()" nbButton status="primary"
             [shape]="'rectangle'" [size]="'medium'">
       Load more
     </button>
