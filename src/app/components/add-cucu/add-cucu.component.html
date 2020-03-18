@@ -8,8 +8,7 @@
           <nb-icon nbPrefix icon="link-outline" pack="eva"></nb-icon>
           <input [formControl]="inviteUrl" type="text" nbInput fullWidth [shape]="componentShape"
                  placeholder="Invite Link (Hangouts, Skype or Zoom)" [fieldSize]="componentSize"
-                 nbTooltip="This is a tooltip" nbTooltipStatus="primary" [status]="elementStatus(inviteUrl)"
-                 #inviteUrlInput>
+                 nbTooltip="This is a tooltip" nbTooltipStatus="primary" [status]="elementStatus(inviteUrl)">
         </nb-form-field>
       </div>
       <nb-card *ngIf="showCallProvidersInfoBox" class="call-providers-info-box">
@@ -42,7 +41,6 @@
         </div>
       </div>
 
-
       <!-- Day and Time -->
       <div class="row">
         <div class="col-lg-7 col-md-12 col-sm-12">
@@ -62,7 +60,7 @@
               <nb-icon nbPrefix icon="clock-outline" pack="eva"></nb-icon>
               <input [formControl]="time" fullWidth nbInput type="text" placeholder="Enter time"
                      [status]="elementStatus(time)" [shape]="componentShape"
-                     [nbAutocomplete]="timeAutocomplete" [fieldSize]="componentSize"/>
+                     [nbAutocomplete]="timeAutocomplete" [fieldSize]="componentSize" #element/>
               <nb-autocomplete #timeAutocomplete>
                 <nb-option *ngFor="let t of (filteredTimeOptions$ | async)" [value]="t">
                   {{ t }}

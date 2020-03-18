@@ -5,7 +5,7 @@ import {Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {DbService} from '../../services/db/db.service';
 import {addDays} from '../../util/date.util';
-import {NbComponentShape, NbComponentSize, NbGlobalPhysicalPosition, NbToastrService} from '@nebular/theme';
+import {NbComponentShape, NbComponentSize, NbToastrService} from '@nebular/theme';
 import {getLangs} from '../../util/languages.util';
 
 @Component({
@@ -15,7 +15,7 @@ import {getLangs} from '../../util/languages.util';
 })
 export class AddCucuComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('inviteUrlInput') inviteUrlInput: ElementRef;
+  @ViewChild('element') element: ElementRef;
 
   componentSize: NbComponentSize = 'medium';
   componentShape: NbComponentShape = 'rectangle';
@@ -47,18 +47,18 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
 
     this.timeSlots = this.getTimeSlots(dayPreset);
     this.form = this.formBuilder.group({
-      inviteUrl: ['https://hangouts.google.com/call/A6PK6lK45zkCf357wj-vAEEI', [Validators.required, validateInviteUrl]],
-      topic: ['Lettura di libri in compagnia con un bel bicchiere di vino.', Validators.required],
-      userName: ['Dario', Validators.required],
-      language: ['it', Validators.required],
+      // inviteUrl: ['https://hangouts.google.com/call/A6PK6lK45zkCf357wj-vAEEI', [Validators.required, validateInviteUrl]],
+      // topic: ['Lettura di libri in compagnia con un bel bicchiere di vino.', Validators.required],
+      // userName: ['Dario', Validators.required],
+      // language: ['it', Validators.required],
+      // day: [dayPreset, Validators.required],
+      // time: [timePreset, Validators.required],
+      inviteUrl: ['', [Validators.required, validateInviteUrl]],
+      topic: ['', Validators.required],
+      userName: ['', Validators.required],
+      language: [this.translate.currentLang, Validators.required],
       day: [dayPreset, Validators.required],
       time: [timePreset, Validators.required],
-      // inviteUrl: ['', [Validators.required, validateInviteUrl]],
-      // topic: ['', Validators.required],
-      // userName: ['', Validators.required],
-      // language: [this.translate.currentLang, Validators.required],
-      // day: [dayPreset, Validators.required],
-      // time: [hourPreset, Validators.required],
     });
 
     this.filteredTimeOptions$ = of(this.timeSlots);
@@ -83,7 +83,10 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // this.inviteUrlInput.nativeElement.focus();
+    setTimeout(() => {
+      this.element.nativeElement.blur();
+      this.time.markAsUntouched();
+    }, 1);
   }
 
   public postCucu() {

@@ -36,5 +36,24 @@ export class CucuBoxComponent implements OnInit {
     return getEmojiForLang(lang);
   }
 
+  isEnabled() {
+    const now = new Date();
+    const startDate = new Date(this.cucu.startDate);
+    const endDate = new Date(this.cucu.startDate);
+    endDate.setMinutes(endDate.getMinutes() + 15);
+    return startDate.toISOString() < now.toISOString()
+      && now.toISOString() < endDate.toISOString();
+  }
+
+  getStatus() {
+    return this.isEnabled() ? 'primary' : 'disabled';
+  }
+
+  toCall() {
+    if (this.isEnabled()) {
+      window.open(this.cucu.inviteUrl);
+    }
+  }
+
 
 }

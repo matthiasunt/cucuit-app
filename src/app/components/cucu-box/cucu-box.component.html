@@ -13,6 +13,9 @@
     {{cucu.topic}}
   </nb-card-body>
   <nb-card-footer>
-    <button nbButton status="primary" [shape]="'rectangle'">Join</button>
+    <button [disabled]="false" (click)="toCall()" nbButton [status]="getStatus()"
+            [shape]="'rectangle'">
+      Join
+    </button>
   </nb-card-footer>
 </nb-card>
