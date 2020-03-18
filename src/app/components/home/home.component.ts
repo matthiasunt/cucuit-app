@@ -34,8 +34,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    const lang = this.translate.getBrowserLang();
-    console.log(lang);
   }
 
   loadMore() {

@@ -10,7 +10,7 @@ import {
   NbLayoutModule,
   NbDatepickerModule,
   NbButtonModule,
-  NbIconModule, NbToastrService
+  NbIconModule, NbToastrService, NbContextMenuModule, NbMenuModule, NbMenuService
 } from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -39,7 +39,9 @@ import {GtagModule} from 'angular-gtag';
         deps: [HttpClient]
       }
     }),
+    NbMenuModule.forRoot(),
     NbThemeModule.forRoot({name: 'light-red'}),
+    NbContextMenuModule,
     NbLayoutModule,
     NbEvaIconsModule,
     NbDatepickerModule.forRoot(),
@@ -47,6 +49,9 @@ import {GtagModule} from 'angular-gtag';
     NbIconModule,
     FontAwesomeModule,
     // NbWindowModule,
+  ],
+  providers: [
+    NbMenuService,
   ],
   bootstrap: [AppComponent]
 })

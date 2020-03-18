@@ -1,5 +1,5 @@
-<nb-card [size]="'medium'">
-
+<nb-card accent="primary">
+  <!--  <nb-card-header>Create your first CUCU</nb-card-header>-->
   <nb-card-body class="example-items-col">
     <form [formGroup]="form">
       <!-- Invite URL -->
@@ -12,6 +12,13 @@
                  #inviteUrlInput>
         </nb-form-field>
       </div>
+      <nb-card *ngIf="showCallProvidersInfoBox" class="call-providers-info-box">
+        <nb-card-body>
+          <b><a href="https://hangouts.google.com" target="_blank">Hangouts</a></b>: 10 participants<br>
+          <b><a href="https://www.skype.com" target="_blank">Skype</a></b>: 50 participants<br>
+          <b><a href="https://zoom.us/signup" target="_blank">Zoom</a></b>: 100 participants, max. 40 minutes<br>
+        </nb-card-body>
+      </nb-card>
       <!-- Topic -->
       <div class="form-group">
         <nb-form-field>
@@ -22,25 +29,8 @@
                  id="topic">
         </nb-form-field>
       </div>
-      <!-- Participiants limit & Language -->
+      <!-- Language -->
       <div class="row">
-        <div class="col-lg-6 col-md-12 col-sm-12">
-          <div class="form-group">
-            <nb-form-field>
-              <nb-icon nbPrefix icon="people-outline" pack="eva"></nb-icon>
-              <input [formControl]="participantsLimit" fullWidth nbInput type="text"
-                     placeholder="Enter participants limit"
-                     [status]="elementStatus(participantsLimit)"
-                     [shape]="componentShape"
-                     [nbAutocomplete]="participantsAutocomplete" [fieldSize]="componentSize"/>
-              <nb-autocomplete #participantsAutocomplete>
-                <nb-option *ngFor="let p of (filteredParticipantsOptions$ | async)" [value]="p">
-                  {{ p }}
-                </nb-option>
-              </nb-autocomplete>
-            </nb-form-field>
-          </div>
-        </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
           <div class="form-group">
             <nb-select [formControl]="language" placeholder="Select Language" [size]="componentSize"
@@ -51,35 +41,6 @@
         </div>
       </div>
 
-
-      <!-- Name & Avatar -->
-      <div class="row">
-        <div class="col-lg-6 col-md-12 col-sm-12">
-          <div class="form-group">
-            <nb-form-field>
-              <nb-icon nbPrefix icon="person-outline" pack="eva"></nb-icon>
-              <input [formControl]="userName" type="text" nbInput fullWidth [shape]="componentShape"
-                     [status]="elementStatus(userName)"
-                     placeholder="Your Name"
-                     [fieldSize]="componentSize">
-            </nb-form-field>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-12 col-sm-12">
-          <div class="form-group">
-            <button (click)="avatarInput.click()" nbButton fullWidth status="primary"
-                    [shape]="componentShape" [size]="componentSize">
-              Upload Avatar
-            </button>
-            <input
-              style="display: none" type="file" (change)="onAvatarFileChanged($event)"
-              [accept]="'image/x-png, image/jpeg'"
-              #avatarInput>
-            <p>{{avatarUploadLabel}}</p>
-          </div>
-        </div>
-
-      </div>
 
       <!-- Day and Time -->
       <div class="row">
@@ -107,6 +68,34 @@
                 </nb-option>
               </nb-autocomplete>
             </nb-form-field>
+          </div>
+        </div>
+      </div>
+
+      <!-- Name & Avatar -->
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <div class="form-group">
+            <nb-form-field>
+              <nb-icon nbPrefix icon="person-outline" pack="eva"></nb-icon>
+              <input [formControl]="userName" type="text" nbInput fullWidth [shape]="componentShape"
+                     [status]="elementStatus(userName)"
+                     placeholder="Your Name"
+                     [fieldSize]="componentSize">
+            </nb-form-field>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <div class="form-group">
+            <button (click)="avatarInput.click()" nbButton fullWidth status="primary"
+                    [shape]="componentShape" [size]="componentSize">
+              Upload Avatar
+            </button>
+            <input
+              style="display: none" type="file" (change)="onAvatarFileChanged($event)"
+              [accept]="'image/x-png, image/jpeg'"
+              #avatarInput>
+            <p>{{avatarUploadLabel}}</p>
           </div>
         </div>
       </div>

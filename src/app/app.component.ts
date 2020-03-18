@@ -19,11 +19,11 @@ export class AppComponent {
               // private windowService: NbWindowService
   ) {
     this.translate.setDefaultLang('en');
-    this.translate.use(this.translate.getBrowserLang());
-  }
 
-  public openCreateCucu() {
-    // this.windowService.open(AddCucuComponent, {title: `Window`});
+    gtag.event('test');
+    // this.translate.use(this.translate.getBrowserLang());
+    this.translate.use('it');
+
   }
 }
 

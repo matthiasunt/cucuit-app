@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Cucu} from '../../models/cucu';
 import {DbService} from '../../services/db/db.service';
 import {isToday} from '../../util/date.util';
-
+import {getEmojiForLang} from '../../util/languages.util';
 @Component({
   selector: 'app-cucu-box',
   templateUrl: './cucu-box.component.html',
@@ -29,6 +29,10 @@ export class CucuBoxComponent implements OnInit {
     );
 
     this.day = isToday(date) ? 'Today' : 'Tomorrow';
+  }
+
+  getLangEmoji(lang: string) {
+    return getEmojiForLang(lang);
   }
 
 

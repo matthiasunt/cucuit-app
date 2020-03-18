@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
 @import '~@nebular/theme/styles/theming';
 @import '~@nebular/theme/styles/themes/default';
 
@@ -76,8 +75,9 @@ $nb-themes: nb-register-theme((
   //color-basic-900: white,
   //color-basic-1000: white,
   //color-basic-1100: white,
-  // font-family-primary: 'Roboto, sans-serif',
-  font-family-secondary:'Playfair Display, serif',
+  //font-family-primary: 'Roboto, sans-serif',
+  //font-family-secondary: 'Roboto, sans-serif',
+  //font-family-secondary:'Playfair Display, serif',
   background-basic-color-1: white,
   background-basic-color-2: white,
   background-basic-color-3: white,

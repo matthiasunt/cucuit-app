@@ -7,8 +7,13 @@
       </a>
     </div>
     <div class="nav-items-div">
-      <button nbButton [ghost]="true" [routerLink]="'how-it-works'">
-        How it works
+      <button nbButton [ghost]="true" [routerLink]="'how-it-works'" status="primary"
+              gtagEvent trackOn="click" action="manifesto_clicked">
+        Manifesto
+      </button>
+      <button nbButton [ghost]="true" status="primary"
+              gtagEvent trackOn="click" action="donate_clicked">
+        Donate
       </button>
     </div>
   </nb-layout-header>
