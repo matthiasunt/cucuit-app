@@ -31,10 +31,10 @@ import {
     NbAutocompleteModule,
     NbToastrModule,
   ],
+  providers: [
+    NbToastrService,
+  ],
   exports: [AddCucuComponent],
-  // providers: [
-  //   NbToastrService,
-  // ],
 })
 export class AddCucuModule {
 }

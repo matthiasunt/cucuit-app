@@ -35,7 +35,7 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
   constructor(private formBuilder: FormBuilder,
               private translate: TranslateService,
               private dbService: DbService,
-              // private toastrService: NbToastrService,
+              private toastrService: NbToastrService,
   ) {
   }
 
@@ -43,22 +43,22 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
     const now = new Date();
     const currentHour = now.getHours();
     const dayPreset = currentHour > 18 ? 'Tomorrow' : 'Today';
-    const hourPreset = currentHour > 18 ? '10:00' : `${currentHour + 2}:00`;
+    const timePreset = currentHour > 18 ? '10:00' : `${currentHour + 2}:00`;
 
     this.timeSlots = this.getTimeSlots(dayPreset);
     this.form = this.formBuilder.group({
-      // inviteUrl: ['https://hangouts.google.com/call/A6PK6lK45zkCf357wj-vAEEI', [Validators.required, validateInviteUrl]],
-      // topic: ['Lettura di libri in compagnia con un bel bicchiere di vino.', Validators.required],
-      // userName: ['Dario', Validators.required],
-      // language: ['it', Validators.required],
-      // day: ['Tomorrow', Validators.required],
-      // time: ['18:00', Validators.required],
-      inviteUrl: ['', [Validators.required, validateInviteUrl]],
-      topic: ['', Validators.required],
-      userName: ['', Validators.required],
-      language: [this.translate.currentLang, Validators.required],
+      inviteUrl: ['https://hangouts.google.com/call/A6PK6lK45zkCf357wj-vAEEI', [Validators.required, validateInviteUrl]],
+      topic: ['Lettura di libri in compagnia con un bel bicchiere di vino.', Validators.required],
+      userName: ['Dario', Validators.required],
+      language: ['it', Validators.required],
       day: [dayPreset, Validators.required],
-      time: [hourPreset, Validators.required],
+      time: [timePreset, Validators.required],
+      // inviteUrl: ['', [Validators.required, validateInviteUrl]],
+      // topic: ['', Validators.required],
+      // userName: ['', Validators.required],
+      // language: [this.translate.currentLang, Validators.required],
+      // day: [dayPreset, Validators.required],
+      // time: [hourPreset, Validators.required],
     });
 
     this.filteredTimeOptions$ = of(this.timeSlots);
@@ -67,7 +67,11 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
 
     this.day.valueChanges.subscribe((change) => {
       this.timeSlots = this.getTimeSlots(change);
-      this.time.setValue('');
+      if (change === 'Tomorrow') {
+        this.time.setValue('10:00');
+      } else {
+        this.time.setValue(`${currentHour + 2}:00`);
+      }
     });
   }
 
@@ -90,6 +94,7 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
 
       if (data.day === 'Tomorrow') {
         date = addDays(1)(date);
+        console.log(date);
       }
 
       const hours = data.time.split(':')[0];
@@ -104,7 +109,7 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
       const cucu = {
         inviteUrl: data.inviteUrl,
         topic: data.topic,
-        startDateString: date.toUTCString(),
+        startDate: date,
         userName: data.userName,
         avatarId: this.avatarId,
         language: data.language
@@ -113,10 +118,10 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
         if (res.topic) {
           this.avatarUploadLabel = '';
           this.form.reset();
-          // this.showToast('success');
+          this.showToast('success');
         } else {
           console.error(res);
-          // this.showToast('danger');
+          this.showToast('danger');
         }
       });
     } else {
@@ -139,12 +144,12 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
   }
 
   private showToast(status) {
-    // const title = status === 'success' ? 'Success' : 'Error';
-    // const message = status === 'success' ? 'Cucu posted!' : 'Error. Please try again later';
-    // this.toastrService.show(
-    //   message,
-    //   title,
-    //   {status});
+    const title = status === 'success' ? 'Success' : 'Error';
+    const message = status === 'success' ? 'Cucu posted!' : 'Error. Please try again later';
+    this.toastrService.show(
+      message,
+      title,
+      {status});
   }
 
   get inviteUrl() {
@@ -187,8 +192,7 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
     }
     for (let i = currentHour + offset; i < 24; i++) {
       const slot = Math.floor(i) + ':';
-      timeSlots.push(slot + '00');
-      timeSlots.push(slot + '30');
+      timeSlots.push(slot + '00', slot + '30');
     }
     return timeSlots;
   }
@@ -201,6 +205,7 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
 export function validateInviteUrl(control: AbstractControl) {
   if (control && control.value && !control.value.includes('hangouts.google.com')
     && !control.value.includes('join.skype.com')
+    && !control.value.includes('meet.jit.si')
     && !control.value.includes('zoom.us')) {
     return {validInviteUrl: false};
   }

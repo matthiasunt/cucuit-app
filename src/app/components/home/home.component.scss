@@ -1,5 +1,5 @@
 .hero-section {
-  margin: 5% 15% 5% 10%;
+  margin: 18% 15% 5% 10%;
 
   h1 {
     font-size: 55px;
@@ -10,6 +10,15 @@
     padding: 20px 0;
   }
 }
+
+
+.no-cucus-div {
+  p {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 
 @media (max-width: 991px) {
   .hero-section {

@@ -23,7 +23,9 @@
 </div>
 <hr>
 <div class="row">
-  <p *ngIf="(dbService.cucus | async).length < 1">No Cucus found.</p>
+  <div class="no-cucus-div">
+    <p *ngIf="(dbService.cucus | async).length < 1">No Cucus found :(</p>
+  </div>
   <div *ngFor="let c of dbService.cucus | async" class="col-md-4">
     <app-cucu-box [cucu]="c" [@simpleFadeAnimation]="'in'"></app-cucu-box>
   </div>

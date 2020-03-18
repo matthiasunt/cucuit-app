@@ -28,9 +28,9 @@ export class DbService {
   public fetchCucus(lang: string) {
     const date = new Date();
     date.setMinutes(date.getMinutes() - 15);
-    this.http.get(`${this.baseUrl}/cucus/${lang}/after/${date.toUTCString()}`)
+    this.http.get(`${this.baseUrl}/cucus/after/${date.toUTCString()}`)
       .subscribe((cucus: Cucu[]) => {
-        this.cucus$.next(cucus.slice(0, 15));
+        this.cucus$.next(cucus);
       });
   }
 
