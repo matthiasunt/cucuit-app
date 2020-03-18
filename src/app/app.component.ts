@@ -23,7 +23,10 @@ export class AppComponent {
     gtag.event('test');
     // this.translate.use(this.translate.getBrowserLang());
     this.translate.use('it');
+  }
 
+  toDonationSite() {
+    window.open('https://italianonprofit.it/donazioni-coronavirus/');
   }
 }
 

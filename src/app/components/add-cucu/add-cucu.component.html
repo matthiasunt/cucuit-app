@@ -8,14 +8,14 @@
           <nb-icon nbPrefix icon="link-outline" pack="eva"></nb-icon>
           <input [formControl]="inviteUrl" type="text" nbInput fullWidth [shape]="componentShape"
                  placeholder="Invite Link (Hangouts, Skype or Zoom)" [fieldSize]="componentSize"
-                 nbTooltip="This is a tooltip" nbTooltipStatus="primary" [status]="elementStatus(inviteUrl)">
+                 [status]="elementStatus(inviteUrl)">
         </nb-form-field>
       </div>
       <nb-card *ngIf="showCallProvidersInfoBox" class="call-providers-info-box">
         <nb-card-body>
           <b><a href="https://hangouts.google.com" target="_blank">Hangouts</a></b>: 10 participants<br>
           <b><a href="https://www.skype.com" target="_blank">Skype</a></b>: 50 participants<br>
-          <b><a href="https://meet.jit.si" target="_blank">Jitsi Meet</a></b>: 50 participants<br>
+          <b><a href="https://meet.jit.si" target="_blank">Jitsi Meet</a></b>: 25 participants<br>
           <b><a href="https://zoom.us/signup" target="_blank">Zoom</a></b>: 100 participants, max. 40 minutes<br>
         </nb-card-body>
       </nb-card>
@@ -34,7 +34,8 @@
         <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="form-group">
             <nb-select [formControl]="language" placeholder="Select Language" [size]="componentSize"
-                       [shape]="componentShape" fullWidth>
+                       [shape]="componentShape" fullWidth
+                       nbTooltip="What language will your CUCU be in?" nbTooltipStatus="basic">
               <nb-option *ngFor="let l of languages" [value]="l.short">{{l.name}}</nb-option>
             </nb-select>
           </div>
@@ -47,7 +48,8 @@
           <div class="form-group">
             <nb-form-field>
               <nb-select [formControl]="day" placeholder="Select Day" [selected]="'Today'"
-                         [shape]="componentShape" [size]="componentSize" fullWidth>
+                         [shape]="componentShape" [size]="componentSize" fullWidth
+                         nbTooltip="When is your CUCU taking place?" nbTooltipStatus="basic">
                 <nb-option [value]="'Today'">Today</nb-option>
                 <nb-option [value]="'Tomorrow'">Tomorrow</nb-option>
               </nb-select>
@@ -60,7 +62,8 @@
               <nb-icon nbPrefix icon="clock-outline" pack="eva"></nb-icon>
               <input [formControl]="time" fullWidth nbInput type="text" placeholder="Enter time"
                      [status]="elementStatus(time)" [shape]="componentShape"
-                     [nbAutocomplete]="timeAutocomplete" [fieldSize]="componentSize" #element/>
+                     [nbAutocomplete]="timeAutocomplete" [fieldSize]="componentSize" #element
+                     nbTooltip="At what time will your CUCU start?" nbTooltipStatus="basic"/>
               <nb-autocomplete #timeAutocomplete>
                 <nb-option *ngFor="let t of (filteredTimeOptions$ | async)" [value]="t">
                   {{ t }}
@@ -87,7 +90,8 @@
         <div class="col-lg-5 col-md-12 col-sm-12">
           <div class="form-group">
             <button (click)="avatarInput.click()" nbButton status="primary"
-                    [shape]="componentShape" [size]="componentSize" fullWidth>
+                    [shape]="componentShape" [size]="componentSize" fullWidth
+                    nbTooltip="This pricture will show up next to your CUCU. (Max. 1MB)" nbTooltipStatus="basic">
               Upload Picture
             </button>
             <input
