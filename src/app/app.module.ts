@@ -10,18 +10,20 @@ import {
   NbLayoutModule,
   NbDatepickerModule,
   NbButtonModule,
-  NbIconModule, NbToastrService, NbContextMenuModule, NbMenuModule, NbMenuService, NbToastrModule, NbFormFieldModule
+  NbIconModule, NbToastrService, NbContextMenuModule, NbMenuModule, NbMenuService, NbToastrModule, NbFormFieldModule, NbWindowModule
 } from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {FooterComponent} from './components/shared/footer/footer.component';
 import {GtagModule} from 'angular-gtag';
+import { VideoComponent } from './components/video/video.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
+    VideoComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import {GtagModule} from 'angular-gtag';
       }
     }),
     NbMenuModule.forRoot(),
+    NbWindowModule.forRoot(),
     NbThemeModule.forRoot({name: 'light-red'}),
     NbToastrModule.forRoot(),
     NbContextMenuModule,

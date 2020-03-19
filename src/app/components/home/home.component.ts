@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {DbService} from '../../services/db/db.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {NbWindowService} from '@nebular/theme';
+import {VideoComponent} from '../video/video.component';
 
 @Component({
   selector: 'app-home',
@@ -30,14 +32,19 @@ export class HomeComponent implements OnInit {
 
   doWeHaveMore = false;
 
-  constructor(private translate: TranslateService, public dbService: DbService) {
+  constructor(private translate: TranslateService,
+              private windowService: NbWindowService,
+              public dbService: DbService) {
   }
 
   ngOnInit() {
   }
 
   loadMore() {
+  }
 
+  openVideoWindow() {
+    this.windowService.open(VideoComponent, {title: ``});
   }
 
 }

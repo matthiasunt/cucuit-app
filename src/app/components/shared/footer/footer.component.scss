@@ -11,4 +11,9 @@ h6 {
 
 .single-footer-widget {
   padding: 1rem 2rem;
+
+  a {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }

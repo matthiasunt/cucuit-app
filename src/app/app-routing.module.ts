@@ -8,7 +8,7 @@ const routes: Routes = [
     loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
   },
   {
-    path: 'manifesto',
+    path: 'manifest',
     loadChildren: () => import('./components/how/how.module').then(m => m.HowModule)
   },
   {

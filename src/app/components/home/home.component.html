@@ -4,11 +4,10 @@
       <h1>{{ "home.HERO_HEADER" | translate }}</h1>
       <p>{{ "home.HERO_TEXT" | translate }}</p>
       <div class="vdo-section">
-        <a href="https://www.youtube.com/watch?v=p29dKpHnPjQ" target="_blank">
+        <a (click)="openVideoWindow()">
           <img src="./assets/images/video-icon.svg" alt="Play button">
         </a>
-        <a href="https://www.youtube.com/watch?v=p29dKpHnPjQ"
-           target="_blank">{{ "home.DISCOVER_CUCUIT" | translate }}</a>
+        <a (click)="openVideoWindow()">{{ "home.DISCOVER_CUCUIT" | translate }}</a>
       </div>
 
     </div>
@@ -19,7 +18,7 @@
 </div>
 <hr>
 <div class="row">
-  <div class="no-cucus-div">
+  <div class="no-cucus-div center-h">
     <p *ngIf="(dbService.cucus | async).length < 1">{{ "home.NO_CUCUS_FOUND" | translate }}</p>
   </div>
   <div *ngFor="let c of dbService.cucus | async" class="col-md-4">

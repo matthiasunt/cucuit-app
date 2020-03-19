@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {BehaviorSubject, combineLatest, concat, forkJoin, zip} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject} from 'rxjs';
 import {Cucu} from '../../models/cucu';
 import {map} from 'rxjs/operators';
 import {TranslateService} from '@ngx-translate/core';

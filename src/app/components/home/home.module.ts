@@ -6,7 +6,7 @@ import {HomeComponent} from './home.component';
 import {AddCucuModule} from '../add-cucu/add-cucu.module';
 import {CucuBoxModule} from '../cucu-box/cucu-box.module';
 import {TranslateModule} from '@ngx-translate/core';
-import {NbButtonModule, NbToastrService} from '@nebular/theme';
+import {NbButtonModule, NbToastrService, NbWindowModule} from '@nebular/theme';
 
 const routes: Routes = [
   {path: '', component: HomeComponent}
@@ -19,6 +19,7 @@ const routes: Routes = [
     FormsModule,
     TranslateModule,
     RouterModule.forChild(routes),
+    NbWindowModule.forChild(),
     AddCucuModule,
     CucuBoxModule,
     NbButtonModule,

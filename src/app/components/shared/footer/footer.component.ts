@@ -17,4 +17,8 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
   }
 
+  toDonationSite() {
+    window.open('https://italianonprofit.it/donazioni-coronavirus/');
+  }
+
 }
