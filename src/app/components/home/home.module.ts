@@ -23,7 +23,9 @@ const routes: Routes = [
     CucuBoxModule,
     NbButtonModule,
   ],
-  exports: [HomeComponent],
+  exports: [
+    HomeComponent
+  ],
 })
 export class HomeModule {
 }

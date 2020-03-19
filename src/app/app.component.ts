@@ -16,9 +16,8 @@ export class AppComponent {
   constructor(private router: Router,
               private gtag: Gtag,
               private translate: TranslateService,
-              // private windowService: NbWindowService
   ) {
-    this.translate.setDefaultLang('en');
+    this.translate.setDefaultLang('it');
 
     gtag.event('test');
     // this.translate.use(this.translate.getBrowserLang());
