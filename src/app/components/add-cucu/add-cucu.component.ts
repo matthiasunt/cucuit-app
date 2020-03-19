@@ -136,12 +136,29 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
   }
 
   public onAvatarFileChanged(event) {
+    this.avatarUploadLabel = '';
     const file: File = event.target.files[0];
     if (file && file.name) {
       this.avatarUploadLabel = file.name;
-      this.dbService.uploadAvatar(file).subscribe((res: any) => {
+      this.dbService.uploadAvatar(file).subscribe(async (res: any) => {
+        console.log(res);
         if (res.id) {
           this.avatarId = res.id;
+        }
+      }, async error => {
+        if (error.status === 413) {
+          console.log('Too large');
+          this.avatarUploadLabel = 'File troppo grande';
+          this.toastrService.show(
+            'Immagine troppo grande. Il massimo é 1MB.',
+            await this.translate.get('postCucu.CUCU_ERROR').toPromise(),
+            {status: 'warning'});
+        } else {
+          this.avatarUploadLabel = 'Errore';
+          this.toastrService.show(
+            'Errore durante l\'upload del tuo immagine.',
+            await this.translate.get('postCucu.CUCU_ERROR').toPromise(),
+            {status: 'warning'});
         }
       });
     }
