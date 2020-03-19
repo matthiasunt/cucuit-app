@@ -1,18 +1,14 @@
 <div class="row">
   <div class="col-lg-7 col-md-6">
     <div class="hero-section">
-      <h1>Sconfiggi la noia con CUCUit!</h1>
-      <p>
-        Conosci persone sempre nuove e condividi idee sull’argomento che preferisci.
-        Chiuditi in casa. Apri la mente. Esci dagli schemi.
-      </p>
+      <h1>{{ "home.HERO_HEADER" | translate }}</h1>
+      <p>{{ "home.HERO_TEXT" | translate }}</p>
       <div class="vdo-section">
         <a href="https://www.youtube.com/watch?v=p29dKpHnPjQ" target="_blank">
           <img src="./assets/images/video-icon.svg" alt="Play button">
         </a>
-        <span>
-							<a href="https://www.youtube.com/watch?v=p29dKpHnPjQ" target="_blank">Watch our intro video</a>
-        </span>
+        <a href="https://www.youtube.com/watch?v=p29dKpHnPjQ"
+           target="_blank">{{ "home.DISCOVER_CUCUIT" | translate }}</a>
       </div>
 
     </div>
@@ -24,7 +20,7 @@
 <hr>
 <div class="row">
   <div class="no-cucus-div">
-    <p *ngIf="(dbService.cucus | async).length < 1">No Cucus found :(</p>
+    <p *ngIf="(dbService.cucus | async).length < 1">{{ "home.NO_CUCUS_FOUND" | translate }}</p>
   </div>
   <div *ngFor="let c of dbService.cucus | async" class="col-md-4">
     <app-cucu-box [cucu]="c" [@simpleFadeAnimation]="'in'"></app-cucu-box>
@@ -35,7 +31,7 @@
   <div class="col-md-12 load-more-div">
     <button *ngIf="doWeHaveMore" (click)="loadMore()" nbButton status="primary"
             [shape]="'rectangle'" [size]="'medium'">
-      Load more
+      {{ "home.LOAD_MORE" | translate }}
     </button>
   </div>
 </div>

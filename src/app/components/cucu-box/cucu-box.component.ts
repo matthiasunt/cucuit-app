@@ -1,8 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Cucu} from '../../models/cucu';
 import {DbService} from '../../services/db/db.service';
 import {isToday} from '../../util/date.util';
 import {getEmojiForLang} from '../../util/languages.util';
+import {TranslateService} from '@ngx-translate/core';
+import {combineLatest} from 'rxjs';
 
 @Component({
   selector: 'app-cucu-box',
@@ -15,11 +17,13 @@ export class CucuBoxComponent implements OnInit {
   time: string;
   day: string;
   imageUrl: string;
+  comebackLaterText: string;
 
-  constructor(public dbService: DbService) {
+  constructor(public dbService: DbService,
+              public translate: TranslateService) {
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     if (this.cucu.avatarId && this.cucu.avatarId.length > 0) {
       this.imageUrl = `${this.dbService.getImageBaseUrl()}/${this.cucu.avatarId}`;
     }
@@ -29,7 +33,18 @@ export class CucuBoxComponent implements OnInit {
       {hour: '2-digit', minute: '2-digit'}
     );
 
-    this.day = isToday(date) ? 'Today' : 'Tomorrow';
+    combineLatest([
+      this.translate.get('postCucu.TODAY'),
+      this.translate.get('postCucu.TOMORROW')
+    ]).subscribe(([today, tomorrow]) => {
+      this.day = isToday(date) ? today : tomorrow;
+    });
+
+    combineLatest(
+      [this.translate.get('cucuBox.join.TOOLTIP_COME_BACK_LATER'),
+        this.translate.get('cucuBox.join.AT')]).subscribe(([text, at]) => {
+      this.comebackLaterText = `${text} ${this.day.toLowerCase()} ${at} ${this.time}`;
+    });
   }
 
   getLangEmoji(lang: string) {
@@ -43,6 +58,10 @@ export class CucuBoxComponent implements OnInit {
     endDate.setMinutes(endDate.getMinutes() + 15);
     return startDate.toISOString() < now.toISOString()
       && now.toISOString() < endDate.toISOString();
+  }
+
+  getTooltipText() {
+    return this.isEnabled() ? '' : this.comebackLaterText;
   }
 
   getStatus() {

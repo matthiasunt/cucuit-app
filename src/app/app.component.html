@@ -9,11 +9,11 @@
     <div class="nav-items-div">
       <button nbButton [ghost]="true" [routerLink]="'manifesto'" status="primary"
               gtagEvent trackOn="click" action="manifesto_clicked">
-        Manifesto
+        {{ "navbar.MANIFESTO" | translate }}
       </button>
       <button (click)="toDonationSite()" nbButton [ghost]="true" status="primary"
               gtagEvent trackOn="click" action="donate_clicked">
-        Donate
+        {{ "navbar.DONATE" | translate }}
       </button>
     </div>
   </nb-layout-header>

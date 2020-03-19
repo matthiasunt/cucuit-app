@@ -14,8 +14,12 @@
   </nb-card-body>
   <nb-card-footer>
     <button [disabled]="false" (click)="toCall()" nbButton [status]="getStatus()"
-            [shape]="'rectangle'">
+            [shape]="'rectangle'" [nbTooltip]="getTooltipText()" nbTooltipStatus="basic">
       Join
     </button>
+
+    <ng-template #joinLaterTooltip>
+      {{ "cucuBox.join.TOOLTIP_COME_BACK_LATER" | translate }} {{ day.toLowerCase() }} {{ "cucuBox.join.AT" | translate }} {{ time }}
+    </ng-template>
   </nb-card-footer>
 </nb-card>

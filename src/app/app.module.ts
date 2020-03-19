@@ -10,7 +10,7 @@ import {
   NbLayoutModule,
   NbDatepickerModule,
   NbButtonModule,
-  NbIconModule, NbToastrService, NbContextMenuModule, NbMenuModule, NbMenuService, NbToastrModule
+  NbIconModule, NbToastrService, NbContextMenuModule, NbMenuModule, NbMenuService, NbToastrModule, NbFormFieldModule
 } from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -49,6 +49,7 @@ import {GtagModule} from 'angular-gtag';
     NbButtonModule,
     NbIconModule,
     FontAwesomeModule,
+    NbFormFieldModule,
     // NbWindowModule,
   ],
   providers: [
@@ -60,5 +61,5 @@ export class AppModule {
 }
 
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }

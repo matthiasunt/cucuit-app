@@ -11,6 +11,7 @@ import {
   NbTooltipModule, NbUserModule
 } from '@nebular/theme';
 import {CucuBoxComponent} from './cucu-box.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 
 @NgModule({
@@ -21,6 +22,8 @@ import {CucuBoxComponent} from './cucu-box.component';
     NbCardModule,
     NbUserModule,
     NbButtonModule,
+    NbTooltipModule,
+    TranslateModule,
   ],
   exports: [CucuBoxComponent]
 })

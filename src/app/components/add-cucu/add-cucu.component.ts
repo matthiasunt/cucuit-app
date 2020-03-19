@@ -33,7 +33,7 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
   avatarId: string;
 
   constructor(private formBuilder: FormBuilder,
-              private translate: TranslateService,
+              public translate: TranslateService,
               private dbService: DbService,
               private toastrService: NbToastrService,
   ) {
@@ -42,8 +42,9 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     const now = new Date();
     const currentHour = now.getHours();
-    const dayPreset = currentHour > 18 ? 'Tomorrow' : 'Today';
-    const timePreset = currentHour > 18 ? '10:00' : `${currentHour + 2}:00`;
+    const dayPreset = currentHour > 18 ? 'tomorrow' : 'today';
+    const timePreset = currentHour > 18 || currentHour < 8 ?
+      '10:00' : `${currentHour + 2}:00`;
 
     this.timeSlots = this.getTimeSlots(dayPreset);
     this.form = this.formBuilder.group({
@@ -67,7 +68,7 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
 
     this.day.valueChanges.subscribe((change) => {
       this.timeSlots = this.getTimeSlots(change);
-      if (change === 'Tomorrow') {
+      if (change === 'tomorrow') {
         this.time.setValue('10:00');
       } else {
         this.time.setValue(`${currentHour + 2}:00`);
@@ -95,7 +96,7 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
       const data = this.form.getRawValue();
       let date = new Date();
 
-      if (data.day === 'Tomorrow') {
+      if (data.day === 'tomorrow') {
         date = addDays(1)(date);
         console.log(date);
       }
@@ -117,14 +118,14 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
         avatarId: this.avatarId,
         language: data.language
       };
-      this.dbService.createCucu(cucu).subscribe((res: any) => {
+      this.dbService.createCucu(cucu).subscribe(async (res: any) => {
         if (res.topic) {
           this.avatarUploadLabel = '';
           this.form.reset();
-          this.showToast('success');
+          await this.showToast('success');
         } else {
           console.error(res);
-          this.showToast('danger');
+          await this.showToast('danger');
         }
       });
     } else {
@@ -146,9 +147,14 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private showToast(status) {
-    const title = status === 'success' ? 'Success' : 'Error';
-    const message = status === 'success' ? 'Cucu posted!' : 'Error. Please try again later';
+  private async showToast(status) {
+    const title = status === 'success' ?
+      await this.translate.get('SUCCESS').toPromise() :
+      await this.translate.get('ERROR').toPromise();
+
+    const message = status === 'success' ?
+      await this.translate.get('postCucu.CUCU_POSTED').toPromise() :
+      await this.translate.get('postCucu.CUCU_ERROR').toPromise();
     this.toastrService.show(
       message,
       title,
@@ -189,7 +195,7 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
     const currentMinutes = new Date().getMinutes();
     let offset = currentMinutes > 30 ? 1 : 0;
 
-    if (day !== 'Today') {
+    if (day !== 'today') {
       currentHour = 0;
       offset = 0;
     }

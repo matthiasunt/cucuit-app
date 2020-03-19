@@ -12,6 +12,7 @@ import {
   NbInputModule, NbSelectModule, NbToastrModule, NbToastrService,
   NbTooltipModule
 } from '@nebular/theme';
+import {TranslateModule} from '@ngx-translate/core';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {
     NbSelectModule,
     NbAutocompleteModule,
     NbToastrModule,
+    TranslateModule,
   ],
   providers: [
     NbToastrService,

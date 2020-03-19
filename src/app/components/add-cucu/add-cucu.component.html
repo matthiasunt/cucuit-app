@@ -1,5 +1,4 @@
 <nb-card accent="primary">
-  <!--  <nb-card-header>Create your first CUCU</nb-card-header>-->
   <nb-card-body class="example-items-col">
     <form [formGroup]="form">
       <!-- Invite URL -->
@@ -7,16 +6,21 @@
         <nb-form-field>
           <nb-icon nbPrefix icon="link-outline" pack="eva"></nb-icon>
           <input [formControl]="inviteUrl" type="text" nbInput fullWidth [shape]="componentShape"
-                 placeholder="Invite Link (Hangouts, Skype or Zoom)" [fieldSize]="componentSize"
+                 [placeholder]="translate.get('postCucu.inviteUrl.PLACEHOLDER') | async" [fieldSize]="componentSize"
                  [status]="elementStatus(inviteUrl)">
         </nb-form-field>
       </div>
       <nb-card *ngIf="showCallProvidersInfoBox" class="call-providers-info-box">
         <nb-card-body>
-          <b><a href="https://hangouts.google.com" target="_blank">Hangouts</a></b>: 10 participants<br>
-          <b><a href="https://www.skype.com" target="_blank">Skype</a></b>: 50 participants<br>
-          <b><a href="https://meet.jit.si" target="_blank">Jitsi Meet</a></b>: 25 participants<br>
-          <b><a href="https://zoom.us/signup" target="_blank">Zoom</a></b>: 100 participants, max. 40 minutes<br>
+          <b><a href="https://hangouts.google.com" target="_blank">Hangouts</a></b>:
+          10 {{"postCucu.inviteUrl.PARTICIPANTS" | translate}}<br>
+          <b><a href="https://www.skype.com" target="_blank">Skype</a></b>:
+          50 {{"postCucu.inviteUrl.PARTICIPANTS" | translate}}<br>
+          <b><a href="https://meet.jit.si" target="_blank">Jitsi Meet</a></b>:
+          25 {{"postCucu.inviteUrl.PARTICIPANTS" | translate}}<br>
+          <b><a href="https://zoom.us/signup" target="_blank">Zoom</a></b>:
+          100 {{"postCucu.inviteUrl.PARTICIPANTS" | translate}}, max. 40 {{"postCucu.inviteUrl.MINUTES" | translate}}
+          <br>
         </nb-card-body>
       </nb-card>
       <!-- Topic -->
@@ -24,7 +28,7 @@
         <nb-form-field>
           <nb-icon nbPrefix icon="heart-outline" pack="eva"></nb-icon>
           <input [formControl]="topic" type="text" nbInput fullWidth [shape]="componentShape"
-                 placeholder="What's your Cucu about? Yoga, Reading, …"
+                 [placeholder]="translate.get('postCucu.topic.PLACEHOLDER') | async"
                  [fieldSize]="componentSize" [status]="elementStatus(topic)"
                  id="topic">
         </nb-form-field>
@@ -33,9 +37,10 @@
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="form-group">
-            <nb-select [formControl]="language" placeholder="Select Language" [size]="componentSize"
+            <nb-select [formControl]="language" [placeholder]="translate.get('postCucu.lingua.PLACEHOLDER') | async"
+                       [size]="componentSize"
                        [shape]="componentShape" fullWidth
-                       nbTooltip="What language will your CUCU be in?" nbTooltipStatus="basic">
+                       [nbTooltip]="translate.get('postCucu.language.TOOLTIP') | async" nbTooltipStatus="basic">
               <nb-option *ngFor="let l of languages" [value]="l.short">{{l.name}}</nb-option>
             </nb-select>
           </div>
@@ -47,11 +52,12 @@
         <div class="col-lg-7 col-md-12 col-sm-12">
           <div class="form-group">
             <nb-form-field>
-              <nb-select [formControl]="day" placeholder="Select Day" [selected]="'Today'"
+              <nb-select [formControl]="day" [placeholder]="translate.get('postCucu.day.PLACEHOLDER') | async"
+                         [selected]="'today'"
                          [shape]="componentShape" [size]="componentSize" fullWidth
-                         nbTooltip="When is your CUCU taking place?" nbTooltipStatus="basic">
-                <nb-option [value]="'Today'">Today</nb-option>
-                <nb-option [value]="'Tomorrow'">Tomorrow</nb-option>
+                         [nbTooltip]="translate.get('postCucu.day.TOOLTIP') | async" nbTooltipStatus="basic">
+                <nb-option [value]="'today'">{{ 'postCucu.TODAY' | translate }}</nb-option>
+                <nb-option [value]="'tomorrow'">{{ 'postCucu.TOMORROW' | translate }}</nb-option>
               </nb-select>
             </nb-form-field>
           </div>
@@ -60,10 +66,11 @@
           <div class="form-group">
             <nb-form-field>
               <nb-icon nbPrefix icon="clock-outline" pack="eva"></nb-icon>
-              <input [formControl]="time" fullWidth nbInput type="text" placeholder="Enter time"
+              <input [formControl]="time" fullWidth nbInput type="text"
+                     [placeholder]="translate.get('postCucu.time.PLACEHOLDER') | async"
                      [status]="elementStatus(time)" [shape]="componentShape"
                      [nbAutocomplete]="timeAutocomplete" [fieldSize]="componentSize" #element
-                     nbTooltip="At what time will your CUCU start?" nbTooltipStatus="basic"/>
+                     [nbTooltip]="translate.get('postCucu.time.TOOLTIP') | async" nbTooltipStatus="basic"/>
               <nb-autocomplete #timeAutocomplete>
                 <nb-option *ngFor="let t of (filteredTimeOptions$ | async)" [value]="t">
                   {{ t }}
@@ -82,7 +89,7 @@
               <nb-icon nbPrefix icon="person-outline" pack="eva"></nb-icon>
               <input [formControl]="userName" type="text" nbInput [shape]="componentShape"
                      [status]="elementStatus(userName)"
-                     placeholder="Your Name"
+                     [placeholder]="translate.get('postCucu.userName.PLACEHOLDER') | async"
                      [fieldSize]="componentSize" fullWidth>
             </nb-form-field>
           </div>
@@ -91,8 +98,8 @@
           <div class="form-group">
             <button (click)="avatarInput.click()" nbButton status="primary"
                     [shape]="componentShape" [size]="componentSize" fullWidth
-                    nbTooltip="This pricture will show up next to your CUCU. (Max. 1MB)" nbTooltipStatus="basic">
-              Upload Picture
+                    [nbTooltip]="translate.get('postCucu.uploadImage.TOOLTIP') | async" nbTooltipStatus="basic">
+              {{ "postCucu.uploadImage.LABEL" | translate }}
             </button>
             <input
               style="display: none" type="file" (change)="onAvatarFileChanged($event)"
@@ -107,7 +114,7 @@
       <div class="form-group">
         <button (click)="postCucu()" nbButton hero [type]="'submit'" status="primary" fullWidth
                 [shape]="'rectangle'" [size]="'large'">
-          Post
+          {{ "postCucu.post.LABEL" | translate }}
         </button>
       </div>
     </form>
