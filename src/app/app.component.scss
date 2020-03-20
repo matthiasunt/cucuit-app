@@ -10,5 +10,10 @@ nb-layout-header {
     display: flex;
     justify-content: flex-end;
   }
-
 }
+
+
+:host nb-layout-header ::ng-deep nav {
+  justify-content: flex-end;
+}
+

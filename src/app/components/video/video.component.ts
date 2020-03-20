@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {GoogleAnalyticsService} from 'ngx-google-analytics';
 
 @Component({
   selector: 'app-video',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    protected gaService: GoogleAnalyticsService,
+  ) {
+  }
 
   ngOnInit() {
+    this.gaService.pageView('', 'Video Window');
   }
 
 }

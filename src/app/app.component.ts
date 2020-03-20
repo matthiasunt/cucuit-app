@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {NavigationEnd, Router} from '@angular/router';
-import {Gtag} from 'angular-gtag';
+import {NbMenuItem} from '@nebular/theme';
 
 @Component({
   selector: 'app-root',
@@ -11,17 +11,27 @@ import {Gtag} from 'angular-gtag';
 
 
 export class AppComponent {
-
+  smallDevice = false;
+  menuItems: NbMenuItem[] = [
+    {title: 'Manifesto', link: 'manifest'},
+    {title: 'Dona', url: 'https://italianonprofit.it/donazioni-coronavirus/', target: '_blank'},
+  ];
 
   constructor(private router: Router,
-              private gtag: Gtag,
               private translate: TranslateService,
   ) {
     this.translate.setDefaultLang('it');
-
-    gtag.event('test');
     // this.translate.use(this.translate.getBrowserLang());
     this.translate.use('it');
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    if (window.innerWidth < 569) {
+      this.smallDevice = true;
+    } else {
+      this.smallDevice = false;
+    }
   }
 
   toDonationSite() {

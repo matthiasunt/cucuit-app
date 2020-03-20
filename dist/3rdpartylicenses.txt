@@ -202,9 +202,6 @@ MIT
 @ngx-translate/http-loader
 MIT
 
-angular-gtag
-MIT
-
 bootstrap
 MIT
 The MIT License (MIT)
@@ -261,6 +258,9 @@ intersection-observer
 W3C-20150513
 
 ngx-bootstrap/datepicker
+
+ngx-google-analytics
+MIT
 
 regenerator-runtime
 MIT

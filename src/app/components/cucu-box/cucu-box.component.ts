@@ -5,6 +5,7 @@ import {isToday} from '../../util/date.util';
 import {getEmojiForLang} from '../../util/languages.util';
 import {TranslateService} from '@ngx-translate/core';
 import {combineLatest} from 'rxjs';
+import {GoogleAnalyticsService} from 'ngx-google-analytics';
 
 @Component({
   selector: 'app-cucu-box',
@@ -20,7 +21,9 @@ export class CucuBoxComponent implements OnInit {
   comebackLaterText: string;
 
   constructor(public dbService: DbService,
-              public translate: TranslateService) {
+              public translate: TranslateService,
+              protected gaService: GoogleAnalyticsService,
+              ) {
   }
 
   async ngOnInit() {

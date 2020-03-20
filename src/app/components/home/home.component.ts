@@ -4,6 +4,7 @@ import {DbService} from '../../services/db/db.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {NbWindowService} from '@nebular/theme';
 import {VideoComponent} from '../video/video.component';
+import {GoogleAnalyticsService} from 'ngx-google-analytics';
 
 @Component({
   selector: 'app-home',
@@ -34,10 +35,13 @@ export class HomeComponent implements OnInit {
 
   constructor(private translate: TranslateService,
               private windowService: NbWindowService,
-              public dbService: DbService) {
+              public dbService: DbService,
+              protected gaService: GoogleAnalyticsService
+  ) {
   }
 
   ngOnInit() {
+    this.gaService.pageView('', 'Home');
   }
 
   loadMore() {
@@ -45,6 +49,10 @@ export class HomeComponent implements OnInit {
 
   openVideoWindow() {
     this.windowService.open(VideoComponent, {title: ``});
+  }
+
+  toDonationSite() {
+    window.open('https://italianonprofit.it/donazioni-coronavirus/');
   }
 
 }

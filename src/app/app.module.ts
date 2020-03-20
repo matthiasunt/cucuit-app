@@ -16,8 +16,9 @@ import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {FooterComponent} from './components/shared/footer/footer.component';
-import {GtagModule} from 'angular-gtag';
-import { VideoComponent } from './components/video/video.component';
+import {VideoComponent} from './components/video/video.component';
+import {NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule} from 'ngx-google-analytics';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -30,10 +31,6 @@ import { VideoComponent } from './components/video/video.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    GtagModule.forRoot({
-      trackingId: 'UA-160840865-1',
-      trackPageviews: true
-    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -41,6 +38,8 @@ import { VideoComponent } from './components/video/video.component';
         deps: [HttpClient]
       }
     }),
+    NgxGoogleAnalyticsModule.forRoot(environment.googleAnalytics),
+    NgxGoogleAnalyticsRouterModule,
     NbMenuModule.forRoot(),
     NbWindowModule.forRoot(),
     NbThemeModule.forRoot({name: 'light-red'}),
@@ -53,7 +52,6 @@ import { VideoComponent } from './components/video/video.component';
     NbIconModule,
     FontAwesomeModule,
     NbFormFieldModule,
-    // NbWindowModule,
   ],
   providers: [
     NbMenuService,

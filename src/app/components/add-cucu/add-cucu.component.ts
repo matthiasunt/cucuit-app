@@ -7,6 +7,7 @@ import {DbService} from '../../services/db/db.service';
 import {addDays} from '../../util/date.util';
 import {NbComponentShape, NbComponentSize, NbToastrService} from '@nebular/theme';
 import {getLangs} from '../../util/languages.util';
+import {GoogleAnalyticsService} from 'ngx-google-analytics';
 
 @Component({
   selector: 'app-add-cucu',
@@ -36,6 +37,7 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
               public translate: TranslateService,
               private dbService: DbService,
               private toastrService: NbToastrService,
+              protected gaService: GoogleAnalyticsService,
   ) {
   }
 

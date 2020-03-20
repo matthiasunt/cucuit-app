@@ -10,7 +10,8 @@
     "HERO_TEXT": "Conosci persone sempre nuove e condividi idee. Chiuditi in casa, apri la mente, esci dagli schemi.",
     "DISCOVER_CUCUIT": "Scopri CUCUit",
     "LOAD_MORE": "Carica altro",
-    "NO_CUCUS_FOUND": "Nessun CUCU' trovato :("
+    "NO_CUCUS_FOUND": "Nessun CUCU' trovato",
+    "DONATE_BOX_TEXT": "Partecipa nella raccolta fondi per aiutare i nostri ospedali in questo momento difficile! Ogni aiuto è prezioso, fai una donazione"
   },
   "postCucu": {
     "inviteUrl": {

@@ -31,10 +31,10 @@
     "@ngx-translate/core": "latest",
     "@ngx-translate/http-loader": "latest",
     "@types/googlemaps": "^3.39.3",
-    "angular-gtag": "^1.0.4",
     "bootstrap": "^4.0.0",
     "eva-icons": "^1.1.2",
     "ngx-bootstrap": "^5.5.0",
+    "ngx-google-analytics": "^8.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "^0.10.3"
