@@ -1,0 +1,102 @@
+{
+  "SUCCESS": "Successo",
+  "ERROR": "Errore",
+  "navbar": {
+    "MANIFEST": "Manifesto",
+    "DONATE": "Dona"
+  },
+  "home": {
+    "HERO_HEADER": "Crea e partecipa a videochiamate con CUCUit!",
+    "HERO_TEXT": "Condividi le tue idee e passioni con persone sempre nuove, grazie a un semplice click.",
+    "DISCOVER_CUCUIT": "Scopri CUCUit",
+    "LOAD_MORE": "Carica altro",
+    "NO_CUCUS_FOUND": "Nessun CUCÙ trovato",
+    "DONATE_BOX_TEXT": "Partecipa alla raccolta fondi per aiutare i nostri ospedali in questo momento difficile! Ogni aiuto è prezioso, fai una donazione."
+  },
+  "postCucu": {
+    "inviteUrl": {
+      "PLACEHOLDER": "Incolla qui il link della tua videocall",
+      "PARTICIPANTS": "partecipanti",
+      "MINUTES": "minuti"
+    },
+    "topic": {
+      "PLACEHOLDER": "Yoga, Vino in compagnia, Brainstorming, Una nuova ricetta, Barzellette, Esercizi e sfide...",
+      "TOOLTIP": ""
+    },
+    "language": {
+      "PLACEHOLDER": "Seleziona lingua",
+      "TOOLTIP": "In che lingua sarà il tuo CUCÙ?"
+    },
+    "day": {
+      "PLACEHOLDER": "Seleziona giorno",
+      "TOOLTIP": "Quando sarà il tuo CUCÙ"
+    },
+    "time": {
+      "PLACEHOLDER": "Seleziona orario",
+      "TOOLTIP": "A che ora inizierà il tuo CUCÙ"
+    },
+    "userName": {
+      "PLACEHOLDER": "Nome",
+      "TOOLTIP": ""
+    },
+    "uploadImage": {
+      "LABEL": "Carica immagine",
+      "TOOLTIP": "Scegli la foto per il tuo CUCÙ (Max. 1MB)"
+    },
+    "post": {
+      "LABEL": "Crea CUCÙ"
+    },
+    "TODAY": "Oggi",
+    "TOMORROW": "Domani",
+    "CUCU_POSTED": "CUCÙ' condiviso con successo!",
+    "CUCU_ERROR": "Non riusciamo a caricare il tuo CUCÙ'. Riprova.",
+    "errors": {
+      "FILE_TOO_LARGE": {
+        "TITLE": "File troppo grande",
+        "TEXT": "Immagine troppo grande. Il massimo é 1MB"
+      },
+      "UNKNOWN": {
+        "TITLE": "Errore",
+        "TEXT": "Errore durante l'upload del tuo immagine"
+      }
+    }
+  },
+  "cucuBox": {
+    "join": {
+      "LABEL": "Partecipa",
+      "TOOLTIP_JOIN": "Partecipa",
+      "TOOLTIP_COME_BACK_LATER": "Ci vediamo dopo! Questo CUCÙ inizia",
+      "AT": "alle"
+    }
+  },
+  "manifest": {
+    "TITLE": "Manifesto",
+    "INTRO": "CUCUit ti aiuta a sconfiggere la noia e la solitudine della quarantena. Abbiamo creato questa piattaforma con amore per starci vicini e aiutarci a vicenda. La community di CUCUit è vicina a tutte le persone che stanno affrontando a testa alta l'epidemia di Covid-19. Aiutiamo gli operatori sanitari e gli ammalati in questo momento particolarmente difficile. Ogni aiuto è prezioso, dona!<br><br>Con CUCUit lancia e unisciti a videochiamate sempre nuove e stimolanti, su tutti gli argomenti che vuoi!<br>Viaggia con la fantasia fuori dalle mura di casa: immergiti tra le spezie e i sapori di nuove ricette, muovi il tuo corpo su ritmi africani, confrontandoti apertamente con persone lontane, partecipa attivamente a scontri di neuroni e sessioni di brainstorming.",
+    "paragraph1": {
+      "TITLE": "CREA UN CUCÙ!",
+      "TEXT": "Sei pronto? Hai un'idea? Crea il tuo cucù!<br>Incolla nell’apposita barra il link della tua videoconferenza. Spiega come vorresti occupare il tempo a tua disposizione, inserisci il tuo nome, il giorno, l’orario e la lingua che parlerete. <br>Clicca su “Crea CUCÙ” per far sì che il tuo link sia visibile e cliccabile da tutti gli interessati.<br>Sii puntuale all’appuntamento e conduci una videochiamata coi fiocchi!<br>"
+    },
+    "paragraph2": {
+      "TITLE": "PARTECIPA A UN CUCÙ!",
+      "TEXT": "Sfoglia la libreria dei CUCÙ disponibili e trova l’argomento che più ti interessa.<br>Clicca \"partecipa\", sii puntuale e buttati! <br>"
+    },
+    "paragraph3": {
+      "TITLE": "PIATTAFORME CONSIGLIATE E COME USARLE",
+      "TEXT": "<p><strong>1. Google Hangouts - videochiamate fino a 10 persone, senza limiti di tempo</strong></p>\n<p>Per usare Google Hangouts, sia che si lanci, sia che si partecipi a un CUCÙ&rsquo;, &egrave; necessario avere un account Google (&egrave; gratis!).<br />Da computer: vai su hangouts.google.com <br /> Da mobile: scarica l&rsquo;App Hangouts disponibile per Android o iOS.<br />Clicca su &ldquo;videochiamata&rdquo; &gt; si aprir&agrave; un pop-up dal titolo &ldquo;invita persone&rdquo; &gt; clicca &ldquo;copia link per condividere&rdquo;. Hai copiato il link, incollalo nell&rsquo;apposita barra sulla pagina principale di CUCUit.com e pubblicalo, creando il tuo CUCÙ. <br /> Se partecipi alla videochiamata lanciata da un altro CUCUer, assicurati di avere fatto accesso al tuo account Google sul computer o di avere l&rsquo;App installata sul tuo smartphone. Baster&agrave; cliccare sul link affinch&eacute; si apra una nuova finestra con la videochiamata in corso.</p>\n<p><br /> <strong>2. Zoom - videochiamate fino a 100 persone, limite di tempo: 40 minuti</strong></p>\n<p>Per usare Zoom lanciando il proprio meeting &egrave; necessario avere un account Zoom (&egrave; gratis!). <br /> Per partecipare ad un meeting lanciato da un altro utente non &egrave; necessario alcun account Zoom. <br /> Da computer: vai su zoom.us &gt; esegui l&rsquo;accesso cliccando su &ldquo;Sign In&rdquo; e inserisci la tua email e password &gt; dal menu a sinistra clicca su &ldquo;meetings&rdquo; &gt; &ldquo;schedule a new meeting&rdquo; &gt; verr&agrave; creato un link &ldquo;Join URL&rdquo; &gt; copialo e incollalo nell&rsquo;apposita barra sulla pagina principale di CUCUit.com e pubblicalo, creando il tuo CUCÙ. <br /> Da mobile: scarica l&rsquo;App Zoom disponibile per Android o iOS &gt; esegui l&rsquo;accesso inserendo la tua email e password &gt; clicca sull&rsquo;icona &ldquo;schedule&rdquo; e imposta i dettagli della videochiamata. Fai attenzione alla &ldquo;Time Zone&rdquo; e imposta Rome (GMT +01:00). Ti consigliamo di non usare il tuo Personal Meeting ID e di non richiedere la Meeting Password. &gt; Seleziona le impostazioni che preferisci e clicca su &ldquo;Done&rdquo; &gt; copia e incolla il &ldquo;Meeting ID&rdquo; nell&rsquo;apposita barra sulla pagina principale di CUCUit.com e pubblicalo. <br /> Se partecipi alla videochiamata lanciata da un altro CUCUer, su computer accedi alla pagina zoom.us e clicca nel menu su &ldquo;JOIN A MEETING&rdquo; &gt; inserisci il &ldquo;MEETING ID&rdquo; o il link. Sul tuo smartphone e con la App installata, clicca sull&rsquo;icona &ldquo;Join&rdquo; e inserisci il &ldquo;MEETING ID&rdquo; o il link. </p>\n<p>&nbsp;</p>\n<p><strong>3. Skype - videochiamate fino a 50 persone, senza limiti di tempo</strong></p>\n<p>Per usare Skype, sia che si lanci, sia che si partecipi a un CUCÙ, &egrave; necessario avere un account (&egrave; gratis!). <br /> Da computer: scarica l&rsquo;App Skype per desktop <br /> Da mobile: scarica l&rsquo;App Skype disponibile per Android o iOS. Clicca su &ldquo;nuova chat&rdquo; &gt; &ldquo;nuova chat di gruppo&rdquo; &gt; crea il nome del gruppo poi clicca su &ldquo;fatto&rdquo; senza aggiungere nessuno dei tuoi contatti alla chiamata. Una volta entrato nella nuova conversazione, clicca sull&rsquo;icona nell&rsquo;angolo in alto a destra per aggiungere partecipanti, e clicca &ldquo;condividi link per unirti al gruppo&rdquo;. Hai copiato il link, incollalo nell&rsquo;apposita barra sulla pagina principale di CUCUit.com e pubblicalo, creando il tuo CUCÙ. <br /> Se partecipi alla videochiamata lanciata da un altro CUCUer, assicurati di avere installata su desktop o mobile la tua App Skype e di avere fatto accesso. Baster&agrave; cliccare sul link affinch&eacute; si apra una nuova finestra con la videochiamata in corso. </p>\n<p>&nbsp;</p>\n<p><strong>4. Jitsi Meet - videochiamate fino a 25 persone, senza limiti di tempo</strong></p>\n<p>Per usare Jitsi non &egrave; necessario avere un account. <br /> Da computer: vai su jitsi.org &gt; dalla schermata di home clicca sul pulsante arancione &ldquo;start a call&rdquo; &gt; apparir&agrave; una barra in cui inserire il nome della stanza, cio&egrave; della videochiamata. Inventa un nome originale, che ipoteticamente nessuno abbia mai usato, poi clicca &ldquo;GO&rdquo; &gt; sei ora dentro la videochiamata. Apparir&agrave; un pop-up in basso a destra con le informazioni per condividere la videochiamata. Se le informazioni non ti fossero visibili, le trovi cliccando il pulsante in basso a destra con la &ldquo;i&rdquo;&gt; copia e incolla il Link nell&rsquo;apposita barra sulla pagina principale di CUCUit.com e pubblicalo, creando il tuo CUCÙ. Puoi condividere anche il nome della stanza/call che hai creato: chiunque abbia questo nome pu&ograve; accedere. <br /> Da mobile: scarica l&rsquo;App Jitsi Meet disponibile per Android o iOS &gt; inserisci il nome della stanza/call e clicca &ldquo;unisciti&rdquo; &gt; sei ora dentro la videochiamata. Cliccando l&rsquo;icona con i tre puntini (opzioni) in basso a destra, e cliccando poi &ldquo;more options&rdquo; trovi la voce &ldquo;meeting info&rdquo; dentro la quale comparir&agrave; il link della tua videochiamata &gt; copia e incolla il Link nell&rsquo;apposita barra sulla pagina principale di CUCUit.com e pubblicalo. Puoi condividere anche il nome della stanza/call che hai creato: chiunque abbia questo nome pu&ograve; accedere. <br /> Se partecipi alla videochiamata lanciata da un altro CUCUer, puoi cliccare direttamente il link inserito oppure, in caso fosse stato condiviso il nome del meeting, puoi andare sul sito/App, cliccare su &ldquo;start a call&rdquo; e inserire il nome della stanza.\"</p>"
+    }
+  },
+  "footer": {
+    "aboutUs": {
+      "LABEL": "Perchè CUCUit",
+      "TEXT": "CUCUit ti aiuta a sconfiggere la noia e la solitudine della quarantena. Abbiamo creato questa piattaforma con amore per starci vicini e aiutarci a vicenda."
+    },
+    "donate": {
+      "LABEL": "Doniamo insieme",
+      "TEXT": "La community di CUCUit è vicina a tutte le persone che stanno affrontando a testa alta l'epidemia di Covid-19. Aiutiamo gli operatori sanitari e gli ammalati in questo momento particolarmente difficile. Ogni aiuto è prezioso, dona!"
+    },
+    "followUs": {
+      "LABEL": "Seguici",
+      "TEXT": "Ci trovi su"
+    }
+  }
+}
