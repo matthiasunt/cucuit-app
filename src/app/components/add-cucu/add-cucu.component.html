@@ -101,11 +101,11 @@
                     [nbTooltip]="translate.get('postCucu.uploadImage.TOOLTIP') | async" nbTooltipStatus="basic">
               {{ "postCucu.uploadImage.LABEL" | translate }}
             </button>
+            <p class="avatar-upload-p">{{avatarUploadLabel}}</p>
             <input
               style="display: none" type="file" (change)="onAvatarFileChanged($event)"
               [accept]="'image/x-png, image/jpeg'"
               #avatarInput>
-            <p>{{avatarUploadLabel}}</p>
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@ export class CucuBoxComponent implements OnInit {
   constructor(public dbService: DbService,
               public translate: TranslateService,
               protected gaService: GoogleAnalyticsService,
-              ) {
+  ) {
   }
 
   async ngOnInit() {
@@ -56,6 +56,8 @@ export class CucuBoxComponent implements OnInit {
 
   isEnabled() {
     const now = new Date();
+    // Enable CUCU's 5 mins before they start
+    now.setMinutes(now.getMinutes() - 5);
     const startDate = new Date(this.cucu.startDate);
     const endDate = new Date(this.cucu.startDate);
     endDate.setMinutes(endDate.getMinutes() + 15);
@@ -64,7 +66,7 @@ export class CucuBoxComponent implements OnInit {
   }
 
   getTooltipText() {
-    return this.isEnabled() ? '' : this.comebackLaterText;
+    return this.isEnabled() ? 'Entra' : this.comebackLaterText;
   }
 
   getStatus() {

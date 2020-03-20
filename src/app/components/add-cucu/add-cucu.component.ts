@@ -129,7 +129,10 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
           console.error(res);
           await this.showToast('danger');
         }
+        this.element.nativeElement.blur();
+        this.time.markAsUntouched();
       });
+
     } else {
       console.error('Form invalid');
       console.error(this.form);
@@ -149,7 +152,6 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
         }
       }, async error => {
         if (error.status === 413) {
-          console.log('Too large');
           this.avatarUploadLabel = 'File troppo grande';
           this.toastrService.show(
             'Immagine troppo grande. Il massimo é 1MB.',

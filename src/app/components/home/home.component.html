@@ -16,20 +16,20 @@
     <app-add-cucu></app-add-cucu>
   </div>
 </div>
-<hr>
-<nb-card class="donate-card" accent="info">
+<div class="ws-s"></div>
+<nb-card class="donate-card" accent="success">
   <nb-card-body>
     <div class="row">
       <div class="col-md-12 center-h">
         <p>{{ "home.DONATE_BOX_TEXT" | translate }}</p>
-        <button (click)="toDonationSite()" nbButton status="info">
+        <button (click)="toDonationSite()" nbButton status="success">
           {{ "navbar.DONATE" | translate }}
         </button>
       </div>
     </div>
   </nb-card-body>
 </nb-card>
-<hr>
+<div class="ws-s"></div>
 <div class="row">
   <div class="no-cucus-div center-h">
     <p *ngIf="(dbService.cucus | async).length < 1">{{ "home.NO_CUCUS_FOUND" | translate }}</p>
