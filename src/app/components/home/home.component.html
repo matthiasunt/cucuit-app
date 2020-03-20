@@ -35,7 +35,7 @@
     <p *ngIf="(dbService.cucus | async).length < 1">{{ "home.NO_CUCUS_FOUND" | translate }}</p>
   </div>
   <div *ngFor="let c of dbService.cucus | async" class="col-md-4">
-    <app-cucu-box [cucu]="c" [@simpleFadeAnimation]="'in'"></app-cucu-box>
+    <app-cucu-box [cucu]="c"></app-cucu-box>
   </div>
 </div>
 <div class="ws-s"></div>

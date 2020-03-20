@@ -6,16 +6,26 @@ import {getEmojiForLang} from '../../util/languages.util';
 import {TranslateService} from '@ngx-translate/core';
 import {combineLatest} from 'rxjs';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-cucu-box',
   templateUrl: './cucu-box.component.html',
-  styleUrls: ['./cucu-box.component.scss']
+  styleUrls: ['./cucu-box.component.scss'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void <=> *', animate(1000)),
+    ]),
+  ]
 })
 export class CucuBoxComponent implements OnInit {
 
   @Input() cucu: Cucu;
   time: string;
+  at: string;
   day: string;
   imageUrl: string;
   comebackLaterText: string;
@@ -38,9 +48,11 @@ export class CucuBoxComponent implements OnInit {
 
     combineLatest([
       this.translate.get('postCucu.TODAY'),
-      this.translate.get('postCucu.TOMORROW')
-    ]).subscribe(([today, tomorrow]) => {
+      this.translate.get('postCucu.TOMORROW'),
+      this.translate.get('cucuBox.join.AT'),
+    ]).subscribe(([today, tomorrow, at]) => {
       this.day = isToday(date) ? today : tomorrow;
+      this.at = at;
     });
 
     combineLatest(

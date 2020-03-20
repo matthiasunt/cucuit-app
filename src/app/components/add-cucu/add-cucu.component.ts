@@ -100,7 +100,6 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
 
       if (data.day === 'tomorrow') {
         date = addDays(1)(date);
-        console.log(date);
       }
 
       const hours = data.time.split(':')[0];
@@ -206,10 +205,6 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
     return this.form.get('time') as FormControl;
   }
 
-  handleDateChange(event) {
-    console.log(event);
-  }
-
   private getTimeSlots(day: string) {
     const timeSlots = [];
     let currentHour = new Date().getHours();
@@ -231,7 +226,7 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
   }
 
   public elementStatus(control: FormControl) {
-    return control.valid || !control.dirty ? '' : 'danger';
+    return control.valid || !control.dirty ? 'basic' : 'danger';
   }
 }
 

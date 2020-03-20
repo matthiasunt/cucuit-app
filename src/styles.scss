@@ -15,11 +15,12 @@
 
 h1, h2 {
   color: black !important;
+  font-family: 'Roboto', sans-serif;
 }
 
 p {
   color: #777777 !important;
-  font-family: "Roboto", sans-serif !important;
+  font-family: "Roboto", sans-serif;
   font-size: 16px !important;
   font-weight: 500 !important;
   line-height: 1.625em !important;
@@ -28,9 +29,11 @@ p {
 a {
   cursor: pointer;
 }
+
 .center-h {
   text-align: center;
 }
+
 .ws-s {
   margin: 2rem;
 }

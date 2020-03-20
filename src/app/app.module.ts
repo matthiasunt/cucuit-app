@@ -10,7 +10,7 @@ import {
   NbLayoutModule,
   NbDatepickerModule,
   NbButtonModule,
-  NbIconModule, NbToastrService, NbContextMenuModule, NbMenuModule, NbMenuService, NbToastrModule, NbFormFieldModule, NbWindowModule
+  NbIconModule, NbContextMenuModule, NbMenuModule, NbMenuService, NbToastrModule, NbFormFieldModule, NbWindowModule
 } from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -53,9 +53,7 @@ import {environment} from '../environments/environment';
     FontAwesomeModule,
     NbFormFieldModule,
   ],
-  providers: [
-    NbMenuService,
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
