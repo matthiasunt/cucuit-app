@@ -1,28 +1,20 @@
 @import 'themes';
-
+//@import url('https://fonts.googleapis.com/css?family=Roboto:500&display=swap');
 @import '~@nebular/theme/styles/globals';
-@import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
 
 @include nb-install() {
   @include nb-theme-global();
 }
 
-
-//h1, h2 {
-//  font-family:
-//}
-//
-
 h1, h2 {
   color: black !important;
-  font-family: 'Roboto', sans-serif;
 }
+
 
 p {
   color: #777777 !important;
-  font-family: "Roboto", sans-serif;
   font-size: 16px !important;
-  font-weight: 500 !important;
+  // font-weight: 500 !important;
   line-height: 1.625em !important;
 }
 

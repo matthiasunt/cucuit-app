@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import '~@nebular/theme/styles/theming';
 @import '~@nebular/theme/styles/themes/default';
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 $nb-themes: nb-register-theme((
   // add your variables here like:
@@ -90,9 +90,8 @@ $nb-themes: nb-register-theme((
   //color-basic-900: white,
   //color-basic-1000: white,
   //color-basic-1100: white,
-  //font-family-primary: 'Roboto, sans-serif',
-  //font-family-secondary: 'Roboto, sans-serif',
-  //font-family-secondary:'Playfair Display, serif',
+  font-family-primary: 'Roboto',
+  font-family-secondary: 'Roboto',
   background-basic-color-1: white,
   background-basic-color-2: white,
   background-basic-color-3: white,

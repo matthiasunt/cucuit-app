@@ -10,7 +10,7 @@ import {
   NbLayoutModule,
   NbDatepickerModule,
   NbButtonModule,
-  NbIconModule, NbContextMenuModule, NbMenuModule, NbMenuService, NbToastrModule, NbFormFieldModule, NbWindowModule
+  NbIconModule, NbContextMenuModule, NbMenuModule, NbToastrModule, NbFormFieldModule, NbWindowModule
 } from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
