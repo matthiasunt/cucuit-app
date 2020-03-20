@@ -222,7 +222,10 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
     }
     for (let i = currentHour + offset; i < 24; i++) {
       const slot = Math.floor(i) + ':';
-      timeSlots.push(slot + '00', slot + '30');
+      if (i !== currentHour + offset || i === 0) {
+        timeSlots.push(slot + '00');
+      }
+      timeSlots.push(slot + '30');
     }
     return timeSlots;
   }

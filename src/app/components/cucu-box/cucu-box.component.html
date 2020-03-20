@@ -15,7 +15,7 @@
   <nb-card-footer>
     <button [disabled]="false" (click)="toCall()" nbButton [status]="getStatus()"
             [shape]="'rectangle'" [nbTooltip]="getTooltipText()" nbTooltipStatus="basic">
-      Join
+      {{ "cucuBox.join.LABEL" | translate }}
     </button>
 
     <ng-template #joinLaterTooltip>
