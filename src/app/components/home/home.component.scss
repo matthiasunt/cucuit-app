@@ -31,10 +31,19 @@
   }
 }
 
+@media (max-width: 768px) {
+  .hero-section {
+    h1 {
+      font-size: 35px;
+    }
+  }
+}
+
 .vdo-section {
   img {
     cursor: pointer;
     width: 80px;
+    margin-left: -15px;
   }
 
   span {

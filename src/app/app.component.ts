@@ -20,6 +20,7 @@ export class AppComponent {
   constructor(private router: Router,
               private translate: TranslateService,
   ) {
+    this.smallDevice = window.innerWidth < 569;
     this.translate.setDefaultLang('it');
     // this.translate.use(this.translate.getBrowserLang());
     this.translate.use('it');
@@ -27,11 +28,7 @@ export class AppComponent {
 
   @HostListener('window:resize')
   onResize() {
-    if (window.innerWidth < 569) {
-      this.smallDevice = true;
-    } else {
-      this.smallDevice = false;
-    }
+    this.smallDevice = window.innerWidth < 569;
   }
 
   toDonationSite() {
