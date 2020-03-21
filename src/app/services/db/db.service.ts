@@ -32,8 +32,8 @@ export class DbService {
 
   public fetchCucus(lang: string) {
     const now = new Date();
-    // Offset of 25 minutes
-    now.setMinutes(now.getMinutes() - 25);
+    // Offset of 90 minutes
+    now.setMinutes(now.getMinutes() - 90);
 
     const fromDate = new Date();
     fromDate.setMinutes(fromDate.getMinutes() - 60 * 24); // 24h in the past
