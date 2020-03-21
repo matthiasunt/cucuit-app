@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {faInstagram} from '@fortawesome/free-brands-svg-icons/faInstagram';
+import {DonationsService} from '../../../services/donations/donations.service';
 
 
 @Component({
@@ -11,14 +12,10 @@ export class FooterComponent implements OnInit {
   faInstagram = faInstagram;
   year = new Date().getFullYear();
 
-  constructor() {
+  constructor(public donationsService: DonationsService) {
   }
 
   ngOnInit() {
-  }
-
-  toDonationSite() {
-    window.open('https://italianonprofit.it/donazioni-coronavirus/');
   }
 
 }

@@ -8,16 +8,16 @@
     </div>
     <div class="nav-items-div">
       <ng-container *ngIf="!smallDevice">
-        <button nbButton [ghost]="true" [routerLink]="'manifest'" status="primary"
-                gtagEvent trackOn="click" action="manifesto_clicked">
+        <button nbButton ghost [routerLink]="'manifest'" status="primary">
           {{ "navbar.MANIFEST" | translate }}
         </button>
-        <button (click)="toDonationSite()" nbButton [ghost]="true" status="primary">
+        <button (click)="donationsService.toDonationSite()" nbButton [ghost]="true" status="primary">
           {{ "navbar.DONATE" | translate }}
         </button>
       </ng-container>
-      <ng-container *ngIf="smallDevice">
-        <button nbButton ghost [nbContextMenu]="menuItems" status="primary" size="large">
+      <ng-container *ngIf="smallDevice && menuItems?.length > 0">
+        <button nbButton ghost [nbContextMenu]="menuItems" status="primary" size="large"
+                nbContextMenuTag="mobile-context-menu">
           <nb-icon icon="menu-outline" pack="eva"></nb-icon>
         </button>
       </ng-container>

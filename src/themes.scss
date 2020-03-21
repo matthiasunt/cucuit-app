@@ -3,8 +3,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400&display=swap');
 
 $nb-themes: nb-register-theme((
-  // add your variables here like:
-
   font-family-primary: unquote('Roboto, sans-serif'),
   font-family-secondary: font-family-primary,
   color-primary-100: #FEEDDD,
@@ -82,25 +80,9 @@ $nb-themes: nb-register-theme((
   color-danger-transparent-400: rgba(255, 153, 124, 0.32),
   color-danger-transparent-500: rgba(255, 153, 124, 0.4),
   color-danger-transparent-600: rgba(255, 153, 124, 0.48),
-  //color-basic-100: white,
-  //color-basic-200: white,
-  //color-basic-300: white,
-  //color-basic-400: white,
-  //color-basic-500: white,
-  //color-basic-600:white,
-  //color-basic-700: white,
-  //color-basic-800: white,
-  //color-basic-900: white,
-  //color-basic-1000: white,
-  //color-basic-1100: white,
   background-basic-color-1: white,
   background-basic-color-2: white,
   background-basic-color-3: white,
   background-basic-color-4: white,
   footer-background-color: #04091e,
-  //border-basic-color-1:color-basic-700,
-  //border-basic-color-2:color-basic-800,
-  //border-basic-color-3:color-basic-900,
-  //border-basic-color-4:color-basic-1000,
-  //border-basic-color-5:color-basic-1100,
 ), 'light-red', default);

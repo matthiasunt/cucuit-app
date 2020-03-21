@@ -4,10 +4,11 @@ import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {DbService} from '../../services/db/db.service';
-import {addDays} from '../../util/date.util';
+import {addDays, getTimeSlots} from '../../util/date.util';
 import {NbComponentShape, NbComponentSize, NbToastrService} from '@nebular/theme';
 import {getLangs} from '../../util/languages.util';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
+import {validateInviteUrl} from '../../util/validators.util';
 
 @Component({
   selector: 'app-add-cucu',
@@ -17,20 +18,15 @@ import {GoogleAnalyticsService} from 'ngx-google-analytics';
 export class AddCucuComponent implements OnInit, AfterViewInit {
 
   @ViewChild('element') element: ElementRef;
+  public form: FormGroup;
 
   componentSize: NbComponentSize = 'medium';
   componentShape: NbComponentShape = 'rectangle';
   showCallProvidersInfoBox = true;
-
-  public form: FormGroup;
   filteredTimeOptions$: Observable<string[]>;
-
   languages = getLangs();
-
   timeSlots = [];
-
   avatarUploadLabel = '';
-
   avatarId: string;
 
   constructor(private formBuilder: FormBuilder,
@@ -42,13 +38,106 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.initForm();
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.element.nativeElement.blur();
+      this.time.markAsUntouched();
+    }, 1);
+  }
+
+  public postCucu() {
+    if (this.form.valid) {
+      const data = this.form.getRawValue();
+      let date = new Date();
+
+      if (data.day === 'tomorrow') {
+        date = addDays(1)(date);
+      }
+
+      const hours = data.time.split(':')[0];
+      const minutes = data.time.split(':')[1];
+      date.setHours(hours);
+      date.setMinutes(minutes);
+      date.setSeconds(0);
+      if (!this.avatarId) {
+        this.avatarId = '';
+      }
+      const cucu = {
+        inviteUrl: data.inviteUrl,
+        topic: data.topic,
+        startDate: date,
+        userName: data.userName,
+        avatarId: this.avatarId,
+        language: data.language
+      };
+      this.dbService.createCucu(cucu).subscribe(async (res: any) => {
+        if (res.topic) {
+          this.avatarUploadLabel = '';
+          this.form.reset();
+          await this.showToast('success');
+          this.gaService.event('post_success', 'post_cucu');
+        } else {
+          console.error(res);
+        }
+        this.element.nativeElement.blur();
+        this.time.markAsUntouched();
+      }, async err => {
+        console.error(err);
+        await this.showToast('danger');
+        this.gaService.event('post_failed', 'post_cucu');
+      });
+    } else {
+      console.error('Form invalid');
+      console.error(this.form);
+      console.log(this.form.getRawValue());
+    }
+  }
+
+  public onAvatarFileChanged(event) {
+    this.avatarUploadLabel = '';
+    const file: File = event.target.files[0];
+    if (file && file.name) {
+      this.avatarUploadLabel = file.name;
+
+      // Upload Avatar
+      this.dbService.uploadAvatar(file).subscribe(async (res: any) => {
+        // Successful
+        if (res.id) {
+          this.avatarId = res.id;
+          this.gaService.event('image_upload_success', 'post_cucu');
+        }
+        // Error
+      }, async err => {
+        if (err.status === 413) {
+          this.avatarUploadLabel = 'File troppo grande';
+          this.toastrService.show(
+            'Immagine troppo grande. Il massimo é 1MB.',
+            await this.translate.get('postCucu.CUCU_ERROR').toPromise(),
+            {status: 'warning'});
+          this.gaService.event('image_too_large_', 'post_cucu');
+        } else {
+          this.avatarUploadLabel = 'Errore';
+          this.toastrService.show(
+            'Errore durante l\'upload del tuo immagine.',
+            await this.translate.get('postCucu.CUCU_ERROR').toPromise(),
+            {status: 'warning'});
+          this.gaService.event('image_upload_failed', 'post_cucu');
+        }
+      });
+    }
+  }
+
+  private initForm() {
     const now = new Date();
     const currentHour = now.getHours();
     const dayPreset = currentHour > 18 ? 'tomorrow' : 'today';
     const timePreset = currentHour > 18 || currentHour < 8 ?
       '10:00' : `${currentHour + 2}:00`;
 
-    this.timeSlots = this.getTimeSlots(dayPreset);
+    this.timeSlots = getTimeSlots(dayPreset);
     this.form = this.formBuilder.group({
       // inviteUrl: ['https://hangouts.google.com/call/A6PK6lK45zkCf357wj-vAEEI', [Validators.required, validateInviteUrl]],
       // topic: ['Lettura di libri in compagnia con un bel bicchiere di vino.', Validators.required],
@@ -69,102 +158,13 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
       .pipe(startWith(''), map(filterString => this.filterTimeslots(filterString)));
 
     this.day.valueChanges.subscribe((change) => {
-      this.timeSlots = this.getTimeSlots(change);
+      this.timeSlots = getTimeSlots(change);
       if (change === 'tomorrow') {
         this.time.setValue('10:00');
       } else {
         this.time.setValue(`${currentHour + 2}:00`);
       }
     });
-  }
-
-  private filterTimeslots(value: string): string[] {
-    if (value) {
-      const filterValue = value.toLowerCase();
-      return this.timeSlots.filter(optionValue => optionValue.toLowerCase().includes(filterValue));
-    }
-  }
-
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.element.nativeElement.blur();
-      this.time.markAsUntouched();
-    }, 1);
-  }
-
-  public postCucu() {
-    if (this.form.valid) {
-
-      const data = this.form.getRawValue();
-      let date = new Date();
-
-      if (data.day === 'tomorrow') {
-        date = addDays(1)(date);
-      }
-
-      const hours = data.time.split(':')[0];
-      const minutes = data.time.split(':')[1];
-      date.setHours(hours);
-      date.setMinutes(minutes);
-      date.setSeconds(0);
-      console.log(date);
-      if (!this.avatarId) {
-        this.avatarId = '';
-      }
-      const cucu = {
-        inviteUrl: data.inviteUrl,
-        topic: data.topic,
-        startDate: date,
-        userName: data.userName,
-        avatarId: this.avatarId,
-        language: data.language
-      };
-      this.dbService.createCucu(cucu).subscribe(async (res: any) => {
-        if (res.topic) {
-          this.avatarUploadLabel = '';
-          this.form.reset();
-          await this.showToast('success');
-        } else {
-          console.error(res);
-          await this.showToast('danger');
-        }
-        this.element.nativeElement.blur();
-        this.time.markAsUntouched();
-      });
-
-    } else {
-      console.error('Form invalid');
-      console.error(this.form);
-      console.log(this.form.getRawValue());
-    }
-  }
-
-  public onAvatarFileChanged(event) {
-    this.avatarUploadLabel = '';
-    const file: File = event.target.files[0];
-    if (file && file.name) {
-      this.avatarUploadLabel = file.name;
-      this.dbService.uploadAvatar(file).subscribe(async (res: any) => {
-        console.log(res);
-        if (res.id) {
-          this.avatarId = res.id;
-        }
-      }, async error => {
-        if (error.status === 413) {
-          this.avatarUploadLabel = 'File troppo grande';
-          this.toastrService.show(
-            'Immagine troppo grande. Il massimo é 1MB.',
-            await this.translate.get('postCucu.CUCU_ERROR').toPromise(),
-            {status: 'warning'});
-        } else {
-          this.avatarUploadLabel = 'Errore';
-          this.toastrService.show(
-            'Errore durante l\'upload del tuo immagine.',
-            await this.translate.get('postCucu.CUCU_ERROR').toPromise(),
-            {status: 'warning'});
-        }
-      });
-    }
   }
 
   private async showToast(status) {
@@ -179,6 +179,13 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
       message,
       title,
       {status});
+  }
+
+  private filterTimeslots(value: string): string[] {
+    if (value) {
+      const filterValue = value.toLowerCase();
+      return this.timeSlots.filter(optionValue => optionValue.toLowerCase().includes(filterValue));
+    }
   }
 
   get inviteUrl() {
@@ -205,39 +212,9 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
     return this.form.get('time') as FormControl;
   }
 
-  private getTimeSlots(day: string) {
-    const timeSlots = [];
-    let currentHour = new Date().getHours();
-    const currentMinutes = new Date().getMinutes();
-    let offset = currentMinutes > 30 ? 1 : 0;
-
-    if (day !== 'today') {
-      currentHour = 0;
-      offset = 0;
-    }
-    for (let i = currentHour + offset; i < 24; i++) {
-      const slot = Math.floor(i) + ':';
-      if (i !== currentHour + offset || i === 0) {
-        timeSlots.push(slot + '00');
-      }
-      timeSlots.push(slot + '30');
-    }
-    return timeSlots;
-  }
-
   public elementStatus(control: FormControl) {
     return control.valid || !control.dirty ? 'basic' : 'danger';
   }
-}
-
-export function validateInviteUrl(control: AbstractControl) {
-  if (control && control.value && !control.value.includes('hangouts.google.com')
-    && !control.value.includes('join.skype.com')
-    && !control.value.includes('meet.jit.si')
-    && !control.value.includes('zoom.us')) {
-    return {validInviteUrl: false};
-  }
-  return null;
 }
 
 

@@ -62,9 +62,13 @@ export class CucuBoxComponent implements OnInit {
     });
   }
 
-  getLangEmoji(lang: string) {
-    return getEmojiForLang(lang);
+  toCall() {
+    if (this.isEnabled()) {
+      this.gaService.event('to_call', 'cucu_box');
+      window.open(this.cucu.inviteUrl);
+    }
   }
+
 
   isEnabled() {
     const now = new Date();
@@ -85,10 +89,8 @@ export class CucuBoxComponent implements OnInit {
     return this.isEnabled() ? 'primary' : 'disabled';
   }
 
-  toCall() {
-    if (this.isEnabled()) {
-      window.open(this.cucu.inviteUrl);
-    }
+  getLangEmoji(lang: string) {
+    return getEmojiForLang(lang);
   }
 
 

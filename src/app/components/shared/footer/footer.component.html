@@ -20,7 +20,7 @@
       <div class="single-footer-widget">
         <h6>Links</h6>
         <a routerLink="">Home</a> | <a routerLink="manifest">{{ "navbar.MANIFEST" | translate }}</a> | <a
-        (click)="toDonationSite()">{{ "navbar.DONATE" | translate }}</a>
+        (click)="donationsService.toDonationSite()">{{ "navbar.DONATE" | translate }}</a>
         <div class="ws-m"></div>
         <h6>{{ "footer.followUs.LABEL" | translate }}</h6>
         <p>{{ "footer.followUs.TEXT" | translate }}</p>

@@ -5,6 +5,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import {NbWindowService} from '@nebular/theme';
 import {VideoComponent} from '../video/video.component';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
+import {DonationsService} from '../../services/donations/donations.service';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +29,8 @@ export class HomeComponent implements OnInit {
   constructor(private translate: TranslateService,
               private windowService: NbWindowService,
               public dbService: DbService,
-              protected gaService: GoogleAnalyticsService
+              protected gaService: GoogleAnalyticsService,
+              public donationsService: DonationsService,
   ) {
   }
 
@@ -41,10 +43,7 @@ export class HomeComponent implements OnInit {
 
   openVideoWindow() {
     this.windowService.open(VideoComponent, {title: ``});
-  }
-
-  toDonationSite() {
-    window.open('https://italianonprofit.it/donazioni-coronavirus/');
+    this.gaService.event('open_video', 'home');
   }
 
 }
