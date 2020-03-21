@@ -33,8 +33,10 @@
 
 <div class="ws-s"></div>
 <div class="row">
-  <div class="no-cucus-div center-h">
-    <p *ngIf="(dbService.cucus | async).length < 1">{{ "home.NO_CUCUS_FOUND" | translate }}</p>
+  <div class="col-md-12">
+    <div class="no-cucus-div">
+      <p *ngIf="(dbService.cucus | async).length < 1">{{ "home.NO_CUCUS_FOUND" | translate }}</p>
+    </div>
   </div>
   <div *ngFor="let c of dbService.cucus | async" class="col-md-4">
     <app-cucu-box [cucu]="c"></app-cucu-box>
