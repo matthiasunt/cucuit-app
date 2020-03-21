@@ -7,11 +7,11 @@
   },
   "home": {
     "HERO_HEADER": "Crea e partecipa a videochiamate con CUCUit!",
-    "HERO_TEXT": "Condividi le tue idee e passioni con persone sempre nuove, grazie a un semplice click.",
+    "HERO_TEXT": "Condividi le tue idee e passioni con persone sempre nuove, grazie a un semplice click. Affrontiamo tutti insieme l'emergenza Covid-19: aiutaci con una donazione.",
     "DISCOVER_CUCUIT": "Scopri CUCUit",
     "LOAD_MORE": "Carica altro",
     "NO_CUCUS_FOUND": "Nessun CUCÙ trovato",
-    "DONATE_BOX_TEXT": "Partecipa alla raccolta fondi per aiutare i nostri ospedali in questo momento difficile! Ogni aiuto è prezioso, fai una donazione."
+    "DONATE_BOX_TEXT": "Partecipa alla raccolta fondi per aiutare i nostri ospedali in questo momento difficile! Ogni aiuto è prezioso."
   },
   "postCucu": {
     "inviteUrl": {
@@ -71,7 +71,7 @@
   },
   "manifest": {
     "TITLE": "Manifesto",
-    "INTRO": "CUCUit ti aiuta a sconfiggere la noia e la solitudine della quarantena. Abbiamo creato questa piattaforma con amore per starci vicini e aiutarci a vicenda. La community di CUCUit è vicina a tutte le persone che stanno affrontando a testa alta l'epidemia di Covid-19. Aiutiamo gli operatori sanitari e gli ammalati in questo momento particolarmente difficile. Ogni aiuto è prezioso, dona!<br><br>Con CUCUit lancia e unisciti a videochiamate sempre nuove e stimolanti, su tutti gli argomenti che vuoi!<br>Viaggia con la fantasia fuori dalle mura di casa: immergiti tra le spezie e i sapori di nuove ricette, muovi il tuo corpo su ritmi africani, confrontandoti apertamente con persone lontane, partecipa attivamente a scontri di neuroni e sessioni di brainstorming.",
+    "INTRO": "CUCUit ti aiuta a sconfiggere la noia e la solitudine della quarantena. Abbiamo creato questa piattaforma con amore per stare vicini e aiutarsi a vicenda. La community di CUCUit sostiene tutte le persone che stanno affrontando a testa alta l'epidemia di Covid-19, aiutando attraverso le donazioni gli operatori sanitari e gli ammalati. <br><br>Con CUCUit lancia e unisciti a videochiamate sempre nuove e stimolanti, su tutti gli argomenti che vuoi!<br>Viaggia con la fantasia fuori dalle mura di casa: immergiti tra le spezie e i sapori di nuove ricette, muovi il tuo corpo su ritmi africani, confrontandoti apertamente con persone lontane, partecipa attivamente a scontri di neuroni e sessioni di brainstorming.",
     "paragraph1": {
       "TITLE": "CREA UN CUCÙ!",
       "TEXT": "Sei pronto? Hai un'idea? Crea il tuo cucù!<br>Incolla nell’apposita barra il link della tua videoconferenza. Spiega come vorresti occupare il tempo a tua disposizione, inserisci il tuo nome, il giorno, l’orario e la lingua che parlerete. <br>Clicca su “Crea CUCÙ” per far sì che il tuo link sia visibile e cliccabile da tutti gli interessati.<br>Sii puntuale all’appuntamento e conduci una videochiamata coi fiocchi!<br>"
