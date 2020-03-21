@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HowComponent } from './how.component';
+import { ManifestComponent } from './manifest.component';
 
 describe('HowComponent', () => {
-  let component: HowComponent;
-  let fixture: ComponentFixture<HowComponent>;
+  let component: ManifestComponent;
+  let fixture: ComponentFixture<ManifestComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HowComponent ]
+      declarations: [ ManifestComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HowComponent);
+    fixture = TestBed.createComponent(ManifestComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

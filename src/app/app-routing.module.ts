@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'manifest',
-    loadChildren: () => import('./components/how/how.module').then(m => m.HowModule)
+    loadChildren: () => import('./components/manifest/manifest.module').then(m => m.ManifestModule)
   },
   {
     path: '**',

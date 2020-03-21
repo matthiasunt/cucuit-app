@@ -4,10 +4,10 @@ import {GoogleAnalyticsService} from 'ngx-google-analytics';
 
 @Component({
   selector: 'app-how',
-  templateUrl: './how.component.html',
-  styleUrls: ['./how.component.scss']
+  templateUrl: './manifest.component.html',
+  styleUrls: ['./manifest.component.scss']
 })
-export class HowComponent implements OnInit {
+export class ManifestComponent implements OnInit {
 
   constructor(public translate: TranslateService,
               protected gaService: GoogleAnalyticsService,

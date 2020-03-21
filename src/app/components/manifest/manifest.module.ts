@@ -5,14 +5,14 @@ import {RouterModule, Routes} from '@angular/router';
 import {AddCucuModule} from '../add-cucu/add-cucu.module';
 import {CucuBoxModule} from '../cucu-box/cucu-box.module';
 import {TranslateModule} from '@ngx-translate/core';
-import {HowComponent} from './how.component';
+import {ManifestComponent} from './manifest.component';
 
 const routes: Routes = [
-  {path: '', component: HowComponent}
+  {path: '', component: ManifestComponent}
 ];
 
 @NgModule({
-  declarations: [HowComponent],
+  declarations: [ManifestComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -21,7 +21,7 @@ const routes: Routes = [
     AddCucuModule,
     CucuBoxModule,
   ],
-  exports: [HowComponent]
+  exports: [ManifestComponent]
 })
-export class HowModule {
+export class ManifestModule {
 }
