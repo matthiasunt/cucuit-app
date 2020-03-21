@@ -42,7 +42,6 @@ export class AppComponent implements OnInit {
 
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)).subscribe(event => {
-      // window.scrollTo(0, 0);
       // this.wowService.init();
 
     });
@@ -63,11 +62,5 @@ export class AppComponent implements OnInit {
   onResize() {
     this.smallDevice = window.innerWidth < 569;
   }
-
-  onActivate(event) {
-    window.scroll(0, 0);
-  }
-
-
 }
 

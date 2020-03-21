@@ -1,4 +1,4 @@
-<nb-layout>
+<nb-layout restoreScrollTop>
 
   <nb-layout-header [fixed]="true">
     <div class="logo-div">
@@ -25,7 +25,7 @@
   </nb-layout-header>
 
   <nb-layout-column>
-    <router-outlet (activate)="onActivate($event)"></router-outlet>
+    <router-outlet></router-outlet>
   </nb-layout-column>
   <nb-layout-footer [fixed]="false">
     <app-footer></app-footer>
