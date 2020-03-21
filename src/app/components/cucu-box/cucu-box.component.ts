@@ -4,7 +4,7 @@ import {DbService} from '../../services/db/db.service';
 import {isToday} from '../../util/date.util';
 import {getEmojiForLang} from '../../util/languages.util';
 import {TranslateService} from '@ngx-translate/core';
-import {combineLatest} from 'rxjs';
+import {combineLatest, forkJoin} from 'rxjs';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 
@@ -16,11 +16,15 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 export class CucuBoxComponent implements OnInit {
 
   @Input() cucu: Cucu;
+  @Input() isPast = false;
+
+  timeLabel: string;
   time: string;
   at: string;
   day: string;
   imageUrl: string;
   comebackLaterText: string;
+  buttonLabel: string;
 
   constructor(public dbService: DbService,
               public translate: TranslateService,
@@ -32,32 +36,28 @@ export class CucuBoxComponent implements OnInit {
     if (this.cucu.avatarId && this.cucu.avatarId.length > 0) {
       this.imageUrl = `${this.dbService.getImageBaseUrl()}/${this.cucu.avatarId}`;
     }
-    const date = new Date(this.cucu.startDate);
-    this.time = date.toLocaleTimeString(
+    const cucuStartDate = new Date(this.cucu.startDate);
+    const time = cucuStartDate.toLocaleTimeString(
       [],
       {hour: '2-digit', minute: '2-digit'}
     );
 
-    combineLatest([
-      this.translate.get('postCucu.TODAY'),
-      this.translate.get('postCucu.TOMORROW'),
-      this.translate.get('cucuBox.join.AT'),
-    ]).subscribe(([today, tomorrow, at]) => {
-      this.day = isToday(date) ? today : tomorrow;
-      this.at = at;
-    });
-
-    combineLatest(
-      [this.translate.get('cucuBox.join.TOOLTIP_COME_BACK_LATER'),
-        this.translate.get('cucuBox.join.AT')]).subscribe(([text, at]) => {
-      this.comebackLaterText = `${text} ${this.day.toLowerCase()} ${at} ${this.time}`;
-    });
-  }
-
-  toCall() {
-    if (this.isEnabled()) {
-      this.gaService.event('to_call', 'cucu_box');
-      window.open(this.cucu.inviteUrl);
+    if (!this.isPast) {
+      combineLatest([
+        this.translate.get('postCucu.TODAY'),
+        this.translate.get('postCucu.TOMORROW'),
+        this.translate.get('cucuBox.join.AT'),
+        this.translate.get('cucuBox.join.LABEL'),
+        this.translate.get('cucuBox.join.TOOLTIP_COME_BACK_LATER')
+      ]).subscribe(([today, tomorrow, at, enter, text]) => {
+        const day = isToday(cucuStartDate) ? today : tomorrow;
+        this.buttonLabel = enter;
+        this.timeLabel = `${day} ${at} ${time}`;
+        this.comebackLaterText = `${text} ${day.toLowerCase()} ${at} ${time}`;
+      });
+    } else {
+      this.timeLabel = `${cucuStartDate.toLocaleDateString()}, ${time}`;
+      this.buttonLabel = 'Concluso';
     }
   }
 
@@ -74,7 +74,11 @@ export class CucuBoxComponent implements OnInit {
   }
 
   getTooltipText() {
-    return this.isEnabled() ? 'Entra' : this.comebackLaterText;
+    if (this.isPast) {
+      return 'Questo CUCÙ si é già concluso';
+    } else {
+      return this.isEnabled() ? 'Entra' : this.comebackLaterText;
+    }
   }
 
   getStatus() {
@@ -83,6 +87,13 @@ export class CucuBoxComponent implements OnInit {
 
   getLangEmoji(lang: string) {
     return getEmojiForLang(lang);
+  }
+
+  toCall() {
+    if (this.isEnabled()) {
+      this.gaService.event('to_call', 'cucu_box');
+      window.open(this.cucu.inviteUrl);
+    }
   }
 
 

@@ -32,6 +32,7 @@
 </nb-card>
 
 <div class="ws-s"></div>
+<!-- Upcoming Cucus -->
 <div class="row">
   <div class="col-md-12">
     <div class="no-cucus-div">
@@ -42,6 +43,14 @@
     <app-cucu-box [cucu]="c"></app-cucu-box>
   </div>
 </div>
+<!-- Past Cucus -->
+<div class="ws-s"></div>
+<div class="row">
+  <div *ngFor="let c of dbService.pastCucus | async" class="col-md-4">
+    <app-cucu-box [cucu]="c" [isPast]="true"></app-cucu-box>
+  </div>
+</div>
+
 <div class="ws-s"></div>
 <div class="row">
   <div class="col-md-12 load-more-div">

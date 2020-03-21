@@ -14,6 +14,7 @@ export class DbService {
   private baseUrl = 'https://api.cucuit.com';
 
   private cucus$ = new BehaviorSubject<Cucu[]>([]);
+  private pastCucus$ = new BehaviorSubject<Cucu[]>([]);
 
   constructor(private http: HttpClient,
               private translate: TranslateService) {
@@ -25,12 +26,28 @@ export class DbService {
     return this.cucus$;
   }
 
+  get pastCucus() {
+    return this.pastCucus$;
+  }
+
   public fetchCucus(lang: string) {
-    const date = new Date();
-    date.setMinutes(date.getMinutes() - 25); // - 60 * 2
-    this.http.get(`${this.baseUrl}/cucus/after/${date.toUTCString()}`)
+    const now = new Date();
+    // Offset of 25 minutes
+    now.setMinutes(now.getMinutes() - 25);
+
+    const fromDate = new Date();
+    fromDate.setMinutes(fromDate.getMinutes() - 60 * 24); // 24h in the past
+    this.http.get(`${this.baseUrl}/cucus/after/${fromDate.toUTCString()}`)
       .subscribe((cucus: Cucu[]) => {
-        this.cucus$.next(cucus);
+        const past = cucus.filter(c => new Date(c.startDate) < now)
+          .sort((a, b) => {
+            return a.startDate > b.startDate ?
+              -1 : a.startDate < b.startDate ?
+                1 : 0;
+          });
+        const upcoming = cucus.filter(c => new Date(c.startDate) >= now);
+        this.pastCucus$.next(past);
+        this.cucus$.next(upcoming);
       });
   }
 

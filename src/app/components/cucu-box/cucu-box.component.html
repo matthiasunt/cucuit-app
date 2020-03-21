@@ -1,9 +1,9 @@
-<nb-card>
+<nb-card accent="primary" *ngIf="!isPast">
   <nb-card-header>
     <nb-user size="giant"
              [picture]="imageUrl"
              [name]="cucu.userName"
-             [title]="day + ' '+at+' ' + time"
+             [title]="timeLabel"
              [badgeText]="cucu.language"
              [badgeStatus]="'primary'"
              [badgePosition]="'bottom right'">
@@ -17,9 +17,27 @@
             [shape]="'rectangle'" [nbTooltip]="getTooltipText()" nbTooltipStatus="basic">
       {{ "cucuBox.join.LABEL" | translate }}
     </button>
+  </nb-card-footer>
+</nb-card>
 
-    <ng-template #joinLaterTooltip>
-      {{ "cucuBox.join.TOOLTIP_COME_BACK_LATER" | translate }} {{ day.toLowerCase() }} {{ "cucuBox.join.AT" | translate }} {{ time }}
-    </ng-template>
+<nb-card *ngIf="isPast">
+  <nb-card-header>
+    <nb-user size="giant"
+             [picture]="imageUrl"
+             [name]="cucu.userName"
+             [title]="timeLabel"
+             [badgeText]="cucu.language"
+             [badgeStatus]="'basic'"
+             [badgePosition]="'bottom right'">
+    </nb-user>
+  </nb-card-header>
+  <nb-card-body>
+    {{cucu.topic}}
+  </nb-card-body>
+  <nb-card-footer>
+    <button [disabled]="true" nbButton [status]="getStatus()"
+            [shape]="'rectangle'">
+      Concluso
+    </button>
   </nb-card-footer>
 </nb-card>
