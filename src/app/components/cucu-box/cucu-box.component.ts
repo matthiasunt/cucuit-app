@@ -68,7 +68,7 @@ export class CucuBoxComponent implements OnInit {
     now.setMinutes(now.getMinutes() - 5);
     const startDate = new Date(this.cucu.startDate);
     const endDate = new Date(this.cucu.startDate);
-    endDate.setMinutes(endDate.getMinutes() + 15);
+    endDate.setMinutes(endDate.getMinutes() + 25);
     return startDate.toISOString() < now.toISOString()
       && now.toISOString() < endDate.toISOString();
   }
