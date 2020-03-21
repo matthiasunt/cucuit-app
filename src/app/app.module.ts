@@ -19,6 +19,7 @@ import {FooterComponent} from './components/shared/footer/footer.component';
 import {VideoComponent} from './components/video/video.component';
 import {NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule} from 'ngx-google-analytics';
 import {environment} from '../environments/environment';
+import {NgwWowModule} from 'ngx-wow';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {environment} from '../environments/environment';
         deps: [HttpClient]
       }
     }),
+    NgwWowModule,
     NgxGoogleAnalyticsModule.forRoot(environment.googleAnalytics),
     NgxGoogleAnalyticsRouterModule,
     NbMenuModule.forRoot(),

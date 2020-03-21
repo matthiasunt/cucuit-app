@@ -12,14 +12,6 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   selector: 'app-cucu-box',
   templateUrl: './cucu-box.component.html',
   styleUrls: ['./cucu-box.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-      state('void', style({
-        opacity: 0
-      })),
-      transition('void <=> *', animate(1000)),
-    ]),
-  ]
 })
 export class CucuBoxComponent implements OnInit {
 

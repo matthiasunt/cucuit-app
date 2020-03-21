@@ -6,6 +6,7 @@ import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {DonationsService} from './services/donations/donations.service';
 import {filter, map} from 'rxjs/operators';
 import {combineLatest} from 'rxjs';
+import {NgwWowService} from 'ngx-wow';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit {
   menuItems: NbMenuItem[];
 
   constructor(private router: Router,
+              private wowService: NgwWowService,
               private translate: TranslateService,
               protected gaService: GoogleAnalyticsService,
               public donationsService: DonationsService,
@@ -37,6 +39,13 @@ export class AppComponent implements OnInit {
           {title: d},
         ];
       });
+
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)).subscribe(event => {
+      window.scrollTo(0, 0);
+      this.wowService.init();
+
+    });
   }
 
   ngOnInit() {
@@ -54,17 +63,5 @@ export class AppComponent implements OnInit {
   onResize() {
     this.smallDevice = window.innerWidth < 569;
   }
-
-  onActivate(event) {
-    const scrollToTop = window.setInterval(() => {
-      const pos = window.pageYOffset;
-      if (pos > 0) {
-        window.scrollTo(0, pos - 20); // how far to scroll on each step
-      } else {
-        window.clearInterval(scrollToTop);
-      }
-    }, 16);
-  }
 }
-
 
