@@ -64,12 +64,11 @@ export class CucuBoxComponent implements OnInit {
 
   isEnabled() {
     const now = new Date();
-    // Enable CUCU's 5 mins before they start
-    now.setMinutes(now.getMinutes() - 5);
     const startDate = new Date(this.cucu.startDate);
+    startDate.setMinutes(startDate.getMinutes() - 5);
     const endDate = new Date(this.cucu.startDate);
     endDate.setMinutes(endDate.getMinutes() + 25);
-    return startDate.toISOString() < now.toISOString()
+    return now.toISOString() > startDate.toISOString()
       && now.toISOString() < endDate.toISOString();
   }
 
