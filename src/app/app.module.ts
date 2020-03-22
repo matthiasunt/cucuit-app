@@ -8,24 +8,22 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   NbThemeModule,
   NbLayoutModule,
-  NbDatepickerModule,
   NbButtonModule,
-  NbIconModule, NbContextMenuModule, NbMenuModule, NbToastrModule, NbFormFieldModule, NbWindowModule
+  NbIconModule,
+  NbContextMenuModule,
+  NbMenuModule,
+  NbToastrModule,
 } from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {FooterComponent} from './components/shared/footer/footer.component';
-import {VideoComponent} from './components/video/video.component';
 import {NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule} from 'ngx-google-analytics';
 import {environment} from '../environments/environment';
-import {NgwWowModule} from 'ngx-wow';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {FooterModule} from './components/shared/footer/footer.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent,
-    VideoComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,23 +37,19 @@ import {NgwWowModule} from 'ngx-wow';
         deps: [HttpClient]
       }
     }),
-    NgwWowModule,
     NgxGoogleAnalyticsModule.forRoot(environment.googleAnalytics),
     NgxGoogleAnalyticsRouterModule,
-    NbMenuModule.forRoot(),
-    NbWindowModule.forRoot(),
     NbThemeModule.forRoot({name: 'light-red'}),
+    NbMenuModule.forRoot(),
     NbToastrModule.forRoot(),
     NbContextMenuModule,
     NbLayoutModule,
-    NbEvaIconsModule,
-    NbDatepickerModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
     NbButtonModule,
     NbIconModule,
-    FontAwesomeModule,
-    NbFormFieldModule,
+    NbEvaIconsModule,
+    FooterModule,
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

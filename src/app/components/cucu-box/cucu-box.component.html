@@ -13,8 +13,11 @@
     {{cucu.topic}}
   </nb-card-body>
   <nb-card-footer>
-    <button [disabled]="false" (click)="toCall()" nbButton [status]="getStatus()"
-            [shape]="'rectangle'" [nbTooltip]="getTooltipText()" nbTooltipStatus="basic">
+    <button *ngIf="isEnabled()" (click)="toCall()" nbButton [status]="'primary'"
+            [shape]="'rectangle'" [nbTooltip]="'Entra'" nbTooltipStatus="basic">
+      {{ "cucuBox.join.LABEL" | translate }}
+    </button>
+    <button nbButton [shape]="'rectangle'" [nbTooltip]="comebackLaterText" nbTooltipStatus="basic" *ngIf="!isEnabled()">
       {{ "cucuBox.join.LABEL" | translate }}
     </button>
   </nb-card-footer>
@@ -35,8 +38,7 @@
     {{cucu.topic}}
   </nb-card-body>
   <nb-card-footer>
-    <button [disabled]="true" nbButton [status]="getStatus()"
-            [shape]="'rectangle'">
+    <button [disabled]="true" nbButton [shape]="'rectangle'">
       Concluso
     </button>
   </nb-card-footer>

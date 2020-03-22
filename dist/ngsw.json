@@ -1,0 +1,116 @@
+{
+  "configVersion": 1,
+  "timestamp": 1584888474674,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/6-es2015.85d008a028bcb46bd928.js",
+        "/6-es5.85d008a028bcb46bd928.js",
+        "/7-es2015.49e6dba5f5567b4239ed.js",
+        "/7-es5.49e6dba5f5567b4239ed.js",
+        "/common-es2015.a5cc80aaeadf59ba4ea3.js",
+        "/common-es5.a5cc80aaeadf59ba4ea3.js",
+        "/index.html",
+        "/main-es2015.1bd35252355ce7a7e10d.js",
+        "/main-es5.1bd35252355ce7a7e10d.js",
+        "/manifest.webmanifest",
+        "/polyfills-es2015.495a14908bd0a2dc5248.js",
+        "/polyfills-es5.023b6f7f45e9ec357588.js",
+        "/runtime-es2015.53042ab12fbc64cf720c.js",
+        "/runtime-es5.53042ab12fbc64cf720c.js",
+        "/styles.c33c9c367e8ae34dd095.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/css/bootstrap.min.css",
+        "/assets/favicon/android-chrome-192x192.png",
+        "/assets/favicon/android-chrome-512x512.png",
+        "/assets/favicon/apple-touch-icon.png",
+        "/assets/favicon/favicon-16x16.png",
+        "/assets/favicon/favicon-32x32.png",
+        "/assets/favicon/favicon.ico",
+        "/assets/favicon/mstile-150x150.png",
+        "/assets/favicon/safari-pinned-tab.svg",
+        "/assets/i18n/it.json",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/images/cucuit-preview.jpg",
+        "/assets/images/logo.svg",
+        "/assets/images/video-icon.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/6-es2015.85d008a028bcb46bd928.js": "a35c60b894c298f5101056826b0475d4809a0838",
+    "/6-es5.85d008a028bcb46bd928.js": "f83f65750230a5584e054c4463b69e26b67639d5",
+    "/7-es2015.49e6dba5f5567b4239ed.js": "6a0795687c4db7bdadca7be62df90869600ed33c",
+    "/7-es5.49e6dba5f5567b4239ed.js": "ec0a4d15025951a075e8efec980091e007d6c619",
+    "/assets/css/bootstrap.min.css": "5d21276aeb1a1493d848ec8162c64b6183e7457c",
+    "/assets/favicon/android-chrome-192x192.png": "ea2715409d7d231b400aaf37306a3b259f260a2f",
+    "/assets/favicon/android-chrome-512x512.png": "6a4a6fbd60a3790be1d34e7f3fe7fdeb934bba4e",
+    "/assets/favicon/apple-touch-icon.png": "d12ce6c03effd28f0b9a1c59b38d803e1e54f5b7",
+    "/assets/favicon/favicon-16x16.png": "8322acc11143a3cd66391459497606bebca18d25",
+    "/assets/favicon/favicon-32x32.png": "1c1803b511f67890eea3a0ecff2a701c43e06bef",
+    "/assets/favicon/favicon.ico": "37dbfb26959de9fa7d8a3bdec85ae6994b00b66d",
+    "/assets/favicon/mstile-150x150.png": "06f2e18aafce5db29b8d493af1e7a1fa8d6431cc",
+    "/assets/favicon/safari-pinned-tab.svg": "9e5831d3aa49c9aea529dc03836e4db215fa9147",
+    "/assets/i18n/it.json": "bbe408ae63703a1fff9d8d374ac048dd00c8d13d",
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/images/cucuit-preview.jpg": "39ca6ce01e0fbde933ca1a3e2b862b86070f7b2d",
+    "/assets/images/logo.svg": "90fc3c3280946c47dd5102c83261186877d8c716",
+    "/assets/images/video-icon.svg": "d02f4b3874ab8edb15ac0ae689ce59715a39ee45",
+    "/common-es2015.a5cc80aaeadf59ba4ea3.js": "8802109ba23ce07af135b3c60f0eb4bcee00b462",
+    "/common-es5.a5cc80aaeadf59ba4ea3.js": "490b48811e1f70dd0675f61c0e6e1aebfa89ad85",
+    "/index.html": "230bbcfadd66f30e4f15d10c5a15ab7af8ef757d",
+    "/main-es2015.1bd35252355ce7a7e10d.js": "a861fcab642846a4a33db26a134bad638c05c748",
+    "/main-es5.1bd35252355ce7a7e10d.js": "3cce8b1303c916427350750bca4b735ecca62dfd",
+    "/manifest.webmanifest": "dde3e870d1f4037b2c5bd7a201466b81334eadc3",
+    "/polyfills-es2015.495a14908bd0a2dc5248.js": "15a133b6cbb459a66fcd2e75f6aa25782e5d79c4",
+    "/polyfills-es5.023b6f7f45e9ec357588.js": "2930db992c38f1532f6d1c90b4172445fd6d7792",
+    "/runtime-es2015.53042ab12fbc64cf720c.js": "45abc3b29bd900861d25dc0c94e683f1d4bf7b13",
+    "/runtime-es5.53042ab12fbc64cf720c.js": "aaf05b8ff4f3aecbdf96585252f799268c8c6fe3",
+    "/styles.c33c9c367e8ae34dd095.css": "a9ad6c2600586ee86e69040106606e221acb5873"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

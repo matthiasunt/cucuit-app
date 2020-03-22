@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 
 
 const routes: Routes = [
@@ -19,7 +19,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-      scrollPositionRestoration: 'top'
+      preloadingStrategy: PreloadAllModules,
     }
   )],
   exports: [RouterModule]

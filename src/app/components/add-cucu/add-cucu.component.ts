@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {TranslateService} from '@ngx-translate/core';
 import {Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {DbService} from '../../services/db/db.service';
@@ -9,6 +9,7 @@ import {NbComponentShape, NbComponentSize, NbToastrService} from '@nebular/theme
 import {getLangs} from '../../util/languages.util';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {validateInviteUrl} from '../../util/validators.util';
+import {Cucu} from '../../models/cucu';
 
 @Component({
   selector: 'app-add-cucu',
@@ -42,10 +43,7 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      this.element.nativeElement.blur();
-      this.time.markAsUntouched();
-    }, 1);
+    this.unfocusTime();
   }
 
   public postCucu() {
@@ -65,7 +63,7 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
       if (!this.avatarId) {
         this.avatarId = '';
       }
-      const cucu = {
+      const cucu: Cucu = {
         inviteUrl: data.inviteUrl,
         topic: data.topic,
         startDate: date,
@@ -77,6 +75,8 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
         if (res.topic) {
           this.avatarUploadLabel = '';
           this.form.reset();
+          this.form = this.getInitialForm();
+          this.unfocusTime();
           await this.showToast('success');
           this.gaService.event('post_success', 'post_cucu');
         } else {
@@ -91,7 +91,6 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
       });
     } else {
       console.error('Form invalid');
-      console.error(this.form);
       console.log(this.form.getRawValue());
     }
   }
@@ -131,27 +130,11 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
   }
 
   private initForm() {
-    const now = new Date();
-    const currentHour = now.getHours();
+    const currentHour = new Date().getHours();
     const dayPreset = currentHour > 18 ? 'tomorrow' : 'today';
-    const timePreset = currentHour > 18 || currentHour < 8 ?
-      '10:00' : `${currentHour + 2}:00`;
 
     this.timeSlots = getTimeSlots(dayPreset);
-    this.form = this.formBuilder.group({
-      // inviteUrl: ['https://hangouts.google.com/call/A6PK6lK45zkCf357wj-vAEEI', [Validators.required, validateInviteUrl]],
-      // topic: ['Lettura di libri in compagnia con un bel bicchiere di vino.', Validators.required],
-      // userName: ['Dario', Validators.required],
-      // language: ['it', Validators.required],
-      // day: [dayPreset, Validators.required],
-      // time: [timePreset, Validators.required],
-      inviteUrl: ['', [Validators.required, validateInviteUrl]],
-      topic: ['', Validators.required],
-      userName: ['', Validators.required],
-      language: [this.translate.currentLang, Validators.required],
-      day: [dayPreset, Validators.required],
-      time: [timePreset, Validators.required],
-    });
+    this.form = this.getInitialForm();
 
     this.filteredTimeOptions$ = of(this.timeSlots);
     this.filteredTimeOptions$ = this.time.valueChanges
@@ -164,6 +147,30 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
       } else {
         this.time.setValue(`${currentHour + 2}:00`);
       }
+    });
+  }
+
+  // TODO: Solve this
+  unfocusTime() {
+    setTimeout(() => {
+      this.element.nativeElement.blur();
+      this.time.markAsUntouched();
+    }, 1);
+  }
+
+  private getInitialForm() {
+    const now = new Date();
+    const currentHour = now.getHours();
+    const dayPreset = currentHour > 18 ? 'tomorrow' : 'today';
+    const timePreset = currentHour > 18 || currentHour < 8 ?
+      '10:00' : `${currentHour + 2}:00`;
+    return this.formBuilder.group({
+      inviteUrl: ['', [Validators.required, validateInviteUrl]],
+      topic: ['', Validators.required],
+      userName: ['', Validators.required],
+      language: [this.translate.currentLang, Validators.required],
+      day: [dayPreset, Validators.required],
+      time: [timePreset, [Validators.required, Validators.pattern('[0-9]?[0-9]:[0-9][0-9]')]],
     });
   }
 

@@ -1,26 +1,23 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
-import {NavigationEnd, Router} from '@angular/router';
 import {NbMenuItem, NbMenuService} from '@nebular/theme';
+import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {DonationsService} from './services/donations/donations.service';
-import {filter, map} from 'rxjs/operators';
 import {combineLatest} from 'rxjs';
-import {NgwWowService} from 'ngx-wow';
+import {filter} from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-
-
 export class AppComponent implements OnInit {
   smallDevice = false;
   menuItems: NbMenuItem[];
 
   constructor(private router: Router,
-              private wowService: NgwWowService,
               private translate: TranslateService,
               protected gaService: GoogleAnalyticsService,
               public donationsService: DonationsService,
@@ -39,12 +36,6 @@ export class AppComponent implements OnInit {
           {title: d},
         ];
       });
-
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)).subscribe(event => {
-      // this.wowService.init();
-
-    });
   }
 
   ngOnInit() {

@@ -60,10 +60,6 @@ export class DbService {
     );
   }
 
-  public incrementClickCounter(id: string) {
-    return this.http.get(`${this.baseUrl}/cucus/${id}/click`);
-  }
-
   public uploadAvatar(file: File) {
     const fd = new FormData();
     fd.append('file', file);

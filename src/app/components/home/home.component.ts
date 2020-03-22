@@ -5,6 +5,7 @@ import {NbWindowService} from '@nebular/theme';
 import {VideoComponent} from '../video/video.component';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {DonationsService} from '../../services/donations/donations.service';
+import {Cucu} from '../../models/cucu';
 
 @Component({
   selector: 'app-home',
@@ -30,9 +31,13 @@ export class HomeComponent implements OnInit {
   loadMore() {
   }
 
-  openVideoWindow() {
+  public openVideoWindow() {
     this.windowService.open(VideoComponent, {title: ``});
     this.gaService.event('open_video', 'home');
+  }
+
+  public trackByFn(index, item: Cucu) {
+    return item._id;
   }
 
 }

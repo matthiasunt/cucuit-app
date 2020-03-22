@@ -33,20 +33,20 @@
 
 <div class="ws-s"></div>
 <!-- Upcoming Cucus -->
-<div class="row">
+<div *ngIf="(dbService.cucus | async) as cucus" class="row">
   <div class="col-md-12">
     <div class="no-cucus-div">
-      <p *ngIf="(dbService.cucus | async).length < 1">{{ "home.NO_CUCUS_FOUND" | translate }}</p>
+      <p *ngIf="cucus.length < 1">{{ "home.NO_CUCUS_FOUND" | translate }}</p>
     </div>
   </div>
-  <div *ngFor="let c of dbService.cucus | async" class="col-md-4">
+  <div *ngFor="let c of cucus; trackBy: trackByFn" class="col-md-4">
     <app-cucu-box [cucu]="c"></app-cucu-box>
   </div>
 </div>
 <!-- Past Cucus -->
 <div class="ws-s"></div>
-<div class="row">
-  <div *ngFor="let c of dbService.pastCucus | async" class="col-md-4">
+<div *ngIf="(dbService.pastCucus | async) as pastCucus" class="row">
+  <div *ngFor="let c of pastCucus; trackBy: trackByFn" class="col-md-4">
     <app-cucu-box [cucu]="c" [isPast]="true"></app-cucu-box>
   </div>
 </div>

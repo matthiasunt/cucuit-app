@@ -1,5 +1,4 @@
 @import 'themes';
-//@import url('https://fonts.googleapis.com/css?family=Roboto:500&display=swap');
 @import '~@nebular/theme/styles/globals';
 
 @include nb-install() {
@@ -14,7 +13,6 @@ h1, h2 {
 p {
   color: #777777 !important;
   font-size: 16px !important;
-  // font-weight: 500 !important;
   line-height: 1.625em !important;
 }
 
@@ -32,10 +30,6 @@ a {
 
 .ws-m {
   margin: 4rem;;
-}
-
-.ws-l {
-  margin: 6rem;;
 }
 
 

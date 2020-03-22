@@ -1,12 +1,10 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Cucu} from '../../models/cucu';
 import {DbService} from '../../services/db/db.service';
 import {isToday} from '../../util/date.util';
-import {getEmojiForLang} from '../../util/languages.util';
 import {TranslateService} from '@ngx-translate/core';
-import {combineLatest, forkJoin} from 'rxjs';
+import {combineLatest} from 'rxjs';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
-import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-cucu-box',
@@ -19,9 +17,6 @@ export class CucuBoxComponent implements OnInit {
   @Input() isPast = false;
 
   timeLabel: string;
-  time: string;
-  at: string;
-  day: string;
   imageUrl: string;
   comebackLaterText: string;
   buttonLabel: string;
@@ -42,6 +37,7 @@ export class CucuBoxComponent implements OnInit {
       {hour: '2-digit', minute: '2-digit'}
     );
 
+    // Cucu coming up
     if (!this.isPast) {
       combineLatest([
         this.translate.get('postCucu.TODAY'),
@@ -56,6 +52,7 @@ export class CucuBoxComponent implements OnInit {
         this.comebackLaterText = `${text} ${day.toLowerCase()} ${at} ${time}`;
       });
     } else {
+      // Cucu in the past
       this.timeLabel = `${cucuStartDate.toLocaleDateString()}, ${time}`;
       this.buttonLabel = 'Concluso';
     }
@@ -70,22 +67,6 @@ export class CucuBoxComponent implements OnInit {
     endDate.setMinutes(endDate.getMinutes() + 90);
     return now.toISOString() > startDate.toISOString()
       && now.toISOString() < endDate.toISOString();
-  }
-
-  getTooltipText() {
-    if (this.isPast) {
-      return 'Questo CUCÙ si é già concluso';
-    } else {
-      return this.isEnabled() ? 'Entra' : this.comebackLaterText;
-    }
-  }
-
-  getStatus() {
-    return this.isEnabled() ? 'primary' : 'disabled';
-  }
-
-  getLangEmoji(lang: string) {
-    return getEmojiForLang(lang);
   }
 
   toCall() {
