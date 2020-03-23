@@ -5,7 +5,7 @@
       <div class="form-group">
         <nb-form-field>
           <nb-icon nbPrefix icon="link-outline" pack="eva"></nb-icon>
-          <input [formControl]="inviteUrl" type="text" nbInput fullWidth [shape]="componentShape"
+          <input [formControl]="inviteUrl" type="text" nbInput fullWidth [shape]="componentShape" #inviteUrlInputElement
                  [placeholder]="translate.get('postCucu.inviteUrl.PLACEHOLDER') | async" [fieldSize]="componentSize"
                  [status]="inviteUrl | elementStatus">
         </nb-form-field>
@@ -68,7 +68,7 @@
               <input [formControl]="time" fullWidth nbInput type="text"
                      [placeholder]="translate.get('postCucu.time.PLACEHOLDER') | async"
                      [status]="time | elementStatus" [shape]="componentShape"
-                     [nbAutocomplete]="timeAutocomplete" [fieldSize]="componentSize" #element
+                     [nbAutocomplete]="timeAutocomplete" [fieldSize]="componentSize"
                      [nbTooltip]="translate.get('postCucu.time.TOOLTIP') | async" nbTooltipStatus="basic"/>
               <nb-autocomplete #timeAutocomplete>
                 <nb-option *ngFor="let t of (filteredTimeOptions$ | async)" [value]="t">

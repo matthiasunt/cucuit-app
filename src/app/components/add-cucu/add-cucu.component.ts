@@ -18,7 +18,8 @@ import {Cucu} from '../../models/cucu';
 })
 export class AddCucuComponent implements OnInit {
 
-  @ViewChild('element') element: ElementRef;
+  @ViewChild('inviteUrlInputElement') inviteUrlInputElement: ElementRef;
+  @ViewChild('timeInputElement') timeInputElement: ElementRef;
   public form: FormGroup;
 
   componentSize: NbComponentSize = 'medium';
@@ -70,15 +71,13 @@ export class AddCucuComponent implements OnInit {
       this.dbService.createCucu(cucu).subscribe(async (res: any) => {
         if (res.topic) {
           this.avatarUploadLabel = '';
-          this.form.reset();
-          this.form = this.getInitialForm();
+          this.initForm();
           await this.showToast('success');
           this.gaService.event('post_success', 'post_cucu');
         } else {
           console.error(res);
         }
-        this.element.nativeElement.blur();
-        this.time.markAsUntouched();
+        this.inviteUrlInputElement.nativeElement.focus();
       }, async err => {
         console.error(err);
         await this.showToast('danger');
@@ -125,15 +124,24 @@ export class AddCucuComponent implements OnInit {
   }
 
   private initForm() {
+    const now = new Date();
     const currentHour = new Date().getHours();
     const dayPreset = currentHour > 18 ? 'tomorrow' : 'today';
-
+    const timePreset = currentHour > 18 || currentHour < 8 ?
+      '10:00' : `${currentHour + 2}:00`;
     this.timeSlots = getTimeSlots(dayPreset);
-    this.form = this.getInitialForm();
+    this.form = this.formBuilder.group({
+      inviteUrl: ['', [Validators.required, validateInviteUrl]],
+      topic: ['', Validators.required],
+      userName: ['', Validators.required],
+      language: [this.translate.currentLang, Validators.required],
+      day: [dayPreset, Validators.required],
+      time: [timePreset, [Validators.required, Validators.pattern('[0-9]?[0-9]:[0-9][0-9]')]],
+    });
 
     this.filteredTimeOptions$ = of(this.timeSlots);
     this.filteredTimeOptions$ = this.time.valueChanges
-      .pipe(startWith(''), map(filterString => this.filterTimeslots(filterString)));
+      .pipe(map(filterString => this.filterTimeslots(filterString)));
 
     this.day.valueChanges.subscribe((change) => {
       this.timeSlots = getTimeSlots(change);
@@ -143,22 +151,16 @@ export class AddCucuComponent implements OnInit {
         this.time.setValue(`${currentHour + 2}:00`);
       }
     });
+    setTimeout(() => {
+      this.inviteUrlInputElement.nativeElement.focus();
+    }, 1);
   }
 
-  private getInitialForm() {
-    const now = new Date();
-    const currentHour = now.getHours();
-    const dayPreset = currentHour > 18 ? 'tomorrow' : 'today';
-    const timePreset = currentHour > 18 || currentHour < 8 ?
-      '10:00' : `${currentHour + 2}:00`;
-    return this.formBuilder.group({
-      inviteUrl: ['', [Validators.required, validateInviteUrl]],
-      topic: ['', Validators.required],
-      userName: ['', Validators.required],
-      language: [this.translate.currentLang, Validators.required],
-      day: [dayPreset, Validators.required],
-      time: [timePreset, [Validators.required, Validators.pattern('[0-9]?[0-9]:[0-9][0-9]')]],
-    });
+  private filterTimeslots(value: string): string[] {
+    if (value) {
+      const filterValue = value.toLowerCase();
+      return this.timeSlots.filter(optionValue => optionValue.toLowerCase().includes(filterValue));
+    }
   }
 
   private async showToast(status) {
@@ -173,13 +175,6 @@ export class AddCucuComponent implements OnInit {
       message,
       title,
       {status});
-  }
-
-  private filterTimeslots(value: string): string[] {
-    if (value) {
-      const filterValue = value.toLowerCase();
-      return this.timeSlots.filter(optionValue => optionValue.toLowerCase().includes(filterValue));
-    }
   }
 
   get inviteUrl() {

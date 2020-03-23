@@ -4,14 +4,14 @@ import {BehaviorSubject} from 'rxjs';
 import {Cucu} from '../../models/cucu';
 import {map} from 'rxjs/operators';
 import {TranslateService} from '@ngx-translate/core';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DbService {
 
-  // private baseUrl = 'http://localhost:3200';
-  private baseUrl = 'https://api.cucuit.com';
+  private baseUrl = environment.apiUrl;
 
   private cucus$ = new BehaviorSubject<Cucu[]>([]);
   private pastCucus$ = new BehaviorSubject<Cucu[]>([]);
