@@ -1,10 +1,13 @@
 import {NgModule} from '@angular/core';
+import { ElementStatusPipe } from './element-status/element-status.pipe';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ElementStatusPipe],
   imports: [],
-  exports: []
+    exports: [
+        ElementStatusPipe
+    ]
 })
 export class PipesModule {
 }

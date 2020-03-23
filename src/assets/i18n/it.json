@@ -51,11 +51,11 @@
     "CUCU_POSTED": "CUCÙ' condiviso con successo!",
     "CUCU_ERROR": "Non riusciamo a caricare il tuo CUCÙ'. Riprova.",
     "errors": {
-      "FILE_TOO_LARGE": {
+      "fileTooLarge": {
         "TITLE": "File troppo grande",
         "TEXT": "Immagine troppo grande. Il massimo é 1MB"
       },
-      "UNKNOWN": {
+      "unknown": {
         "TITLE": "Errore",
         "TEXT": "Errore durante l'upload del tuo immagine"
       }
@@ -65,6 +65,7 @@
     "join": {
       "LABEL": "Partecipa",
       "TOOLTIP_JOIN": "Partecipa",
+      "ENDED": "Concluso",
       "TOOLTIP_COME_BACK_LATER": "Ci vediamo dopo! Questo CUCÙ inizia",
       "AT": "alle"
     }

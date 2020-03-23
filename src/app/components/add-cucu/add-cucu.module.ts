@@ -13,26 +13,28 @@ import {
   NbTooltipModule
 } from '@nebular/theme';
 import {TranslateModule} from '@ngx-translate/core';
+import {PipesModule} from '../../pipes/pipes.module';
 
 
 @NgModule({
   declarations: [AddCucuComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NbCardModule,
-    NbFormFieldModule,
-    NbIconModule,
-    NbInputModule,
-    NbDatepickerModule,
-    NbButtonModule,
-    NbTooltipModule,
-    NbSelectModule,
-    NbAutocompleteModule,
-    NbToastrModule,
-    TranslateModule,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NbCardModule,
+        NbFormFieldModule,
+        NbIconModule,
+        NbInputModule,
+        NbDatepickerModule,
+        NbButtonModule,
+        NbTooltipModule,
+        NbSelectModule,
+        NbAutocompleteModule,
+        NbToastrModule,
+        TranslateModule,
+        PipesModule,
+    ],
   providers: [
     NbToastrService,
   ],

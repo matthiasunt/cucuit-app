@@ -16,7 +16,7 @@ import {Cucu} from '../../models/cucu';
   templateUrl: './add-cucu.component.html',
   styleUrls: ['./add-cucu.component.scss']
 })
-export class AddCucuComponent implements OnInit, AfterViewInit {
+export class AddCucuComponent implements OnInit {
 
   @ViewChild('element') element: ElementRef;
   public form: FormGroup;
@@ -40,10 +40,6 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.initForm();
-  }
-
-  ngAfterViewInit() {
-    this.unfocusTime();
   }
 
   public postCucu() {
@@ -76,7 +72,6 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
           this.avatarUploadLabel = '';
           this.form.reset();
           this.form = this.getInitialForm();
-          this.unfocusTime();
           await this.showToast('success');
           this.gaService.event('post_success', 'post_cucu');
         } else {
@@ -111,16 +106,16 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
         // Error
       }, async err => {
         if (err.status === 413) {
-          this.avatarUploadLabel = 'File troppo grande';
+          this.avatarUploadLabel = await this.translate.get('postCucu.errors.fileTooLarge.TITLE').toPromise();
           this.toastrService.show(
-            'Immagine troppo grande. Il massimo é 1MB.',
+            await this.translate.get('postCucu.errors.fileTooLarge.TEXT').toPromise(),
             await this.translate.get('postCucu.CUCU_ERROR').toPromise(),
             {status: 'warning'});
-          this.gaService.event('image_too_large_', 'post_cucu');
+          this.gaService.event('image_too_large', 'post_cucu');
         } else {
-          this.avatarUploadLabel = 'Errore';
+          this.avatarUploadLabel = await this.translate.get('postCucu.errors.unknown.TITLE').toPromise();
           this.toastrService.show(
-            'Errore durante l\'upload del tuo immagine.',
+            await this.translate.get('postCucu.errors.unknown.TEXT').toPromise(),
             await this.translate.get('postCucu.CUCU_ERROR').toPromise(),
             {status: 'warning'});
           this.gaService.event('image_upload_failed', 'post_cucu');
@@ -148,14 +143,6 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
         this.time.setValue(`${currentHour + 2}:00`);
       }
     });
-  }
-
-  // TODO: Solve this
-  unfocusTime() {
-    setTimeout(() => {
-      this.element.nativeElement.blur();
-      this.time.markAsUntouched();
-    }, 1);
   }
 
   private getInitialForm() {
@@ -217,10 +204,6 @@ export class AddCucuComponent implements OnInit, AfterViewInit {
 
   get time() {
     return this.form.get('time') as FormControl;
-  }
-
-  public elementStatus(control: FormControl) {
-    return control.valid || !control.dirty ? 'basic' : 'danger';
   }
 }
 

@@ -7,7 +7,7 @@
           <nb-icon nbPrefix icon="link-outline" pack="eva"></nb-icon>
           <input [formControl]="inviteUrl" type="text" nbInput fullWidth [shape]="componentShape"
                  [placeholder]="translate.get('postCucu.inviteUrl.PLACEHOLDER') | async" [fieldSize]="componentSize"
-                 [status]="elementStatus(inviteUrl)">
+                 [status]="inviteUrl | elementStatus">
         </nb-form-field>
       </div>
       <nb-card *ngIf="showCallProvidersInfoBox" class="call-providers-info-box">
@@ -29,7 +29,7 @@
           <nb-icon nbPrefix icon="heart-outline" pack="eva"></nb-icon>
           <input [formControl]="topic" type="text" nbInput fullWidth [shape]="componentShape"
                  [placeholder]="translate.get('postCucu.topic.PLACEHOLDER') | async"
-                 [fieldSize]="componentSize" [status]="elementStatus(topic)"
+                 [fieldSize]="componentSize" [status]="topic | elementStatus"
                  id="topic">
         </nb-form-field>
       </div>
@@ -53,8 +53,7 @@
           <div class="form-group">
             <nb-form-field>
               <nb-select [formControl]="day" [placeholder]="translate.get('postCucu.day.PLACEHOLDER') | async"
-                         [selected]="'today'"
-                         [shape]="componentShape" [size]="componentSize" fullWidth
+                         [selected]="'today'" [shape]="componentShape" [size]="componentSize" fullWidth
                          [nbTooltip]="translate.get('postCucu.day.TOOLTIP') | async" nbTooltipStatus="basic">
                 <nb-option [value]="'today'">{{ 'postCucu.TODAY' | translate }}</nb-option>
                 <nb-option [value]="'tomorrow'">{{ 'postCucu.TOMORROW' | translate }}</nb-option>
@@ -68,7 +67,7 @@
               <nb-icon nbPrefix icon="clock-outline" pack="eva"></nb-icon>
               <input [formControl]="time" fullWidth nbInput type="text"
                      [placeholder]="translate.get('postCucu.time.PLACEHOLDER') | async"
-                     [status]="elementStatus(time)" [shape]="componentShape"
+                     [status]="time | elementStatus" [shape]="componentShape"
                      [nbAutocomplete]="timeAutocomplete" [fieldSize]="componentSize" #element
                      [nbTooltip]="translate.get('postCucu.time.TOOLTIP') | async" nbTooltipStatus="basic"/>
               <nb-autocomplete #timeAutocomplete>
@@ -88,7 +87,7 @@
             <nb-form-field>
               <nb-icon nbPrefix icon="person-outline" pack="eva"></nb-icon>
               <input [formControl]="userName" type="text" nbInput [shape]="componentShape"
-                     [status]="elementStatus(userName)"
+                     [status]="userName | elementStatus"
                      [placeholder]="translate.get('postCucu.userName.PLACEHOLDER') | async"
                      [fieldSize]="componentSize" fullWidth>
             </nb-form-field>
@@ -112,7 +111,7 @@
 
 
       <div class="form-group">
-        <button (click)="postCucu()" nbButton hero [type]="'submit'" status="primary" fullWidth
+        <button (click)="postCucu()" nbButton hero status="primary" fullWidth
                 [shape]="'rectangle'" [size]="'large'">
           {{ "postCucu.post.LABEL" | translate }}
         </button>

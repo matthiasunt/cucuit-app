@@ -2,15 +2,15 @@
   <nb-card-header>
     <nb-user size="giant"
              [picture]="imageUrl"
-             [name]="cucu.userName"
+             [name]="cucu?.userName"
              [title]="timeLabel"
-             [badgeText]="cucu.language"
+             [badgeText]="cucu?.language"
              [badgeStatus]="'primary'"
              [badgePosition]="'bottom right'">
     </nb-user>
   </nb-card-header>
   <nb-card-body>
-    {{cucu.topic}}
+    {{cucu?.topic}}
   </nb-card-body>
   <nb-card-footer>
     <button *ngIf="isEnabled()" (click)="toCall()" nbButton [status]="'primary'"
@@ -27,9 +27,9 @@
   <nb-card-header>
     <nb-user size="giant"
              [picture]="imageUrl"
-             [name]="cucu.userName"
+             [name]="cucu?.userName"
              [title]="timeLabel"
-             [badgeText]="cucu.language"
+             [badgeText]="cucu?.language"
              [badgeStatus]="'basic'"
              [badgePosition]="'bottom right'">
     </nb-user>
@@ -39,7 +39,7 @@
   </nb-card-body>
   <nb-card-footer>
     <button [disabled]="true" nbButton [shape]="'rectangle'">
-      Concluso
+      {{ "cucuBox.join.ENDED" | translate }}
     </button>
   </nb-card-footer>
 </nb-card>
