@@ -151,6 +151,10 @@ export class AddCucuComponent implements OnInit {
         this.time.setValue(`${currentHour + 2}:00`);
       }
     });
+
+    this.translate.onLangChange.subscribe(() => {
+      this.language.setValue(this.translate.currentLang);
+    });
     setTimeout(() => {
       this.inviteUrlInputElement.nativeElement.focus();
     }, 1);

@@ -3,6 +3,7 @@ import {faInstagram} from '@fortawesome/free-brands-svg-icons/faInstagram';
 import {DonationsService} from '../../../services/donations/donations.service';
 import {getLangs} from '../../../util/languages.util';
 import {Language} from '../../../models/language';
+import {TranslateService} from '@ngx-translate/core';
 
 
 @Component({
@@ -16,16 +17,19 @@ export class FooterComponent implements OnInit {
 
   languages: Language[];
 
-  constructor(public donationsService: DonationsService,
+  constructor(
+    public donationsService: DonationsService,
+    private translate: TranslateService,
   ) {
   }
 
   ngOnInit() {
-    this.languages = getLangs().slice(0, 3);
+    this.languages = getLangs().slice(0, 2);
   }
 
   changeLanguage(lang: Language) {
-    console.log(lang);
+    this.translate.use(lang.short);
+    localStorage.setItem('language', lang.short);
   }
 
 

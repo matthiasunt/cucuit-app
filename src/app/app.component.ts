@@ -6,6 +6,8 @@ import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {DonationsService} from './services/donations/donations.service';
 import {combineLatest} from 'rxjs';
 import {filter} from 'rxjs/operators';
+import set = Reflect.set;
+import {getLangs} from './util/languages.util';
 
 
 @Component({
@@ -25,8 +27,16 @@ export class AppComponent implements OnInit {
   ) {
     this.smallDevice = window.innerWidth < 569;
     this.translate.setDefaultLang('it');
-    // this.translate.use(this.translate.getBrowserLang());
-    this.translate.use('it');
+    const setLanguage = localStorage.getItem('language');
+    const browserLanguage = this.translate.getBrowserLang();
+    if (['it', 'es'].includes(setLanguage)) {
+      translate.use(setLanguage);
+    } else if (['it', 'es'].includes(browserLanguage)) {
+      translate.use(browserLanguage);
+    } else {
+      this.translate.use('it');
+    }
+
     combineLatest(
       this.translate.get('navbar.MANIFEST'),
       this.translate.get('navbar.DONATE'))

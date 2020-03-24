@@ -35,9 +35,9 @@
 <!-- Upcoming Cucus -->
 <div *ngIf="(dbService.cucus | async) as cucus" class="row">
   <div class="col-md-12">
-    <div class="no-cucus-div">
-      <p *ngIf="cucus.length < 1">{{ "home.NO_CUCUS_FOUND" | translate }}</p>
-    </div>
+<!--    <div class="no-cucus-div">-->
+<!--      <p *ngIf="cucus.length < 1">{{ "home.NO_CUCUS_FOUND" | translate }}</p>-->
+<!--    </div>-->
   </div>
   <div *ngFor="let c of cucus; trackBy: trackByFn" class="col-md-4">
     <app-cucu-box [cucu]="c"></app-cucu-box>
