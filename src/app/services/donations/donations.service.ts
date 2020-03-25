@@ -9,7 +9,8 @@ export class DonationsService {
 
   private donationUrls: { locale: string, url: string }[] = [
     {locale: 'it', url: 'https://italianonprofit.it/donazioni-coronavirus'},
-    {locale: 'es', url: 'https://www.contraelcoronavirus.org'}
+    {locale: 'es', url: 'https://www.contraelcoronavirus.org'},
+    {locale: 'en', url: 'https://www.gofundme.com/discover'}
   ];
 
   constructor(protected gaService: GoogleAnalyticsService,
@@ -27,8 +28,11 @@ export class DonationsService {
       case 'it':
         locale = 'it';
         break;
+      case 'en':
+        locale = 'en';
+        break;
       default:
-        locale = 'it';
+        locale = 'en';
         break;
     }
     const url = this.donationUrls.find(u => u.locale === locale).url;

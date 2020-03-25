@@ -26,15 +26,13 @@ export class AppComponent implements OnInit {
               private nbMenuService: NbMenuService,
   ) {
     this.smallDevice = window.innerWidth < 569;
-    this.translate.setDefaultLang('it');
+    this.translate.setDefaultLang('en');
     const setLanguage = localStorage.getItem('language');
     const browserLanguage = this.translate.getBrowserLang();
-    if (['it', 'es'].includes(setLanguage)) {
+    if (['en', 'it', 'es'].includes(setLanguage)) {
       translate.use(setLanguage);
-    } else if (['it', 'es'].includes(browserLanguage)) {
+    } else if (['en', 'it', 'es'].includes(browserLanguage)) {
       translate.use(browserLanguage);
-    } else {
-      this.translate.use('it');
     }
 
     combineLatest(

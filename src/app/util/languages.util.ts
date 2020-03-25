@@ -1,10 +1,10 @@
 import {Language} from '../models/language';
 
 const langs: Language[] = [
-  {name: 'Italiano 🇮🇹', short: 'it', emoji: '🇮🇹'},
-  {name: 'Español 🇪🇸', short: 'es', emoji: '🇪🇸'},
   {name: 'English 🇬🇧', short: 'en', emoji: '🇬🇧'},
-  {name: 'Deutsch 🇩🇪', short: 'de', emoji: '🇩🇪'},
+  {name: 'Español 🇪🇸', short: 'es', emoji: '🇪🇸'},
+  {name: 'Italiano 🇮🇹', short: 'it', emoji: '🇮🇹'},
+  // {name: 'Deutsch 🇩🇪', short: 'de', emoji: '🇩🇪'},
 ];
 
 export const getEmojiForLang = (lang: string): string => {
