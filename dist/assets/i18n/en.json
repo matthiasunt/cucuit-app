@@ -65,6 +65,7 @@
     "join": {
       "LABEL": "Join",
       "TOOLTIP_JOIN": "Join the call",
+      "ENDED": "Ended",
       "TOOLTIP_COME_BACK_LATER": "Come back later! This CUCÙ starts",
       "AT": "at"
     }

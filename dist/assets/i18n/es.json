@@ -65,6 +65,7 @@
     "join": {
       "LABEL": "Participa",
       "TOOLTIP_JOIN": "Participa",
+      "ENDED": "Finalizado",
       "TOOLTIP_COME_BACK_LATER": "Nos vemos luego! Este CUCÚ empieza",
       "AT": "a las"
     }
