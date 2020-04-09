@@ -1,9 +1,9 @@
-export const getTimeSlots = (day: string) => {
+export const getTimeSlots = (date: Date) => {
   const timeSlots = [];
   let currentHour = new Date().getHours();
   const currentMinutes = new Date().getMinutes();
   let offset = currentMinutes > 30 ? 1 : 0;
-  if (day !== 'today') {
+  if (isToday(date)) {
     currentHour = 0;
     offset = 0;
   }
@@ -15,12 +15,6 @@ export const getTimeSlots = (day: string) => {
     timeSlots.push(slot + '30');
   }
   return timeSlots;
-};
-
-export const addDays = days => date => {
-  const result = new Date(date);
-  result.setDate(result.getDate() + days);
-  return result;
 };
 
 export const isToday = (someDate) => {

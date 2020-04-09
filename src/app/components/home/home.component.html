@@ -1,4 +1,4 @@
-<div class="row hero-row">
+<div class="row hero-row content-padding">
   <div class="col-lg-5 col-md-7">
     <app-add-cucu></app-add-cucu>
     <!-- Donate Box -->
@@ -15,39 +15,55 @@
       </nb-card-body>
     </nb-card>
   </div>
-  <div class="col-lg-7 col-md-5">
-  </div>
-</div>
-<div class="ws-s"></div>
-
-
-<div class="ws-s"></div>
-<!-- Upcoming Cucus -->
-<div *ngIf="(dbService.cucus | async) as cucus" class="row">
-  <div class="col-md-12">
-    <!--    <div class="no-cucus-div">-->
-    <!--      <p *ngIf="cucus.length < 1">{{ "home.NO_CUCUS_FOUND" | translate }}</p>-->
-    <!--    </div>-->
-  </div>
-  <div *ngFor="let c of cucus; trackBy: trackByFn" class="col-md-4">
-    <app-cucu-box [cucu]="c"></app-cucu-box>
-  </div>
-</div>
-<!-- Past Cucus -->
-<div class="ws-s"></div>
-<div *ngIf="(dbService.pastCucus | async) as pastCucus" class="row">
-  <div *ngFor="let c of pastCucus; trackBy: trackByFn" class="col-md-4">
-    <app-cucu-box [cucu]="c" [isPast]="true"></app-cucu-box>
-  </div>
 </div>
 
-<div class="ws-s"></div>
-<div class="row">
-  <div class="col-md-12 load-more-div">
-    <button *ngIf="doWeHaveMore" (click)="loadMore()" nbButton status="primary"
-            [shape]="'rectangle'" [size]="'medium'">
-      {{ "home.LOAD_MORE" | translate }}
-    </button>
+<div class="about-section content-padding">
+  <div class="row">
+    <div class="col-md-8">
+      <h1>What is CUCUit?</h1>
+      <p>
+        CUCUit es una plataforma de “encuentros digitales abiertos” que nace para ayudar a la comunidad en estos
+        momentos tan difíciles en la lucha contra COVID-19, contribuyendo a que las relaciones entre personas
+        florezcan
+        a pesar del confinamiento en el que vivimos.
+        Ayúdanos aportando tu grano de arena haciendo una donación a alguna de las campañas que luchan contra COVID-19
+        en
+      </p>
+    </div>
   </div>
 </div>
-<div class="ws-m"></div>
+<div class="ws-s"></div>
+<div class="content-padding">
+  <!-- Upcoming Cucus -->
+  <div class="cucus-section" id="cucus">
+    <h1>Join a CUCU</h1>
+    <div *ngIf="(dbService.cucus | async) as cucus" class="row">
+      <div class="col-md-12">
+        <!--    <div class="no-cucus-div">-->
+        <!--      <p *ngIf="cucus.length < 1">{{ "home.NO_CUCUS_FOUND" | translate }}</p>-->
+        <!--    </div>-->
+      </div>
+      <div *ngFor="let c of cucus; trackBy: trackByFn" class="col-md-4">
+        <app-cucu-box [cucu]="c"></app-cucu-box>
+      </div>
+    </div>
+    <!-- Past Cucus -->
+    <div class="ws-s"></div>
+    <div *ngIf="(dbService.pastCucus | async) as pastCucus" class="row">
+      <div *ngFor="let c of pastCucus; trackBy: trackByFn" class="col-md-4">
+        <app-cucu-box [cucu]="c" [isPast]="true"></app-cucu-box>
+      </div>
+    </div>
+
+    <div class="ws-s"></div>
+    <div class="row">
+      <div class="col-md-12 load-more-div">
+        <button *ngIf="doWeHaveMore" (click)="loadMore()" nbButton status="primary"
+                [shape]="'rectangle'" [size]="'medium'">
+          {{ "home.LOAD_MORE" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="ws-m"></div>
+</div>

@@ -1,17 +1,10 @@
 <nb-card accent="primary">
   <nb-card-body class="example-items-col">
-    <h3>Launch your digital meetup.</h3>
+    <h3>Launch open digital meetups!</h3>
     <div class="video-call-services">
       <p>Lauch a CUCU using one of this platforms: </p>
       <div class="row">
-        <img src="./assets/images/hangouts.svg"
-             [nbTooltip]="'Google Hangouts: 10 '+ (translate.get('postCucu.inviteUrl.PARTICIPANTS') | async)">
-        <img src="./assets/images/skype.svg"
-             [nbTooltip]="'Skype: 50 '+ (translate.get('postCucu.inviteUrl.PARTICIPANTS') | async)">
-        <img src="./assets/images/zoom.svg"
-             [nbTooltip]="'Zoom: 100 '+ (translate.get('postCucu.inviteUrl.PARTICIPANTS') | async)">
-        <img src="./assets/images/jitsi.png"
-             [nbTooltip]="'Jitsi Meet: 25 '+ (translate.get('postCucu.inviteUrl.PARTICIPANTS') | async) + ', max. 40 '+(translate.get('postCucu.inviteUrl.MINUTES') | async)">
+        <img *ngFor="let s of callServices" [src]="s.imageUrl" [nbTooltip]="s.tooltip" [alt]="s.name + ' logo'">
       </div>
     </div>
     <div class="ws-s"></div>
@@ -25,20 +18,6 @@
                  [status]="inviteUrl | elementStatus">
         </nb-form-field>
       </div>
-      <!--      <nb-card *ngIf="showCallProvidersInfoBox" class="call-providers-info-box">-->
-      <!--        <nb-card-body>-->
-      <!--          <p>Create your Video Url on one of these platforms:</p>-->
-      <!--          <b><a href="https://hangouts.google.com" target="_blank">Hangouts</a></b>:-->
-      <!--          10 {{"postCucu.inviteUrl.PARTICIPANTS" | translate}}<br>-->
-      <!--          <b><a href="https://www.skype.com" target="_blank">Skype</a></b>:-->
-      <!--          50 {{"postCucu.inviteUrl.PARTICIPANTS" | translate}}<br>-->
-      <!--          <b><a href="https://meet.jit.si" target="_blank">Jitsi Meet</a></b>:-->
-      <!--          25 {{"postCucu.inviteUrl.PARTICIPANTS" | translate}}<br>-->
-      <!--          <b><a href="https://zoom.us/signup" target="_blank">Zoom</a></b>:-->
-      <!--          100 {{"postCucu.inviteUrl.PARTICIPANTS" | translate}}, max. 40 {{"postCucu.inviteUrl.MINUTES" | translate}}-->
-      <!--          <br>-->
-      <!--        </nb-card-body>-->
-      <!--      </nb-card>-->
 
       <!-- Topic & Toggle-->
       <div class="row">
@@ -54,10 +33,13 @@
           </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12">
-          <nb-radio-group>
-            <nb-radio>Chit Chat</nb-radio>
-            <nb-radio>Conference</nb-radio>
-          </nb-radio-group>
+          <nb-toggle status="primary" [formControl]="isConference"
+                     [nbTooltip]="translate.get('postCucu.type.TOOLTIP') | async" [nbTooltipStatus]="'basic'"
+          >{{ "postCucu.type.LABEL" | translate }}</nb-toggle>
+          <!--          <nb-radio-group>-->
+          <!--            <nb-radio>Chit Chat</nb-radio>-->
+          <!--            <nb-radio>Conference</nb-radio>-->
+          <!--          </nb-radio-group>-->
         </div>
       </div>
 
@@ -81,6 +63,7 @@
             <nb-form-field>
               <nb-icon nbPrefix icon="globe-outline" pack="eva"></nb-icon>
               <input [formControl]="language" [placeholder]="translate.get('postCucu.language.PLACEHOLDER') | async"
+                     [fieldSize]="componentSize"
                      fullWidth nbInput type="text"
                      [status]="language | elementStatus"
                      [nbAutocomplete]="languageAutocomplete"
@@ -97,14 +80,8 @@
           <div class="form-group">
             <nb-form-field>
               <nb-icon nbPrefix icon="calendar-outline" pack="eva"></nb-icon>
-              <input [nbDatepicker]="datepicker" fullWidth nbInput>
-
-              <!--              <nb-select [formControl]="day" [placeholder]="translate.get('postCucu.day.PLACEHOLDER') | async"-->
-              <!--                         [selected]="'today'" [shape]="componentShape" [size]="componentSize" fullWidth-->
-              <!--                         [nbTooltip]="translate.get('postCucu.day.TOOLTIP') | async" nbTooltipStatus="basic">-->
-              <!--                <nb-option [value]="'today'">{{ 'postCucu.TODAY' | translate }}</nb-option>-->
-              <!--                <nb-option [value]="'tomorrow'">{{ 'postCucu.TOMORROW' | translate }}</nb-option>-->
-              <!--              </nb-select>-->
+              <input [nbDatepicker]="datepicker" fullWidth nbInput [formControl]="date" [fieldSize]="componentSize"
+                     [nbTooltip]="translate.get('postCucu.day.TOOLTIP') | async" nbTooltipStatus="basic">
               <nb-datepicker #datepicker></nb-datepicker>
             </nb-form-field>
           </div>
@@ -147,12 +124,6 @@
             <button (click)="avatarInput.click()" [size]="'medium'" nbButton ghost>
               <nb-icon icon="camera-outline"></nb-icon>
             </button>
-
-            <!--            <button (click)="avatarInput.click()" nbButton status="primary"-->
-            <!--                    [shape]="componentShape" [size]="componentSize" fullWidth-->
-            <!--                    [nbTooltip]="translate.get('postCucu.uploadImage.TOOLTIP') | async" nbTooltipStatus="basic">-->
-            <!--              {{ "postCucu.uploadImage.LABEL" | translate }}-->
-            <!--            </button>-->
             <p class="avatar-upload-p">{{avatarUploadLabel}}</p>
             <input
               style="display: none" type="file" (change)="onAvatarFileChanged($event)"

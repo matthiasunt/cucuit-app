@@ -27,6 +27,10 @@
       "PLACEHOLDER": "Tell us more...",
       "TOOLTIP": ""
     },
+    "type": {
+      "LABEL": "Conference",
+      "TOOLTIP": "Is your CUCU a Conference?"
+    },
     "language": {
       "PLACEHOLDER": "Seleccionar idioma",
       "TOOLTIP": "En qué idioma será tu CUCÙ?"

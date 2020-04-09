@@ -2,20 +2,12 @@
   background-image: url("src/assets/images/hero-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
-  padding: 2rem;
+  min-height: 100vh;
+
 }
-.hero-section {
-  margin: 18% 15% 5% 10%;
 
-  h1 {
-    font-size: 40px;
-    line-height: 1;
-  }
-
-  p {
-    padding: 20px 0;
-  }
+.about-section {
+  background-color: lighten(black, 96%);
 }
 
 

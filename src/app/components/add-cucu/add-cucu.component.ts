@@ -1,10 +1,10 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
-import {Observable, of} from 'rxjs';
+import {combineLatest, Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {DbService} from '../../services/db/db.service';
-import {addDays, getTimeSlots} from '../../util/date.util';
+import {addDays, getTimeSlots, isToday} from '../../util/date.util';
 import {NbComponentShape, NbComponentSize, NbToastrService} from '@nebular/theme';
 import {getAllLangs, getLangName, getLangs} from '../../util/languages.util';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
@@ -22,9 +22,10 @@ export class AddCucuComponent implements OnInit {
   @ViewChild('timeInputElement') timeInputElement: ElementRef;
   public form: FormGroup;
 
+  public callServices: { name: string, tooltip: string, imageUrl: string }[] = [];
+
   componentSize: NbComponentSize = 'medium';
   componentShape: NbComponentShape = 'rectangle';
-  showCallProvidersInfoBox = true;
   filteredTimeOptions$: Observable<string[]>;
   timeSlots = [];
 
@@ -34,7 +35,6 @@ export class AddCucuComponent implements OnInit {
 
   avatarUploadLabel = '';
   avatarId: string;
-  date = new Date();
 
 
   constructor(private formBuilder: FormBuilder,
@@ -47,17 +47,40 @@ export class AddCucuComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
+    combineLatest([
+      this.translate.get('postCucu.inviteUrl.PARTICIPANTS'),
+      this.translate.get('postCucu.inviteUrl.MINUTES'),
+    ]).subscribe(([p, m]) => {
+      this.callServices = [
+        {
+          name: 'Google Hangouts',
+          tooltip: `Google Hangouts: 10 ${p}`,
+          imageUrl: './assets/images/hangouts.svg',
+        },
+        {
+          name: 'Skype',
+          tooltip: `Skype: 50 ${p}`,
+          imageUrl: './assets/images/skype.svg',
+        },
+        {
+          name: 'Zoom',
+          tooltip: `Zoom: 100 ${p}, max. 40 ${m}`,
+          imageUrl: './assets/images/hangouts.svg',
+        },
+        {
+          name: 'Jitsi Meet',
+          tooltip: `Jitsi Meet: 25 ${p}`,
+          imageUrl: './assets/images/jitsi.png',
+        }
+      ];
+    });
   }
 
   public postCucu() {
     if (this.form.valid) {
       const data = this.form.getRawValue();
-      let date = new Date();
 
-      if (data.day === 'tomorrow') {
-        date = addDays(1)(date);
-      }
-
+      const date = data.date;
       const hours = data.time.split(':')[0];
       const minutes = data.time.split(':')[1];
       date.setHours(hours);
@@ -66,9 +89,12 @@ export class AddCucuComponent implements OnInit {
       if (!this.avatarId) {
         this.avatarId = '';
       }
+      const type = this.isConference ? 'conference' : 'chit_chat';
       const cucu: Cucu = {
         inviteUrl: data.inviteUrl,
         topic: data.topic,
+        description: data.description,
+        type,
         startDate: date,
         userName: data.userName,
         avatarId: this.avatarId,
@@ -131,20 +157,31 @@ export class AddCucuComponent implements OnInit {
 
   private initForm() {
     const now = new Date();
+    const tomorrow = new Date(now.setDate(now.getDate() + 1));
     const currentHour = new Date().getHours();
-    const dayPreset = currentHour > 18 ? 'tomorrow' : 'today';
+    const datePreset = currentHour > 18 ? tomorrow : now;
+
     const timePreset = currentHour > 18 || currentHour < 8 ?
       '10:00' : `${currentHour + 2}:00`;
     const langPreset = getLangName(this.translate.currentLang);
-    this.timeSlots = getTimeSlots(dayPreset);
+    this.timeSlots = getTimeSlots(datePreset);
     this.form = this.formBuilder.group({
-      inviteUrl: ['', [Validators.required, validateInviteUrl]],
-      topic: ['', Validators.required],
-      description: ['', Validators.required],
-      userName: ['', Validators.required],
+      inviteUrl: ['https://hangouts.google.com/call/3wTZG0Tv8yykGbUGSfj2AEEI', [Validators.required, validateInviteUrl]],
+      topic: ['Sports', Validators.required],
+      description: ['Morning routine', Validators.required],
+      isConference: [false, Validators.required],
+      userName: ['Matthias', Validators.required],
       language: [langPreset, Validators.required],
-      day: [dayPreset, Validators.required],
+      date: [datePreset, Validators.required],
       time: [timePreset, [Validators.required, Validators.pattern('[0-9]?[0-9]:[0-9][0-9]')]],
+      // inviteUrl: ['', [Validators.required, validateInviteUrl]],
+      // topic: ['', Validators.required],
+      // description: ['', Validators.required],
+      // isConference: [false, Validators.required],
+      // userName: ['', Validators.required],
+      // language: [langPreset, Validators.required],
+      // date: [datePreset, Validators.required],
+      // time: [timePreset, [Validators.required, Validators.pattern('[0-9]?[0-9]:[0-9][0-9]')]],
     });
 
     this.filteredTimeOptions$ = of(this.timeSlots);
@@ -156,9 +193,9 @@ export class AddCucuComponent implements OnInit {
       .pipe(map(filterString => this.filterLanguages(filterString)));
 
 
-    this.day.valueChanges.subscribe((change) => {
+    this.date.valueChanges.subscribe((change) => {
       this.timeSlots = getTimeSlots(change);
-      if (change === 'tomorrow') {
+      if (!isToday(change)) {
         this.time.setValue('10:00');
       } else {
         this.time.setValue(`${currentHour + 2}:00`);
@@ -215,6 +252,10 @@ export class AddCucuComponent implements OnInit {
     return this.form.get('description') as FormControl;
   }
 
+  get isConference() {
+    return this.form.get('isConference') as FormControl;
+  }
+
   get userName() {
     return this.form.get('userName') as FormControl;
   }
@@ -223,8 +264,8 @@ export class AddCucuComponent implements OnInit {
     return this.form.get('language') as FormControl;
   }
 
-  get day() {
-    return this.form.get('day') as FormControl;
+  get date() {
+    return this.form.get('date') as FormControl;
   }
 
   get time() {

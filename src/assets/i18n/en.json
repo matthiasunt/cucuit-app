@@ -3,7 +3,8 @@
   "ERROR": "Error",
   "navbar": {
     "MANIFEST": "Manifesto",
-    "DONATE": "Donate"
+    "DONATE": "Donate",
+    "JOIN": "Join"
   },
   "home": {
     "HERO_HEADER": "Launch and join open digital meetups on CUCUit!",
@@ -26,6 +27,10 @@
     "description": {
       "PLACEHOLDER": "Tell us more...",
       "TOOLTIP": ""
+    },
+    "type": {
+      "LABEL": "Conference",
+      "TOOLTIP": "Is your CUCU a Conference?"
     },
     "language": {
       "PLACEHOLDER": "Select your language",

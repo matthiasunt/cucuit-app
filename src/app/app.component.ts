@@ -42,6 +42,7 @@ export class AppComponent implements OnInit {
       this.translate.get('navbar.DONATE'))
       .subscribe(([m, d]) => {
         this.menuItems = [
+          {title: 'Join', link: '#cucus'},
           {title: m, link: 'manifest'},
           {title: d},
         ];

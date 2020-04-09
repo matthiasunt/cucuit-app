@@ -1,10 +1,11 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Cucu} from '../../models/cucu';
 import {DbService} from '../../services/db/db.service';
 import {isToday} from '../../util/date.util';
 import {TranslateService} from '@ngx-translate/core';
 import {combineLatest} from 'rxjs';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
+import ICalendar from 'datebook';
 
 @Component({
   selector: 'app-cucu-box',
@@ -46,10 +47,9 @@ export class CucuBoxComponent implements OnInit {
         this.translate.get('cucuBox.join.LABEL'),
         this.translate.get('cucuBox.join.TOOLTIP_COME_BACK_LATER')
       ]).subscribe(([today, tomorrow, at, enter, text]) => {
-        const day = isToday(cucuStartDate) ? today : tomorrow;
         this.buttonLabel = enter;
-        this.timeLabel = `${day} ${at} ${time}`;
-        this.comebackLaterText = `${text} ${day.toLowerCase()} ${at} ${time}`;
+        this.timeLabel = isToday(cucuStartDate) ? `${today} ${at} ${time}` : `${cucuStartDate.toLocaleDateString()}, ${time}`;
+        // this.comebackLaterText = `${text} ${day.toLowerCase()} ${at} ${time}`;
       });
     } else {
       // Cucu in the past
@@ -76,5 +76,20 @@ export class CucuBoxComponent implements OnInit {
     }
   }
 
+  public calendarClicked() {
+    const endDate = new Date(this.cucu.startDate)
+      .setHours(new Date(this.cucu.startDate).getHours() + 1);
+    const icalEvent = new ICalendar({
+      title: this.cucu.topic,
+      description: this.cucu.description,
+      start: this.cucu.startDate,
+      end: endDate
+    });
+    icalEvent.download();
+  }
+
+  public shareClicked() {
+
+  }
 
 }

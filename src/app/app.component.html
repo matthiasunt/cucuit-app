@@ -7,6 +7,9 @@
     </div>
     <div class="nav-items-div">
       <ng-container *ngIf="!smallDevice">
+        <button nbButton ghost href="#cucus" status="primary">
+          {{ "navbar.JOIN" | translate }}
+        </button>
         <button nbButton ghost [routerLink]="'manifest'" status="primary">
           {{ "navbar.MANIFEST" | translate }}
         </button>

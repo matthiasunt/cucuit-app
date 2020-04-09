@@ -10,7 +10,8 @@
     </nb-user>
   </nb-card-header>
   <nb-card-body>
-    {{cucu?.topic}}
+    <b>{{ cucu?.topic }}</b> | {{ cucu?.type === 'conference' ? 'Conference' : 'Chit Chat' }}
+    <p>{{ cucu?.description }}</p>
   </nb-card-body>
   <nb-card-footer>
     <button *ngIf="isEnabled()" (click)="toCall()" nbButton [status]="'primary'"
@@ -20,6 +21,14 @@
     <button nbButton [shape]="'rectangle'" [nbTooltip]="comebackLaterText" nbTooltipStatus="basic" *ngIf="!isEnabled()">
       {{ "cucuBox.join.LABEL" | translate }}
     </button>
+    <div class="icon-buttons">
+      <button (click)="calendarClicked()" [size]="'medium'" nbButton ghost>
+        <nb-icon icon="calendar-outline"></nb-icon>
+      </button>
+      <button (click)="shareClicked()" [size]="'medium'" nbButton ghost>
+        <nb-icon icon="share-outline"></nb-icon>
+      </button>
+    </div>
   </nb-card-footer>
 </nb-card>
 
@@ -35,7 +44,8 @@
     </nb-user>
   </nb-card-header>
   <nb-card-body>
-    {{cucu.topic}}
+    <b>{{ cucu?.topic }}</b> | {{ cucu?.type === 'conference' ? 'Conference' : 'Chit Chat' }}
+    <p>{{ cucu?.description }}</p>
   </nb-card-body>
   <nb-card-footer>
     <button [disabled]="true" nbButton [shape]="'rectangle'">
