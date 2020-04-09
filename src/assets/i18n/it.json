@@ -23,6 +23,10 @@
       "PLACEHOLDER": "Yoga, Vino in compagnia, Brainstorming, Una nuova ricetta, Barzellette, Esercizi e sfide...",
       "TOOLTIP": ""
     },
+    "description": {
+      "PLACEHOLDER": "Tell us more...",
+      "TOOLTIP": ""
+    },
     "language": {
       "PLACEHOLDER": "Seleziona lingua",
       "TOOLTIP": "In che lingua sarà il tuo CUCÙ?"

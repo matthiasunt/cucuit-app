@@ -33,6 +33,8 @@ export class AppComponent implements OnInit {
       translate.use(setLanguage);
     } else if (['en', 'it', 'es'].includes(browserLanguage)) {
       translate.use(browserLanguage);
+    } else {
+      translate.use('en');
     }
 
     combineLatest(

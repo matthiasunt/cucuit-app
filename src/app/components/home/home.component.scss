@@ -1,8 +1,15 @@
+.hero-row {
+  background-image: url("src/assets/images/hero-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding: 2rem;
+}
 .hero-section {
   margin: 18% 15% 5% 10%;
 
   h1 {
-    font-size: 55px;
+    font-size: 40px;
     line-height: 1;
   }
 
@@ -30,7 +37,7 @@
 @media (max-width: 991px) {
   .hero-section {
     h1 {
-      font-size: 50px;
+      font-size: 35px;
     }
   }
 }
@@ -38,7 +45,7 @@
 @media (max-width: 768px) {
   .hero-section {
     h1 {
-      font-size: 35px;
+      font-size: 30px;
     }
   }
 }

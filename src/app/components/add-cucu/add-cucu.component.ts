@@ -6,7 +6,7 @@ import {map, startWith} from 'rxjs/operators';
 import {DbService} from '../../services/db/db.service';
 import {addDays, getTimeSlots} from '../../util/date.util';
 import {NbComponentShape, NbComponentSize, NbToastrService} from '@nebular/theme';
-import {getLangs} from '../../util/languages.util';
+import {getAllLangs, getLangName, getLangs} from '../../util/languages.util';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {validateInviteUrl} from '../../util/validators.util';
 import {Cucu} from '../../models/cucu';
@@ -26,10 +26,16 @@ export class AddCucuComponent implements OnInit {
   componentShape: NbComponentShape = 'rectangle';
   showCallProvidersInfoBox = true;
   filteredTimeOptions$: Observable<string[]>;
-  languages = getLangs();
   timeSlots = [];
+
+  filteredLanguageOptions$: Observable<string[]>;
+  languages: string[] = getAllLangs().map(e => e.name);
+
+
   avatarUploadLabel = '';
   avatarId: string;
+  date = new Date();
+
 
   constructor(private formBuilder: FormBuilder,
               public translate: TranslateService,
@@ -129,12 +135,14 @@ export class AddCucuComponent implements OnInit {
     const dayPreset = currentHour > 18 ? 'tomorrow' : 'today';
     const timePreset = currentHour > 18 || currentHour < 8 ?
       '10:00' : `${currentHour + 2}:00`;
+    const langPreset = getLangName(this.translate.currentLang);
     this.timeSlots = getTimeSlots(dayPreset);
     this.form = this.formBuilder.group({
       inviteUrl: ['', [Validators.required, validateInviteUrl]],
       topic: ['', Validators.required],
+      description: ['', Validators.required],
       userName: ['', Validators.required],
-      language: [this.translate.currentLang, Validators.required],
+      language: [langPreset, Validators.required],
       day: [dayPreset, Validators.required],
       time: [timePreset, [Validators.required, Validators.pattern('[0-9]?[0-9]:[0-9][0-9]')]],
     });
@@ -142,6 +150,11 @@ export class AddCucuComponent implements OnInit {
     this.filteredTimeOptions$ = of(this.timeSlots);
     this.filteredTimeOptions$ = this.time.valueChanges
       .pipe(map(filterString => this.filterTimeslots(filterString)));
+
+    this.filteredLanguageOptions$ = of(this.languages);
+    this.filteredLanguageOptions$ = this.language.valueChanges
+      .pipe(map(filterString => this.filterLanguages(filterString)));
+
 
     this.day.valueChanges.subscribe((change) => {
       this.timeSlots = getTimeSlots(change);
@@ -153,7 +166,9 @@ export class AddCucuComponent implements OnInit {
     });
 
     this.translate.onLangChange.subscribe(() => {
-      this.language.setValue(this.translate.currentLang);
+      console.log(this.translate.currentLang);
+      this.language.setValue(getLangName(this.translate.currentLang));
+      // this.language.setValue(this.translate.currentLang);
     });
     setTimeout(() => {
       this.inviteUrlInputElement.nativeElement.focus();
@@ -164,6 +179,13 @@ export class AddCucuComponent implements OnInit {
     if (value) {
       const filterValue = value.toLowerCase();
       return this.timeSlots.filter(optionValue => optionValue.toLowerCase().includes(filterValue));
+    }
+  }
+
+  private filterLanguages(value: string): string[] {
+    if (value) {
+      const filterValue = value.toLowerCase();
+      return this.languages.filter(optionValue => optionValue.toLowerCase().includes(filterValue));
     }
   }
 
@@ -187,6 +209,10 @@ export class AddCucuComponent implements OnInit {
 
   get topic() {
     return this.form.get('topic') as FormControl;
+  }
+
+  get description() {
+    return this.form.get('description') as FormControl;
   }
 
   get userName() {

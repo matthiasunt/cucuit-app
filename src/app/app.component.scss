@@ -1,4 +1,5 @@
 nb-layout-header {
+  // background-color: transparent !important;
   .logo-div {
     img {
       width: 160px;
@@ -12,7 +13,9 @@ nb-layout-header {
   }
 }
 
-
+nb-layout-column {
+  padding: 0 !important;
+}
 :host nb-layout-header ::ng-deep nav {
   justify-content: flex-end;
 }

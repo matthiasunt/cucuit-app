@@ -30,6 +30,7 @@
     "@ngx-translate/http-loader": "latest",
     "boostrap": "^2.0.0",
     "bootstrap": "^4.4.1",
+    "countries-list": "^2.5.4",
     "eva-icons": "^1.1.2",
     "ngx-google-analytics": "^8.0.0",
     "rxjs": "~6.5.4",

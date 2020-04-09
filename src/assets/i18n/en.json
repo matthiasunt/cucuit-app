@@ -23,6 +23,10 @@
       "PLACEHOLDER": "Yoga, Cheers, Brainstorming, A new recipe, Workout...",
       "TOOLTIP": ""
     },
+    "description": {
+      "PLACEHOLDER": "Tell us more...",
+      "TOOLTIP": ""
+    },
     "language": {
       "PLACEHOLDER": "Select your language",
       "TOOLTIP": "What language will you speak during your CUCÙ?"

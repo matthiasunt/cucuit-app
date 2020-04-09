@@ -12,7 +12,7 @@ import {
   NbIconModule,
   NbContextMenuModule,
   NbMenuModule,
-  NbToastrModule,
+  NbToastrModule, NbDatepickerModule,
 } from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -41,6 +41,7 @@ import {FooterModule} from './components/shared/footer/footer.module';
     NgxGoogleAnalyticsRouterModule,
     NbThemeModule.forRoot({name: 'light-red'}),
     NbMenuModule.forRoot(),
+    NbDatepickerModule.forRoot(),
     NbToastrModule.forRoot(),
     NbContextMenuModule,
     NbLayoutModule,
