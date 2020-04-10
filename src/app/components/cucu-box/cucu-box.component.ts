@@ -6,6 +6,8 @@ import {TranslateService} from '@ngx-translate/core';
 import {combineLatest} from 'rxjs';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import ICalendar from 'datebook';
+import {CucuDetailComponent} from '../cucu-detail/cucu-detail.component';
+import {NbDialogService, NbWindowService} from '@nebular/theme';
 
 @Component({
   selector: 'app-cucu-box',
@@ -24,6 +26,7 @@ export class CucuBoxComponent implements OnInit {
 
   constructor(public dbService: DbService,
               public translate: TranslateService,
+              private dialogService: NbDialogService,
               protected gaService: GoogleAnalyticsService,
   ) {
   }
@@ -56,6 +59,14 @@ export class CucuBoxComponent implements OnInit {
       this.timeLabel = `${cucuStartDate.toLocaleDateString()}, ${time}`;
       this.buttonLabel = 'Concluso';
     }
+  }
+
+  public openDetail() {
+    const title: string = this.cucu.topic;
+    this.dialogService.open(CucuDetailComponent, {
+      context: this.cucu._id
+    });
+    // this.windowService.open(CucuDetailComponent, {title: this.cucu.topic});
   }
 
 

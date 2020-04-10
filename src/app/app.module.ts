@@ -12,7 +12,7 @@ import {
   NbIconModule,
   NbContextMenuModule,
   NbMenuModule,
-  NbToastrModule, NbDatepickerModule,
+  NbToastrModule, NbDatepickerModule, NbDialogModule, NbCardModule,
 } from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -43,6 +43,7 @@ import {FooterModule} from './components/shared/footer/footer.module';
     NbMenuModule.forRoot(),
     NbDatepickerModule.forRoot(),
     NbToastrModule.forRoot(),
+    NbDialogModule.forRoot(),
     NbContextMenuModule,
     NbLayoutModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
@@ -50,6 +51,7 @@ import {FooterModule} from './components/shared/footer/footer.module';
     NbIconModule,
     NbEvaIconsModule,
     FooterModule,
+    NbCardModule,
   ],
   bootstrap: [AppComponent]
 })

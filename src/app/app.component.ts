@@ -38,11 +38,12 @@ export class AppComponent implements OnInit {
     }
 
     combineLatest(
+      this.translate.get('navbar.CUCUS'),
       this.translate.get('navbar.MANIFEST'),
       this.translate.get('navbar.DONATE'))
-      .subscribe(([m, d]) => {
+      .subscribe(([c, m, d]) => {
         this.menuItems = [
-          {title: 'Join', link: '#cucus'},
+          {title: c, link: '#cucus'},
           {title: m, link: 'manifest'},
           {title: d},
         ];
@@ -58,6 +59,10 @@ export class AppComponent implements OnInit {
           this.donationsService.toDonationSite();
         }
       });
+  }
+
+  scrollToElement($element): void {
+    $element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
   }
 
   @HostListener('window:resize')

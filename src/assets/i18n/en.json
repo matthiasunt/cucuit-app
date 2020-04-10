@@ -2,9 +2,9 @@
   "SUCCESS": "Success",
   "ERROR": "Error",
   "navbar": {
+    "CUCUS": "Check out available CUCUs",
     "MANIFEST": "Manifesto",
-    "DONATE": "Donate",
-    "JOIN": "Join"
+    "DONATE": "Donate"
   },
   "home": {
     "HERO_HEADER": "Launch and join open digital meetups on CUCUit!",
@@ -12,7 +12,7 @@
     "DISCOVER_CUCUIT": "Discover CUCUit",
     "LOAD_MORE": "Load More",
     "NO_CUCUS_FOUND": "Sorry, no new CUCUs launched. Be the first!",
-    "DONATE_BOX_TEXT": "Make a donation and help us raise money for the hospitals in need. Every little helps!"
+    "INFO_BOX_TEXT": "Lorem ipsum …"
   },
   "postCucu": {
     "inviteUrl": {
@@ -62,13 +62,18 @@
     "errors": {
       "FILE_TOO_LARGE": {
         "TITLE": "This file is too big",
-        "TEXT": "this image is too big. maximum file size allowed: 1MB"
+        "TEXT": "this image is too big. maximum file size allowed: 3MB"
       },
       "UNKNOWN": {
         "TITLE": "Error",
         "TEXT": "An unexpected error occurred while uploading your image. Please try again later! "
       }
     }
+  },
+  "aboutSection": {
+    "TITLE": "What is CUCUit?",
+    "TEXT": "CUCUit es una plataforma de “encuentros digitales abiertos” que nace para ayudar a la comunidad en estos momentos tan difíciles en la lucha contra COVID-19, contribuyendo a que las relaciones entre personas florezcan a pesar del confinamiento en el que vivimos. Ayúdanos aportando tu grano de arena haciendo una donación a alguna de las campañas que luchan contra COVID-19.",
+    "MORE_INFO": "More information"
   },
   "cucuBox": {
     "join": {
@@ -77,6 +82,12 @@
       "ENDED": "Ended",
       "TOOLTIP_COME_BACK_LATER": "Come back later! This CUCÙ starts",
       "AT": "at"
+    },
+    "share": {
+      "TOOLTIP": "Share this CUCU"
+    },
+    "addToCalendar": {
+      "TOOLTIP": "Add this CUCU to your Calendar"
     }
   },
   "manifest": {
@@ -88,11 +99,11 @@
     },
     "paragraph2": {
       "TITLE": "JOIN A CUCÙ!",
-      "TEXT": "Browse all the available CUCUs and select the one you dig. You can’t reserve a seat so, be on time, click the “join” button and enjoy the meetup!  <br>"
+      "TEXT": "Browse all the available CUCUs and select the one you dig. You can’t reserve a seat so, be on time, click the “join” button and enjoy the meetup! <br>"
     },
     "paragraph3": {
       "TITLE": "SUGGESTED VIDEO CALLING TOOLS AND HOW TO USE THEM",
-      "TEXT": "<p><strong>1. Google Hangouts - up to 10 attendees, no time limits. </strong></p><p>In order to use Google Hangouts, both to create or join a CUCÙ, it is necessary to have a Google account. <br /> From your computer: go on hangouts.google.com > click on the “video call” icon > once inside the video call you’ll be the only participant and a pop-up will open up to invite people in, as well as a green button “invite people” will appear > click on “copy link to share”. <br />From your mobile: download Hangouts app, available for Android or iOS > click on the message icon (the third one from the left hand side at the bottom of the page) > click on “+” to start a new conversation > create a new group and give it a name > click on “share link”. <br />You’ve now copied the link to your video call > paste it in the link field on CUCUit.com form and launch your cucu. <br /> If you join a video call created by another CUCUer, make sure to have the Hangouts app installed on your mobile or to have accessed your Google account. Just click on the JOIN button and you’ll be automatically redirected inside the call.</p><p><br /> <strong>2. Zoom - up to 100 attendees, time limit: 40 minutes. </strong></p><p>If you want to create a video call with Zoom it’s necessary to have a Zoom account. <br /> If you’ll participate in a call created by someone else, you’ll not need any account. <br /> From your computer: go on “zoom.us” and enter your account by clicking “sign in” and typing your email and password. From the menu on the left hand side click “schedule a new meeting” > a link will be created “Join URL” > copy and paste it in the link field on CUCUit.com form and launch your CUCÙ. <br />From your mobile: download Zoom app, available for Android or iOS > log in by using your email and password > click on the “Schedule” icon and insert your call details. Pay attention to the Time Zone you select. We suggest you not to share your Personal Meeting ID and not to ask for a Meeting Password. Select all the settings you prefer and click on “done” > copy and paste the Link in the link field on CUCUit.com form and launch your CUCÙ. <br /> If you join a video call created by another CUCUer, just click on the JOIN button and you’ll be automatically redirected inside the call. If you do it on your mobile, make sure to have the Zoom app installed. </p><p>&nbsp;</p><p><strong>      3. Skype - up to 50 attendees, no time limits. </strong></p><p>In order to use Skype, both to create or join a CUCÙ, it is necessary to have an account. <br />From your computer: download Skype app for desktops. <br /> From you mobile: download Skype app, available for Android or iOS.<br /> Click on “New Chat”> “New Group Chat” > create a group name without adding any contact from your contact list > click “Done” > click on “Invite more people” or on the third icon on the top right hand side > click “Share link to join the group”. You’ve now copied the link to your video call > paste it in the link field on CUCUit.com form and launch your CUCÙ. <br /> If you join a video call created by another CUCUer, make sure to have the Skype app installed on your mobile or your computer and to be inside your account. Just click on the JOIN button and you’ll be automatically redirected inside the call. </p><p>&nbsp;</p><p><strong>      4. Jitsi Meet - up to 25 attendees, no time limits. </strong></p><p> In order to use Jitsi Meet, both to create or join a cucu, is it not necessary to have an account. <br />From your computer: go on jitsi.org > from the home page click on the orange button “start a call” > insert in the field the video call name. Try to use a unique name, that hypothetically no one used before > click “GO” to enter the video call. A pop-up will open up to show you the call info, including the link. If it doesn’t open, you can find the link needed by clicking the “i” icon at the bottom of the page. <br /> From your mobile: download Jitsi Meet app, available for Android or iOS. Create a name for the call/room. Try to use a unique name, that hypothetically no one used before > you’re now inside the call > click on the icon with three dots to see “more options” then click on “meeting info” to see the call link.      Copy and paste the link in the link field on CUCUit.com form and launch your cucu.<br />      If you join a video call created by another CUCUer, click directly on the JOIN button and you’ll be automatically redirected inside the call. If you’re using your mobile please be sure to have downloaded the app.\"</p>"
+      "TEXT": "<p><strong>1. Google Hangouts - up to 10 attendees, no time limits. </strong></p><p>In order to use Google Hangouts, both to create or join a CUCÙ, it is necessary to have a Google account. <br /> From your computer: go on hangouts.google.com > click on the “video call” icon > once inside the video call you’ll be the only participant and a pop-up will open up to invite people in, as well as a green button “invite people” will appear > click on “copy link to share”. <br />From your mobile: download Hangouts app, available for Android or iOS > click on the message icon (the third one from the left hand side at the bottom of the page) > click on “+” to start a new conversation > create a new group and give it a name > click on “share link”. <br />You’ve now copied the link to your video call > paste it in the link field on CUCUit.com form and launch your cucu. <br /> If you join a video call created by another CUCUer, make sure to have the Hangouts app installed on your mobile or to have accessed your Google account. Just click on the JOIN button and you’ll be automatically redirected inside the call.</p><p><br /> <strong>2. Zoom - up to 100 attendees, time limit: 40 minutes. </strong></p><p>If you want to create a video call with Zoom it’s necessary to have a Zoom account. <br /> If you’ll participate in a call created by someone else, you’ll not need any account. <br /> From your computer: go on “zoom.us” and enter your account by clicking “sign in” and typing your email and password. From the menu on the left hand side click “schedule a new meeting” > a link will be created “Join URL” > copy and paste it in the link field on CUCUit.com form and launch your CUCÙ. <br />From your mobile: download Zoom app, available for Android or iOS > log in by using your email and password > click on the “Schedule” icon and insert your call details. Pay attention to the Time Zone you select. We suggest you not to share your Personal Meeting ID and not to ask for a Meeting Password. Select all the settings you prefer and click on “done” > copy and paste the Link in the link field on CUCUit.com form and launch your CUCÙ. <br /> If you join a video call created by another CUCUer, just click on the JOIN button and you’ll be automatically redirected inside the call. If you do it on your mobile, make sure to have the Zoom app installed. </p><p> </p><p><strong> 3. Skype - up to 50 attendees, no time limits. </strong></p><p>In order to use Skype, both to create or join a CUCÙ, it is necessary to have an account. <br />From your computer: download Skype app for desktops. <br /> From you mobile: download Skype app, available for Android or iOS.<br /> Click on “New Chat”> “New Group Chat” > create a group name without adding any contact from your contact list > click “Done” > click on “Invite more people” or on the third icon on the top right hand side > click “Share link to join the group”. You’ve now copied the link to your video call > paste it in the link field on CUCUit.com form and launch your CUCÙ. <br /> If you join a video call created by another CUCUer, make sure to have the Skype app installed on your mobile or your computer and to be inside your account. Just click on the JOIN button and you’ll be automatically redirected inside the call. </p><p> </p><p><strong> 4. Jitsi Meet - up to 25 attendees, no time limits. </strong></p><p> In order to use Jitsi Meet, both to create or join a cucu, is it not necessary to have an account. <br />From your computer: go on jitsi.org > from the home page click on the orange button “start a call” > insert in the field the video call name. Try to use a unique name, that hypothetically no one used before > click “GO” to enter the video call. A pop-up will open up to show you the call info, including the link. If it doesn’t open, you can find the link needed by clicking the “i” icon at the bottom of the page. <br /> From your mobile: download Jitsi Meet app, available for Android or iOS. Create a name for the call/room. Try to use a unique name, that hypothetically no one used before > you’re now inside the call > click on the icon with three dots to see “more options” then click on “meeting info” to see the call link. Copy and paste the link in the link field on CUCUit.com form and launch your cucu.<br /> If you join a video call created by another CUCUer, click directly on the JOIN button and you’ll be automatically redirected inside the call. If you’re using your mobile please be sure to have downloaded the app.\"</p>"
     }
   },
   "footer": {
@@ -110,5 +121,3 @@
     }
   }
 }
-
-

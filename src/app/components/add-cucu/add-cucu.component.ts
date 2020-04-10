@@ -4,12 +4,13 @@ import {TranslateService} from '@ngx-translate/core';
 import {combineLatest, Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {DbService} from '../../services/db/db.service';
-import {addDays, getTimeSlots, isToday} from '../../util/date.util';
-import {NbComponentShape, NbComponentSize, NbToastrService} from '@nebular/theme';
-import {getAllLangs, getLangName, getLangs} from '../../util/languages.util';
+import {getTimeSlots, isToday} from '../../util/date.util';
+import {NbComponentShape, NbComponentSize, NbToastrService, NbWindowService} from '@nebular/theme';
+import {getAllLangs, getLangName} from '../../util/languages.util';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {validateInviteUrl} from '../../util/validators.util';
 import {Cucu} from '../../models/cucu';
+import {CucuDetailComponent} from '../cucu-detail/cucu-detail.component';
 
 @Component({
   selector: 'app-add-cucu',
@@ -40,6 +41,7 @@ export class AddCucuComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               public translate: TranslateService,
               private dbService: DbService,
+              private windowService: NbWindowService,
               private toastrService: NbToastrService,
               protected gaService: GoogleAnalyticsService,
   ) {
@@ -104,7 +106,7 @@ export class AddCucuComponent implements OnInit {
         if (res.topic) {
           this.avatarUploadLabel = '';
           this.initForm();
-          await this.showToast('success');
+          await this.showCucuStatus('success');
           this.gaService.event('post_success', 'post_cucu');
         } else {
           console.error(res);
@@ -112,7 +114,7 @@ export class AddCucuComponent implements OnInit {
         this.inviteUrlInputElement.nativeElement.focus();
       }, async err => {
         console.error(err);
-        await this.showToast('danger');
+        await this.showCucuStatus('danger');
         this.gaService.event('post_failed', 'post_cucu');
       });
     } else {
@@ -226,7 +228,7 @@ export class AddCucuComponent implements OnInit {
     }
   }
 
-  private async showToast(status) {
+  private async showCucuStatus(status) {
     const title = status === 'success' ?
       await this.translate.get('SUCCESS').toPromise() :
       await this.translate.get('ERROR').toPromise();
@@ -234,10 +236,15 @@ export class AddCucuComponent implements OnInit {
     const message = status === 'success' ?
       await this.translate.get('postCucu.CUCU_POSTED').toPromise() :
       await this.translate.get('postCucu.CUCU_ERROR').toPromise();
-    this.toastrService.show(
-      message,
-      title,
-      {status});
+    if (status === 'success') {
+      this.windowService.open(CucuDetailComponent, {title});
+    } else {
+      this.toastrService.show(
+        message,
+        title,
+        {status});
+    }
+
   }
 
   get inviteUrl() {

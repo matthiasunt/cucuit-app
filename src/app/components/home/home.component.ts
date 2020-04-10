@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
   doWeHaveMore = false;
 
   constructor(private translate: TranslateService,
-              private windowService: NbWindowService,
               public dbService: DbService,
               protected gaService: GoogleAnalyticsService,
               public donationsService: DonationsService,
@@ -31,13 +30,12 @@ export class HomeComponent implements OnInit {
   loadMore() {
   }
 
-  public openVideoWindow() {
-    this.windowService.open(VideoComponent, {title: ``});
-    this.gaService.event('open_video', 'home');
-  }
-
   public trackByFn(index, item: Cucu) {
     return item._id;
+  }
+
+  scrollToElement($element): void {
+    $element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
   }
 
 }

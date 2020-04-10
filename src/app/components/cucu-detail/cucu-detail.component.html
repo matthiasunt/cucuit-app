@@ -1,4 +1,4 @@
-<nb-card accent="primary" *ngIf="!isPast" (click)="openDetail()">
+<nb-card accent="primary">
   <nb-card-header>
     <nb-user size="giant"
              [picture]="imageUrl"
@@ -30,27 +30,5 @@
         <nb-icon icon="share-outline"></nb-icon>
       </button>
     </div>
-  </nb-card-footer>
-</nb-card>
-
-<nb-card *ngIf="isPast">
-  <nb-card-header>
-    <nb-user size="giant"
-             [picture]="imageUrl"
-             [name]="cucu?.userName"
-             [title]="timeLabel"
-             [badgeText]="cucu?.language"
-             [badgeStatus]="'basic'"
-             [badgePosition]="'bottom right'">
-    </nb-user>
-  </nb-card-header>
-  <nb-card-body>
-    <b>{{ cucu?.topic }}</b> | {{ cucu?.type === 'conference' ? 'Conference' : 'Chit Chat' }}
-    <p>{{ cucu?.description }}</p>
-  </nb-card-body>
-  <nb-card-footer>
-    <button [disabled]="true" nbButton [shape]="'rectangle'">
-      {{ "cucuBox.join.ENDED" | translate }}
-    </button>
   </nb-card-footer>
 </nb-card>

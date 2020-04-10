@@ -2,40 +2,43 @@
   <div class="col-lg-5 col-md-7">
     <app-add-cucu></app-add-cucu>
     <!-- Donate Box -->
-    <nb-card class="donate-card" accent="success">
+    <nb-card class="donate-card" accent="primary">
       <nb-card-body>
         <div class="row">
           <div class="col-md-12 center-h">
-            <p>{{ "home.DONATE_BOX_TEXT" | translate }}</p>
-            <button (click)="donationsService.toDonationSite()" nbButton status="success">
-              {{ "navbar.DONATE" | translate }}
-            </button>
+            <p>{{ "home.INFO_BOX_TEXT" | translate }}</p>
+            <a (click)="scrollToElement(about)">{{ "aboutSection.MORE_INFO" | translate}}</a>
           </div>
         </div>
       </nb-card-body>
     </nb-card>
   </div>
+  <div class="credit-badge">
+    <a
+      href="https://unsplash.com/@nineteen?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+      target="_blank" rel="noopener noreferrer"
+      title="Download free do whatever you want high-resolution photos from Andrew Ly"><span
+      style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
+                                                        style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
+                                                        viewBox="0 0 32 32"><title>unsplash-logo</title><path
+      d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span
+      style="display:inline-block;padding:2px 3px">Andrew Ly</span></a>
+  </div>
+
 </div>
 
-<div class="about-section content-padding">
+<div class="about-section content-padding" #about>
   <div class="row">
     <div class="col-md-8">
-      <h1>What is CUCUit?</h1>
-      <p>
-        CUCUit es una plataforma de “encuentros digitales abiertos” que nace para ayudar a la comunidad en estos
-        momentos tan difíciles en la lucha contra COVID-19, contribuyendo a que las relaciones entre personas
-        florezcan
-        a pesar del confinamiento en el que vivimos.
-        Ayúdanos aportando tu grano de arena haciendo una donación a alguna de las campañas que luchan contra COVID-19
-        en
-      </p>
+      <h1>{{ "aboutSection.TITLE" | translate }}</h1>
+      <p>{{ "aboutSection.TEXT" | translate }}</p>
     </div>
   </div>
 </div>
 <div class="ws-s"></div>
 <div class="content-padding">
   <!-- Upcoming Cucus -->
-  <div class="cucus-section" id="cucus">
+  <div class="cucus-section" #cucus>
     <h1>Join a CUCU</h1>
     <div *ngIf="(dbService.cucus | async) as cucus" class="row">
       <div class="col-md-12">
