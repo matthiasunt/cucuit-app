@@ -12,7 +12,7 @@ import {
   NbIconModule,
   NbContextMenuModule,
   NbMenuModule,
-  NbToastrModule, NbDatepickerModule, NbDialogModule, NbCardModule,
+  NbToastrModule, NbDatepickerModule, NbDialogModule, NbCardModule, NbUserModule,
 } from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -20,39 +20,46 @@ import {NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule} from 'ngx-goog
 import {environment} from '../environments/environment';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {FooterModule} from './components/shared/footer/footer.module';
+import { CucuDetailEntryComponent } from './components/cucu-detail/cucu-detail-entry.component';
+import {CucuDetailComponent} from './components/cucu-detail/cucu-detail.component';
+import {CucuBoxModule} from './components/cucu-box/cucu-box.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CucuDetailEntryComponent,
+    CucuDetailComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-      }
-    }),
-    NgxGoogleAnalyticsModule.forRoot(environment.googleAnalytics),
-    NgxGoogleAnalyticsRouterModule,
-    NbThemeModule.forRoot({name: 'light-red'}),
-    NbMenuModule.forRoot(),
-    NbDatepickerModule.forRoot(),
-    NbToastrModule.forRoot(),
-    NbDialogModule.forRoot(),
-    NbContextMenuModule,
-    NbLayoutModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
-    NbButtonModule,
-    NbIconModule,
-    NbEvaIconsModule,
-    FooterModule,
-    NbCardModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [HttpClient]
+            }
+        }),
+        NgxGoogleAnalyticsModule.forRoot(environment.googleAnalytics),
+        NgxGoogleAnalyticsRouterModule,
+        NbThemeModule.forRoot({name: 'light-red'}),
+        NbMenuModule.forRoot(),
+        NbDatepickerModule.forRoot(),
+        NbToastrModule.forRoot(),
+        NbDialogModule.forRoot(),
+        NbContextMenuModule,
+        NbLayoutModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+        NbButtonModule,
+        NbIconModule,
+        NbEvaIconsModule,
+        FooterModule,
+        NbCardModule,
+        NbUserModule,
+        CucuBoxModule,
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

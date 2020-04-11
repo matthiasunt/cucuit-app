@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {Cucu} from '../../models/cucu';
-import {map} from 'rxjs/operators';
+import {filter, find, map} from 'rxjs/operators';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '../../../environments/environment';
 
@@ -48,6 +48,7 @@ export class DbService {
         const upcoming = cucus.filter(c => new Date(c.startDate) >= now);
         this.pastCucus$.next(past);
         this.cucus$.next(upcoming);
+        console.log(upcoming);
       });
   }
 
@@ -56,6 +57,18 @@ export class DbService {
       map(res => {
         this.fetchCucus(this.translate.currentLang);
         return res;
+      })
+    );
+  }
+
+  public getCucu(id: string): Observable<any> {
+    console.log(id);
+    return this.http.get(`${this.baseUrl}/cucus/${id}`).pipe(
+      map((res: any) => {
+        console.log(res);
+        if (res && res._id) {
+          return res;
+        }
       })
     );
   }

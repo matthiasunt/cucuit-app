@@ -158,10 +158,10 @@ export class AddCucuComponent implements OnInit {
   }
 
   private initForm() {
-    const now = new Date();
-    const tomorrow = new Date(now.setDate(now.getDate() + 1));
+    const d = new Date();
+    const tomorrow = new Date(d.setDate(d.getDate() + 1));
     const currentHour = new Date().getHours();
-    const datePreset = currentHour > 18 ? tomorrow : now;
+    const datePreset = currentHour > 18 ? tomorrow : new Date();
 
     const timePreset = currentHour > 18 || currentHour < 8 ?
       '10:00' : `${currentHour + 2}:00`;

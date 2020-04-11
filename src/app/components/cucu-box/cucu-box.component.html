@@ -1,4 +1,4 @@
-<nb-card accent="primary" *ngIf="!isPast" (click)="openDetail()">
+<nb-card accent="primary" *ngIf="!isPast" (click)="toDetail()">
   <nb-card-header>
     <nb-user size="giant"
              [picture]="imageUrl"
@@ -11,7 +11,7 @@
   </nb-card-header>
   <nb-card-body>
     <b>{{ cucu?.topic }}</b>
-    <p>{{ cucu?.type === 'conference' ? 'Conference' : 'Chit Chat' }}</p>
+    <p>{{ cucu?.type === 'conference' ? 'Conference' : '' }}</p>
     <p>{{ cucu?.description }}</p>
   </nb-card-body>
   <nb-card-footer>
@@ -23,10 +23,10 @@
       {{ "cucuBox.join.LABEL" | translate }}
     </button>
     <div class="icon-buttons">
-      <button (click)="calendarClicked()" [size]="'medium'" nbButton ghost>
+      <button (click)="calendarClicked($event)" [size]="'medium'" nbButton ghost>
         <nb-icon icon="calendar-outline"></nb-icon>
       </button>
-      <button (click)="shareClicked()" [size]="'medium'" nbButton ghost>
+      <button (click)="shareClicked($event)" [size]="'medium'" nbButton ghost>
         <nb-icon icon="share-outline"></nb-icon>
       </button>
     </div>

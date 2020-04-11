@@ -47,7 +47,7 @@
         <!--    </div>-->
       </div>
       <div *ngFor="let c of cucus; trackBy: trackByFn" class="col-md-4">
-        <app-cucu-box [cucu]="c"></app-cucu-box>
+        <app-cucu-box [cucu]="c" [id]="c._id"></app-cucu-box>
       </div>
     </div>
     <!-- Past Cucus -->

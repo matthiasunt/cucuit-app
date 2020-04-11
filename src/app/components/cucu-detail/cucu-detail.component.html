@@ -1,34 +1,17 @@
-<nb-card accent="primary">
-  <nb-card-header>
-    <nb-user size="giant"
-             [picture]="imageUrl"
-             [name]="cucu?.userName"
-             [title]="timeLabel"
-             [badgeText]="cucu?.language"
-             [badgeStatus]="'primary'"
-             [badgePosition]="'bottom right'">
-    </nb-user>
-  </nb-card-header>
-  <nb-card-body>
-    <b>{{ cucu?.topic }}</b>
-    <p>{{ cucu?.type === 'conference' ? 'Conference' : 'Chit Chat' }}</p>
-    <p>{{ cucu?.description }}</p>
-  </nb-card-body>
-  <nb-card-footer>
-    <button *ngIf="isEnabled()" (click)="toCall()" nbButton [status]="'primary'"
-            [shape]="'rectangle'" [nbTooltip]="'Entra'" nbTooltipStatus="basic">
-      {{ "cucuBox.join.LABEL" | translate }}
-    </button>
-    <button nbButton [shape]="'rectangle'" [nbTooltip]="comebackLaterText" nbTooltipStatus="basic" *ngIf="!isEnabled()">
-      {{ "cucuBox.join.LABEL" | translate }}
-    </button>
-    <div class="icon-buttons">
-      <button (click)="calendarClicked()" [size]="'medium'" nbButton ghost>
-        <nb-icon icon="calendar-outline"></nb-icon>
-      </button>
-      <button (click)="shareClicked()" [size]="'medium'" nbButton ghost>
-        <nb-icon icon="share-outline"></nb-icon>
+<div class="content-padding">
+  <div class="row">
+    <div class="col-md-12">
+      <button nbButton status="primary" ghost [routerLink]="'/'">
+        <nb-icon icon="arrow-left"></nb-icon>
+        Back
       </button>
     </div>
-  </nb-card-footer>
-</nb-card>
+  </div>
+  <div class="ws-m"></div>
+  <div class="row">
+    <div class="col-md-12">
+      <app-cucu-box [cucu]="cucu$ | async"></app-cucu-box>
+    </div>
+  </div>
+
+</div>

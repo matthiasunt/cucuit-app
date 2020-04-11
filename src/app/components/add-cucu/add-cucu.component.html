@@ -26,7 +26,7 @@
 
       <!-- Topic & Toggle-->
       <div class="row">
-        <div class="col col-lg-6 col-md-6 col-sm-12">
+        <div class="col col-lg-8 col-md-8 col-sm-6">
           <div class="form-group">
             <nb-form-field>
               <nb-icon nbPrefix icon="heart-outline" pack="eva"></nb-icon>
@@ -37,7 +37,7 @@
             </nb-form-field>
           </div>
         </div>
-        <div class="col col-lg-6 col-md-6 col-sm-12">
+        <div class="col col-lg-4 col-md-4 col-sm-6">
           <nb-toggle status="primary" [formControl]="isConference"
                      [nbTooltip]="translate.get('postCucu.type.TOOLTIP') | async" [nbTooltipStatus]="'basic'"
           >{{ "postCucu.type.LABEL" | translate }}</nb-toggle>
@@ -113,7 +113,7 @@
 
       <!-- Name & Avatar -->
       <div class="row">
-        <div class="col col-lg-8 col-md-8 col-sm-12">
+        <div class="col col-lg-8 col-md-8 col-sm-8">
           <div class="form-group">
             <nb-form-field>
               <nb-icon nbPrefix icon="person-outline" pack="eva"></nb-icon>
@@ -124,7 +124,7 @@
             </nb-form-field>
           </div>
         </div>
-        <div class="col col-lg-4 col-md-4 col-sm-12">
+        <div class="col col-lg-4 col-md-4 col-sm-4">
           <div class="form-group">
             <button (click)="avatarInput.click()" [size]="'medium'" nbButton ghost>
               <nb-icon icon="camera-outline"></nb-icon>

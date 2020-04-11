@@ -6,6 +6,7 @@ import {VideoComponent} from '../video/video.component';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {DonationsService} from '../../services/donations/donations.service';
 import {Cucu} from '../../models/cucu';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -20,11 +21,15 @@ export class HomeComponent implements OnInit {
               public dbService: DbService,
               protected gaService: GoogleAnalyticsService,
               public donationsService: DonationsService,
+              private route: ActivatedRoute,
   ) {
   }
 
   ngOnInit() {
     this.gaService.pageView('', 'Home');
+    this.route.fragment.subscribe((fragment: string) => {
+      // this.scrollToElement()
+    });
   }
 
   loadMore() {
