@@ -30,7 +30,6 @@ export class CucuBoxComponent implements OnInit {
               public translate: TranslateService,
               private router: Router,
               private cucuIsOpen: CucuIsOpenPipe,
-              private dialogService: NbDialogService,
               protected gaService: GoogleAnalyticsService,
   ) {
   }
