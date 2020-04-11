@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1586628451352,
+  "timestamp": 1586628598910,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -8,8 +8,8 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "/6-es2015.765c04ad1507b23a1b43.js",
-        "/6-es5.765c04ad1507b23a1b43.js",
+        "/6-es2015.7cf757624ef79cea3730.js",
+        "/6-es5.7cf757624ef79cea3730.js",
         "/7-es2015.180c32066d4037f112b5.js",
         "/7-es5.180c32066d4037f112b5.js",
         "/common-es2015.a14662aa315d77ad672b.js",
@@ -20,8 +20,8 @@
         "/manifest.webmanifest",
         "/polyfills-es2015.495a14908bd0a2dc5248.js",
         "/polyfills-es5.023b6f7f45e9ec357588.js",
-        "/runtime-es2015.52098ba4f56b83d7203d.js",
-        "/runtime-es5.52098ba4f56b83d7203d.js",
+        "/runtime-es2015.38c4a9399d81b155d703.js",
+        "/runtime-es5.38c4a9399d81b155d703.js",
         "/styles.3cf51abeb10f6b0c1c67.css"
       ],
       "patterns": []
@@ -50,15 +50,15 @@
         "/assets/images/skype.svg",
         "/assets/images/video-icon.svg",
         "/assets/images/zoom.svg",
-        "/hero-bg.a92ba4c94c20c09052cc.jpg"
+        "/hero-bg.c650f319f35c4b2ef1e9.jpg"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/6-es2015.765c04ad1507b23a1b43.js": "cb80b2ae9ac1d54868027920956d4c9520964528",
-    "/6-es5.765c04ad1507b23a1b43.js": "e619863f80cf0cb1b8438c17b3b0fff704f0dc79",
+    "/6-es2015.7cf757624ef79cea3730.js": "8b8e93a472b9ca4f7eef228c362e0f31151328ff",
+    "/6-es5.7cf757624ef79cea3730.js": "7eabc2f69bf61a91885f6dd525af147ecb5588ea",
     "/7-es2015.180c32066d4037f112b5.js": "e97c5dcdf7f82c5bf1821f658553460a368456d7",
     "/7-es5.180c32066d4037f112b5.js": "d0511182a456b5207bfc7656f28cca022ae406ff",
     "/assets/favicon/android-chrome-192x192.png": "ea2715409d7d231b400aaf37306a3b259f260a2f",
@@ -74,7 +74,7 @@
     "/assets/i18n/it.json": "d32ad40b2f18075169a889a95300608276bebc79",
     "/assets/images/cucuit-preview.jpg": "f85cbf599d0b368ccc7ecbf4c31d7f6a9af24e8e",
     "/assets/images/hangouts.svg": "2dbce39ca11ef29769ee2f205bebddc77b170efd",
-    "/assets/images/hero-bg.jpg": "36957d050bba6caa2ead8e2bc9ea57d5ed1c0450",
+    "/assets/images/hero-bg.jpg": "ada8264d982b46b0896b0d8f51b9f801f1a1ac95",
     "/assets/images/jitsi.png": "2aa755c8a52615928cc900ce9090db1982d7a216",
     "/assets/images/logo.svg": "90fc3c3280946c47dd5102c83261186877d8c716",
     "/assets/images/skype.svg": "bcb527fd033c99374b913b5e4b1b2d817085c249",
@@ -82,15 +82,15 @@
     "/assets/images/zoom.svg": "88843654497161bf6bfdf92b724239601aa7ccfb",
     "/common-es2015.a14662aa315d77ad672b.js": "23bf2f8e091670d2e3308c92f1cac8913ed4fc4a",
     "/common-es5.a14662aa315d77ad672b.js": "f5072e016914250dcf793c2cb7cbbfbdbc60dedb",
-    "/hero-bg.a92ba4c94c20c09052cc.jpg": "36957d050bba6caa2ead8e2bc9ea57d5ed1c0450",
-    "/index.html": "a1fa41cbd9633217fb632263433fd4291bdf6ffa",
+    "/hero-bg.c650f319f35c4b2ef1e9.jpg": "ada8264d982b46b0896b0d8f51b9f801f1a1ac95",
+    "/index.html": "4e962341ad07ec8fc6c1ef0954f30cd32f099ad8",
     "/main-es2015.cd84bb8f9f2fe98a8b47.js": "2efb29e0782267779042806387f6e5e4a97abf79",
     "/main-es5.cd84bb8f9f2fe98a8b47.js": "a947cf381a5a6259e391ed2047c9ab1b8a1deb61",
     "/manifest.webmanifest": "dde3e870d1f4037b2c5bd7a201466b81334eadc3",
     "/polyfills-es2015.495a14908bd0a2dc5248.js": "15a133b6cbb459a66fcd2e75f6aa25782e5d79c4",
     "/polyfills-es5.023b6f7f45e9ec357588.js": "2930db992c38f1532f6d1c90b4172445fd6d7792",
-    "/runtime-es2015.52098ba4f56b83d7203d.js": "91b5885ba93d692659b72356ab656567a3e18d90",
-    "/runtime-es5.52098ba4f56b83d7203d.js": "6055007ebcef83cdc21bc6ccfe95cf9dbfc9e4b4",
+    "/runtime-es2015.38c4a9399d81b155d703.js": "02c76f84079341d3f0cd2ce3fcfe51f76b00a806",
+    "/runtime-es5.38c4a9399d81b155d703.js": "4b2e3d951e583c0ca357ea195185c43a85405bc2",
     "/styles.3cf51abeb10f6b0c1c67.css": "c281cd8de1dfc1983bdb56d290af3708c8d8111d"
   },
   "navigationUrls": [
