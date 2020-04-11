@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1586627487640,
+  "timestamp": 1586627935319,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -8,8 +8,8 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
-        "/6-es2015.7a75395f0558e11580e8.js",
-        "/6-es5.7a75395f0558e11580e8.js",
+        "/6-es2015.5eac67979ce1e025888c.js",
+        "/6-es5.5eac67979ce1e025888c.js",
         "/7-es2015.180c32066d4037f112b5.js",
         "/7-es5.180c32066d4037f112b5.js",
         "/common-es2015.a14662aa315d77ad672b.js",
@@ -20,8 +20,8 @@
         "/manifest.webmanifest",
         "/polyfills-es2015.495a14908bd0a2dc5248.js",
         "/polyfills-es5.023b6f7f45e9ec357588.js",
-        "/runtime-es2015.1c64f36255a5d35ddff7.js",
-        "/runtime-es5.1c64f36255a5d35ddff7.js",
+        "/runtime-es2015.0a82fcd250363347fbe1.js",
+        "/runtime-es5.0a82fcd250363347fbe1.js",
         "/styles.3cf51abeb10f6b0c1c67.css"
       ],
       "patterns": []
@@ -50,15 +50,15 @@
         "/assets/images/skype.svg",
         "/assets/images/video-icon.svg",
         "/assets/images/zoom.svg",
-        "/hero-bg.3f1b0c85fab6f48aca03.jpg"
+        "/hero-bg.56eb9cb16da262f8f7dd.jpg"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "/6-es2015.7a75395f0558e11580e8.js": "2a3ee66fa89ed1f7da1336782ad724a348d87737",
-    "/6-es5.7a75395f0558e11580e8.js": "469b9c8fc7fce740413d9a1ad8b2a402e6eb6d13",
+    "/6-es2015.5eac67979ce1e025888c.js": "0b9abfdec37b2d72ec694940889590d7bf1127c5",
+    "/6-es5.5eac67979ce1e025888c.js": "461464d99fc5009e6c4ec7d9274b7432760f1f08",
     "/7-es2015.180c32066d4037f112b5.js": "e97c5dcdf7f82c5bf1821f658553460a368456d7",
     "/7-es5.180c32066d4037f112b5.js": "d0511182a456b5207bfc7656f28cca022ae406ff",
     "/assets/favicon/android-chrome-192x192.png": "ea2715409d7d231b400aaf37306a3b259f260a2f",
@@ -72,25 +72,25 @@
     "/assets/i18n/en.json": "b2a016b4597df84a5c758df79916432065bdf4f4",
     "/assets/i18n/es.json": "a7fe2ab156251796f9e87109b28e4429f0795fcc",
     "/assets/i18n/it.json": "d32ad40b2f18075169a889a95300608276bebc79",
-    "/assets/images/cucuit-preview.jpg": "39ca6ce01e0fbde933ca1a3e2b862b86070f7b2d",
+    "/assets/images/cucuit-preview.jpg": "f85cbf599d0b368ccc7ecbf4c31d7f6a9af24e8e",
     "/assets/images/hangouts.svg": "2dbce39ca11ef29769ee2f205bebddc77b170efd",
-    "/assets/images/hero-bg.jpg": "855c5a78e8713b1799891ded769ecd40de6f5711",
-    "/assets/images/jitsi.png": "ceff045e18fc67490875cf0ada897294b6b56302",
+    "/assets/images/hero-bg.jpg": "066f2c7761f961d3271f46a4c396a732177a7c59",
+    "/assets/images/jitsi.png": "2aa755c8a52615928cc900ce9090db1982d7a216",
     "/assets/images/logo.svg": "90fc3c3280946c47dd5102c83261186877d8c716",
     "/assets/images/skype.svg": "bcb527fd033c99374b913b5e4b1b2d817085c249",
     "/assets/images/video-icon.svg": "d02f4b3874ab8edb15ac0ae689ce59715a39ee45",
     "/assets/images/zoom.svg": "88843654497161bf6bfdf92b724239601aa7ccfb",
     "/common-es2015.a14662aa315d77ad672b.js": "23bf2f8e091670d2e3308c92f1cac8913ed4fc4a",
     "/common-es5.a14662aa315d77ad672b.js": "f5072e016914250dcf793c2cb7cbbfbdbc60dedb",
-    "/hero-bg.3f1b0c85fab6f48aca03.jpg": "855c5a78e8713b1799891ded769ecd40de6f5711",
-    "/index.html": "f554b9c1af645e36fa2d18c8a2c988249afc70a5",
+    "/hero-bg.56eb9cb16da262f8f7dd.jpg": "066f2c7761f961d3271f46a4c396a732177a7c59",
+    "/index.html": "d2efd26814e2e718cc5fd34c85f865ff60384bb2",
     "/main-es2015.e2e9e4c60280646896f5.js": "7b2273b5cf75bb0f0a3d393b739ec99adec9f3af",
     "/main-es5.e2e9e4c60280646896f5.js": "cac21440610a48d1c4ae518df6d61b14cbf46bec",
     "/manifest.webmanifest": "dde3e870d1f4037b2c5bd7a201466b81334eadc3",
     "/polyfills-es2015.495a14908bd0a2dc5248.js": "15a133b6cbb459a66fcd2e75f6aa25782e5d79c4",
     "/polyfills-es5.023b6f7f45e9ec357588.js": "2930db992c38f1532f6d1c90b4172445fd6d7792",
-    "/runtime-es2015.1c64f36255a5d35ddff7.js": "63f0b94dedd1ed576aee4cb0b7190b51b41df926",
-    "/runtime-es5.1c64f36255a5d35ddff7.js": "1eb5825ec01d9376e1a8f430962caaa6ceead65e",
+    "/runtime-es2015.0a82fcd250363347fbe1.js": "09970fe2a7dd1c39570bcd8e814fe486546ca36d",
+    "/runtime-es5.0a82fcd250363347fbe1.js": "a097928292a8c5dbe48bd4fffd5d58f2771059c2",
     "/styles.3cf51abeb10f6b0c1c67.css": "c281cd8de1dfc1983bdb56d290af3708c8d8111d"
   },
   "navigationUrls": [
