@@ -38,35 +38,37 @@
 <div class="ws-s"></div>
 <div class="content-padding">
   <!-- Upcoming Cucus -->
-  <div class="cucus-section" #cucusElement>
-    <h1>Join a CUCU</h1>
-    <div *ngIf="(dbService.cucus | async) as cucus" class="row">
-      <div class="col-md-12">
-        <!--    <div class="no-cucus-div">-->
-        <!--      <p *ngIf="cucus.length < 1">{{ "home.NO_CUCUS_FOUND" | translate }}</p>-->
-        <!--    </div>-->
+  <ng-container *ngIf="(dbService.cucus | async) as cucus">
+    <div class="cucus-section" #cucusElement>
+      <h1>Join a CUCU</h1>
+      <div class="row">
+        <div class="col-md-12">
+              <div class="no-cucus-div">
+                <p *ngIf="cucus.length < 1">{{ "home.NO_CUCUS_FOUND" | translate }}</p>
+              </div>
+        </div>
+        <div *ngFor="let c of cucus; trackBy: trackByFn" class="col-md-4">
+          <app-cucu-box [cucu]="c" [id]="c._id"></app-cucu-box>
+        </div>
       </div>
-      <div *ngFor="let c of cucus; trackBy: trackByFn" class="col-md-4">
-        <app-cucu-box [cucu]="c" [id]="c._id"></app-cucu-box>
+      <!-- Past Cucus -->
+      <div class="ws-s"></div>
+      <div *ngIf="(dbService.pastCucus | async) as pastCucus" class="row">
+        <div *ngFor="let c of pastCucus; trackBy: trackByFn" class="col-md-4">
+          <app-cucu-box [cucu]="c" [isPast]="true"></app-cucu-box>
+        </div>
       </div>
-    </div>
-    <!-- Past Cucus -->
-    <div class="ws-s"></div>
-    <div *ngIf="(dbService.pastCucus | async) as pastCucus" class="row">
-      <div *ngFor="let c of pastCucus; trackBy: trackByFn" class="col-md-4">
-        <app-cucu-box [cucu]="c" [isPast]="true"></app-cucu-box>
-      </div>
-    </div>
 
-    <div class="ws-s"></div>
-    <div class="row">
-      <div class="col-md-12 load-more-div">
-        <button *ngIf="doWeHaveMore" (click)="loadMore()" nbButton status="primary"
-                [shape]="'rectangle'" [size]="'medium'">
-          {{ "home.LOAD_MORE" | translate }}
-        </button>
+      <div class="ws-s"></div>
+      <div class="row">
+        <div class="col-md-12 load-more-div">
+          <button *ngIf="doWeHaveMore" (click)="loadMore()" nbButton status="primary"
+                  [shape]="'rectangle'" [size]="'medium'">
+            {{ "home.LOAD_MORE" | translate }}
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
   <div class="ws-m"></div>
 </div>
