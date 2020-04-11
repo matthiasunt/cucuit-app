@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
       this.translate.get('navbar.DONATE'))
       .subscribe(([c, m, d]) => {
         this.menuItems = [
-          {title: c, link: '#cucus'},
+          {title: c, link: '/#cucus'},
           {title: m, link: 'manifest'},
           {title: d},
         ];
@@ -61,8 +61,8 @@ export class AppComponent implements OnInit {
       });
   }
 
-  scrollToElement($element): void {
-    $element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+  async toCucus() {
+    await this.router.navigateByUrl('/#cucus');
   }
 
   @HostListener('window:resize')

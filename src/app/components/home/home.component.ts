@@ -1,10 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {DbService} from '../../services/db/db.service';
-import {NbWindowService} from '@nebular/theme';
-import {VideoComponent} from '../video/video.component';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
-import {DonationsService} from '../../services/donations/donations.service';
 import {Cucu} from '../../models/cucu';
 import {ActivatedRoute} from '@angular/router';
 
@@ -13,22 +10,29 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('cucusElement') cucusElement: ElementRef;
 
   doWeHaveMore = false;
 
   constructor(private translate: TranslateService,
               public dbService: DbService,
               protected gaService: GoogleAnalyticsService,
-              public donationsService: DonationsService,
               private route: ActivatedRoute,
   ) {
   }
 
   ngOnInit() {
     this.gaService.pageView('', 'Home');
+
+  }
+
+  ngAfterViewInit() {
     this.route.fragment.subscribe((fragment: string) => {
-      // this.scrollToElement()
+      if (fragment === 'cucus') {
+        this.scrollToElement(this.cucusElement.nativeElement);
+      }
     });
   }
 

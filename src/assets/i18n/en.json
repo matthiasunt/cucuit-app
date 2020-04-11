@@ -1,10 +1,16 @@
 {
   "SUCCESS": "Success",
   "ERROR": "Error",
+  "EDIT": "Edit",
+  "DELETE": "Delete",
   "navbar": {
     "CUCUS": "Check out available CUCUs",
     "MANIFEST": "Manifesto",
     "DONATE": "Donate"
+  },
+  "share": {
+    "TITLE": "Check this CUCU out",
+    "TEXT": "Lorem Ipsum"
   },
   "home": {
     "HERO_HEADER": "Launch and join open digital meetups on CUCUit!",
@@ -87,7 +93,8 @@
       "TOOLTIP": "Share this CUCU"
     },
     "addToCalendar": {
-      "TOOLTIP": "Add this CUCU to your Calendar"
+      "TOOLTIP": "Add this CUCU to your Calendar",
+      "CUCU_ABOUT": "CUCU about"
     }
   },
   "manifest": {

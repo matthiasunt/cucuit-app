@@ -14,30 +14,33 @@ import {
 } from '@nebular/theme';
 import {TranslateModule} from '@ngx-translate/core';
 import {PipesModule} from '../../pipes/pipes.module';
+import { PostSuccessComponent } from './post-success/post-success.component';
+import {CucuBoxModule} from '../cucu-box/cucu-box.module';
 
 
 @NgModule({
-  declarations: [AddCucuComponent],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NbCardModule,
-    NbFormFieldModule,
-    NbIconModule,
-    NbInputModule,
-    NbDatepickerModule,
-    NbButtonModule,
-    NbTooltipModule,
-    NbSelectModule,
-    NbAutocompleteModule,
-    NbToastrModule,
-    TranslateModule,
-    PipesModule,
-    NbCalendarModule,
-    NbToggleModule,
-    NbRadioModule,
-  ],
+  declarations: [AddCucuComponent, PostSuccessComponent],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NbCardModule,
+        NbFormFieldModule,
+        NbIconModule,
+        NbInputModule,
+        NbDatepickerModule,
+        NbButtonModule,
+        NbTooltipModule,
+        NbSelectModule,
+        NbAutocompleteModule,
+        NbToastrModule,
+        TranslateModule,
+        PipesModule,
+        NbCalendarModule,
+        NbToggleModule,
+        NbRadioModule,
+        CucuBoxModule,
+    ],
   providers: [
     NbToastrService,
   ],

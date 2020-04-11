@@ -1,13 +1,21 @@
 import {NgModule} from '@angular/core';
-import { ElementStatusPipe } from './element-status/element-status.pipe';
+import {ElementStatusPipe} from './element-status/element-status.pipe';
+import {CucuIsOpenPipe} from './cucu-is-open/cucu-is-open.pipe';
 
 
 @NgModule({
-  declarations: [ElementStatusPipe],
+  declarations: [
+    ElementStatusPipe,
+    CucuIsOpenPipe
+  ],
   imports: [],
-    exports: [
-        ElementStatusPipe
-    ]
+  exports: [
+    ElementStatusPipe,
+    CucuIsOpenPipe,
+  ],
+  providers: [
+    CucuIsOpenPipe,
+  ]
 })
 export class PipesModule {
 }

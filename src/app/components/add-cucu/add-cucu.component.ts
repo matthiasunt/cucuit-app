@@ -5,12 +5,13 @@ import {combineLatest, Observable, of} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {DbService} from '../../services/db/db.service';
 import {getTimeSlots, isToday} from '../../util/date.util';
-import {NbComponentShape, NbComponentSize, NbToastrService, NbWindowService} from '@nebular/theme';
+import {NbComponentShape, NbComponentSize, NbDialogService, NbToastrService, NbWindowService} from '@nebular/theme';
 import {getAllLangs, getLangName} from '../../util/languages.util';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {validateInviteUrl} from '../../util/validators.util';
 import {Cucu} from '../../models/cucu';
 import {CucuDetailComponent} from '../cucu-detail/cucu-detail.component';
+import {PostSuccessComponent} from './post-success/post-success.component';
 
 @Component({
   selector: 'app-add-cucu',
@@ -21,6 +22,7 @@ export class AddCucuComponent implements OnInit {
 
   @ViewChild('inviteUrlInputElement') inviteUrlInputElement: ElementRef;
   @ViewChild('timeInputElement') timeInputElement: ElementRef;
+
   public form: FormGroup;
 
   public callServices: { name: string, tooltip: string, imageUrl: string }[] = [];
@@ -41,7 +43,7 @@ export class AddCucuComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               public translate: TranslateService,
               private dbService: DbService,
-              private windowService: NbWindowService,
+              private dialogService: NbDialogService,
               private toastrService: NbToastrService,
               protected gaService: GoogleAnalyticsService,
   ) {
@@ -78,6 +80,7 @@ export class AddCucuComponent implements OnInit {
     });
   }
 
+
   public postCucu() {
     if (this.form.valid) {
       const data = this.form.getRawValue();
@@ -106,15 +109,19 @@ export class AddCucuComponent implements OnInit {
         if (res.topic) {
           this.avatarUploadLabel = '';
           this.initForm();
-          await this.showCucuStatus('success');
           this.gaService.event('post_success', 'post_cucu');
+          const cucuId: string = res._id;
+          this.dialogService.open(PostSuccessComponent, {context: {cucu: res}})
+            .onClose.subscribe(() => {
+            this.inviteUrlInputElement.nativeElement.focus();
+          });
         } else {
           console.error(res);
         }
         this.inviteUrlInputElement.nativeElement.focus();
       }, async err => {
         console.error(err);
-        await this.showCucuStatus('danger');
+        await this.showCucuPostError();
         this.gaService.event('post_failed', 'post_cucu');
       });
     } else {
@@ -205,9 +212,7 @@ export class AddCucuComponent implements OnInit {
     });
 
     this.translate.onLangChange.subscribe(() => {
-      console.log(this.translate.currentLang);
       this.language.setValue(getLangName(this.translate.currentLang));
-      // this.language.setValue(this.translate.currentLang);
     });
     setTimeout(() => {
       this.inviteUrlInputElement.nativeElement.focus();
@@ -228,22 +233,13 @@ export class AddCucuComponent implements OnInit {
     }
   }
 
-  private async showCucuStatus(status) {
-    const title = status === 'success' ?
-      await this.translate.get('SUCCESS').toPromise() :
-      await this.translate.get('ERROR').toPromise();
-
-    const message = status === 'success' ?
-      await this.translate.get('postCucu.CUCU_POSTED').toPromise() :
-      await this.translate.get('postCucu.CUCU_ERROR').toPromise();
-    if (status === 'success') {
-      this.windowService.open(CucuDetailComponent, {title});
-    } else {
-      this.toastrService.show(
-        message,
-        title,
-        {status});
-    }
+  private async showCucuPostError() {
+    const title = await this.translate.get('ERROR').toPromise();
+    const message = this.translate.get('postCucu.CUCU_ERROR').toPromise();
+    this.toastrService.show(
+      message,
+      title,
+      {status: 'danger'});
 
   }
 

@@ -4,7 +4,7 @@ export interface Cucu {
   topic: string;
   description: string;
   type: string;
-  startDate: Date;
+  startDate: string;
   userName: string;
   avatarId: string;
   language: string;

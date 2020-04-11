@@ -1,10 +1,16 @@
 {
   "SUCCESS": "Successo",
   "ERROR": "Errore",
+  "EDIT": "Edit",
+  "DELETE": "Delete",
   "navbar": {
     "CUCUS": "Check out available CUCUs",
     "MANIFEST": "Manifesto",
     "DONATE": "Dona"
+  },
+  "share": {
+    "TITLE": "Check this CUCU out",
+    "TEXT": "Lorem Ipsum"
   },
   "home": {
     "HERO_HEADER": "Crea e partecipa a videochiamate aperte con CUCUit!",
@@ -87,7 +93,8 @@
       "TOOLTIP": "Share this CUCU"
     },
     "addToCalendar": {
-      "TOOLTIP": "Add this CUCU to your Calendar"
+      "TOOLTIP": "Add this CUCU to your Calendar",
+      "CUCU_ABOUT": "CUCU about"
     }
   },
   "manifest": {

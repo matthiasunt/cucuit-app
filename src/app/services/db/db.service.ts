@@ -5,6 +5,7 @@ import {Cucu} from '../../models/cucu';
 import {filter, find, map} from 'rxjs/operators';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '../../../environments/environment';
+import {DeviceDetectorService} from 'ngx-device-detector';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +18,12 @@ export class DbService {
   private pastCucus$ = new BehaviorSubject<Cucu[]>([]);
 
   constructor(private http: HttpClient,
-              private translate: TranslateService) {
+              private translate: TranslateService,
+              private deviceDetectorService: DeviceDetectorService,
+  ) {
     this.fetchCucus(translate.currentLang);
     this.translate.onLangChange.subscribe((lang => this.fetchCucus(lang)));
+    console.log(this.deviceDetectorService.getDeviceInfo());
   }
 
   get cucus() {
@@ -48,7 +52,6 @@ export class DbService {
         const upcoming = cucus.filter(c => new Date(c.startDate) >= now);
         this.pastCucus$.next(past);
         this.cucus$.next(upcoming);
-        console.log(upcoming);
       });
   }
 
@@ -62,7 +65,6 @@ export class DbService {
   }
 
   public getCucu(id: string): Observable<any> {
-    console.log(id);
     return this.http.get(`${this.baseUrl}/cucus/${id}`).pipe(
       map((res: any) => {
         console.log(res);

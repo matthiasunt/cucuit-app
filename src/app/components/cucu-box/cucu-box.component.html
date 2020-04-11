@@ -1,4 +1,5 @@
-<nb-card accent="primary" *ngIf="!isPast" (click)="toDetail()">
+<!-- Upcoming CUCU -->
+<nb-card accent="primary" *ngIf="!isPast" status="basic">
   <nb-card-header>
     <nb-user size="giant"
              [picture]="imageUrl"
@@ -15,25 +16,28 @@
     <p>{{ cucu?.description }}</p>
   </nb-card-body>
   <nb-card-footer>
-    <button *ngIf="isEnabled()" (click)="toCall()" nbButton [status]="'primary'"
+    <button *ngIf="cucu.startDate | cucuIsOpen" (click)="toCall($event)" nbButton [status]="'primary'"
             [shape]="'rectangle'" [nbTooltip]="'Entra'" nbTooltipStatus="basic">
       {{ "cucuBox.join.LABEL" | translate }}
     </button>
-    <button nbButton [shape]="'rectangle'" [nbTooltip]="comebackLaterText" nbTooltipStatus="basic" *ngIf="!isEnabled()">
+    <button nbButton [shape]="'rectangle'" *ngIf="!(cucu.startDate | cucuIsOpen)" (click)="disabledJoinClicked($event)">
+      <!--            [nbTooltip]="comebackLaterText" nbTooltipStatus="basic" -->
       {{ "cucuBox.join.LABEL" | translate }}
     </button>
+    <!-- Calendar & Share Buttons -->
     <div class="icon-buttons">
       <button (click)="calendarClicked($event)" [size]="'medium'" nbButton ghost>
         <nb-icon icon="calendar-outline"></nb-icon>
       </button>
-      <button (click)="shareClicked($event)" [size]="'medium'" nbButton ghost>
+      <button (click)="shareClicked($event)" [size]="'medium'" nbButton ghost *ngIf="shareAvailable">
         <nb-icon icon="share-outline"></nb-icon>
       </button>
     </div>
   </nb-card-footer>
 </nb-card>
 
-<nb-card *ngIf="isPast">
+<!-- Past CUCU -->
+<nb-card *ngIf="isPast" status="basic">
   <nb-card-header>
     <nb-user size="giant"
              [picture]="imageUrl"

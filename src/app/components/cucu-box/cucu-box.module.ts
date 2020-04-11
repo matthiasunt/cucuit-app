@@ -8,6 +8,7 @@ import {
 } from '@nebular/theme';
 import {CucuBoxComponent} from './cucu-box.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {PipesModule} from '../../pipes/pipes.module';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {TranslateModule} from '@ngx-translate/core';
         NbTooltipModule,
         TranslateModule,
         NbIconModule,
+        PipesModule,
     ],
   exports: [CucuBoxComponent]
 })
