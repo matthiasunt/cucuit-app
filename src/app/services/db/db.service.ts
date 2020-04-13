@@ -6,6 +6,7 @@ import {filter, find, map} from 'rxjs/operators';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '../../../environments/environment';
 import {DeviceDetectorService} from 'ngx-device-detector';
+import {UserService} from '../user/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +18,11 @@ export class DbService {
   private cucus$ = new BehaviorSubject<Cucu[]>([]);
   private pastCucus$ = new BehaviorSubject<Cucu[]>([]);
 
+  private userCucus$ = new BehaviorSubject<Cucu[]>([]);
+
   constructor(private http: HttpClient,
               private translate: TranslateService,
+              private userService: UserService,
               private deviceDetectorService: DeviceDetectorService,
   ) {
     this.fetchCucus(translate.currentLang);
@@ -32,6 +36,10 @@ export class DbService {
 
   get pastCucus() {
     return this.pastCucus$;
+  }
+
+  get userCucus() {
+    return this.userCucus$;
   }
 
   public fetchCucus(lang: string) {
@@ -53,15 +61,37 @@ export class DbService {
         this.pastCucus$.next(past);
         this.cucus$.next(upcoming);
       });
+    this.http.get(`${this.baseUrl}/cucus/by/${this.userService.getUid()}`)
+      .subscribe((userCucus: Cucu[]) => {
+        console.log(userCucus);
+        this.userCucus$.next(userCucus);
+      });
   }
 
   public createCucu(cucu: Cucu) {
-    return this.http.post(`${this.baseUrl}/cucus`, cucu).pipe(
-      map(res => {
-        this.fetchCucus(this.translate.currentLang);
-        return res;
-      })
-    );
+    const uid = this.userService.getUid();
+    if (uid) {
+      cucu.uid = uid;
+      return this.http.post(`${this.baseUrl}/cucus`, cucu).pipe(
+        map(res => {
+          this.fetchCucus(this.translate.currentLang);
+          return res;
+        })
+      );
+    } else {
+      console.error('Uid not defined!');
+      return null;
+    }
+  }
+
+  public deleteCucu(id: string) {
+    const uid = this.userService.getUid();
+    if (uid) {
+      return this.http.post(`${this.baseUrl}/cucus/delete-one`, {id, uid});
+    } else {
+      console.error('Uid not defined!');
+      return null;
+    }
   }
 
   public getCucu(id: string): Observable<any> {
@@ -74,6 +104,14 @@ export class DbService {
       })
     );
   }
+
+  public cucuClicked(id: string) {
+    return this.http.get(`${this.baseUrl}/cucus/${id}/click`);
+  }
+
+  // public getUserCucus(uid: string): Observable<any> {
+  //
+  // }
 
   public uploadAvatar(file: File) {
     const fd = new FormData();

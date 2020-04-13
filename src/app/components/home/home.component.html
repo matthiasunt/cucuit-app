@@ -1,54 +1,57 @@
-<div class="row hero-row content-padding">
-  <div class="col-lg-5 col-md-7">
-    <app-add-cucu></app-add-cucu>
-    <!-- Donate Box -->
-    <nb-card class="donate-card" accent="primary">
-      <nb-card-body>
-        <div class="row">
-          <div class="col-md-12 center-h">
-            <p>{{ "home.INFO_BOX_TEXT" | translate }}</p>
-            <a (click)="scrollToElement(about)">{{ "aboutSection.MORE_INFO" | translate}}</a>
+<div class="container-fluid">
+  <div class="row hero-row">
+    <div class="col-lg-6 col-md-7 col content-padding">
+      <app-add-cucu></app-add-cucu>
+      <!-- Donate Box -->
+      <nb-card class="donate-card" accent="primary">
+        <nb-card-body>
+          <div class="row">
+            <div class="col-md-12 center-h">
+              <p>{{ "home.INFO_BOX_TEXT" | translate }}</p>
+              <a (click)="scrollToElement(about)">{{ "aboutSection.MORE_INFO" | translate}}</a>
+            </div>
           </div>
-        </div>
-      </nb-card-body>
-    </nb-card>
-  </div>
-  <div class="credit-badge">
-    <a
-      href="https://unsplash.com/@nineteen?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
-      target="_blank" rel="noopener noreferrer"
-      title="Download free do whatever you want high-resolution photos from Andrew Ly"><span
-      style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
-                                                        style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
-                                                        viewBox="0 0 32 32"><title>unsplash-logo</title><path
-      d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span
-      style="display:inline-block;padding:2px 3px">Andrew Ly</span></a>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="credit-badge">
+      <a
+        href="https://unsplash.com/@nineteen?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
+        target="_blank" rel="noopener noreferrer"
+        title="Download free do whatever you want high-resolution photos from Andrew Ly"><span
+        style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
+                                                          style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
+                                                          viewBox="0 0 32 32"><title>unsplash-logo</title><path
+        d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span
+        style="display:inline-block;padding:2px 3px">Andrew Ly</span></a>
+    </div>
+
   </div>
 
-</div>
-
-<div class="about-section content-padding" #about>
+  <!--  About Section -->
   <div class="row">
-    <div class="col-md-8">
-      <h1>{{ "aboutSection.TITLE" | translate }}</h1>
-      <p>{{ "aboutSection.TEXT" | translate }}</p>
+    <div class="about-section" #about>
+      <div class="col col-lg-6 col-md-7 content-padding">
+        <h1>{{ "aboutSection.TITLE" | translate }}</h1>
+        <p>{{ "aboutSection.TEXT" | translate }}</p>
+      </div>
     </div>
   </div>
-</div>
-<div class="ws-s"></div>
-<div class="content-padding">
+  <div class="ws-s"></div>
+
   <!-- Upcoming Cucus -->
   <ng-container *ngIf="(dbService.cucus | async) as cucus">
     <div class="cucus-section" #cucusElement>
       <h1>Join a CUCU</h1>
       <div class="row">
-        <div class="col-md-12">
-              <div class="no-cucus-div">
-                <p *ngIf="cucus.length < 1">{{ "home.NO_CUCUS_FOUND" | translate }}</p>
-              </div>
-        </div>
         <div *ngFor="let c of cucus; trackBy: trackByFn" class="col-md-4">
           <app-cucu-box [cucu]="c" [id]="c._id"></app-cucu-box>
+        </div>
+        <!-- No posted CUCUs? -->
+        <div *ngIf="cucus.length < 1" class="col-12">
+          <div class="no-cucus-div">
+            <p>{{ "home.NO_CUCUS_FOUND" | translate }}</p>
+          </div>
         </div>
       </div>
       <!-- Past Cucus -->
@@ -61,7 +64,7 @@
 
       <div class="ws-s"></div>
       <div class="row">
-        <div class="col-md-12 load-more-div">
+        <div class="col load-more-div">
           <button *ngIf="doWeHaveMore" (click)="loadMore()" nbButton status="primary"
                   [shape]="'rectangle'" [size]="'medium'">
             {{ "home.LOAD_MORE" | translate }}
@@ -70,5 +73,4 @@
       </div>
     </div>
   </ng-container>
-  <div class="ws-m"></div>
 </div>

@@ -8,4 +8,5 @@ export interface Cucu {
   userName: string;
   avatarId: string;
   language: string;
+  uid?: string;
 }

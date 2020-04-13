@@ -24,6 +24,12 @@ a {
   padding: 2.25rem 2.25rem 0.75rem 2.5rem;
 }
 
+@media (max-width: 576px) {
+  .content-padding {
+    padding: 1rem;
+  }
+}
+
 .center-h {
   text-align: center;
 }

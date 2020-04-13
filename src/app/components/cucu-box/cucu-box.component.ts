@@ -9,6 +9,7 @@ import {NbDialogService} from '@nebular/theme';
 import {Router} from '@angular/router';
 import Calendars from 'datebook/src/utils/calendars.js';
 import {CucuIsOpenPipe} from '../../pipes/cucu-is-open/cucu-is-open.pipe';
+import {GetCucuUrlPipe} from '../../pipes/get-cucu-url/get-cucu-url.pipe';
 
 
 @Component({
@@ -29,6 +30,7 @@ export class CucuBoxComponent implements OnInit {
   constructor(public dbService: DbService,
               public translate: TranslateService,
               private router: Router,
+              private getCucuUrlPipe: GetCucuUrlPipe,
               private cucuIsOpen: CucuIsOpenPipe,
               protected gaService: GoogleAnalyticsService,
   ) {
@@ -72,6 +74,7 @@ export class CucuBoxComponent implements OnInit {
     event.stopPropagation();
     if (this.cucu && this.cucuIsOpen.transform(this.cucu.startDate)) {
       this.gaService.event('to_call', 'cucu_box');
+      this.dbService.cucuClicked(this.cucu._id);
       window.open(this.cucu.inviteUrl);
     }
   }
@@ -100,12 +103,10 @@ export class CucuBoxComponent implements OnInit {
 
     const callEvent = {
       title: `CUCU about ${this.cucu.topic}`,
-      description: `${this.cucu.description}\n\nhttps://cucuit.com/cucus/${this.cucu._id}`,
+      description: `${this.cucu.description}\n ${this.getCucuUrlPipe.transform(this.cucu._id)}`,
       start: this.cucu.startDate,
       end: endDate
     };
-
-    // window.open(Calendars.getGoogleCalendarUrl(callEvent));
     Calendars.downloadIcs(callEvent);
   }
 
@@ -115,7 +116,7 @@ export class CucuBoxComponent implements OnInit {
       const shareData = {
         title: 'CUCUit',
         text: '',
-        url: `https://cucuit.com/cucus/${this.cucu._id}`,
+        url: this.getCucuUrlPipe.transform(this.cucu._id),
       };
       // @ts-ignore
       navigator.share(shareData);

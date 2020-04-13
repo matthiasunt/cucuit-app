@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
               protected gaService: GoogleAnalyticsService,
               private route: ActivatedRoute,
   ) {
+    console.log(window.location.href);
   }
 
   ngOnInit() {

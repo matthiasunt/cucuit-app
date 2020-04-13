@@ -20,6 +20,7 @@ nb-layout-column {
   justify-content: flex-end;
 }
 
-nb-layout-footer {
+:host  nb-layout-footer ::ng-deep nav {
+  background-color: lighten(#000, 5%) !important;
 }
 

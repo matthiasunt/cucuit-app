@@ -8,6 +8,7 @@ import {combineLatest} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import set = Reflect.set;
 import {getLangs} from './util/languages.util';
+import {UserService} from './services/user/user.service';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit {
   constructor(private router: Router,
               private translate: TranslateService,
               protected gaService: GoogleAnalyticsService,
+              private userService: UserService,
               public donationsService: DonationsService,
               private nbMenuService: NbMenuService,
   ) {

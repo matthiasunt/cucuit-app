@@ -5,27 +5,6 @@
   min-height: 100vh;
   position: relative;
 }
-
-.about-section {
-  background-color: lighten(black, 96%);
-}
-
-
-.no-cucus-div {
-  p {
-    text-align: center;
-  }
-}
-
-.donate-card {
-}
-
-//@media (min-width: 991px) {
-//  .hero-row {
-//    height: 98vh;
-//  }
-//}
-
 @media (max-width: 991px) {
   .hero-section {
     h1 {
@@ -42,21 +21,19 @@
   }
 }
 
-.vdo-section {
-  img {
-    cursor: pointer;
-    width: 80px;
-    margin-left: -15px;
-  }
 
-  span {
-    padding-left: 20px;
-    font-size: 14px;
-    font-weight: 500;
+.about-section {
+  position: relative;
+  background-color: lighten(black, 96%);
+}
 
-    a {
-      color: black;
-    }
+//.container-fluid {
+//  padding: 0;
+//}
+
+.no-cucus-div {
+  p {
+    text-align: center;
   }
 }
 
@@ -68,6 +45,7 @@
   position: absolute;
   bottom: 10px;
   right: 10px;
+
   a {
     background-color: black;
     color: white;

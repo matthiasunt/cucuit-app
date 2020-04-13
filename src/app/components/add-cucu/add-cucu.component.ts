@@ -12,6 +12,7 @@ import {validateInviteUrl} from '../../util/validators.util';
 import {Cucu} from '../../models/cucu';
 import {CucuDetailComponent} from '../cucu-detail/cucu-detail.component';
 import {PostSuccessComponent} from './post-success/post-success.component';
+import {ThemeService} from '../../services/theme/theme.service';
 
 @Component({
   selector: 'app-add-cucu',
@@ -27,8 +28,6 @@ export class AddCucuComponent implements OnInit {
 
   public callServices: { name: string, tooltip: string, imageUrl: string }[] = [];
 
-  componentSize: NbComponentSize = 'medium';
-  componentShape: NbComponentShape = 'rectangle';
   filteredTimeOptions$: Observable<string[]>;
   timeSlots = [];
 
@@ -41,6 +40,7 @@ export class AddCucuComponent implements OnInit {
 
 
   constructor(private formBuilder: FormBuilder,
+              public themeService: ThemeService,
               public translate: TranslateService,
               private dbService: DbService,
               private dialogService: NbDialogService,

@@ -1,4 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Cucu} from '../../../models/cucu';
+import {ThemeService} from '../../../services/theme/theme.service';
 
 @Component({
   selector: 'app-post-success',
@@ -7,9 +10,12 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostSuccessComponent implements OnInit {
-  declare context: any;
-  cucu;
-  constructor() { }
+  public cucu: Cucu;
+
+  constructor(
+    public theme: ThemeService,
+  ) {
+  }
 
   ngOnInit() {
   }
