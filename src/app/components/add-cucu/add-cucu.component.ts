@@ -10,7 +10,7 @@ import {getAllLangs, getLangName} from '../../util/languages.util';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {validateInviteUrl} from '../../util/validators.util';
 import {Cucu} from '../../models/cucu';
-import {CucuDetailComponent} from '../cucu-detail/cucu-detail.component';
+import {CucuDetailComponent} from '../shared/cucu-detail/cucu-detail.component';
 import {PostSuccessComponent} from './post-success/post-success.component';
 import {ThemeService} from '../../services/theme/theme.service';
 

@@ -7,7 +7,8 @@ import {AddCucuModule} from '../add-cucu/add-cucu.module';
 import {CucuBoxModule} from '../cucu-box/cucu-box.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {NbButtonModule, NbCardModule, NbWindowModule} from '@nebular/theme';
-import {CucuDetailEntryComponent} from '../cucu-detail/cucu-detail-entry.component';
+import {CucuDetailEntryComponent} from '../shared/cucu-detail/cucu-detail-entry.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
     CucuBoxModule,
     NbButtonModule,
     NbCardModule,
+    FontAwesomeModule,
     // CucuDetailModule,
   ],
   exports: [

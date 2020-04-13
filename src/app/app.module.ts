@@ -20,8 +20,8 @@ import {NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule} from 'ngx-goog
 import {environment} from '../environments/environment';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {FooterModule} from './components/shared/footer/footer.module';
-import {CucuDetailEntryComponent} from './components/cucu-detail/cucu-detail-entry.component';
-import {CucuDetailComponent} from './components/cucu-detail/cucu-detail.component';
+import {CucuDetailEntryComponent} from './components/shared/cucu-detail/cucu-detail-entry.component';
+import {CucuDetailComponent} from './components/shared/cucu-detail/cucu-detail.component';
 import {CucuBoxModule} from './components/cucu-box/cucu-box.module';
 import {DeviceDetectorModule} from 'ngx-device-detector';
 

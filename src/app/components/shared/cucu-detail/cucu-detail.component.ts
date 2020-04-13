@@ -1,10 +1,10 @@
 import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
 import {NbDialogService} from '@nebular/theme';
-import {DbService} from '../../services/db/db.service';
+import {DbService} from '../../../services/db/db.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Cucu} from '../../models/cucu';
+import {Cucu} from '../../../models/cucu';
 import {combineLatest} from 'rxjs';
-import {isToday} from '../../util/date.util';
+import {isToday} from '../../../util/date.util';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({

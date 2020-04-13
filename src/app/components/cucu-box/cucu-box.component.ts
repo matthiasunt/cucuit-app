@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 import Calendars from 'datebook/src/utils/calendars.js';
 import {CucuIsOpenPipe} from '../../pipes/cucu-is-open/cucu-is-open.pipe';
 import {GetCucuUrlPipe} from '../../pipes/get-cucu-url/get-cucu-url.pipe';
+import {ShareLinkComponent} from './share-link/share-link.component';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class CucuBoxComponent implements OnInit {
   constructor(public dbService: DbService,
               public translate: TranslateService,
               private router: Router,
+              private dialogService: NbDialogService,
               private getCucuUrlPipe: GetCucuUrlPipe,
               private cucuIsOpen: CucuIsOpenPipe,
               protected gaService: GoogleAnalyticsService,
@@ -120,9 +122,8 @@ export class CucuBoxComponent implements OnInit {
       };
       // @ts-ignore
       navigator.share(shareData);
-      // TODO: Else open Dialog with link?
     } else {
-
+      this.dialogService.open(ShareLinkComponent, {context: {cucu: this.cucu}});
     }
   }
 

@@ -5,6 +5,7 @@
   min-height: 100vh;
   position: relative;
 }
+
 @media (max-width: 991px) {
   .hero-section {
     h1 {
@@ -23,13 +24,18 @@
 
 
 .about-section {
-  position: relative;
   background-color: lighten(black, 96%);
-}
 
-//.container-fluid {
-//  padding: 0;
-//}
+  .about-instagram {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  fa-icon {
+    font-size: 8rem;
+  }
+
+}
 
 .no-cucus-div {
   p {

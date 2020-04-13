@@ -4,6 +4,7 @@ import {DbService} from '../../services/db/db.service';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {Cucu} from '../../models/cucu';
 import {ActivatedRoute} from '@angular/router';
+import {faInstagram} from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +14,8 @@ import {ActivatedRoute} from '@angular/router';
 export class HomeComponent implements OnInit, AfterViewInit {
 
   @ViewChild('cucusElement') cucusElement: ElementRef;
-
   doWeHaveMore = false;
+  faInstagram = faInstagram;
 
   constructor(private translate: TranslateService,
               public dbService: DbService,

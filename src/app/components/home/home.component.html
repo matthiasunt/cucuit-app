@@ -1,12 +1,12 @@
 <div class="container-fluid">
   <div class="row hero-row">
-    <div class="col-lg-6 col-md-7 col content-padding">
+    <div class=" col-lg-6 col-md-8 content-padding">
       <app-add-cucu></app-add-cucu>
-      <!-- Donate Box -->
-      <nb-card class="donate-card" accent="primary">
+      <!-- Info Box -->
+      <nb-card class="info-card" accent="primary">
         <nb-card-body>
           <div class="row">
-            <div class="col-md-12 center-h">
+            <div class="col">
               <p>{{ "home.INFO_BOX_TEXT" | translate }}</p>
               <a (click)="scrollToElement(about)">{{ "aboutSection.MORE_INFO" | translate}}</a>
             </div>
@@ -18,22 +18,32 @@
       <a
         href="https://unsplash.com/@nineteen?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge"
         target="_blank" rel="noopener noreferrer"
-        title="Download free do whatever you want high-resolution photos from Andrew Ly"><span
-        style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
-                                                          style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
-                                                          viewBox="0 0 32 32"><title>unsplash-logo</title><path
-        d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span
+        title="Download free do whatever you want high-resolution photos from Andrew Ly">
+        <span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg"
+                                                                style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white"
+                                                                viewBox="0 0 32 32"><title>unsplash-logo</title>
+          <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span
         style="display:inline-block;padding:2px 3px">Andrew Ly</span></a>
     </div>
 
   </div>
 
   <!--  About Section -->
-  <div class="row">
-    <div class="about-section" #about>
-      <div class="col col-lg-6 col-md-7 content-padding">
-        <h1>{{ "aboutSection.TITLE" | translate }}</h1>
-        <p>{{ "aboutSection.TEXT" | translate }}</p>
+  <div class="row about-section" #about>
+    <div class="col content-padding">
+      <div class="row">
+        <div class="col-md-7">
+          <h1>{{ "aboutSection.TITLE" | translate }}</h1>
+          <p>{{ "aboutSection.TEXT" | translate }}</p>
+        </div>
+        <div class="col">
+          <div class="about-instagram">
+            <a href="https://www.instagram.com/cucu_it/" target="_blank">
+              <fa-icon [icon]="faInstagram"></fa-icon>
+            </a>
+            <p>Follow us on Instagram</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -41,7 +51,7 @@
 
   <!-- Upcoming Cucus -->
   <ng-container *ngIf="(dbService.cucus | async) as cucus">
-    <div class="cucus-section" #cucusElement>
+    <div class="cucus-section content-padding" #cucusElement>
       <h1>Join a CUCU</h1>
       <div class="row">
         <div *ngFor="let c of cucus; trackBy: trackByFn" class="col-md-4">

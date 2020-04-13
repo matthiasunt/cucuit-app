@@ -90,6 +90,7 @@
       "AT": "alle"
     },
     "share": {
+      "TITLE": "Condividi",
       "TOOLTIP": "Share this CUCU"
     },
     "addToCalendar": {

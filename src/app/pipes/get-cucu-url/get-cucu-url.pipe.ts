@@ -7,7 +7,8 @@ export class GetCucuUrlPipe implements PipeTransform {
 
   transform(cucuId: string): any {
     if (cucuId && cucuId.length > 0) {
-      return `${window.location.protocol}://${window.location.hostname}/${cucuId}`;
+      console.log(window.location.href);
+      return `${window.location.href}cucus/${cucuId}`;
     }
   }
 
