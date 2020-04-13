@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 import {combineLatest, Observable, of} from 'rxjs';
@@ -10,7 +10,7 @@ import {getAllLangs, getLangName} from '../../util/languages.util';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {validateInviteUrl} from '../../util/validators.util';
 import {Cucu} from '../../models/cucu';
-import {CucuDetailComponent} from '../shared/cucu-detail/cucu-detail.component';
+import {CucuDetailComponent} from '../cucu-detail/cucu-detail.component';
 import {PostSuccessComponent} from './post-success/post-success.component';
 import {ThemeService} from '../../services/theme/theme.service';
 
@@ -110,9 +110,15 @@ export class AddCucuComponent implements OnInit {
           this.avatarUploadLabel = '';
           this.initForm();
           this.gaService.event('post_success', 'post_cucu');
-          const cucuId: string = res._id;
-          this.dialogService.open(PostSuccessComponent, {context: {cucu: res}})
-            .onClose.subscribe(() => {
+          const closeEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
+          const dialog = this.dialogService.open(PostSuccessComponent, {
+            context: {
+              cucu: res,
+              closeEvent
+            }
+          });
+          closeEvent.subscribe(c => dialog.close());
+          dialog.onClose.subscribe(() => {
             this.inviteUrlInputElement.nativeElement.focus();
           });
         } else {
@@ -211,9 +217,10 @@ export class AddCucuComponent implements OnInit {
       }
     });
 
-    this.translate.onLangChange.subscribe(() => {
-      this.language.setValue(getLangName(this.translate.currentLang));
-    });
+    // this.translate.onLangChange.subscribe(() => {
+    //   this.language.setValue(getLangName(this.translate.currentLang));
+    //   this.inviteUrlInputElement.nativeElement.focus();
+    // });
     setTimeout(() => {
       this.inviteUrlInputElement.nativeElement.focus();
     }, 1);
@@ -235,7 +242,7 @@ export class AddCucuComponent implements OnInit {
 
   private async showCucuPostError() {
     const title = await this.translate.get('ERROR').toPromise();
-    const message = this.translate.get('postCucu.CUCU_ERROR').toPromise();
+    const message = await this.translate.get('postCucu.CUCU_ERROR').toPromise();
     this.toastrService.show(
       message,
       title,

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {faInstagram} from '@fortawesome/free-brands-svg-icons/faInstagram';
-import {DonationsService} from '../../../services/donations/donations.service';
-import {getLangs} from '../../../util/languages.util';
-import {Language} from '../../../models/language';
+import {DonationsService} from '../../services/donations/donations.service';
+import {getLangs} from '../../util/languages.util';
+import {Language} from '../../models/language';
 import {TranslateService} from '@ngx-translate/core';
 
 

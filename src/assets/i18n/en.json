@@ -91,6 +91,7 @@
     },
     "share": {
       "TITLE": "Share",
+      "TEXT": "Share this CUCU with friends!",
       "TOOLTIP": "Share this CUCU"
     },
     "addToCalendar": {

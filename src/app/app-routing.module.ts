@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
-import {CucuDetailEntryComponent} from './components/shared/cucu-detail/cucu-detail-entry.component';
-import {CucuDetailComponent} from './components/shared/cucu-detail/cucu-detail.component';
+import {CucuDetailEntryComponent} from './components/cucu-detail/cucu-detail-entry.component';
+import {CucuDetailComponent} from './components/cucu-detail/cucu-detail.component';
 
 
 const routes: Routes = [

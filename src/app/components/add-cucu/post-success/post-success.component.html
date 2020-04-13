@@ -1,5 +1,4 @@
 <nb-card accent="success" [size]="'large'" class="dialog-card">
-  <nb-card-header>{{ "SUCCESS" | translate }}</nb-card-header>
   <nb-card-body>
     <div class="container-fluid">
       <h1>{{ "postCucu.CUCU_POSTED" | translate }}</h1>
@@ -16,15 +15,12 @@
       </div>
       <div class="ws-s"></div>
       <app-cucu-box [cucu]="cucu"></app-cucu-box>
-      <div class="row">
-        <div class="col">
-          <button nbButton status="danger" fullWidth>
-            <nb-icon icon="trash"></nb-icon>
-            {{ "DELETE" | translate }} CUCU
-          </button>
-        </div>
-      </div>
     </div>
   </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="danger" fullWidth (click)="deleteCucu()">
+      <nb-icon icon="trash"></nb-icon>
+      {{ "DELETE" | translate }} CUCU
+    </button>
+  </nb-card-footer>
 </nb-card>
-

@@ -87,7 +87,7 @@ export class DbService {
   public deleteCucu(id: string) {
     const uid = this.userService.getUid();
     if (uid) {
-      return this.http.post(`${this.baseUrl}/cucus/delete-one`, {id, uid});
+      return this.http.post(`${this.baseUrl}/cucus/delete-one`, {_id: id, uid});
     } else {
       console.error('Uid not defined!');
       return null;
