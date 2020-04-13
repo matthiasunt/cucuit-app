@@ -178,22 +178,22 @@ export class AddCucuComponent implements OnInit {
     const langPreset = getLangName(this.translate.currentLang);
     this.timeSlots = getTimeSlots(datePreset);
     this.form = this.formBuilder.group({
-      inviteUrl: ['https://hangouts.google.com/call/3wTZG0Tv8yykGbUGSfj2AEEI', [Validators.required, validateInviteUrl]],
-      topic: ['Sports', Validators.required],
-      description: ['Morning routine', Validators.required],
-      isConference: [false, Validators.required],
-      userName: ['Matthias', Validators.required],
-      language: [langPreset, Validators.required],
-      date: [datePreset, Validators.required],
-      time: [timePreset, [Validators.required, Validators.pattern('[0-9]?[0-9]:[0-9][0-9]')]],
-      // inviteUrl: ['', [Validators.required, validateInviteUrl]],
-      // topic: ['', Validators.required],
-      // description: ['', Validators.required],
+      // inviteUrl: ['https://hangouts.google.com/call/3wTZG0Tv8yykGbUGSfj2AEEI', [Validators.required, validateInviteUrl]],
+      // topic: ['Sports', Validators.required],
+      // description: ['Morning routine', Validators.required],
       // isConference: [false, Validators.required],
-      // userName: ['', Validators.required],
+      // userName: ['Matthias', Validators.required],
       // language: [langPreset, Validators.required],
       // date: [datePreset, Validators.required],
       // time: [timePreset, [Validators.required, Validators.pattern('[0-9]?[0-9]:[0-9][0-9]')]],
+      inviteUrl: ['', [Validators.required, validateInviteUrl]],
+      topic: ['', Validators.required],
+      description: ['', Validators.required],
+      isConference: [false, Validators.required],
+      userName: ['', Validators.required],
+      language: [langPreset, Validators.required],
+      date: [datePreset, Validators.required],
+      time: [timePreset, [Validators.required, Validators.pattern('[0-9]?[0-9]:[0-9][0-9]')]],
     });
 
     this.filteredTimeOptions$ = of(this.timeSlots);

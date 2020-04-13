@@ -66,11 +66,11 @@
     "CUCU_POSTED": "CUCÙ successfully posted!",
     "CUCU_ERROR": "We can’t post your CUCÙ right now. Please try again later.",
     "errors": {
-      "FILE_TOO_LARGE": {
+      "fileTooLarge": {
         "TITLE": "This file is too big",
         "TEXT": "this image is too big. maximum file size allowed: 3MB"
       },
-      "UNKNOWN": {
+      "unknown": {
         "TITLE": "Error",
         "TEXT": "An unexpected error occurred while uploading your image. Please try again later! "
       }
@@ -90,6 +90,8 @@
       "AT": "at"
     },
     "share": {
+      "TITLE": "Share",
+      "TEXT": "Share this CUCU with friends!",
       "TOOLTIP": "Share this CUCU"
     },
     "addToCalendar": {

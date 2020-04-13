@@ -66,11 +66,11 @@
     "CUCU_POSTED": "CUCÙ' compartido con éxito!",
     "CUCU_ERROR": "No podemos cargar tu CUCÚ. Por favor, inténtalo de nuevo.",
     "errors": {
-      "FILE_TOO_LARGE": {
+      "fileTooLarge": {
         "TITLE": "Archivo demasiado grande",
         "TEXT": "Imagen muy grande. El máximo es de 3 MB."
       },
-      "UNKNOWN": {
+      "unknown": {
         "TITLE": "Error",
         "TEXT": "Error al subir tu imagen"
       }
@@ -90,6 +90,8 @@
       "AT": "a las"
     },
     "share": {
+      "TITLE": "Share",
+      "TEXT": "Share this CUCU with friends!",
       "TOOLTIP": "Share this CUCU"
     },
     "addToCalendar": {

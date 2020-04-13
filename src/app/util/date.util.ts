@@ -3,7 +3,7 @@ export const getTimeSlots = (date: Date) => {
   let currentHour = new Date().getHours();
   const currentMinutes = new Date().getMinutes();
   let offset = currentMinutes > 30 ? 1 : 0;
-  if (isToday(date)) {
+  if (!isToday(date)) {
     currentHour = 0;
     offset = 0;
   }
