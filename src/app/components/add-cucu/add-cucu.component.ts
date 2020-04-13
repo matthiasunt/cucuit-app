@@ -112,10 +112,7 @@ export class AddCucuComponent implements OnInit {
           this.gaService.event('post_success', 'post_cucu');
           const closeEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
           const dialog = this.dialogService.open(PostSuccessComponent, {
-            context: {
-              cucu: res,
-              closeEvent
-            }
+            context: {cucu: res, closeEvent}
           });
           closeEvent.subscribe(c => dialog.close());
           dialog.onClose.subscribe(() => {
