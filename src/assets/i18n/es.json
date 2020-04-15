@@ -21,6 +21,8 @@
     "INFO_BOX_TEXT": "Lorem ipsum …"
   },
   "postCucu": {
+    "TITLE":"Launch open digital meetups!",
+    "PLATFORMS_TEXT": "Lauch a CUCU using one of this platforms",
     "inviteUrl": {
       "PLACEHOLDER": "Pega el enlace de tu videollamada aquí",
       "PARTICIPANTS": "participantes",

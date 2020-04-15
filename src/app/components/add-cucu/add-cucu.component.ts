@@ -13,6 +13,8 @@ import {Cucu} from '../../models/cucu';
 import {CucuDetailComponent} from '../cucu-detail/cucu-detail.component';
 import {PostSuccessComponent} from './post-success/post-success.component';
 import {ThemeService} from '../../services/theme/theme.service';
+import {VideoService} from '../../models/video-service';
+import {getVideoServices} from '../../util/video-services';
 
 @Component({
   selector: 'app-add-cucu',
@@ -26,7 +28,7 @@ export class AddCucuComponent implements OnInit {
 
   public form: FormGroup;
 
-  public callServices: { name: string, tooltip: string, imageUrl: string }[] = [];
+  public videoServices: VideoService[] = [];
 
   filteredTimeOptions$: Observable<string[]>;
   timeSlots = [];
@@ -49,35 +51,9 @@ export class AddCucuComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.videoServices = getVideoServices(await this.translate.get('postCucu.inviteUrl.PARTICIPANTS').toPromise());
     this.initForm();
-    combineLatest([
-      this.translate.get('postCucu.inviteUrl.PARTICIPANTS'),
-      this.translate.get('postCucu.inviteUrl.MINUTES'),
-    ]).subscribe(([p, m]) => {
-      this.callServices = [
-        {
-          name: 'Google Hangouts',
-          tooltip: `Google Hangouts: 10 ${p}`,
-          imageUrl: './assets/images/hangouts.svg',
-        },
-        {
-          name: 'Skype',
-          tooltip: `Skype: 50 ${p}`,
-          imageUrl: './assets/images/skype.svg',
-        },
-        {
-          name: 'Zoom',
-          tooltip: `Zoom: 100 ${p}, max. 40 ${m}`,
-          imageUrl: './assets/images/hangouts.svg',
-        },
-        {
-          name: 'Jitsi Meet',
-          tooltip: `Jitsi Meet: 25 ${p}`,
-          imageUrl: './assets/images/jitsi.png',
-        }
-      ];
-    });
   }
 
 
@@ -178,22 +154,23 @@ export class AddCucuComponent implements OnInit {
     const langPreset = getLangName(this.translate.currentLang);
     this.timeSlots = getTimeSlots(datePreset);
     this.form = this.formBuilder.group({
-      // inviteUrl: ['https://hangouts.google.com/call/3wTZG0Tv8yykGbUGSfj2AEEI', [Validators.required, validateInviteUrl]],
-      // topic: ['Sports', Validators.required],
-      // description: ['Morning routine', Validators.required],
-      // isConference: [false, Validators.required],
-      // userName: ['Matthias', Validators.required],
-      // language: [langPreset, Validators.required],
-      // date: [datePreset, Validators.required],
-      // time: [timePreset, [Validators.required, Validators.pattern('[0-9]?[0-9]:[0-9][0-9]')]],
-      inviteUrl: ['', [Validators.required, validateInviteUrl]],
-      topic: ['', Validators.required],
-      description: ['', Validators.required],
+      inviteUrl: ['https://hangouts.google.com/call/3wTZG0Tv8yykGbUGSfj2AEEI', [Validators.required, validateInviteUrl]],
+      topic: ['Sports', Validators.required],
+      description: ['Morning routine', Validators.required],
       isConference: [false, Validators.required],
-      userName: ['', Validators.required],
+      userName: ['Matthias', Validators.required],
       language: [langPreset, Validators.required],
       date: [datePreset, Validators.required],
       time: [timePreset, [Validators.required, Validators.pattern('[0-9]?[0-9]:[0-9][0-9]')]],
+
+      // inviteUrl: ['', [Validators.required, validateInviteUrl]],
+      // topic: ['', Validators.required],
+      // description: ['', Validators.required],
+      // isConference: [false, Validators.required],
+      // userName: ['', Validators.required],
+      // language: [langPreset, Validators.required],
+      // date: [datePreset, Validators.required],
+      // time: [timePreset, [Validators.required, Validators.pattern('[0-9]?[0-9]:[0-9][0-9]')]],
     });
 
     this.filteredTimeOptions$ = of(this.timeSlots);
@@ -244,7 +221,6 @@ export class AddCucuComponent implements OnInit {
       message,
       title,
       {status: 'danger'});
-
   }
 
   get inviteUrl() {

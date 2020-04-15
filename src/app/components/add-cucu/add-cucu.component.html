@@ -1,11 +1,13 @@
 <nb-card accent="primary">
   <nb-card-body class="example-items-col">
     <div class="container-fluid">
-      <h3>Launch open digital meetups!</h3>
+      <h1>{{ "postCucu.TITLE" | translate }}</h1>
       <div class="video-call-services">
-        <p>Lauch a CUCU using one of this platforms: </p>
+        <p>{{ "postCucu.PLATFORMS_TEXT" | translate }}:</p>
         <div class="row">
-          <img *ngFor="let s of callServices" [src]="s.imageUrl" [nbTooltip]="s.tooltip" [alt]="s.name + ' logo'">
+          <a *ngFor="let s of videoServices" [href]="s.url">
+            <img [src]="s.imageUrl" [nbTooltip]="s.tooltip" [alt]="s.name + ' logo'">
+          </a>
         </div>
       </div>
       <div class="ws-s"></div>

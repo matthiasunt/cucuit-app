@@ -11,6 +11,7 @@ import Calendars from 'datebook/src/utils/calendars.js';
 import {CucuIsOpenPipe} from '../../pipes/cucu-is-open/cucu-is-open.pipe';
 import {GetCucuUrlPipe} from '../../pipes/get-cucu-url/get-cucu-url.pipe';
 import {ShareLinkComponent} from './share-link/share-link.component';
+import {getVideoServices} from '../../util/video-services';
 
 
 @Component({
@@ -25,7 +26,6 @@ export class CucuBoxComponent implements OnInit {
   shareAvailable = false;
   timeLabel: string;
   imageUrl: string;
-  comebackLaterText: string;
   buttonLabel: string;
 
   constructor(public dbService: DbService,
@@ -58,7 +58,6 @@ export class CucuBoxComponent implements OnInit {
         ]).subscribe(([today, at, text]) => {
           // TODO: Refine tooltip
           this.timeLabel = isToday(cucuStartDate) ? `${today} ${at} ${time}` : `${cucuStartDate.toLocaleDateString()}, ${time}`;
-          // this.comebackLaterText = `${text} ${day.toLowerCase()} ${at} ${time}`;
         });
       } else {
         // Cucu in the past
