@@ -52,8 +52,8 @@ export class AddCucuComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.videoServices = getVideoServices(await this.translate.get('postCucu.inviteUrl.PARTICIPANTS').toPromise());
     this.initForm();
+    this.videoServices = getVideoServices(await this.translate.get('postCucu.inviteUrl.PARTICIPANTS').toPromise());
   }
 
 
@@ -70,7 +70,7 @@ export class AddCucuComponent implements OnInit {
       if (!this.avatarId) {
         this.avatarId = '';
       }
-      const type = this.isConference ? 'conference' : 'chit_chat';
+      const type = data.isConference ? 'conference' : 'chit_chat';
       const cucu: Cucu = {
         inviteUrl: data.inviteUrl,
         topic: data.topic,

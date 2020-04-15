@@ -3,7 +3,7 @@ import {NbDialogService} from '@nebular/theme';
 import {DbService} from '../../services/db/db.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Cucu} from '../../models/cucu';
-import {combineLatest} from 'rxjs';
+import {combineLatest, Observable} from 'rxjs';
 import {isToday} from '../../util/date.util';
 import {TranslateService} from '@ngx-translate/core';
 
@@ -15,12 +15,10 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class CucuDetailComponent implements OnInit {
 
-  cucuId: string;
-  cucu$;
-  imageUrl;
-  isPast = false;
-  buttonLabel;
-  timeLabel;
+  cucu$: Observable<Cucu>;
+  id: string;
+
+  isByUser = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,23 +27,25 @@ export class CucuDetailComponent implements OnInit {
     private dialogService: NbDialogService,
     public dbService: DbService,
   ) {
-
     // this.openDetail('');
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.cucu$ = this.dbService.getCucu(id);
+    this.id = this.route.snapshot.paramMap.get('id');
+    if (this.id) {
+      this.cucu$ = this.dbService.getCucu(this.id);
+      this.dbService.createdbyUser(this.cucu$).subscribe(res => this.isByUser = res);
     } else {
       console.error('CUCU id not defined');
     }
-
-
   }
 
-  modalClose($event) {
-    console.log($event); // { submitted: true }
+  deleteCucu() {
+    this.dbService.deleteCucu(this.id).subscribe(async (res: any) => {
+      if (res._id) {
+        await this.router.navigateByUrl('');
+      }
+    });
   }
 
 }

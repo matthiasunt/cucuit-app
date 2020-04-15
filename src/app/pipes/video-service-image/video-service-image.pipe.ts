@@ -22,14 +22,16 @@ export class VideoServiceImagePipe implements PipeTransform {
   }
 
   transform(callLink: string): VideoService {
-    if (callLink.includes('hangouts')) {
-      return this.videoServices.find(s => s.url.includes('hangouts'));
-    } else if (callLink.includes('skype')) {
-      return this.videoServices.find(s => s.url.includes('skype'));
-    } else if (callLink.includes('zoom')) {
-      return this.videoServices.find(s => s.url.includes('zoom'));
-    } else if (callLink.includes('jitsi')) {
-      return this.videoServices.find(s => s.url.includes('jitsi'));
+    if (callLink && callLink.length > 0) {
+      if (callLink.includes('hangouts')) {
+        return this.videoServices.find(s => s.url.includes('hangouts'));
+      } else if (callLink.includes('skype')) {
+        return this.videoServices.find(s => s.url.includes('skype'));
+      } else if (callLink.includes('zoom')) {
+        return this.videoServices.find(s => s.url.includes('zoom'));
+      } else if (callLink.includes('jitsi')) {
+        return this.videoServices.find(s => s.url.includes('jitsi'));
+      }
     }
   }
 

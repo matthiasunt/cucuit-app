@@ -1,5 +1,5 @@
 <!-- Upcoming CUCU -->
-<nb-card accent="primary" *ngIf="!isPast" status="basic">
+<nb-card accent="primary" *ngIf="!isPast" status="basic" (click)="toDetail($event)">
   <nb-card-header>
     <nb-user size="giant"
              [picture]="imageUrl"

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
 import {Cucu} from '../../models/cucu';
 import {filter, find, map} from 'rxjs/operators';
 import {TranslateService} from '@ngx-translate/core';
@@ -23,11 +23,9 @@ export class DbService {
   constructor(private http: HttpClient,
               private translate: TranslateService,
               private userService: UserService,
-              private deviceDetectorService: DeviceDetectorService,
   ) {
     this.fetchCucus(translate.currentLang);
     this.translate.onLangChange.subscribe((lang => this.fetchCucus(lang)));
-    console.log(this.deviceDetectorService.getDeviceInfo());
   }
 
   get cucus() {
@@ -40,6 +38,19 @@ export class DbService {
 
   get userCucus() {
     return this.userCucus$;
+  }
+
+  public createdbyUser(cucu$: Observable<Cucu>): Observable<boolean> {
+    return combineLatest([this.userCucus$, cucu$])
+      .pipe(
+        map(([userCucus, cucu]) => {
+          const found = userCucus.find(c => c._id === cucu._id);
+          if (found && found._id) {
+            return true;
+          } else {
+            return false;
+          }
+        }));
   }
 
   public fetchCucus(lang: string) {
@@ -63,7 +74,7 @@ export class DbService {
       });
     this.http.get(`${this.baseUrl}/cucus/by/${this.userService.getUid()}`)
       .subscribe((userCucus: Cucu[]) => {
-        console.log(userCucus);
+        console.log(userCucus.length);
         this.userCucus$.next(userCucus);
       });
   }
@@ -87,7 +98,9 @@ export class DbService {
   public deleteCucu(id: string) {
     const uid = this.userService.getUid();
     if (uid) {
-      return this.http.post(`${this.baseUrl}/cucus/delete-one`, {_id: id, uid});
+      const res = this.http.post(`${this.baseUrl}/cucus/delete-one`, {_id: id, uid});
+      this.fetchCucus(this.translate.currentLang);
+      return res;
     } else {
       console.error('Uid not defined!');
       return null;
@@ -97,7 +110,6 @@ export class DbService {
   public getCucu(id: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/cucus/${id}`).pipe(
       map((res: any) => {
-        console.log(res);
         if (res && res._id) {
           return res;
         }
@@ -108,10 +120,6 @@ export class DbService {
   public cucuClicked(id: string) {
     return this.http.get(`${this.baseUrl}/cucus/${id}/click`);
   }
-
-  // public getUserCucus(uid: string): Observable<any> {
-  //
-  // }
 
   public uploadAvatar(file: File) {
     const fd = new FormData();

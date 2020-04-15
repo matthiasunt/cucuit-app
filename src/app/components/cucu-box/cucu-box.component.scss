@@ -8,8 +8,13 @@ nb-card {
 }
 
 nb-card-body {
+  .container-fluid {
+    padding: 0;
+  }
+
   .video-service-image {
     text-align: right;
+
     img {
       width: 35px;
       opacity: 1;
