@@ -9,9 +9,9 @@
       </div>
     </div>
     <div class="ws-m"></div>
-    <div class="row">
+    <div class="row" *ngIf="cucu$ | async as cucu">
       <div class="col-md-12">
-        <app-cucu-box [cucu]="cucu$ | async"></app-cucu-box>
+        <app-cucu-box [cucu]="cucu"></app-cucu-box>
       </div>
     </div>
     <div class="row">

@@ -23,20 +23,21 @@ export class CallProvidersService {
   }
 
   public getCallProvider(callLink: string): Observable<CallProvider> {
-    return this.callProviders$.pipe(
-      map(providers => {
-        if (callLink.includes('hangouts')) {
-          return providers.find(s => s.url.includes('hangouts'));
-        } else if (callLink.includes('skype')) {
-          return providers.find(s => s.url.includes('skype'));
-        } else if (callLink.includes('zoom')) {
-          return providers.find(s => s.url.includes('zoom'));
-        } else if (callLink.includes('jitsi')) {
-          return providers.find(s => s.url.includes('jitsi'));
-        }
-      })
-    );
-
+    if (callLink) {
+      return this.callProviders$.pipe(
+        map(providers => {
+          if (callLink.includes('hangouts')) {
+            return providers.find(s => s.url.includes('hangouts'));
+          } else if (callLink.includes('skype')) {
+            return providers.find(s => s.url.includes('skype'));
+          } else if (callLink.includes('zoom')) {
+            return providers.find(s => s.url.includes('zoom'));
+          } else if (callLink.includes('jitsi')) {
+            return providers.find(s => s.url.includes('jitsi'));
+          }
+        })
+      );
+    }
   }
 
   private updateCallProviderInfo() {
