@@ -1,4 +1,4 @@
-export interface VideoService {
+export interface CallProvider {
   name: string;
   tooltip: string;
   imageUrl: string;

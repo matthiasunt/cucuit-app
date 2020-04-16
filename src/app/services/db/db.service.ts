@@ -74,7 +74,6 @@ export class DbService {
       });
     this.http.get(`${this.baseUrl}/cucus/by/${this.userService.getUid()}`)
       .subscribe((userCucus: Cucu[]) => {
-        console.log(userCucus.length);
         this.userCucus$.next(userCucus);
       });
   }

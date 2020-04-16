@@ -18,7 +18,8 @@
           <p>{{ cucu?.type === 'conference' ? 'Conference' : '' }}</p>
         </div>
         <div class="col align-items-end">
-          <div *ngIf="cucu?.inviteUrl | videoService as s" class="video-service-image">
+          <div *ngIf="callProvidersService.getCallProvider(cucu?.inviteUrl) | async as s"
+               class="video-service-image">
             <img [src]="s.imageUrl" [alt]="s.name + ' logo'">
           </div>
         </div>

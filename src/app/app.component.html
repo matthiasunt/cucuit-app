@@ -7,11 +7,14 @@
     </div>
     <div class="nav-items-div">
       <ng-container *ngIf="!smallDevice">
-        <button nbButton ghost status="primary" (click)="toCucus()">
+        <button nbButton ghost status="primary" [routerLink]="'/'" [fragment]="'cucus'">
           {{ "navbar.CUCUS" | translate }}
         </button>
         <button nbButton ghost [routerLink]="'manifest'" status="primary">
           {{ "navbar.MANIFEST" | translate }}
+        </button>
+        <button nbButton ghost [routerLink]="'how-it-works'" status="primary">
+         How it works
         </button>
         <button (click)="donationsService.toDonationSite()" nbButton [ghost]="true" status="primary">
           {{ "navbar.DONATE" | translate }}

@@ -11,7 +11,7 @@ import Calendars from 'datebook/src/utils/calendars.js';
 import {CucuIsOpenPipe} from '../../pipes/cucu-is-open/cucu-is-open.pipe';
 import {GetCucuUrlPipe} from '../../pipes/get-cucu-url/get-cucu-url.pipe';
 import {ShareLinkComponent} from './share-link/share-link.component';
-import {getVideoServices} from '../../util/video-services';
+import {CallProvidersService} from '../../services/call-providers/call-providers.service';
 
 
 @Component({
@@ -31,6 +31,7 @@ export class CucuBoxComponent implements OnInit {
   constructor(public dbService: DbService,
               public translate: TranslateService,
               private router: Router,
+              public callProvidersService: CallProvidersService,
               private dialogService: NbDialogService,
               private getCucuUrlPipe: GetCucuUrlPipe,
               private cucuIsOpen: CucuIsOpenPipe,
@@ -87,14 +88,6 @@ export class CucuBoxComponent implements OnInit {
   toDetail(event) {
     event.stopPropagation();
     this.router.navigateByUrl(`cucus/${this.cucu._id}`);
-    // this.router.navigate([{outlets: {modal: 'cucus/:id'}}], { skipLocationChange: false });
-    // this.router.navigate([
-    //   {
-    //     outlets: {
-    //       modal: `cucus/${this.cucu._id}`
-    //     }
-    //   }]);
-
   }
 
   public calendarClicked(event) {

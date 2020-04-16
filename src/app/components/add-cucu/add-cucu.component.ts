@@ -1,21 +1,19 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
-import {combineLatest, Observable, of} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import {Observable, of} from 'rxjs';
+import {map} from 'rxjs/operators';
 import {DbService} from '../../services/db/db.service';
 import {getTimeSlots, isToday} from '../../util/date.util';
-import {NbComponentShape, NbComponentSize, NbDialogService, NbToastrService, NbWindowService} from '@nebular/theme';
+import {NbDialogService, NbToastrService} from '@nebular/theme';
 import {getAllLangs, getLangName} from '../../util/languages.util';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {validateInviteUrl} from '../../util/validators.util';
 import {Cucu} from '../../models/cucu';
-import {CucuDetailComponent} from '../cucu-detail/cucu-detail.component';
 import {PostSuccessComponent} from './post-success/post-success.component';
 import {ThemeService} from '../../services/theme/theme.service';
-import {VideoService} from '../../models/video-service';
-import {getVideoServices} from '../../util/video-services';
 import {environment} from '../../../environments/environment';
+import {CallProvidersService} from '../../services/call-providers/call-providers.service';
 
 @Component({
   selector: 'app-add-cucu',
@@ -28,8 +26,6 @@ export class AddCucuComponent implements OnInit {
   @ViewChild('timeInputElement') timeInputElement: ElementRef;
 
   public form: FormGroup;
-
-  public videoServices: VideoService[] = [];
 
   filteredTimeOptions$: Observable<string[]>;
   timeSlots = [];
@@ -46,6 +42,7 @@ export class AddCucuComponent implements OnInit {
               public themeService: ThemeService,
               public translate: TranslateService,
               private dbService: DbService,
+              public callProvidersService: CallProvidersService,
               private dialogService: NbDialogService,
               private toastrService: NbToastrService,
               protected gaService: GoogleAnalyticsService,
@@ -54,8 +51,7 @@ export class AddCucuComponent implements OnInit {
 
   async ngOnInit() {
     this.initForm();
-    this.videoServices = getVideoServices(await this.translate.get('postCucu.inviteUrl.PARTICIPANTS').toPromise());
-  }
+ }
 
 
   public postCucu() {
