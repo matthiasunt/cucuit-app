@@ -67,7 +67,7 @@ export class AddCucuComponent implements OnInit {
       if (!this.avatarId) {
         this.avatarId = '';
       }
-      const type = data.isConference ? 'conference' : 'chit_chat';
+      const type = data.isConference ? 'conference' : 'chitchat';
       const cucu: Cucu = {
         inviteUrl: data.inviteUrl,
         topic: data.topic,
@@ -153,7 +153,7 @@ export class AddCucuComponent implements OnInit {
     this.form = environment.production ? this.formBuilder.group({
       inviteUrl: ['', [Validators.required, validateInviteUrl]],
       topic: ['', Validators.required],
-      description: ['', Validators.required],
+      description: [''],
       isConference: [false, Validators.required],
       userName: ['', Validators.required],
       language: [langPreset, Validators.required],

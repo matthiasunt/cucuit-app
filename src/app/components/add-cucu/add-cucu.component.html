@@ -42,12 +42,9 @@
           </div>
           <div class="col shrink no-padding">
             <nb-toggle status="primary" [formControl]="isConference"
-                       [nbTooltip]="translate.get('postCucu.type.TOOLTIP') | async" [nbTooltipStatus]="'basic'"
-            >{{ "postCucu.type.LABEL" | translate }}</nb-toggle>
-            <!--          <nb-radio-group>-->
-            <!--            <nb-radio>Chit Chat</nb-radio>-->
-            <!--            <nb-radio>Conference</nb-radio>-->
-            <!--          </nb-radio-group>-->
+                       [nbTooltip]="translate.get('postCucu.type.TOOLTIP') | async"
+                       [nbTooltipStatus]="'basic'">{{ "postCucu.type.LABEL" | translate }}
+            </nb-toggle>
           </div>
         </div>
 
