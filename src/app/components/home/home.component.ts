@@ -44,8 +44,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
     return item._id;
   }
 
-  scrollToElement($element): void {
-    $element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+  scrollToElement(element): void {
+    const headerOffset = 45;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+    // $element.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'nearest'});
   }
 
 }
