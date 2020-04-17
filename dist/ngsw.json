@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1587151725992,
+  "timestamp": 1587151930963,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -44,6 +44,7 @@
         "/assets/i18n/en.json",
         "/assets/i18n/es.json",
         "/assets/i18n/it.json",
+        "/assets/i18n/trash.html",
         "/assets/images/cucuit-preview.jpg",
         "/assets/images/hangouts.svg",
         "/assets/images/hero-bg.jpg",
@@ -73,9 +74,10 @@
     "/assets/favicon/favicon.ico": "37dbfb26959de9fa7d8a3bdec85ae6994b00b66d",
     "/assets/favicon/mstile-150x150.png": "06f2e18aafce5db29b8d493af1e7a1fa8d6431cc",
     "/assets/favicon/safari-pinned-tab.svg": "9e5831d3aa49c9aea529dc03836e4db215fa9147",
-    "/assets/i18n/en.json": "ec403e4abd40ad771fa292ea144507576ada90a3",
+    "/assets/i18n/en.json": "d691d38dc060ead76806bb0d5167965abb411bb8",
     "/assets/i18n/es.json": "79f11b87372d71b92e4a7f2cc36c4acc801a44e2",
     "/assets/i18n/it.json": "cc5b86247afd88b450a464d5f3dced254c33af9d",
+    "/assets/i18n/trash.html": "03d72ee47740ce55e2849000d222ccef36dc3458",
     "/assets/images/cucuit-preview.jpg": "f85cbf599d0b368ccc7ecbf4c31d7f6a9af24e8e",
     "/assets/images/hangouts.svg": "2dbce39ca11ef29769ee2f205bebddc77b170efd",
     "/assets/images/hero-bg.jpg": "ada8264d982b46b0896b0d8f51b9f801f1a1ac95",
