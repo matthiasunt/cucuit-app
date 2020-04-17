@@ -15,7 +15,8 @@
       <div class="row">
         <div class="col col-auto">
           <b>{{ cucu?.topic }}</b>
-          <p>{{ cucu?.type === 'conference' ? 'Conference' : '' }}</p>
+          <p>{{ cucu?.type === 'conference' ?
+            ("cucuBox.FRONTAL_LESSON" | translate) : ("cucuBox.CHITCHAT" | translate) }}</p>
         </div>
         <div class="col align-items-end">
           <div *ngIf="callProvidersService.getCallProvider(cucu?.inviteUrl) | async as s"
@@ -67,7 +68,8 @@
   </nb-card-header>
   <nb-card-body>
     <b>{{ cucu?.topic }}</b>
-    <p>{{ cucu?.type === 'conference' ? 'Conference' : '' }}</p>
+    <p>{{ cucu?.type === 'conference' ?
+      ("cucuBox.FRONTAL_LESSON" | translate) : ("cucuBox.CHITCHAT" | translate) }}</p>
     <p>{{ cucu?.description }}</p>
   </nb-card-body>
   <nb-card-footer>

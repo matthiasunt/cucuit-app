@@ -96,7 +96,7 @@ export class CucuBoxComponent implements OnInit {
       .setHours(new Date(this.cucu.startDate).getHours() + 1);
 
     const callEvent = {
-      title: `CUCU about ${this.cucu.topic}`,
+      title: `CUCUit - ${this.cucu.topic}`,
       description: `${this.cucu.description}\n ${this.getCucuUrlPipe.transform(this.cucu._id)}`,
       start: this.cucu.startDate,
       end: endDate

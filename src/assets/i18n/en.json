@@ -22,7 +22,7 @@
   },
   "postCucu": {
     "TITLE": "Launch and join open digital meetups, about any topic!",
-    "PLATFORMS_TEXT": "Create your video call link using:",
+    "PLATFORMS_TEXT": "Create your video call link using",
     "inviteUrl": {
       "PLACEHOLDER": "Paste here the link to your videocall",
       "PARTICIPANTS": "Attendees",
@@ -37,7 +37,7 @@
       "TOOLTIP": ""
     },
     "type": {
-      "LABEL": "Informal chitchat/Frontal lesson",
+      "LABEL": "Informal Chitchat / Frontal Lesson",
       "TOOLTIP": "What format will your CUCU have?"
     },
     "language": {
@@ -89,8 +89,11 @@
       "TOOLTIP_JOIN": "Join the call",
       "ENDED": "Ended",
       "TOOLTIP_COME_BACK_LATER": "Come back later! This CUCU starts",
+      "ON": "on",
       "AT": "at"
     },
+    "FRONTAL_LESSON": "Frontal lesson",
+    "CHITCHAT": "Informal Chitchat",
     "share": {
       "TITLE": "Share",
       "TEXT": "Share this CUCU with friends!",

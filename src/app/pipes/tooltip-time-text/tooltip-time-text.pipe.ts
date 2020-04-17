@@ -15,12 +15,13 @@ export class TooltipTimeTextPipe implements PipeTransform {
   constructor(private translateService: TranslateService) {
     combineLatest([
       this.translateService.get('postCucu.TODAY'),
+      this.translateService.get('cucuBox.join.ON'),
       this.translateService.get('cucuBox.join.AT'),
       this.translateService.get('cucuBox.join.TOOLTIP_COME_BACK_LATER')
-    ]).subscribe(([today, at, text]) => {
+    ]).subscribe(([today, on, at, text]) => {
       this.today = today;
+      this.on = on;
       this.at = at;
-      this.on = 'on';
       this.text = text;
     });
   }
@@ -39,4 +40,4 @@ export class TooltipTimeTextPipe implements PipeTransform {
     }
   }
 
-  }
+}

@@ -25,7 +25,7 @@
   },
   "postCucu": {
     "TITLE": "Crea encuentros digitales abiertos, sobre cualquier tema!",
-    "PLATFORMS_TEXT": "Crea el link de tu videollamada utilizando:",
+    "PLATFORMS_TEXT": "Crea el link de tu videollamada utilizando",
     "inviteUrl": {
       "PLACEHOLDER": "Inserta aquí el link de tu videollamada",
       "PARTICIPANTS": "participantes",
@@ -92,8 +92,11 @@
       "TOOLTIP_JOIN": "Participa",
       "ENDED": "Finalizado",
       "TOOLTIP_COME_BACK_LATER": "Nos vemos luego! Este CUCU empieza",
+      "ON": "el",
       "AT": "a las"
     },
+    "FRONTAL_LESSON": "Conferencian",
+    "CHITCHAT": "Charla abierta",
     "share": {
       "TITLE": "Comparte",
       "TEXT": "¡Comparte este CUCU con tus amigos!",

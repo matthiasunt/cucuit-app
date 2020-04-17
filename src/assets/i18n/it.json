@@ -25,7 +25,7 @@
   },
   "postCucu": {
     "TITLE": "Crea e partecipa a videochiamate aperte, sull’argomento che vuoi!",
-    "PLATFORMS_TEXT": "Crea il link alla tua videochiamata con:",
+    "PLATFORMS_TEXT": "Crea il link alla tua videochiamata con",
     "inviteUrl": {
       "PLACEHOLDER": "Incolla qui il link della tua videochiamata",
       "PARTICIPANTS": "partecipanti",
@@ -92,8 +92,11 @@
       "TOOLTIP_JOIN": "Partecipa",
       "ENDED": "Concluso",
       "TOOLTIP_COME_BACK_LATER": "Ci vediamo dopo! Questo CUCU inizia",
+      "ON": "il",
       "AT": "alle"
     },
+    "FRONTAL_LESSON": "Conferenza",
+    "CHITCHAT": "Chiacchierata",
     "share": {
       "TITLE": "Condividi",
       "TEXT": "Condividi questo CUCU con i tuoi amici!",
