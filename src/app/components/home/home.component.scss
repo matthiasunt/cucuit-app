@@ -1,0 +1,68 @@
+.hero-row {
+  background-image: url("src/assets/images/hero-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+}
+
+@media (max-width: 991px) {
+  .hero-section {
+    h1 {
+      font-size: 35px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    h1 {
+      font-size: 30px;
+    }
+  }
+}
+
+
+.about-section {
+  background-color: lighten(black, 96%);
+
+  .about-instagram {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  fa-icon {
+    font-size: 8rem;
+  }
+
+}
+
+.no-cucus-div {
+  p {
+    text-align: center;
+  }
+}
+
+.load-more-div {
+  text-align: center;
+}
+
+.credit-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+
+  a {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    padding: 4px 6px;
+    font-family: -apple-system, "San Francisco", "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto",
+    "Segoe UI", "Arial", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.2;
+    display: inline-block;
+    border-radius: 3px
+  }
+}

@@ -1,0 +1,33 @@
+<div class="content-padding">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <h1>{{ "manifest.paragraph1.TITLE"| translate }}</h1>
+        <p [innerHTML]="translate.get('manifest.paragraph1.TEXT') | async"></p>
+      </div>
+<!--      <div class="col-lg-7">-->
+<!--        <div class="video-container-div">-->
+<!--          <div>-->
+<!--            <iframe-->
+<!--              src="https://www.youtube.com/embed/Ev2KTEeWNgY?&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0"-->
+<!--              frameborder="0"-->
+<!--              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"-->
+<!--              allowfullscreen></iframe>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="ws-m"></div>
+        <h1>{{ "manifest.paragraph2.TITLE"| translate }}</h1>
+        <p [innerHTML]="translate.get('manifest.paragraph2.TEXT') | async"></p>
+        <div class="ws-m"></div>
+        <h1>{{ "manifest.paragraph3.TITLE"| translate }}</h1>
+        <p [innerHTML]="translate.get('manifest.paragraph3.TEXT') | async"></p>
+        <div class="ws-m"></div>
+      </div>
+    </div>
+    <div class="ws-m"></div>
+  </div>
+</div>

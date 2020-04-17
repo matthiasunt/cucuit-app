@@ -1,0 +1,137 @@
+{
+  "SUCCESS": "Success",
+  "ERROR": "Error",
+  "EDIT": "Edit",
+  "DELETE": "Delete",
+  "navbar": {
+    "CUCUS": "Browse CUCUs",
+    "MANIFEST": "Manifesto",
+    "HOW_TO": "How to",
+    "DONATE": "Donate"
+  },
+  "share": {
+    "TITLE": "Check out this CUCU",
+    "TEXT": "Click here to join this open videocall! Visit CUCUit.com and find out more interesting digital meetups :)"
+  },
+  "home": {
+    "CUCUS_TITLE": "Check out available CUCUs!",
+    "LOAD_MORE": "Load More CUCUs",
+    "NO_CUCUS_FOUND": "We’re sorry, no CUCUs are available right now! Create your own?",
+    "INFO_BOX_TEXT": "CUCUit is a new project whose scope is to offer active support to the collectivity during a hard time, such as the current Covi-19 emergency",
+    "MORE_INFO": "More information"
+  },
+  "postCucu": {
+    "TITLE": "Launch and join open digital meetups, about any topic!",
+    "PLATFORMS_TEXT": "Create your video call link using",
+    "inviteUrl": {
+      "PLACEHOLDER": "Paste here the link to your videocall",
+      "PARTICIPANTS": "Attendees",
+      "MINUTES": "Minutes"
+    },
+    "topic": {
+      "PLACEHOLDER": "Fashion, Travel ideas, New trends, Brainstorming...",
+      "TOOLTIP": ""
+    },
+    "description": {
+      "PLACEHOLDER": "Tell us more about your CUCU, if you want to...",
+      "TOOLTIP": ""
+    },
+    "type": {
+      "LABEL": "Informal Chitchat / Frontal Lesson",
+      "TOOLTIP": "What format will your CUCU have?"
+    },
+    "language": {
+      "PLACEHOLDER": "Select your language",
+      "TOOLTIP": "What's the language of your CUCU?"
+    },
+    "day": {
+      "PLACEHOLDER": "Pick a day",
+      "TOOLTIP": "What will be the date of your CUCU?"
+    },
+    "time": {
+      "PLACEHOLDER": "Pick a time",
+      "TOOLTIP": "When will your CUCU start?"
+    },
+    "userName": {
+      "PLACEHOLDER": "Name",
+      "TOOLTIP": ""
+    },
+    "uploadImage": {
+      "LABEL": "Upload image",
+      "TOOLTIP": "Upload an image for your CUCU (Max. 3 MB)"
+    },
+    "post": {
+      "LABEL": "Launch your CUCU"
+    },
+    "TODAY": "Today",
+    "TOMORROW": "Tomorrow",
+    "CUCU_POSTED": "CUCU posted successfully!",
+    "CUCU_ERROR": "There was a problem posting your CUCU. Try again later!",
+    "errors": {
+      "fileTooLarge": {
+        "TITLE": "This file is too big",
+        "TEXT": "This image is too big. Maximum file size allowed: 3MB"
+      },
+      "unknown": {
+        "TITLE": "Error",
+        "TEXT": "An unexpected error occurred while uploading your image. Please, try again later! "
+      }
+    }
+  },
+  "aboutSection": {
+    "TITLE": "What is CUCUit?",
+    "TEXT": "CUCUit is a digital space that will allow you to launch and join open digital meetups. If you feel like sharing your interests and passions, develop brilliant ideas, have a chit chat or host a toast with new and likeminded people, this is the place to do so. This is how we keep on nurturing human interactions and connections between individuals, in a time when social distancing is imposed by measures against the spread of Covid-19.By way of spontaneous donations, our platform will also facilitate your support to all those who are fighting on the front lines, offering them practical aid in this global health crisis. Give your contribution, donate! / Do your part, donate!",
+    "FOLLOW_US_ON_INSTAGRAM": "Follow us on Instagram"
+  },
+  "cucuBox": {
+    "join": {
+      "LABEL": "Join",
+      "TOOLTIP_JOIN": "Join the call",
+      "ENDED": "Ended",
+      "TOOLTIP_COME_BACK_LATER": "Come back later! This CUCU starts",
+      "ON": "on",
+      "AT": "at"
+    },
+    "FRONTAL_LESSON": "Frontal lesson",
+    "CHITCHAT": "Informal Chitchat",
+    "share": {
+      "TITLE": "Share",
+      "TEXT": "Share this CUCU with friends!",
+      "TOOLTIP": "Share this CUCU"
+    },
+    "addToCalendar": {
+      "TOOLTIP": "Add this CUCU to your Calendar",
+      "CUCU_ABOUT": "CUCU about"
+    }
+  },
+  "manifest": {
+    "TITLE": "Manifesto",
+    "INTRO": "CUCUit is a digital space that comes from a place of love, from a group of friends dotting the countries that were mostly hit by Covid-19 in Europe, Italy and Spain. It aims at offering a new instrument to nurture human interactions so to find relief and support during this weird time. Our vision is to provide a meeting point, a community where it is possible to share interests and ideas, to prompt stimulating conversations and fun gatherings, to speak face to face with like minded individuals, being it old friends or new pals, about any topic of interest. Think out of the walls! CUCUit will allow you to keep yourself active, challenged and stimulated, trying new yummy recipes, moving your body on african rhythms, being part of brainstorming sessions and so much more. <br> Last but not least, we want to give our contribution and facilitate financial aid to hospitals and health organisations, standing next to all those who are fighting against Covid-19.",
+    "paragraph1": {
+      "TITLE": "Launch your CUCU!",
+      "TEXT": "Are you in need for some social action? Do you have a cool idea, topic or project in mind? Launch your CUCU! Generate a video call link and paste it in the relevant field of the form. Explain what you’d like to talk about, insert your name, a date & time and the language you’ll speak. You can also decide whether it will be a frontal lesson format (where you’ll be leading) or if you’d like to launch a more informal conversation among many. Last but not least, click on “launch your CUCU” to get a step closer to all the interested people around. Be on time for your call and lead it in style! <br>"
+    },
+    "paragraph2": {
+      "TITLE": "JOIN A CUCU!",
+      "TEXT": "Browse all the available CUCUs and select the one you dig. You can’t reserve a seat so, be on time, click the “join” button and enjoy the meetup! <br>"
+    },
+    "paragraph3": {
+      "TITLE": "SUGGESTED VIDEO CALLING PLATFORMS AND HOW TO USE THEM",
+      "TEXT": "<p><strong>1. Google Hangouts: hasta 10 asistentes, sin límite de tiempo</strong></p><p>Para usar Google Hangouts es\n  necesario tener una cuenta de Google, tanto si quieres crear o participar en un CUCU. <br> Desde tu ordenador: visita\n  \\\"hangouts.google.com\\\"> haz clic en el ícono de \\\"videollamada\\\"> una vez dentro de la videollamada, donde serás el\n  único participante, se abrirá una ventana emergente para invitar a otras personas y aparecerá el botón verde \\\"invitar\n  personas\\\"> haz clic en \\\"copiar enlace para compartir\\\". <br> Desde tu móvil: descarga la aplicación Hangouts,\n  disponible para Android o iOS> haz clic en el icono del mensaje (el tercero del lado izquierdo en la parte inferior de\n  la página)> haz clic en \\\"+\\\" para iniciar una nueva conversación> crear grupo nuevo y asígnele un nombre> haga clic\n  en \\\"compartir enlace\\\". <br> Ahora has copiado el enlace a tu videollamada> pégalo en el campo de enlace en el\n  formulario que encontrarás en CUCUit.com e inicia tu CUCU. <br> Si te unes a una videollamada creada por otro CUCUer,\n  simplemente haz clic en el botón PARTICIPA y serás redirigido automáticamente dentro de la llamada. Asegúrate de tener\n  la aplicación Hangouts instalada en tu dispositivo móvil o de haber accedido a tu cuenta de Google.</p> <br> <p>\n  <strong>2.\n    Skype: hasta 50 personas, sin límite de tiempo</strong></p><p>Para usar Skype es necesario tener una cuenta de\n  Skype, mientras que si participas en un CUCU creado por otra persona, no necesitarás una cuenta. <br> Desde tu\n  ordenador: descarga la aplicación de Skype para equipos de escritorio o utiliza la versión web. <br> Desde tu\n  dispositivo móvil: descarga la aplicación Skype, disponible para Android o iOS. <br> Haz clic en \\\"Nuevo chat\\\">\n  \\\"Nuevo grupo de chat\\\"> cree un nombre de grupo sin agregar ningún contacto de tu lista de contactos> haz clic en\n  \\\"Listo\\\"> haz clic en \\\"Invitar a más personas\\\" o en el tercer icono en la parte superior derecha> haz clic en\n  \\\"Compartir enlace para unirse al grupo\\\". Ahora has copiado el enlace a tu videollamada> pégalo en el campo de enlace\n  en el formulario en CUCUit.com e inicia tu CUCU. <br> Si te unes a una videollamada creada por otro CUCUer,\n  simplemente haz clic en el botón UNIR y serás redirigido automáticamente dentro de la llamada. Asegúrate de tener la\n  aplicación instalada en tu dispositivo móvil o ordenador. <br></p> <p><strong>3. Zoom: hasta 100 asistentes, límite de\n  tiempo: 40 minutos</strong></p><p>Para usar Zoom es necesario tener una cuenta de Zoom, mientras que si participas\n  en un CUCU creado por otra persona, no necesitarás una cuenta.<br> Desde tu ordenador: visita “zoom.us” e ingresa en\n  tu cuenta haciendo clic en “iniciar sesión”, escribiendo tu correo electrónico y contraseña. En el menú, haga clic en\n  \\\"programar una nueva reunión” o “agendar”> se creará un enlace \\\"Unirse a URL\\\"> cópialo y pégalo en el campo de\n  enlace en el formulario en CUCUit.com y crea tu CUCU. <br> Desde tu dispositivo móvil: descarga la aplicación Zoom,\n  disponible para Android o iOS> inicia sesión con tu correo electrónico y contraseña> haz clic en el icono \\\"Agendar\\\"\n  e inserta los detalles de tu llamada. Presta atención a la zona horaria que selecciones. Te sugerimos que no compartas\n  tu ID de reunión personal. Selecciona todas las configuraciones que prefiera y haz clic en \\\"Listo\\\"> haz clic en\n  \\\"Enviar invitación\\\"> \\\"Copiar al portapapeles\\\". Ahora has copiado una invitación completa a la llamada, que también\n  incluye el enlace. Pégalo en el campo de enlace y elimina todo el texto excepto el enlace de la videollamada, luego\n  crea tu CUCU. <br> Si te unes a una videollamada creada por otro CUCUer, simplemente haz clic en el botón PARTICIPAR y\n  serás redirigido automáticamente dentro de la llamada. Si está utilizando su dispositivo móvil, asegúrese de tener la\n  aplicación Zoom instalada.</p><p><strong>4. Jitsi Meet: hasta 25 personas, sin límite de tiempo</strong></p><p>Para\n  usar\n  Jitsi Meet es necesario tener una cuenta Jitsi Meet, tanto en si quieres iniciar o unirte a un CUCU. <br> Desde tu\n  ordenador: visita “jitsi.org”> desde la página de inicio, haz clic en el botón naranja “iniciar una llamada”> inserta\n  un nombre de videollamada en el campo correspondiente. Intenta optar por un nombre único, que hipotéticamente nadie\n  usó antes> haz clic en \\\"IR\\\" para ingresar a la videollamada. Se abrirá una ventana emergente que muestra toda la\n  información de la llamada, incluido el enlace. Si no se abre, puedes encontrar el enlace necesario haciendo clic en el\n  icono \\\"i\\\" en la parte inferior de la página. Desde tu dispositivo móvil: descarga la aplicación Jitsi Meet,\n  disponible para Android o iOS. Crea un nombre para la llamada / sala. Intenta usar un nombre único, que\n  hipotéticamente nadie usó antes> ahora estás dentro de la llamada> haz clic en el icono con tres puntos para ver \\\"más\n  opciones\\\" y luego haz clic en \\\"información de la reunión\\\" para ver el enlace de la llamada. Copia y pega el enlace\n  en el campo de enlace en el formulario en CUCUit.com e inicia tu CUCU.Si te unes a una videollamada creada por otro\n  CUCUer, simplemente haz clic en el botón PARTICIPAR y serás redirigido automáticamente dentro de la llamada. <br> Si\n  está utilizando tu dispositivo móvil, asegúrate de tener la aplicación instalada.</p>"
+    }
+  },
+  "footer": {
+    "aboutUs": {
+      "LABEL": "CUCUit",
+      "TEXT": "CUCUit is the best way to stay connected while in lockdown regime. This platform was made with love as a powerful tool to support each other during this period of social distancing. CUCUit will allow you to keep yourself active, challenged and stimulated."
+    },
+    "donate": {
+      "LABEL": "Let’s donate",
+      "TEXT": "CUCUit offers practical and substantial aid to all doctors and health workers that are fighting every day to make a difference. Every little help matters, donate!"
+    },
+    "followUs": {
+      "LABEL": "Follow us",
+      "TEXT": "You can find us on"
+    }
+  }
+}

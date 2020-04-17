@@ -1,0 +1,80 @@
+<!-- Upcoming CUCU -->
+<nb-card accent="primary" *ngIf="!isPast" status="basic" (click)="toDetail($event)">
+  <nb-card-header>
+    <nb-user size="giant"
+             [picture]="imageUrl"
+             [name]="cucu?.userName"
+             [title]="timeLabel"
+             [badgeText]="cucu?.language"
+             [badgeStatus]="'primary'"
+             [badgePosition]="'bottom right'">
+    </nb-user>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col col-auto">
+          <b>{{ cucu?.topic }}</b>
+          <p>{{ cucu?.type === 'conference' ?
+            ("cucuBox.FRONTAL_LESSON" | translate) : ("cucuBox.CHITCHAT" | translate) }}</p>
+        </div>
+        <div class="col align-items-end">
+          <div *ngIf="callProvidersService.getCallProvider(cucu?.inviteUrl) | async as s"
+               class="video-service-image">
+            <img [src]="s.imageUrl" [alt]="s.name + ' logo'">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p>{{ cucu?.description }}</p>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <!--  TODO: Adjust translations  -->
+    <button *ngIf="cucu?.startDate | cucuIsOpen" (click)="toCall($event)" nbButton [status]="'primary'"
+            [shape]="'rectangle'" [nbTooltip]="'Enter'" nbTooltipStatus="basic">
+      {{ "cucuBox.join.LABEL" | translate }}
+    </button>
+    <button nbButton [shape]="'rectangle'" *ngIf="!(cucu?.startDate | cucuIsOpen)" (click)="disabledJoinClicked($event)"
+            [nbTooltip]="cucu?.startDate | tooltipTimeText" nbTooltipStatus="basic">
+      {{ "cucuBox.join.LABEL" | translate }}
+    </button>
+    <!-- Calendar & Share Buttons -->
+    <div class="icon-buttons">
+      <button (click)="calendarClicked($event)" [size]="'medium'" nbButton ghost>
+        <nb-icon icon="calendar-outline"></nb-icon>
+      </button>
+      <button (click)="shareClicked($event)" [size]="'medium'" nbButton ghost>
+        <nb-icon icon="share-outline"></nb-icon>
+      </button>
+    </div>
+  </nb-card-footer>
+</nb-card>
+
+<!-- Past CUCU -->
+<nb-card *ngIf="isPast" status="basic">
+  <nb-card-header>
+    <nb-user size="giant"
+             [picture]="imageUrl"
+             [name]="cucu?.userName"
+             [title]="timeLabel"
+             [badgeText]="cucu?.language"
+             [badgeStatus]="'basic'"
+             [badgePosition]="'bottom right'">
+    </nb-user>
+  </nb-card-header>
+  <nb-card-body>
+    <b>{{ cucu?.topic }}</b>
+    <p>{{ cucu?.type === 'conference' ?
+      ("cucuBox.FRONTAL_LESSON" | translate) : ("cucuBox.CHITCHAT" | translate) }}</p>
+    <p>{{ cucu?.description }}</p>
+  </nb-card-body>
+  <nb-card-footer>
+    <button [disabled]="true" nbButton [shape]="'rectangle'">
+      {{ "cucuBox.join.ENDED" | translate }}
+    </button>
+  </nb-card-footer>
+</nb-card>

@@ -1,0 +1,26 @@
+<nb-card accent="success" [size]="'large'" class="dialog-card">
+  <nb-card-body>
+    <div class="container-fluid">
+      <h1>{{ "postCucu.CUCU_POSTED" | translate }}</h1>
+      <div class="row">
+        <div class="col col-md-12">
+          <div class="form-group">
+            <nb-form-field>
+              <nb-icon nbPrefix icon="link-outline" pack="eva"></nb-icon>
+              <input type="text" [value]="cucu._id | getCucuUrl" nbInput fullWidth
+                     [shape]="theme.componentShape">
+            </nb-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="ws-s"></div>
+      <app-cucu-box [cucu]="cucu"></app-cucu-box>
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="danger" fullWidth (click)="deleteCucu()">
+      <nb-icon icon="trash"></nb-icon>
+      {{ "DELETE" | translate }} CUCU
+    </button>
+  </nb-card-footer>
+</nb-card>

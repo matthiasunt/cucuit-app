@@ -3,10 +3,17 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home.component';
-import {MapModule} from '../map/map.module';
+import {AddCucuModule} from '../add-cucu/add-cucu.module';
+import {CucuBoxModule} from '../cucu-box/cucu-box.module';
+import {TranslateModule} from '@ngx-translate/core';
+import {NbButtonModule, NbCardModule, NbWindowModule} from '@nebular/theme';
+import {CucuDetailEntryComponent} from '../cucu-detail/cucu-detail-entry.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent}
+  {
+    path: '', component: HomeComponent,
+  },
 ];
 
 @NgModule({
@@ -14,10 +21,19 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
+    TranslateModule,
     RouterModule.forChild(routes),
-    MapModule,
+    NbWindowModule.forChild(),
+    AddCucuModule,
+    CucuBoxModule,
+    NbButtonModule,
+    NbCardModule,
+    FontAwesomeModule,
+    // CucuDetailModule,
   ],
-  exports: [HomeComponent]
+  exports: [
+    HomeComponent
+  ],
 })
 export class HomeModule {
 }

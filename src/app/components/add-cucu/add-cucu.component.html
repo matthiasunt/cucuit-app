@@ -1,79 +1,162 @@
-<h1>Create a new Cucu!</h1>
-
-<nb-card>
-
+<nb-card accent="primary">
   <nb-card-body class="example-items-col">
-    <form>
-      <div class="form-group">
-        <nb-form-field>
-          <nb-icon nbPrefix icon="link-outline" pack="eva"></nb-icon>
-          <input type="text" nbInput fullWidth [shape]="'round'" placeholder="Invite Link" [fieldSize]="'large'"
-                 nbTooltip="This is a tooltip" nbTooltipStatus="primary" status="primary">
-        </nb-form-field>
-      </div>
-      <div class="form-group">
-        <nb-form-field>
-          <label for="title" class="label">Title</label>
-          <input type="text" nbInput fullWidth [shape]="'round'" placeholder="Yoga with Dario" [fieldSize]="'medium'"
-                 id="title">
-        </nb-form-field>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <nb-form-field>
-              <label for="language" class="label">Language</label>
-              <!--              <nb-icon nbPrefix icon="globe-2-outline" pack="eva"></nb-icon>-->
-              <input type="text" nbInput fullWidth [shape]="'round'" placeholder="Spanish" [fieldSize]="'medium'"
-                     id="language">
-            </nb-form-field>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <nb-form-field>
-              <label for="date" class="label">Topic</label>
-              <input type="text" nbInput fullWidth [shape]="'round'" placeholder="Reading, Party, …"
-                     [fieldSize]="'medium'" id="topic">
-            </nb-form-field>
-          </div>
+    <div class="container-fluid">
+      <h1>{{ "postCucu.TITLE" | translate }}</h1>
+      <div class="video-call-services">
+        <p>{{ "postCucu.PLATFORMS_TEXT" | translate }}:</p>
+        <div class="row">
+          <a *ngFor="let s of callProvidersService.callProviders | async" [href]="s.url" target="_blank">
+            <img [src]="s.imageUrl" [nbTooltip]="s.tooltip" [alt]="s.name + ' logo'">
+          </a>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <nb-form-field>
-              <label for="date" class="label">Date</label>
-              <input nbInput fullWidth [shape]="'round'" placeholder="Pick Date" [nbDatepicker]="datepicker" id="date"
-                     [fieldSize]="'medium'">
-              <nb-datepicker #datepicker [date]="date" (dateChange)="handleDateChange($event)"></nb-datepicker>
-            </nb-form-field>
-          </div>
-
-
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <nb-form-field>
-              <label for="time" class="label">Time</label>
-              <input type="time" nbInput fullWidth [shape]="'round'" [fieldSize]="'medium'" id="time">
-            </nb-form-field>
+      <div class="ws-s"></div>
+      <form [formGroup]="form">
+        <!-- Invite URL -->
+        <div class="row">
+          <div class="col no-padding">
+            <div class="form-group">
+              <nb-form-field>
+                <nb-icon nbPrefix icon="link-outline" pack="eva"></nb-icon>
+                <input [formControl]="inviteUrl" type="text" nbInput fullWidth [shape]="themeService.componentShape"
+                       #inviteUrlInputElement
+                       [placeholder]="translate.get('postCucu.inviteUrl.PLACEHOLDER') | async"
+                       [status]="inviteUrl | elementStatus">
+              </nb-form-field>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!--      <div class="form-group">-->
-      <!--        <nb-checkbox status="basic">Basic</nb-checkbox>-->
-      <!--      </div>-->
-      <div class="form-group">
-        <button nbButton hero [type]="'submit'" status="primary" [shape]="'round'" [size]="'large'">Post</button>
-      </div>
-    </form>
+        <!-- Topic & Toggle-->
+        <div class="row">
+          <div class="col grow no-padding">
+            <div class="form-group">
+              <nb-form-field>
+                <nb-icon nbPrefix icon="heart-outline" pack="eva"></nb-icon>
+                <input [formControl]="topic" type="text" nbInput fullWidth [shape]="themeService.componentShape"
+                       [placeholder]="translate.get('postCucu.topic.PLACEHOLDER') | async"
+                       [status]="topic | elementStatus"
+                       id="topic">
+              </nb-form-field>
+            </div>
+          </div>
+          <div class="col shrink no-padding">
+            <nb-toggle status="primary" [formControl]="isConference"
+                       [nbTooltip]="translate.get('postCucu.type.TOOLTIP') | async" [nbTooltipStatus]="'basic'"
+            >{{ "postCucu.type.LABEL" | translate }}</nb-toggle>
+            <!--          <nb-radio-group>-->
+            <!--            <nb-radio>Chit Chat</nb-radio>-->
+            <!--            <nb-radio>Conference</nb-radio>-->
+            <!--          </nb-radio-group>-->
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="row">
+          <div class="col no-padding">
+            <div class="form-group">
+              <nb-form-field>
+                <input [formControl]="description" type="text" nbInput fullWidth [shape]="themeService.componentShape"
+                       [placeholder]="translate.get('postCucu.description.PLACEHOLDER') | async"
+                       [status]="description | elementStatus">
+              </nb-form-field>
+            </div>
+          </div>
+        </div>
+
+        <!-- Language, Day and Time -->
+        <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-12 no-padding">
+            <div class="form-group">
+              <nb-form-field>
+                <nb-icon nbPrefix icon="globe-outline" pack="eva"></nb-icon>
+                <input [formControl]="language" [placeholder]="translate.get('postCucu.language.PLACEHOLDER') | async"
+                       fullWidth nbInput type="text"
+                       [status]="language | elementStatus"
+                       [nbAutocomplete]="languageAutocomplete"/>
+                <!--                       [nbTooltip]="translate.get('postCucu.language.TOOLTIP') | async" nbTooltipStatus="basic"-->
+
+                <nb-autocomplete #languageAutocomplete>
+                  <nb-option *ngFor="let l of (filteredLanguageOptions$ | async)" [value]="l">
+                    {{ l }}
+                  </nb-option>
+                </nb-autocomplete>
+              </nb-form-field>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12 no-padding">
+            <div class="form-group">
+              <nb-form-field>
+                <nb-icon nbPrefix icon="calendar-outline" pack="eva"></nb-icon>
+                <input [nbDatepicker]="datepicker" fullWidth nbInput [formControl]="date"/>
+                <!--                       [nbTooltip]="translate.get('postCucu.day.TOOLTIP') | async" nbTooltipStatus="basic"-->
+
+                <nb-datepicker #datepicker></nb-datepicker>
+              </nb-form-field>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-4 col-xs-12 no-padding">
+            <div class="form-group">
+              <nb-form-field>
+                <nb-icon nbPrefix icon="clock-outline" pack="eva"></nb-icon>
+                <input [formControl]="time" fullWidth nbInput type="text"
+                       [placeholder]="translate.get('postCucu.time.PLACEHOLDER') | async"
+                       [status]="time | elementStatus" [shape]="themeService.componentShape"
+                       [nbAutocomplete]="timeAutocomplete"/>
+                <!--                       [nbTooltip]="translate.get('postCucu.time.TOOLTIP') | async" nbTooltipStatus="basic"-->
+
+                <nb-autocomplete #timeAutocomplete>
+                  <nb-option *ngFor="let t of (filteredTimeOptions$ | async)" [value]="t">
+                    {{ t }}
+                  </nb-option>
+                </nb-autocomplete>
+              </nb-form-field>
+            </div>
+          </div>
+        </div>
+
+        <!-- Name & Avatar -->
+        <div class="row">
+          <div class="col grow no-padding">
+            <div class="form-group">
+              <nb-form-field>
+                <nb-icon nbPrefix icon="person-outline" pack="eva"></nb-icon>
+                <input [formControl]="userName" type="text" nbInput [shape]="themeService.componentShape"
+                       [status]="userName | elementStatus"
+                       [placeholder]="translate.get('postCucu.userName.PLACEHOLDER') | async"
+                       fullWidth>
+              </nb-form-field>
+            </div>
+          </div>
+          <div class="col shrink no-padding">
+            <div class="form-group">
+              <button (click)="avatarInput.click()" nbButton ghost>
+                <nb-icon icon="camera-outline"></nb-icon>
+              </button>
+              <p class="avatar-upload-p">{{avatarUploadLabel}}</p>
+              <input
+                style="display: none" type="file" (change)="onAvatarFileChanged($event)"
+                [accept]="'image/x-png, image/jpeg'"
+                #avatarInput>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col no-padding">
+            <div class="form-group">
+              <button (click)="postCucu()" nbButton hero status="primary" fullWidth
+                      [shape]="'rectangle'" [size]="'large'">
+                {{ "postCucu.post.LABEL" | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </nb-card-body>
 </nb-card>
-
-
 
 
 

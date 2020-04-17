@@ -1,0 +1,29 @@
+<div class="content-padding">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <button nbButton status="primary" ghost [routerLink]="''">
+          <nb-icon icon="arrow-left"></nb-icon>
+          Back
+        </button>
+      </div>
+    </div>
+    <div class="ws-m"></div>
+    <div class="row" *ngIf="cucu$ | async as cucu">
+      <div class="col-md-12">
+        <app-cucu-box [cucu]="cucu"></app-cucu-box>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button *ngIf="isByUser"
+                (click)="deleteCucu()"
+                nbButton status="danger" fullWidth>
+          <nb-icon icon="trash"></nb-icon>
+          {{ "CANCEL" | translate }} CUCU
+        </button>
+      </div>
+    </div>
+    <div class="ws-m"></div>
+  </div>
+</div>

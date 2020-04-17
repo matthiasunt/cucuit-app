@@ -1,16 +1,39 @@
-<nb-layout>
-
-  <nb-layout-header fixed>
-    CucuIt
-    <button nbButton hero [type]="'submit'" status="primary" [shape]="'round'" [size]="'large'">New Cucu</button>
+<nb-layout restoreScrollTop>
+  <nb-layout-header [fixed]="true">
+    <div class="logo-div">
+      <a [routerLink]="'/'">
+        <img src="./assets/images/logo.svg" alt="CUCUit logo">
+      </a>
+    </div>
+    <div class="nav-items-div">
+      <ng-container *ngIf="!smallDevice">
+        <button nbButton ghost status="primary" [routerLink]="'/'" [fragment]="'cucus'">
+          {{ "navbar.CUCUS" | translate }}
+        </button>
+        <button nbButton ghost [routerLink]="'manifest'" status="primary">
+          {{ "navbar.MANIFEST" | translate }}
+        </button>
+        <button nbButton ghost [routerLink]="'how'" status="primary">
+          {{ "navbar.HOW_TO" | translate }}
+        </button>
+        <button (click)="donationsService.toDonationSite()" nbButton [ghost]="true" status="primary">
+          {{ "navbar.DONATE" | translate }}
+        </button>
+      </ng-container>
+      <ng-container *ngIf="smallDevice && menuItems?.length > 0">
+        <button nbButton ghost [nbContextMenu]="menuItems" status="primary" size="large"
+                nbContextMenuTag="mobile-context-menu">
+          <nb-icon icon="menu-outline" pack="eva"></nb-icon>
+        </button>
+      </ng-container>
+    </div>
   </nb-layout-header>
 
   <nb-layout-column>
+    <router-outlet name="modal"></router-outlet>
     <router-outlet></router-outlet>
   </nb-layout-column>
-
-  <nb-layout-footer fixed>
-    <!-- Insert footer here -->
+  <nb-layout-footer [fixed]="false">
+    <app-footer></app-footer>
   </nb-layout-footer>
-
 </nb-layout>
