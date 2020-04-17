@@ -7,7 +7,7 @@
         <nb-card-body>
           <div class="row">
             <div class="col center-h">
-              <p>{{ "home.INFO_BOX_TEXT" | translate }}</p>
+              <p [innerHTML]="translate.get('home.INFO_BOX_TEXT') | async"></p>
               <a (click)="scrollToElement(about)">{{ "home.MORE_INFO" | translate}}</a>
             </div>
           </div>

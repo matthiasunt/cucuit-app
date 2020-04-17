@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   doWeHaveMore = false;
   faInstagram = faInstagram;
 
-  constructor(private translate: TranslateService,
+  constructor(public translate: TranslateService,
               public dbService: DbService,
               protected gaService: GoogleAnalyticsService,
               private route: ActivatedRoute,
