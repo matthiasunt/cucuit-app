@@ -42,11 +42,13 @@ export class AppComponent implements OnInit {
     combineLatest(
       this.translate.get('navbar.CUCUS'),
       this.translate.get('navbar.MANIFEST'),
+      this.translate.get('navbar.HOW_TO'),
       this.translate.get('navbar.DONATE'))
-      .subscribe(([c, m, d]) => {
+      .subscribe(([c, m, h, d]) => {
         this.menuItems = [
           {title: c, link: '/#cucus'},
           {title: m, link: 'manifest'},
+          {title: h, link: 'how'},
           {title: d},
         ];
       });

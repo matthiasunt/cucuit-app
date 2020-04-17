@@ -6,6 +6,7 @@
   "navbar": {
     "CUCUS": "Descubre CUCUs disponibles",
     "MANIFEST": "Manifiesto",
+    "HOW_TO": "¿Como funciona?",
     "DONATE": "Donar"
   },
   "share": {
@@ -13,6 +14,7 @@
     "TEXT": "¡Haz clic en el enlace para unirte a esta videollamada abierta! Descubre otros CUCUs interesante en CUCUit.com :)"
   },
   "home": {
+    "CUCUS_TITLE": "¡Descubre CUCUs disponibles!",
     "HERO_HEADER": "Crea encuentros digitales abiertos, sobre cualquier tema!",
     "HERO_TEXT": "Comparte tus ideas y pasiones con nuevas personas gracias a un simple clic. Luchemos juntos contra la emergencia del covid-19: ayúdamos con una donación.",
     "DISCOVER_CUCUIT": "Descubre CUCUit",
@@ -81,7 +83,8 @@
   },
   "aboutSection": {
     "TITLE": "Qué es CUCUit?",
-    "TEXT": "CUCUit es un espacio digital donde puedes crear y participar en videollamadas abiertas sobre el tema que más te gusta. Comparte tus intereses, desarrolla tus ideas, conversa o incluso toma una copa de vino, mientras conectas con nuevas personas afines a ti. Nuestro propósito es que las relaciones entre seres humanos florezcan, a pesar de las distancias físicas impuestas por COVID-19. <br /> Además, queremos ayudar económicamente con la donación de cualquier beneficio obtenido mediante esta plataforma e incentivando las donaciones a organizaciones que luchan contra esta crisis sanitaria global. ¡Ayúdanos y dona a quienes lo necesiten!"
+    "TEXT": "CUCUit es un espacio digital donde puedes crear y participar en videollamadas abiertas sobre el tema que más te gusta. Comparte tus intereses, desarrolla tus ideas, conversa o incluso toma una copa de vino, mientras conectas con nuevas personas afines a ti. Nuestro propósito es que las relaciones entre seres humanos florezcan, a pesar de las distancias físicas impuestas por COVID-19. <br /> Además, queremos ayudar económicamente con la donación de cualquier beneficio obtenido mediante esta plataforma e incentivando las donaciones a organizaciones que luchan contra esta crisis sanitaria global. ¡Ayúdanos y dona a quienes lo necesiten!",
+    "FOLLOW_US_ON_INSTAGRAM": "Síguenos en Instagram"
   },
   "cucuBox": {
     "join": {

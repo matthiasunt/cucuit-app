@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
-import {CucuDetailEntryComponent} from './components/cucu-detail/cucu-detail-entry.component';
+import {Routes, RouterModule} from '@angular/router';
 import {CucuDetailComponent} from './components/cucu-detail/cucu-detail.component';
 
 
@@ -11,16 +10,19 @@ const routes: Routes = [
   },
   {
     path: 'cucus/:id', component: CucuDetailComponent,
-    // outlet: 'modal'
   },
   {
     path: 'manifest',
     loadChildren: () => import('./components/manifest/manifest.module').then(m => m.ManifestModule)
   },
-  // {
-  //   path: '**',
-  //   redirectTo: ''
-  // }
+  {
+    path: 'how',
+    loadChildren: () => import('./components/how/how.module').then(m => m.HowModule)
+  },
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];
 
 @NgModule({

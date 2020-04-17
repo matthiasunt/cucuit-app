@@ -8,7 +8,7 @@
           <div class="row">
             <div class="col center-h">
               <p>{{ "home.INFO_BOX_TEXT" | translate }}</p>
-              <a (click)="scrollToElement(about)">{{ "aboutSection.MORE_INFO" | translate}}</a>
+              <a (click)="scrollToElement(about)">{{ "home.MORE_INFO" | translate}}</a>
             </div>
           </div>
         </nb-card-body>
@@ -41,7 +41,7 @@
             <a href="https://www.instagram.com/cucu_it/" target="_blank">
               <fa-icon [icon]="faInstagram"></fa-icon>
             </a>
-            <p>Follow us on Instagram</p>
+            <p>{{ "aboutSection.FOLLOW_US_ON_INSTAGRAM" | translate }}</p>
           </div>
         </div>
       </div>
@@ -52,13 +52,14 @@
   <!-- Upcoming Cucus -->
   <ng-container *ngIf="(dbService.cucus | async) as cucus">
     <div class="cucus-section content-padding" #cucusElement>
-      <h1>Join a CUCU</h1>
+      <h1 *ngIf="cucus.length > 0">{{ "home.CUCUS_TITLE" | translate }}</h1>
       <div class="row">
         <div *ngFor="let c of cucus; trackBy: trackByFn" class="col-md-4">
           <app-cucu-box [cucu]="c" [id]="c._id"></app-cucu-box>
         </div>
         <!-- No posted CUCUs? -->
         <div *ngIf="cucus.length < 1" class="col-12">
+          <div class="ws-s"></div>
           <div class="no-cucus-div">
             <p>{{ "home.NO_CUCUS_FOUND" | translate }}</p>
           </div>

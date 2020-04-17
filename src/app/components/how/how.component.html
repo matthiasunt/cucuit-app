@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-5">
-        <h1>{{ "navbar.MANIFEST" | translate | uppercase }}</h1>
-        <p [innerHTML]="translate.get('manifest.INTRO') | async"></p>
+        <h1>{{ "manifest.paragraph1.TITLE"| translate }}</h1>
+        <p [innerHTML]="translate.get('manifest.paragraph1.TEXT') | async"></p>
       </div>
       <div class="col-lg-7">
         <div class="video-container-div">
@@ -17,6 +17,18 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col">
+        <div class="ws-m"></div>
+        <h1>{{ "manifest.paragraph2.TITLE"| translate }}</h1>
+        <p [innerHTML]="translate.get('manifest.paragraph2.TEXT') | async"></p>
+        <div class="ws-m"></div>
+        <h1>{{ "manifest.paragraph3.TITLE"| translate }}</h1>
+        <p [innerHTML]="translate.get('manifest.paragraph3.TEXT') | async"></p>
+        <div class="ws-m"></div>
+      </div>
+    </div>
+    +
     <div class="ws-m"></div>
   </div>
 </div>
