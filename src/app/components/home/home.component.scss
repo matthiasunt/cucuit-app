@@ -22,8 +22,17 @@
   }
 }
 
+.anker {
+  height: 1px;
+  width: 100%;
+  margin-top: -65px;
+}
 
 .about-section {
+  .row {
+    margin-bottom: 20px;
+  }
+
   background-color: lighten(black, 96%);
 
   .about-instagram {
@@ -32,9 +41,16 @@
   }
 
   fa-icon {
-    font-size: 8rem;
+    font-size: 50px;
   }
+}
 
+@media(min-width: 768px) {
+  .about-instagram {
+    position: absolute;
+    top: calc(50% - 80px);
+    left: calc(50% - 80px);
+  }
 }
 
 .no-cucus-div {

@@ -21,7 +21,7 @@
         <div class="col align-items-end">
           <div *ngIf="callProvidersService.getCallProvider(cucu?.inviteUrl) | async as s"
                class="video-service-image">
-            <img [src]="s.imageUrl" [alt]="s.name + ' logo'">
+            <img [src]="s.imageUrl" [nbTooltip]="s.tooltip" [alt]="s.name + ' logo'">
           </div>
         </div>
       </div>

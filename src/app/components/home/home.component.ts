@@ -13,7 +13,7 @@ import {faInstagram} from '@fortawesome/free-brands-svg-icons';
 })
 export class HomeComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('cucusElement') cucusElement: ElementRef;
+  @ViewChild('cucus') cucusElement: ElementRef;
   doWeHaveMore = false;
   faInstagram = faInstagram;
 
@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.route.fragment.subscribe((fragment: string) => {
       if (fragment === 'cucus') {
+        console.log('Hello');
         this.scrollToElement(this.cucusElement.nativeElement);
       }
     });
@@ -45,7 +46,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   scrollToElement(element): void {
-    element.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'nearest'});
+    element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
   }
 
 }

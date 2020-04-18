@@ -3,10 +3,12 @@
   p {
     width: 7rem;
   }
+
   a {
     text-decoration: none;
   }
 }
+
 .no-padding {
   padding: 0 5px;
 }
@@ -14,9 +16,35 @@
 .video-call-services {
   img {
     width: auto;
-    height: 70px;
+    height: 20px;
     margin: 0 10px;
   }
+}
+
+.type-col {
+  .left {
+    text-align: right;
+    padding-right: 2px;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .right {
+    text-align: left;
+    padding-left: 2px;
+  }
+
+  .col {
+    padding: 0;
+
+    .text {
+      font-size: 0.7rem;
+      line-height: unset;
+    }
+  }
+
 }
 
 .avatar-upload-p {

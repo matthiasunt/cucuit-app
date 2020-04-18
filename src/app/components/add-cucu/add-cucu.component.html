@@ -18,7 +18,8 @@
             <div class="form-group">
               <nb-form-field>
                 <nb-icon nbPrefix icon="link-outline" pack="eva"></nb-icon>
-                <input [formControl]="inviteUrl" type="text" nbInput fullWidth [shape]="themeService.componentShape"
+                <input [formControl]="inviteUrl" type="text" nbInput fullWidth
+                       [shape]="theme.componentShape" [fieldSize]="theme.componentSize"
                        #inviteUrlInputElement
                        [placeholder]="translate.get('postCucu.inviteUrl.PLACEHOLDER') | async"
                        [status]="inviteUrl | elementStatus">
@@ -33,18 +34,33 @@
             <div class="form-group">
               <nb-form-field>
                 <nb-icon nbPrefix icon="heart-outline" pack="eva"></nb-icon>
-                <input [formControl]="topic" type="text" nbInput fullWidth [shape]="themeService.componentShape"
+                <input [formControl]="topic" type="text" nbInput fullWidth
+                       [shape]="theme.componentShape" [fieldSize]="theme.componentSize"
                        [placeholder]="translate.get('postCucu.topic.PLACEHOLDER') | async"
                        [status]="topic | elementStatus"
                        id="topic">
               </nb-form-field>
             </div>
           </div>
-          <div class="col shrink no-padding">
-            <nb-toggle status="primary" [formControl]="isConference"
-                       [nbTooltip]="translate.get('postCucu.type.TOOLTIP') | async"
-                       [nbTooltipStatus]="'basic'">{{ "postCucu.type.LABEL" | translate }}
-            </nb-toggle>
+          <div class="col shrink no-padding type-col">
+            <div class="row">
+              <div class="col left">
+                <span class="text" [style.font-weight]="isConference.value ? 400 : 600">
+                  {{ "cucuBox.CHITCHAT" | translate }}
+                </span>
+              </div>
+              <div class="col center">
+                <nb-toggle status="primary" [formControl]="isConference"
+                           [nbTooltip]="translate.get('postCucu.type.TOOLTIP') | async"
+                           [nbTooltipStatus]="'basic'">
+                </nb-toggle>
+              </div>
+              <div class="col right">
+                <span class="text" [style.font-weight]="isConference.value ? 600 : 400">
+                  {{ "cucuBox.FRONTAL_LESSON" | translate }}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -53,7 +69,8 @@
           <div class="col no-padding">
             <div class="form-group">
               <nb-form-field>
-                <input [formControl]="description" type="text" nbInput fullWidth [shape]="themeService.componentShape"
+                <input [formControl]="description" type="text" nbInput fullWidth
+                       [shape]="theme.componentShape" [fieldSize]="theme.componentSize"
                        [placeholder]="translate.get('postCucu.description.PLACEHOLDER') | async"
                        [status]="description | elementStatus">
               </nb-form-field>
@@ -69,6 +86,8 @@
                 <nb-icon nbPrefix icon="globe-outline" pack="eva"></nb-icon>
                 <input [formControl]="language" [placeholder]="translate.get('postCucu.language.PLACEHOLDER') | async"
                        fullWidth nbInput type="text"
+                       [shape]="theme.componentShape"
+                       [fieldSize]="theme.componentSize"
                        [status]="language | elementStatus"
                        [nbAutocomplete]="languageAutocomplete"/>
                 <!--                       [nbTooltip]="translate.get('postCucu.language.TOOLTIP') | async" nbTooltipStatus="basic"-->
@@ -85,7 +104,9 @@
             <div class="form-group">
               <nb-form-field>
                 <nb-icon nbPrefix icon="calendar-outline" pack="eva"></nb-icon>
-                <input [nbDatepicker]="datepicker" fullWidth nbInput [formControl]="date"/>
+                <input [nbDatepicker]="datepicker" fullWidth nbInput [formControl]="date"
+                       [shape]="theme.componentShape" [fieldSize]="theme.componentSize"
+                />
                 <!--                       [nbTooltip]="translate.get('postCucu.day.TOOLTIP') | async" nbTooltipStatus="basic"-->
 
                 <nb-datepicker #datepicker></nb-datepicker>
@@ -99,7 +120,8 @@
                 <nb-icon nbPrefix icon="clock-outline" pack="eva"></nb-icon>
                 <input [formControl]="time" fullWidth nbInput type="text"
                        [placeholder]="translate.get('postCucu.time.PLACEHOLDER') | async"
-                       [status]="time | elementStatus" [shape]="themeService.componentShape"
+                       [status]="time | elementStatus" [shape]="theme.componentShape"
+                       [fieldSize]="theme.componentSize"
                        [nbAutocomplete]="timeAutocomplete"/>
                 <!--                       [nbTooltip]="translate.get('postCucu.time.TOOLTIP') | async" nbTooltipStatus="basic"-->
 
@@ -119,8 +141,8 @@
             <div class="form-group">
               <nb-form-field>
                 <nb-icon nbPrefix icon="person-outline" pack="eva"></nb-icon>
-                <input [formControl]="userName" type="text" nbInput [shape]="themeService.componentShape"
-                       [status]="userName | elementStatus"
+                <input [formControl]="userName" type="text" nbInput [shape]="theme.componentShape"
+                       [fieldSize]="theme.componentSize" [status]="userName | elementStatus"
                        [placeholder]="translate.get('postCucu.userName.PLACEHOLDER') | async"
                        fullWidth>
               </nb-form-field>
@@ -128,7 +150,7 @@
           </div>
           <div class="col shrink no-padding">
             <div class="form-group">
-              <button (click)="avatarInput.click()" nbButton ghost>
+              <button (click)="avatarInput.click()" [size]="theme.componentSize" nbButton ghost>
                 <nb-icon icon="camera-outline"></nb-icon>
               </button>
               <p class="avatar-upload-p">{{avatarUploadLabel}}</p>
@@ -144,7 +166,7 @@
           <div class="col no-padding">
             <div class="form-group">
               <button (click)="postCucu()" nbButton hero status="primary" fullWidth
-                      [shape]="'rectangle'" [size]="'large'">
+                      [shape]="'rectangle'" [size]="'medium'">
                 {{ "postCucu.post.LABEL" | translate }}
               </button>
             </div>

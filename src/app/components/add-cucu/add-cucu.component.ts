@@ -39,7 +39,7 @@ export class AddCucuComponent implements OnInit {
 
 
   constructor(private formBuilder: FormBuilder,
-              public themeService: ThemeService,
+              public theme: ThemeService,
               public translate: TranslateService,
               private dbService: DbService,
               public callProvidersService: CallProvidersService,

@@ -3,6 +3,7 @@
   "ERROR": "Error",
   "EDIT": "Edit",
   "DELETE": "Delete",
+  "BACK": "Back",
   "navbar": {
     "CUCUS": "Browse CUCUs",
     "MANIFEST": "Manifesto",

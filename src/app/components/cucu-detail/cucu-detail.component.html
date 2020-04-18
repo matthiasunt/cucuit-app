@@ -1,21 +1,21 @@
 <div class="content-padding">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-4">
         <button nbButton status="primary" ghost [routerLink]="''">
           <nb-icon icon="arrow-left"></nb-icon>
-          Back
+          {{ "BACK" | translate }}
         </button>
       </div>
     </div>
     <div class="ws-m"></div>
     <div class="row" *ngIf="cucu$ | async as cucu">
-      <div class="col-md-12">
+      <div class="col-md-4">
         <app-cucu-box [cucu]="cucu"></app-cucu-box>
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-md-4">
         <button *ngIf="isByUser"
                 (click)="deleteCucu()"
                 nbButton status="danger" fullWidth>

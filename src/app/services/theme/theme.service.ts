@@ -5,7 +5,7 @@ import {NbComponentShape, NbComponentSize} from '@nebular/theme';
   providedIn: 'root'
 })
 export class ThemeService {
-  componentSize: NbComponentSize = 'medium';
+  componentSize: NbComponentSize = 'small';
   componentShape: NbComponentShape = 'rectangle';
   constructor() { }
 }

@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row hero-row">
-    <div class=" col-lg-5 col-md-8 content-padding">
+    <div class=" col-lg-5 col-md-7 content-padding">
       <app-add-cucu></app-add-cucu>
       <!-- Info Box -->
       <nb-card class="info-card" accent="primary">
@@ -29,12 +29,13 @@
   </div>
 
   <!--  About Section -->
-  <div class="row about-section" #about>
+  <div class="row about-section">
+    <span #about class="anker"></span>
     <div class="col content-padding">
       <div class="row">
         <div class="col-md-7">
           <h1>{{ "aboutSection.TITLE" | translate }}</h1>
-          <p>{{ "aboutSection.TEXT" | translate }}</p>
+          <p [innerHTML]="translate.get('aboutSection.TEXT') | async"></p>
         </div>
         <div class="col">
           <div class="about-instagram">
@@ -47,6 +48,7 @@
       </div>
     </div>
   </div>
+  <span #cucus class="anker"></span>
   <div class="ws-s"></div>
 
   <!-- Upcoming Cucus -->
@@ -54,7 +56,7 @@
     <div class="cucus-section content-padding" #cucusElement>
       <h1 *ngIf="cucus.length > 0">{{ "home.CUCUS_TITLE" | translate }}</h1>
       <div class="row">
-        <div *ngFor="let c of cucus; trackBy: trackByFn" class="col-md-4">
+        <div *ngFor="let c of cucus; trackBy: trackByFn" class="col-lg-4 col-md-6">
           <app-cucu-box [cucu]="c" [id]="c._id"></app-cucu-box>
         </div>
         <!-- No posted CUCUs? -->
@@ -68,7 +70,7 @@
       <!-- Past Cucus -->
       <div class="ws-s"></div>
       <div *ngIf="(dbService.pastCucus | async) as pastCucus" class="row">
-        <div *ngFor="let c of pastCucus; trackBy: trackByFn" class="col-md-4">
+        <div *ngFor="let c of pastCucus; trackBy: trackByFn" class="col-lg-4 col-md-6">
           <app-cucu-box [cucu]="c" [isPast]="true"></app-cucu-box>
         </div>
       </div>
