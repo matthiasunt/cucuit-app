@@ -18,11 +18,11 @@
     "CUCUS_TITLE": "Check out available CUCUs!",
     "LOAD_MORE": "Load More CUCUs",
     "NO_CUCUS_FOUND": "We’re sorry, no CUCUs are available right now! Create your own?",
-    "INFO_BOX_TEXT": "CUCUit is a new project whose scope is to offer active support to the collectivity during a hard time, such as the current Covi-19 emergency",
+    "INFO_BOX_TEXT": "CUCUit is a new project whose scope is to offer active support to the collectivity during a hard time, such as the current COVID-19 emergency.",
     "MORE_INFO": "More information"
   },
   "postCucu": {
-    "TITLE": "Launch and join open digital meetups, about any topic!",
+    "TITLE": "Launch open digital meetups!",
     "PLATFORMS_TEXT": "Create your video call link using",
     "inviteUrl": {
       "PLACEHOLDER": "Paste here the link to your videocall",
@@ -38,7 +38,7 @@
       "TOOLTIP": ""
     },
     "type": {
-      "LABEL": "Informal Chitchat / Frontal Lesson",
+      "LABEL": " Chit-chat / Conference",
       "TOOLTIP": "What format will your CUCU have?"
     },
     "language": {
@@ -70,19 +70,19 @@
     "CUCU_ERROR": "There was a problem posting your CUCU. Try again later!",
     "errors": {
       "fileTooLarge": {
-        "TITLE": "This file is too big",
+        "TITLE": "This file is too big!",
         "TEXT": "This image is too big. Maximum file size allowed: 3MB"
       },
       "unknown": {
-        "TITLE": "Error",
+        "TITLE": "Error!",
         "TEXT": "An unexpected error occurred while uploading your image. Please, try again later! "
       }
     }
   },
   "aboutSection": {
     "TITLE": "What is CUCUit?",
-    "TEXT": "CUCUit is a digital space that will allow you to launch and join open digital meetups. If you feel like sharing your interests and passions, develop brilliant ideas, have a chit chat or host a toast with new and likeminded people, this is the place to do so. This is how we keep on nurturing human interactions and connections between individuals, in a time when social distancing is imposed by measures against the spread of Covid-19.By way of spontaneous donations, our platform will also facilitate your support to all those who are fighting on the front lines, offering them practical aid in this global health crisis. Give your contribution, donate! / Do your part, donate!",
-    "FOLLOW_US_ON_INSTAGRAM": "Follow us on Instagram"
+    "TEXT": "CUCUit is a new digital space where you’ll be able to launch and join open digital meet-ups, on any topic. Share your passions and interests while connecting with old and new likeminded friends. CUCUit aims at facilitating human interactions in a time of social distancing due to COVID-19, and supports all those who are on the front line in the fight against this global emergency. Give your contribution and make a little donation!",
+    "FOLLOW_US_ON_INSTAGRAM": "Follow us on Instagram and stay updated!"
   },
   "cucuBox": {
     "join": {
@@ -93,8 +93,8 @@
       "ON": "on",
       "AT": "at"
     },
-    "FRONTAL_LESSON": "Frontal lesson",
-    "CHITCHAT": "Informal Chitchat",
+    "FRONTAL_LESSON": "Conference",
+    "CHITCHAT": "Chit-chat",
     "share": {
       "TITLE": "Share",
       "TEXT": "Share this CUCU with friends!",
@@ -107,7 +107,7 @@
   },
   "manifest": {
     "TITLE": "Manifesto",
-    "INTRO": "CUCUit is a digital space that comes from a place of love, from a group of friends dotting the countries that were mostly hit by Covid-19 in Europe, Italy and Spain. It aims at offering a new instrument to nurture human interactions so to find relief and support during this weird time. Our vision is to provide a meeting point, a community where it is possible to share interests and ideas, to prompt stimulating conversations and fun gatherings, to speak face to face with like minded individuals, being it old friends or new pals, about any topic of interest. Think out of the walls! CUCUit will allow you to keep yourself active, challenged and stimulated, trying new yummy recipes, moving your body on african rhythms, being part of brainstorming sessions and so much more. <br> Last but not least, we want to give our contribution and facilitate financial aid to hospitals and health organisations, standing next to all those who are fighting against Covid-19.",
+    "INTRO": "CUCUit is a digital space that comes from a place of love, from a group of friends dotting the countries that were mostly hit by COVID-19 in Europe, Italy and Spain. It aims at offering a new instrument to nurture human interactions so to find relief and support during this weird time. Our vision is to provide a meeting point, a community where it is possible to share interests and ideas, to prompt stimulating conversations and fun gatherings, to speak face to face with like minded individuals, being it old friends or new pals, about any topic of interest. Think out of the walls! CUCUit will allow you to keep yourself active, challenged and stimulated, trying new yummy recipes, moving your body on african rhythms, being part of brainstorming sessions and so much more. <br> Last but not least, we want to give our contribution and facilitate financial aid to hospitals and health organisations, standing next to all those who are fighting against COVID-19.",
     "paragraph1": {
       "TITLE": "Launch your CUCU!",
       "TEXT": "Are you in need for some social action? Do you have a cool idea, topic or project in mind? Launch your CUCU! Generate a video call link and paste it in the relevant field of the form. Explain what you’d like to talk about, insert your name, a date & time and the language you’ll speak. You can also decide whether it will be a frontal lesson format (where you’ll be leading) or if you’d like to launch a more informal conversation among many. Last but not least, click on “launch your CUCU” to get a step closer to all the interested people around. Be on time for your call and lead it in style! <br>"

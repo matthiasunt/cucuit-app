@@ -33,10 +33,12 @@
     <span #about class="anker"></span>
     <div class="col content-padding">
       <div class="row">
-        <div class="col-md-7">
+        <div class="col">
           <h1>{{ "aboutSection.TITLE" | translate }}</h1>
           <p [innerHTML]="translate.get('aboutSection.TEXT') | async"></p>
         </div>
+      </div>
+      <div class="row">
         <div class="col">
           <div class="about-instagram">
             <a href="https://www.instagram.com/cucu_it/" target="_blank">
