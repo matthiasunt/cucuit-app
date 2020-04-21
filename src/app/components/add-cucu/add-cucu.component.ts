@@ -153,7 +153,7 @@ export class AddCucuComponent implements OnInit {
     this.form = environment.production ? this.formBuilder.group({
       inviteUrl: ['', [Validators.required, validateInviteUrl]],
       topic: ['', Validators.required],
-      description: [''],
+      description: ['', Validators.maxLength(450)],
       isConference: [false, Validators.required],
       userName: ['', Validators.required],
       language: [langPreset, Validators.required],

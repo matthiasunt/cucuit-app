@@ -129,6 +129,9 @@
       "LABEL": "CUCUit",
       "TEXT": "CUCUit ti aiuta a sconfiggere la noia e la solitudine della quarantena. Abbiamo creato questa piattaforma con amore per stare vicini e aiutarsi a vicenda, nonostante il distanziamento sociale. Mantieniti attivo e ricevi nuovi stimoli!"
     },
+    "language": {
+      "LABEL": "Lingua"
+    },
     "donate": {
       "LABEL": "Doniamo insieme",
       "TEXT": "La community di CUCUit è vicina a tutte le persone che stanno affrontando a testa alta l'epidemia di Covid-19. Aiutiamo gli operatori sanitari e gli ammalati in questo momento particolarmente difficile. Ogni aiuto è prezioso, dona!"

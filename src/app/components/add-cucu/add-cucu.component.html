@@ -66,7 +66,7 @@
 
         <!-- Description -->
         <div class="row">
-          <div class="col no-padding">
+          <div class="col auto no-padding">
             <div class="form-group">
               <nb-form-field>
                 <input [formControl]="description" type="text" nbInput fullWidth
@@ -75,6 +75,9 @@
                        [status]="description | elementStatus">
               </nb-form-field>
             </div>
+          </div>
+          <div class="col shrink no-padding">
+            <p class="avatar-upload-p">{{description.value.length}}/450</p>
           </div>
         </div>
 

@@ -45,6 +45,18 @@
   }
 }
 
+.cucus-section {
+  h1 {
+    margin-top: 0;
+  }
+}
+
+.upcoming-cucus {
+  app-cucu-box {
+    cursor: pointer;
+  }
+}
+
 .no-cucus-div {
   p {
     text-align: center;

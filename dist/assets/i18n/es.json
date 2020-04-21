@@ -129,6 +129,9 @@
       "LABEL": "CUCUit",
       "TEXT": "CUCUit es la mejor manera de mantenerse conectado mientras estamos confinados. Esta plataforma ha sido creada con amor como una herramienta poderosa para apoyarse mutuamente durante este período de distanciamiento social. CUCUit te permitirá mantenerte activo, desafiado y estimulado."
     },
+    "language": {
+      "LABEL": "Lengua"
+    },
     "donate": {
       "LABEL": "Vamos a donar juntos",
       "TEXT": "CUCUit ofrece ayuda práctica y sustancial a todos los médicos y trabajadores de la salud que luchan todos los días para marcar la diferencia. Cada pequeña ayuda importa, ¡dona!"

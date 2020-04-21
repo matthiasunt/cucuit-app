@@ -20,7 +20,6 @@ export class DonationsService {
 
   public toDonationSite() {
     let locale: string;
-    console.log(this.translate.currentLang);
     switch (this.translate.currentLang) {
       case 'es':
         locale = 'es';

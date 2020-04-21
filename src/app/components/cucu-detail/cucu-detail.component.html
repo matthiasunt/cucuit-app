@@ -1,7 +1,7 @@
 <div class="content-padding">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-lg-4 col-md-6">
         <button nbButton status="primary" ghost [routerLink]="''">
           <nb-icon icon="arrow-left"></nb-icon>
           {{ "BACK" | translate }}
@@ -10,12 +10,12 @@
     </div>
     <div class="ws-m"></div>
     <div class="row" *ngIf="cucu$ | async as cucu">
-      <div class="col-md-4">
+      <div class="col-lg-4 col-md-6">
         <app-cucu-box [cucu]="cucu"></app-cucu-box>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-lg-4 col-md-6">
         <button *ngIf="isByUser"
                 (click)="deleteCucu()"
                 nbButton status="danger" fullWidth>

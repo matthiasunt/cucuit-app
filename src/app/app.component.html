@@ -8,8 +8,9 @@
     <div class="nav-items-div">
       <ng-container *ngIf="!smallDevice">
 <!--        <button nbButton ghost status="primary" [routerLink]="'/'" [fragment]="'cucus'">-->
-<!--          {{ "navbar.CUCUS" | translate }}-->
-<!--        </button>-->
+        <button nbButton ghost status="primary" (click)="toCucus()">
+          {{ "navbar.CUCUS" | translate }}
+        </button>
         <button nbButton ghost [routerLink]="'manifest'" status="primary">
           {{ "navbar.MANIFEST" | translate }}
         </button>
@@ -30,7 +31,6 @@
   </nb-layout-header>
 
   <nb-layout-column>
-    <router-outlet name="modal"></router-outlet>
     <router-outlet></router-outlet>
   </nb-layout-column>
   <nb-layout-footer [fixed]="false">

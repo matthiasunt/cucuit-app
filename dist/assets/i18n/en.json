@@ -126,6 +126,9 @@
       "LABEL": "CUCUit",
       "TEXT": "CUCUit is the best way to stay connected while in lockdown regime. This platform was made with love as a powerful tool to support each other during this period of social distancing. CUCUit will allow you to keep yourself active, challenged and stimulated."
     },
+    "language": {
+      "LABEL": "Language"
+    },
     "donate": {
       "LABEL": "Let’s donate",
       "TEXT": "CUCUit offers practical and substantial aid to all doctors and health workers that are fighting every day to make a difference. Every little help matters, donate!"
