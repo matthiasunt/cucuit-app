@@ -8,12 +8,12 @@ export class UserService {
   private readonly uid: string;
 
   constructor() {
-    const storedUid = localStorage.getItem('uid');
+    const storedUid = localStorage.getItem('cucuit-uid');
     if (storedUid && storedUid.length > 0) {
       this.uid = storedUid;
     } else {
       this.uid = uuidv4();
-      localStorage.setItem('uid', this.uid);
+      localStorage.setItem('cucuit-uid', this.uid);
     }
   }
 
