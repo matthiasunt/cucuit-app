@@ -51,6 +51,7 @@ export class AppComponent implements OnInit {
           {title: h, link: 'how'},
           {title: d},
         ];
+        console.log(this.menuItems);
       });
   }
 
@@ -59,7 +60,7 @@ export class AppComponent implements OnInit {
       .pipe(
         filter(({tag}) => tag === 'mobile-context-menu'))
       .subscribe((e) => {
-        if (e.item.title === this.menuItems[1].title) {
+        if (e.item.title === this.menuItems[3].title) {
           this.donationsService.toDonationSite();
         }
       });
