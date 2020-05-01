@@ -9,6 +9,7 @@ import {filter} from 'rxjs/operators';
 import set = Reflect.set;
 import {getLangs} from './util/languages.util';
 import {UserService} from './services/user/user.service';
+import {ScrollerService} from './services/scroller/scroller.service';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit {
 
   constructor(private router: Router,
               private translate: TranslateService,
+              private scrollerService: ScrollerService,
               protected gaService: GoogleAnalyticsService,
               private userService: UserService,
               public donationsService: DonationsService,
@@ -46,12 +48,11 @@ export class AppComponent implements OnInit {
       this.translate.get('navbar.DONATE'))
       .subscribe(([c, m, h, d]) => {
         this.menuItems = [
-          {title: c, link: '/#cucus'},
+          {title: c},
           {title: m, link: 'manifest'},
           {title: h, link: 'how'},
           {title: d},
         ];
-        console.log(this.menuItems);
       });
   }
 
@@ -62,12 +63,14 @@ export class AppComponent implements OnInit {
       .subscribe((e) => {
         if (e.item.title === this.menuItems[3].title) {
           this.donationsService.toDonationSite();
+        } else if (e.item.title === this.menuItems[0].title) {
+          this.toCucus();
         }
       });
   }
 
   async toCucus() {
-    await this.router.navigateByUrl('/#cucus');
+    this.scrollerService.scrollToCucus.next(true);
   }
 
   @HostListener('window:resize')

@@ -4,6 +4,7 @@ import {CucuIsOpenPipe} from './cucu-is-open/cucu-is-open.pipe';
 import {GetCucuUrlPipe} from './get-cucu-url/get-cucu-url.pipe';
 import { TooltipTimeTextPipe } from './tooltip-time-text/tooltip-time-text.pipe';
 import { DateTimeTextPipe } from './date-time-text/date-time-text.pipe';
+import { SanitizeUrlPipe } from './sanitize-url/sanitize-url.pipe';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { DateTimeTextPipe } from './date-time-text/date-time-text.pipe';
     GetCucuUrlPipe,
     TooltipTimeTextPipe,
     DateTimeTextPipe,
+    SanitizeUrlPipe,
   ],
   imports: [],
   exports: [
@@ -20,6 +22,7 @@ import { DateTimeTextPipe } from './date-time-text/date-time-text.pipe';
     CucuIsOpenPipe,
     GetCucuUrlPipe,
     TooltipTimeTextPipe,
+    SanitizeUrlPipe,
   ],
   providers: [
     CucuIsOpenPipe,

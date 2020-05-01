@@ -23,9 +23,15 @@
 }
 
 .anker {
-  height: 1px;
   width: 100%;
   margin-top: -65px;
+  // padding-top: 100px;
+}
+
+.cucus-anker {
+  width: 100%;
+  position: relative;
+  bottom: 50px;
 }
 
 .about-section {

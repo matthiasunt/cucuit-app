@@ -30,7 +30,7 @@
 
   <!--  About Section -->
   <div class="row about-section">
-    <span #about class="anker"></span>
+    <div #about class="anker"></div>
     <div class="col content-padding">
       <div class="row">
         <div class="col">
@@ -50,9 +50,8 @@
       </div>
     </div>
   </div>
-  <span #cucus class="anker"></span>
+  <div class="cucus-anker" #cucus></div>
   <div class="ws-s"></div>
-
   <!-- Upcoming Cucus -->
   <ng-container *ngIf="(dbService.cucus | async) as cucus">
     <div class="cucus-section content-padding">

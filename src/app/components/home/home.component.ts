@@ -5,7 +5,8 @@ import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {Cucu} from '../../models/cucu';
 import {ActivatedRoute, Router} from '@angular/router';
 import {faInstagram} from '@fortawesome/free-brands-svg-icons';
-import {Location, LocationStrategy} from '@angular/common';
+import {Location, LocationStrategy, ViewportScroller} from '@angular/common';
+import {ScrollerService} from '../../services/scroller/scroller.service';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   private justNavigatedToCucus = false;
 
   constructor(public translate: TranslateService,
+              private scrollerService: ScrollerService,
               private router: Router,
               private location: Location,
               public dbService: DbService,
@@ -32,18 +34,23 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.gaService.pageView('', 'Home');
-
   }
 
   ngAfterViewInit() {
+    this.scrollerService.scrollToCucus.subscribe((scroll) => {
+      this.cucusElement.nativeElement
+        .scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+      setTimeout(() => {
+        this.justNavigatedToCucus = true;
+      }, 1000);
+    });
+
     this.route.fragment.subscribe((fragment: string) => {
       if (fragment === 'cucus') {
         setTimeout(() => {
-          this.scrollToElement(this.cucusElement.nativeElement);
-          setTimeout(() => {
-            this.justNavigatedToCucus = true;
-          }, 700);
-        }, 1);
+          this.cucusElement.nativeElement
+            .scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+        }, 100);
       }
     });
   }
@@ -54,7 +61,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.location.replaceState('');
       this.justNavigatedToCucus = false;
     }
-
   }
 
   loadMore() {
@@ -65,6 +71,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   scrollToElement(element): void {
+    // this.viewportScroller.scrollToAnchor(element.anchor);
     element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
   }
 
