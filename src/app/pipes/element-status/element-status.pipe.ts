@@ -2,7 +2,8 @@ import {Pipe, PipeTransform} from '@angular/core';
 import {FormControl} from '@angular/forms';
 
 @Pipe({
-  name: 'elementStatus'
+  name: 'elementStatus',
+  pure: false,
 })
 export class ElementStatusPipe implements PipeTransform {
 

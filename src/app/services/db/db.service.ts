@@ -1,11 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
-import {Cucu} from '../../models/cucu';
-import {filter, find, map} from 'rxjs/operators';
+import {Cucu} from '@models/cucu';
+import {map} from 'rxjs/operators';
 import {TranslateService} from '@ngx-translate/core';
-import {environment} from '../../../environments/environment';
-import {DeviceDetectorService} from 'ngx-device-detector';
+import {environment} from '@env';
 import {UserService} from '../user/user.service';
 
 @Injectable({

@@ -3,17 +3,16 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 import {Observable, of} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {DbService} from '../../services/db/db.service';
+import {DbService} from '@services/db/db.service';
 import {getTimeSlots, isToday} from '../../util/date.util';
 import {NbDialogService, NbToastrService} from '@nebular/theme';
 import {getAllLangs, getLangName} from '../../util/languages.util';
 import {GoogleAnalyticsService} from 'ngx-google-analytics';
 import {validateInviteUrl} from '../../util/validators.util';
-import {Cucu} from '../../models/cucu';
+import {Cucu} from '@models/cucu';
 import {PostSuccessComponent} from './post-success/post-success.component';
-import {ThemeService} from '../../services/theme/theme.service';
-import {environment} from '../../../environments/environment';
-import {CallProvidersService} from '../../services/call-providers/call-providers.service';
+import {ThemeService} from '@services/theme/theme.service';
+import {CallProvidersService} from '@services/call-providers/call-providers.service';
 
 @Component({
   selector: 'app-add-cucu',
@@ -150,7 +149,8 @@ export class AddCucuComponent implements OnInit {
       '10:00' : `${currentHour + 2}:00`;
     const langPreset = getLangName(this.translate.currentLang);
     this.timeSlots = getTimeSlots(datePreset);
-    this.form = environment.production ? this.formBuilder.group({
+    // this.form = environment.production ? this.formBuilder.group({
+    this.form = this.formBuilder.group({
       inviteUrl: ['', [Validators.required, validateInviteUrl]],
       topic: ['', Validators.required],
       description: ['', Validators.maxLength(450)],
@@ -159,16 +159,17 @@ export class AddCucuComponent implements OnInit {
       language: [langPreset, Validators.required],
       date: [datePreset, Validators.required],
       time: [timePreset, [Validators.required, Validators.pattern('[0-9]?[0-9]:[0-9][0-9]')]],
-    }) : this.formBuilder.group({
-      inviteUrl: ['https://hangouts.google.com/call/3wTZG0Tv8yykGbUGSfj2AEEI', [Validators.required, validateInviteUrl]],
-      topic: ['Sports', Validators.required],
-      description: ['Morning routine', Validators.required],
-      isConference: [false, Validators.required],
-      userName: ['Matthias', Validators.required],
-      language: [langPreset, Validators.required],
-      date: [datePreset, Validators.required],
-      time: [timePreset, [Validators.required, Validators.pattern('[0-9]?[0-9]:[0-9][0-9]')]],
     });
+  // : this.formBuilder.group({
+  //     inviteUrl: ['https://hangouts.google.com/call/3wTZG0Tv8yykGbUGSfj2AEEI', [Validators.required, validateInviteUrl]],
+  //     topic: ['Sports', Validators.required],
+  //     description: ['Morning routine', Validators.required],
+  //     isConference: [false, Validators.required],
+  //     userName: ['Matthias', Validators.required],
+  //     language: [langPreset, Validators.required],
+  //     date: [datePreset, Validators.required],
+  //     time: [timePreset, [Validators.required, Validators.pattern('[0-9]?[0-9]:[0-9][0-9]')]],
+  //   });
 
     this.filteredTimeOptions$ = of(this.timeSlots);
     this.filteredTimeOptions$ = this.time.valueChanges
