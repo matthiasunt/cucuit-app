@@ -26,13 +26,13 @@ export class CallProvidersService {
     if (callLink) {
       return this.callProviders$.pipe(
         map(providers => {
-          if (callLink.includes('hangouts')) {
+          if (callLink.includes('google')) {
             return providers.find(s => s.url.includes('hangouts'));
           } else if (callLink.includes('skype')) {
             return providers.find(s => s.url.includes('skype'));
           } else if (callLink.includes('zoom')) {
             return providers.find(s => s.url.includes('zoom'));
-          } else if (callLink.includes('jitsi')) {
+          } else if (callLink.includes('jit')) {
             return providers.find(s => s.url.includes('jitsi'));
           }
         })
