@@ -38,11 +38,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.scrollerService.scrollToCucus.subscribe((scroll) => {
-      this.cucusElement.nativeElement
-        .scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
-      setTimeout(() => {
-        this.justNavigatedToCucus = true;
-      }, 1000);
+      if (scroll) {
+        this.cucusElement.nativeElement
+          .scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+        setTimeout(() => {
+          this.justNavigatedToCucus = true;
+        }, 1000);
+      }
     });
 
     this.route.fragment.subscribe((fragment: string) => {

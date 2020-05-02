@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 import {CucuDetailComponent} from './components/cucu-detail/cucu-detail.component';
 
 
@@ -27,8 +27,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-      // preloadingStrategy: PreloadAllModules,
-      scrollPositionRestoration: 'enabled',
+      preloadingStrategy: PreloadAllModules,
+      // scrollPositionRestoration: 'enabled',
       anchorScrolling: 'enabled',
       useHash: false,
       enableTracing: false,
