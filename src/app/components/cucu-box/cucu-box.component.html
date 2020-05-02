@@ -13,12 +13,12 @@
   <nb-card-body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col col-auto">
+        <div class="col-10">
           <b>{{ cucu?.topic }}</b>
           <p>{{ cucu?.type === 'conference' ?
             ("cucuBox.FRONTAL_LESSON" | translate) : ("cucuBox.CHITCHAT" | translate) }}</p>
         </div>
-        <div class="col align-items-end">
+        <div class="col-2 align-items-end">
           <div *ngIf="callProvidersService.getCallProvider(cucu?.inviteUrl) | async as s"
                class="video-service-image">
             <img [src]="s.imageUrl" [nbTooltip]="s.tooltip" [alt]="s.name + ' logo'">
