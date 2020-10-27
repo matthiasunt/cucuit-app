@@ -1,0 +1,159 @@
+{
+  "SUCCESS": "Éxito",
+  "ERROR": "Error",
+  "EDIT": "Editar",
+  "DELETE": "Borrar",
+  "BACK": "Atrás",
+  "navbar": {
+    "CUCUS": "Descubre CUCUs disponibles",
+    "MANIFEST": "Manifiesto",
+    "HOW_TO": "¿Como funciona?",
+    "DONATE": "Donar"
+  },
+  "share": {
+    "TITLE": "¡Esta videollamada es genial!",
+    "TEXT": "¡Haz clic en el enlace para unirte a esta videollamada abierta! Descubre otros CUCUs interesantes en CUCUit.com :)"
+  },
+  "home": {
+    "CUCUS_TITLE": "¡Descubre CUCUs disponibles!",
+    "HERO_HEADER": "Crea encuentros digitales abiertos, sobre cualquier tema!",
+    "HERO_TEXT": "Comparte tus ideas y pasiones con nuevas personas gracias a un simple clic. Luchemos juntos contra la emergencia del COVID-19: ayúdamos con una donación.",
+    "DISCOVER_CUCUIT": "Descubre CUCUit",
+    "LOAD_MORE": "Cargar más CUCUs",
+    "NO_CUCUS_FOUND": "¡Disculpa, no hay CUCUs disponibles ahora mismo! ¡Anímate y crea el tuyo propio!",
+    "INFO_BOX_TEXT": "CUCUit es una iniciativa que nace para ayudar a la comunidad en estos momentos tan difíciles en la lucha contra COVID-19.",
+    "MORE_INFO": "Más información"
+  },
+  "postCucu": {
+    "TITLE": "¡Crea encuentros digitales abiertos!",
+    "PLATFORMS_TEXT": "Crea el link de tu videollamada utilizando",
+    "inviteUrl": {
+      "PLACEHOLDER": "Inserta aquí el link de tu videollamada",
+      "PARTICIPANTS": "participantes",
+      "MINUTES": "minutos"
+    },
+    "topic": {
+      "PLACEHOLDER": "Moda, ideas de viajes, nuevas tendencias, lluvia de ideas...",
+      "TOOLTIP": ""
+    },
+    "description": {
+      "PLACEHOLDER": "Si quieres, cuéntanos más sobre tu charla...",
+      "TOOLTIP": ""
+    },
+    "type": {
+      "LABEL": "Charla abierta / Conferencia",
+      "TOOLTIP": "¿Cuál será el estilo de tu CUCU?"
+    },
+    "language": {
+      "PLACEHOLDER": "Idioma",
+      "TOOLTIP": "¿En qué idioma será tu CUCU?"
+    },
+    "day": {
+      "PLACEHOLDER": "Día",
+      "TOOLTIP": "¿Qué día será tu CUCU?"
+    },
+    "time": {
+      "PLACEHOLDER": "Horario",
+      "TOOLTIP": "¿A qué hora comenzará tu CUCU?"
+    },
+    "userName": {
+      "PLACEHOLDER": "Nombre",
+      "TOOLTIP": ""
+    },
+    "uploadImage": {
+      "LABEL": "Subir imagen",
+      "TOOLTIP": "Escoge una imagen para tu CUCU (Max. 3 MB)"
+    },
+    "post": {
+      "LABEL": "Crea tu CUCU"
+    },
+    "TODAY": "Hoy",
+    "TOMORROW": "Mañana",
+    "CUCU_POSTED": "¡CUCU compartido con éxito!",
+    "CUCU_ERROR": "No podemos cargar tu CUCU. Por favor, ¡inténtalo más tarde!",
+    "errors": {
+      "fileTooLarge": {
+        "TITLE": "¡Archivo demasiado grande! ",
+        "TEXT": "Imagen demasiado grande. Tamaño máximo permitido: 3 MB."
+      },
+      "unknown": {
+        "TITLE": "¡Error! ",
+        "TEXT": "Error al cargar tu imagen. Por favor, ¡inténtalo más tarde!"
+      }
+    }
+  },
+  "aboutSection": {
+    "TITLE": "¿Qué es CUCUit?",
+    "TEXT": "CUCUit es un espacio digital donde puedes crear y participar en videollamadas abiertas sobre cualquier tema. Comparte tus pasiones e intereses, viviendo momentos memorables con personas nuevas y afines a ti. Nuestro propósito es que las relaciones entre seres humanos florezcan a pesar de las distancias físicas impuestas por COVID-19 y ayudar a quienes están en la primera linea de esta emergencia sanitaria global. ¡Ayúdanos y dona a quienes lo necesiten!",
+    "FOLLOW_US_ON_INSTAGRAM": "¡Mantente informado siguiendo nuestro perfil Instagram!"
+  },
+  "cucuBox": {
+    "join": {
+      "LABEL": "Participa",
+      "TOOLTIP_JOIN": "Participa",
+      "ENDED": "Finalizado",
+      "TOOLTIP_COME_BACK_LATER": "¡Nos vemos luego! Este CUCU empieza",
+      "ON": "el",
+      "AT": "a las"
+    },
+    "FRONTAL_LESSON": "Conferencia",
+    "CHITCHAT": "Charla abierta",
+    "share": {
+      "TITLE": "Comparte",
+      "TEXT": "¡Comparte este CUCU con tus amigos!",
+      "TOOLTIP": "Comparte este CUCU"
+    },
+    "addToCalendar": {
+      "TOOLTIP": "¡Añade este CUCU a tu calendario!",
+      "CUCU_ABOUT": "Este CUCU es sobre"
+    }
+  },
+  "manifest": {
+    "TITLE": "Manifiesto",
+    "INTRO": "CUCUit es un espacio digital hecho con mucho amor por un grupo de amigos, procedentes de las regiones más afectadas por COVID-19, Italia y España, con el propósito común de crear una herramienta para que las relaciones entre seres humanos florezcan, apoyándonos los unos a los otros durante este período de emergencia. <br> Nuestro sueño es crear un punto de encuentro, una comunidad, donde podamos compartir intereses, desarrollar ideas, conversar o tomarnos una copa de vino mientras charlamos cara a cara sobre cualquier tema con personas afines a nosotros. <br> ¡Piensa más allá de las paredes de tu casa! CUCUit, a través de videollamadas temáticas abiertas, te permitirá mantenerte activo, desafiado y estimulado, participando en charlas sobre moda o emprendimiento, probando nuevas recetas deliciosas, moviendo tu cuerpo con ritmos africanos o siendo parte de lluvias de ideas sobre temas específicos, entre otras cosas. <br>Además, queremos participar ayudando económicamente con la donación de cualquier beneficio obtenido mediante esta plataforma e incentivando las donaciones individuales a organizaciones que luchan contra COVID-19.",
+    "paragraph1": {
+      "TITLE": "¡CREA TU CUCU!",
+      "TEXT": "¿Necesitas alguna acción social? ¿Tienes una idea, un tema o un proyecto genial en mente? ¡Crea tu CUCU! Genera un enlace de videollamada y pégalo en el del formulario. Explica de qué te gustaría hablar, inserta tu nombre, una fecha y hora y el idioma que deseas hablar. También puede decidir si será un formato de conferencia (dirigida por ti) o una conversación más informal entre los participantes. Por último, pero no menos importante, haz clic en \"Crear tu CUCU\" para acercarte a todas las personas interesadas. <br> ¡Llega a tiempo a tu llamada y lidérala con estilo!<br>"
+    },
+    "paragraph2": {
+      "TITLE": "¡PARTICIPA EN UN CUCU!",
+      "TEXT": "Descubre todos los CUCUs disponibles y únete al que más te interese.  No se puede reservar un asiento, así que, ¡llega a tiempo, haz clic en el botón \"participa\" y disfruta del encuentro! <br>"
+    }
+  },
+  "how": {
+    "TITLE": "PLATAFORMAS DE VIDEOLLAMADAS SUGERIDAS Y CÓMO USARLAS",
+    "description1": {
+      "TITLE": "1. Google Hangouts: hasta 10 asistentes, sin límite de tiempo",
+      "TEXT": "Para usar Google Hangouts es necesario tener una cuenta de Google, tanto si quieres crear o participar en un CUCU. <br> Desde tu ordenador: visita  \"hangouts.google.com\"> haz clic en el ícono de \"videollamada\"> una vez dentro de la videollamada, donde serás el  único participante, se abrirá una ventana emergente para invitar a otras personas y aparecerá el botón verde \"invitar  personas\"> haz clic en \"copiar enlace para compartir\". <br> Desde tu móvil: descarga la aplicación Hangouts,  disponible para Android o iOS> haz clic en el icono del mensaje (el tercero del lado izquierdo en la parte inferior de  la página)> haz clic en \"+\" para iniciar una nueva conversación> crear grupo nuevo y asígnele un nombre> haga clic  en \"compartir enlace\". <br> Ahora has copiado el enlace a tu videollamada> pégalo en el campo de enlace en el  formulario que encontrarás en CUCUit.com e inicia tu CUCU. <br> Si te unes a una videollamada creada por otro CUCUer,  simplemente haz clic en el botón PARTICIPA y serás redirigido automáticamente dentro de la llamada. Asegúrate de tener  la aplicación Hangouts instalada en tu dispositivo móvil o de haber accedido a tu cuenta de Google."
+    },
+    "description2": {
+      "TITLE": "2. Skype: hasta 50 personas, sin límite de tiempo",
+      "TEXT": "Para usar Skype es necesario tener una cuenta de Skype, mientras que si participas en un CUCU creado por otra persona, no necesitarás una cuenta. <br> Desde tu  ordenador: descarga la aplicación de Skype para equipos de escritorio o utiliza la versión web. <br> Desde tu  dispositivo móvil: descarga la aplicación Skype, disponible para Android o iOS. <br> Haz clic en \"Nuevo chat\">  \"Nuevo grupo de chat\"> cree un nombre de grupo sin agregar ningún contacto de tu lista de contactos> haz clic en  \"Listo\"> haz clic en \"Invitar a más personas\" o en el tercer icono en la parte superior derecha> haz clic en  \"Compartir enlace para unirse al grupo\". Ahora has copiado el enlace a tu videollamada> pégalo en el campo de enlace  en el formulario en CUCUit.com e inicia tu CUCU. <br> Si te unes a una videollamada creada por otro CUCUer,  simplemente haz clic en el botón UNIR y serás redirigido automáticamente dentro de la llamada. Asegúrate de tener la  aplicación instalada en tu dispositivo móvil o ordenador."
+    },
+    "description3": {
+      "TITLE": "3. Zoom: hasta 100 asistentes, límite de tiempo: 40 minutos",
+      "TEXT": "Para usar Zoom es necesario tener una cuenta de Zoom, mientras que si participas  en un CUCU creado por otra persona, no necesitarás una cuenta.<br> Desde tu ordenador: visita “zoom.us” e ingresa en  tu cuenta haciendo clic en “iniciar sesión”, escribiendo tu correo electrónico y contraseña. En el menú, haga clic en  \"programar una nueva reunión” o “agendar”> se creará un enlace \"Unirse a URL\"> cópialo y pégalo en el campo de  enlace en el formulario en CUCUit.com y crea tu CUCU. <br> Desde tu dispositivo móvil: descarga la aplicación Zoom,  disponible para Android o iOS> inicia sesión con tu correo electrónico y contraseña> haz clic en el icono \"Agendar\"  e inserta los detalles de tu llamada. Presta atención a la zona horaria que selecciones. Te sugerimos que no compartas  tu ID de reunión personal. Selecciona todas las configuraciones que prefiera y haz clic en \"Listo\"> haz clic en  \"Enviar invitación\"> \"Copiar al portapapeles\". Ahora has copiado una invitación completa a la llamada, que también  incluye el enlace. Pégalo en el campo de enlace y elimina todo el texto excepto el enlace de la videollamada, luego  crea tu CUCU. <br> Si te unes a una videollamada creada por otro CUCUer, simplemente haz clic en el botón PARTICIPAR y  serás redirigido automáticamente dentro de la llamada. Si está utilizando su dispositivo móvil, asegúrese de tener la aplicación Zoom instalada."
+    },
+    "description4": {
+      "TITLE": "4. Jitsi Meet: hasta 25 personas, sin límite de tiempo",
+      "TEXT": "Para usar  Jitsi Meet es necesario tener una cuenta Jitsi Meet, tanto en si quieres iniciar o unirte a un CUCU. <br> Desde tu  ordenador: visita “jitsi.org”> desde la página de inicio, haz clic en el botón naranja “iniciar una llamada”> inserta  un nombre de videollamada en el campo correspondiente. Intenta optar por un nombre único, que hipotéticamente nadie  usó antes> haz clic en \"IR\" para ingresar a la videollamada. Se abrirá una ventana emergente que muestra toda la información de la llamada, incluido el enlace. Si no se abre, puedes encontrar el enlace necesario haciendo clic en el  icono \"i\" en la parte inferior de la página. Desde tu dispositivo móvil: descarga la aplicación Jitsi Meet,  disponible para Android o iOS. Crea un nombre para la llamada / sala. Intenta usar un nombre único, que  hipotéticamente nadie usó antes> ahora estás dentro de la llamada> haz clic en el icono con tres puntos para ver \"más opciones\" y luego haz clic en \"información de la reunión\" para ver el enlace de la llamada. Copia y pega el enlace en el campo de enlace en el formulario en CUCUit.com e inicia tu CUCU.Si te unes a una videollamada creada por otro CUCUer, simplemente haz clic en el botón PARTICIPAR y serás redirigido automáticamente dentro de la llamada. <br> Si está utilizando tu dispositivo móvil, asegúrate de tener la aplicación instalada."
+    }
+  },
+  "footer": {
+    "aboutUs": {
+      "LABEL": "CUCUit",
+      "TEXT": "CUCUit es la mejor manera de mantenerse conectado mientras estamos confinados. Esta plataforma ha sido creada con amor como una herramienta poderosa para apoyarse mutuamente durante este período de distanciamiento social. CUCUit te permitirá mantenerte activo, desafiado y estimulado."
+    },
+    "language": {
+      "LABEL": "Lengua"
+    },
+    "donate": {
+      "LABEL": "Vamos a donar juntos",
+      "TEXT": "CUCUit ofrece ayuda práctica y sustancial a todos los médicos y trabajadores de la salud que luchan todos los días para marcar la diferencia. Cada pequeña ayuda importa, ¡dona!"
+    },
+    "followUs": {
+      "LABEL": "Síguenos",
+      "TEXT": "Encuéntranos en"
+    }
+  }
+}
