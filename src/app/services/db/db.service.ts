@@ -121,13 +121,17 @@ export class DbService {
   }
 
   public getCucu(id: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/cucus/${id}`).pipe(
-      map((res: any) => {
-        if (res && res._id) {
-          return res;
-        }
-      })
-    );
+    if (this.mockServer) {
+      this.cucus$.pipe(map(cucus => cucus.find(c => c._id === id)));
+    } else {
+      return this.http.get(`${this.baseUrl}/cucus/${id}`).pipe(
+        map((res: any) => {
+          if (res && res._id) {
+            return res;
+          }
+        })
+      );
+    }
   }
 
   public cucuClicked(id: string) {
