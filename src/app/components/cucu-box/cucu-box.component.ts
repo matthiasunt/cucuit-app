@@ -42,7 +42,11 @@ export class CucuBoxComponent implements OnInit {
   async ngOnInit() {
     if (this.cucu) {
       if (this.cucu.avatarId && this.cucu.avatarId.length > 0) {
-        this.imageUrl = `${this.dbService.getImageBaseUrl()}/${this.cucu.avatarId}`;
+        if (this.dbService.mockServer) {
+          this.imageUrl = `./assets/images/avatars/${this.cucu.avatarId}.jpg`;
+        } else {
+          this.imageUrl = `${this.dbService.getImageBaseUrl()}/${this.cucu.avatarId}`;
+        }
       }
       const cucuStartDate = new Date(this.cucu.startDate);
       const time = cucuStartDate.toLocaleTimeString(

@@ -7,7 +7,6 @@
     </div>
     <div class="nav-items-div">
       <ng-container *ngIf="!smallDevice">
-<!--        <button nbButton ghost status="primary" [routerLink]="'/'" [fragment]="'cucus'">-->
         <button nbButton ghost status="primary" (click)="toCucus()">
           {{ "navbar.CUCUS" | translate }}
         </button>

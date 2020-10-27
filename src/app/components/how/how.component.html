@@ -1,20 +1,9 @@
 <div class="content-padding">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-5">
+      <div class="col-lg-12">
         <h1>{{ "manifest.paragraph1.TITLE"| translate }}</h1>
         <p [innerHTML]="translate.get('manifest.paragraph1.TEXT') | async"></p>
-      </div>
-      <div class="col-lg-7">
-        <div class="video-container-div" *ngIf="(videoUrl | async)?.length > 0">
-          <div>
-            <iframe
-              [src]="videoUrl | async | sanitizeUrl"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-          </div>
-        </div>
       </div>
     </div>
     <div class="row">

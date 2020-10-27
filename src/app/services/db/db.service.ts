@@ -6,6 +6,7 @@ import {map} from 'rxjs/operators';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '@env';
 import {UserService} from '../user/user.service';
+import {MOCK_CUCUS} from '@services/db/mock-data';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,9 @@ export class DbService {
   private pastCucus$ = new BehaviorSubject<Cucu[]>([]);
 
   private userCucus$ = new BehaviorSubject<Cucu[]>([]);
+
+  // TODO: set to false, when you're connecting to your DB 👈
+  public mockServer = true;
 
   constructor(private http: HttpClient,
               private translate: TranslateService,
@@ -53,28 +57,32 @@ export class DbService {
   }
 
   public fetchCucus(lang: string) {
-    const now = new Date();
-    // Offset of 90 minutes
-    now.setMinutes(now.getMinutes() - 90);
+    if (this.mockServer) {
+      this.cucus$.next(MOCK_CUCUS);
+    } else {
+      const now = new Date();
+      // Offset of 90 minutes
+      now.setMinutes(now.getMinutes() - 90);
 
-    const fromDate = new Date();
-    fromDate.setMinutes(fromDate.getMinutes() - 60 * 24); // 24h in the past
-    this.http.get(`${this.baseUrl}/cucus/after/${fromDate.toUTCString()}`)
-      .subscribe((cucus: Cucu[]) => {
-        const past = cucus.filter(c => new Date(c.startDate) < now)
-          .sort((a, b) => {
-            return a.startDate > b.startDate ?
-              -1 : a.startDate < b.startDate ?
-                1 : 0;
-          });
-        const upcoming = cucus.filter(c => new Date(c.startDate) >= now);
-        this.pastCucus$.next(past);
-        this.cucus$.next(upcoming);
-      });
-    this.http.get(`${this.baseUrl}/cucus/by/${this.userService.getUid()}`)
-      .subscribe((userCucus: Cucu[]) => {
-        this.userCucus$.next(userCucus);
-      });
+      const fromDate = new Date();
+      fromDate.setMinutes(fromDate.getMinutes() - 60 * 24); // 24h in the past
+      this.http.get(`${this.baseUrl}/cucus/after/${fromDate.toUTCString()}`)
+        .subscribe((cucus: Cucu[]) => {
+          const past = cucus.filter(c => new Date(c.startDate) < now)
+            .sort((a, b) => {
+              return a.startDate > b.startDate ?
+                -1 : a.startDate < b.startDate ?
+                  1 : 0;
+            });
+          const upcoming = cucus.filter(c => new Date(c.startDate) >= now);
+          this.pastCucus$.next(past);
+          this.cucus$.next(upcoming);
+        });
+      this.http.get(`${this.baseUrl}/cucus/by/${this.userService.getUid()}`)
+        .subscribe((userCucus: Cucu[]) => {
+          this.userCucus$.next(userCucus);
+        });
+    }
   }
 
   public createCucu(cucu: Cucu) {
