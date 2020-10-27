@@ -30,7 +30,7 @@ export const MOCK_CUCUS = [{
   type: 'chitchat',
   startDate: '2020-10-31T13:00:00.000Z',
   userName: 'Ella',
-  avatarId: 'user5',
+  avatarId: 'user4',
   language: 'English',
   createdDate: '2020-10-27T17:53:13.104Z',
   __v: 0

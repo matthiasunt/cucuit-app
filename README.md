@@ -1,8 +1,12 @@
 # CUCUit
-A simple web app to share open video calls.
+A simple platform to share open video calls.
+
+[Demo](https://matthiasunt.github.io/cucuit-app/)
+
 Built with Angular, HTML5, and SCSS.
 
-The server can be found in [cucuit-server](https://github.com/matthiasunt/cucuit-server).
+The NestJs server can be found in [cucuit-server](https://github.com/matthiasunt/cucuit-server).
+
 ## Prerequisites
 - Node
 - npm
