@@ -58,7 +58,14 @@ export class DbService {
 
   public fetchCucus(lang: string) {
     if (this.mockServer) {
-      this.cucus$.next(MOCK_CUCUS);
+      const cucus = MOCK_CUCUS;
+      cucus.forEach(c => {
+        // Set mock date to tomorrow
+        const d = new Date(c.startDate);
+        d.setDate(new Date().getDate() + 1);
+        c.startDate = d.toISOString();
+      });
+      this.cucus$.next(cucus);
     } else {
       const now = new Date();
       // Offset of 90 minutes
